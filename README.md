@@ -1,7 +1,4 @@
-# practice_scanner
-
-## Goal
-practice writing a scanner with gocc 
+# quack_scanner
 
 ## How to Run
 
