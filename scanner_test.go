@@ -6,7 +6,7 @@ import (
 	"github.com/Lebonesco/quack_scanner/token"
 )
 
-func Test1(t *testing.T) {
+func TestToken(t *testing.T) {
 	var TESTS = []struct {
 		expectedType    token.Type
 		expectedLiteral string
@@ -115,13 +115,13 @@ func Test1(t *testing.T) {
 		tok := l.Scan()
 
 		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected=%d, got=%d",
-				i, tt.expectedType, tok.Type)
+			t.Fatalf("tests[%d] - tokentype wrong. expected=%d, got=%d at line %d, column %d",
+				i, tt.expectedType, tok.Type, tok.Pos.Line, tok.Pos.Column)
 		}
 
 		if string(tok.Lit) != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q",
-				i, tt.expectedLiteral, string(tok.Lit))
+			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q at line %d, column %d",
+				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
 		}
 	}
 }
