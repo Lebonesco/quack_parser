@@ -6,15 +6,17 @@ import (
 	"github.com/Lebonesco/quack_scanner/token"
 )
 
+type Test struct {
+	expectedType    token.Type
+	expectedLiteral string
+}
+
 func TestToken(t *testing.T) {
-	var TESTS = []struct {
-		expectedType    token.Type
-		expectedLiteral string
-	}{
+	tests := []Test{
 		{token.TokMap.Type("let"), "let"},
 		{token.TokMap.Type("ident"), "five"},
 		{token.TokMap.Type("assign"), "="},
-		{token.TokMap.Type("int"), "5"},
+		{token.TokMap.Type("string_literal"), "\"test\""},
 		{token.TokMap.Type("semicolon"), ";"},
 		{token.TokMap.Type("let"), "let"},
 		{token.TokMap.Type("ident"), "ten"},
@@ -109,9 +111,9 @@ func TestToken(t *testing.T) {
 		{token.TokMap.Type("$"), ""}, // end token
 	}
 
-	l := lexer.NewLexer([]byte(INPUT))
+	l := lexer.NewLexer([]byte(INPUT1))
 
-	for i, tt := range TESTS {
+	for i, tt := range tests {
 		tok := l.Scan()
 
 		if tok.Type != tt.expectedType {
@@ -125,3 +127,79 @@ func TestToken(t *testing.T) {
 		}
 	}
 }
+
+func TestStrings(t *testing.T) {
+	tests := []Test{
+		{token.TokMap.Type("let"), "let"},
+		{token.TokMap.Type("ident"), "five"},
+		{token.TokMap.Type("assign"), "="},
+		{token.TokMap.Type("INVALID"), "\"te\n"},
+		{token.TokMap.Type("ident"), "st"},
+		{token.TokMap.Type("INVALID"), "\";"},
+		{token.TokMap.Type("$"), ""}, // end token
+	}
+
+	l := lexer.NewLexer([]byte(INPUT2))
+
+	for i, tt := range tests {
+		tok := l.Scan()
+
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
+				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
+		}
+
+		if string(tok.Lit) != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
+				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
+		}
+	}
+}
+
+func TestComments(t *testing.T) {
+	tests := []Test{
+		{token.TokMap.Type("INVALID"), "/*"},
+		{token.TokMap.Type("$"), ""}, // end token
+	}
+
+	l := lexer.NewLexer([]byte(INPUT3))
+
+	for i, tt := range tests {
+		tok := l.Scan()
+
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
+				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
+		}
+
+		if string(tok.Lit) != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
+				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
+		}
+	}
+}
+
+func TestTripleQuote(t *testing.T) {
+	tests := []Test{
+		{token.TokMap.Type("$"), ""}, // end token
+	}
+
+	l := lexer.NewLexer([]byte(INPUT4))
+
+	for i, tt := range tests {
+		tok := l.Scan()
+
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
+				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
+		}
+
+		if string(tok.Lit) != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
+				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
+		}
+	}
+}
+
+
+

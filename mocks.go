@@ -1,8 +1,9 @@
 package main
 
-var INPUT = `
+var ( 
+	INPUT1 = `
 			/* comment should not be scanned */
-			let five = 5;
+			let five = "test";
 			let ten = 10;
 			let add = fn(x, y) {
 				x + y;
@@ -25,6 +26,11 @@ var INPUT = `
 		
 				def _x() : Int { return thisy; }
 			}
-
-			
 			`
+	INPUT2 = `let five = "te
+	st";`
+
+	INPUT3 = `/*`
+	INPUT4 = `""" this is also a comment?
+				"""`
+)

@@ -21,15 +21,17 @@ true : 't' 'r' 'u' 'e' ;
 false : 'f' 'a' 'l' 's' 'e' ;
 
 /* predefined identifiers */
+string_literal : '"' _alpha {_alpha} '"' ;
 int : '1'-'9' {_digit} ;
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
 		| 'a' 'n' 'd' | 'o' 'r' | 'n' 'o' 't' 
 		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _letter {_letter} ;
 
 // --- [ Comments (suppressed) ] -----------------------------------------------
-!comment      : _lineComment | _blockComment ;
+!comment      : _lineComment | _blockComment | _tripleQuoteComment ;
 _lineComment  : '/' '/' { . } '\n' ;
 _blockComment : '/' '*' { . | '*' } '*' '/' ;
+_tripleQuoteComment : '"' '"' '"' { . } '"' '"' '"' ;
 
 /* punctuation */
 plus : '+' ;
