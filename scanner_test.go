@@ -201,5 +201,28 @@ func TestTripleQuote(t *testing.T) {
 	}
 }
 
+func TestEscape(t *testing.T) {
+	tests := []Test{
+		{token.TokMap.Type("string_escape_error"), "\"invalid \\q escape character\""},
+	}
+
+	l := lexer.NewLexer([]byte(INPUT5))
+
+	for i, tt := range tests {
+		tok := l.Scan()
+
+		if tok.Type != tt.expectedType {
+			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
+				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
+		}
+
+		if string(tok.Lit) != tt.expectedLiteral {
+			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
+				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
+		}
+	}
+}
+
+
 
 

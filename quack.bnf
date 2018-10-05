@@ -21,7 +21,11 @@ true : 't' 'r' 'u' 'e' ;
 false : 'f' 'a' 'l' 's' 'e' ;
 
 /* predefined identifiers */
-string_literal : '"' _alpha {_alpha} '"' ;
+_not_escape : 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
+					| 'm' | 'o' | 'p' | 'q' | 's' | 'u' | 'v' | 'w' 
+					| 'x' | 'y' | 'z' ;
+string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
+string_literal : '"' _alpha {(_alpha | ' ')} '"' ;
 int : '1'-'9' {_digit} ;
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
 		| 'a' 'n' 'd' | 'o' 'r' | 'n' 'o' 't' 
@@ -54,3 +58,5 @@ comma : ',' ;
 semicolon : ';' ;
 period : '.' ;
 colon : ':' ;
+
+unknown : . ; // maybe remove this

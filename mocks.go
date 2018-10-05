@@ -33,4 +33,5 @@ var (
 	INPUT3 = `/*`
 	INPUT4 = `""" this is also a comment?
 				"""`
+	INPUT5 = `"invalid \q escape character"`
 )

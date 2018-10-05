@@ -8,10 +8,7 @@ import (
 
 func main() {
 	fmt.Println("starting scanner...")
-	l := lexer.NewLexer([]byte(`let five = "te
-	st";
-
-	"test \n this"`))
+	l := lexer.NewLexer([]byte( `"invalid \q escape character"`))
 
 	tok := l.Scan()
 	for tok.Type != token.TokMap.Type("$") { // keep scanning unitl end
