@@ -111,21 +111,7 @@ func TestToken(t *testing.T) {
 		{token.TokMap.Type("$"), ""}, // end token
 	}
 
-	l := lexer.NewLexer([]byte(INPUT1))
-
-	for i, tt := range tests {
-		tok := l.Scan()
-
-		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected=%d, got=%d at line %d, column %d",
-				i, tt.expectedType, tok.Type, tok.Pos.Line, tok.Pos.Column)
-		}
-
-		if string(tok.Lit) != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected=%q, got=%q at line %d, column %d",
-				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
-		}
-	}
+	runTest(tests, INPUT1, t)
 }
 
 func TestStrings(t *testing.T) {
@@ -139,21 +125,7 @@ func TestStrings(t *testing.T) {
 		{token.TokMap.Type("$"), ""}, // end token
 	}
 
-	l := lexer.NewLexer([]byte(INPUT2))
-
-	for i, tt := range tests {
-		tok := l.Scan()
-
-		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
-				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
-		}
-
-		if string(tok.Lit) != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
-				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
-		}
-	}
+	runTest(tests, INPUT2, t)
 }
 
 func TestComments(t *testing.T) {
@@ -162,21 +134,7 @@ func TestComments(t *testing.T) {
 		{token.TokMap.Type("$"), ""}, // end token
 	}
 
-	l := lexer.NewLexer([]byte(INPUT3))
-
-	for i, tt := range tests {
-		tok := l.Scan()
-
-		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
-				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
-		}
-
-		if string(tok.Lit) != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
-				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
-		}
-	}
+	runTest(tests, INPUT3, t)
 }
 
 func TestTripleQuote(t *testing.T) {
@@ -184,21 +142,7 @@ func TestTripleQuote(t *testing.T) {
 		{token.TokMap.Type("$"), ""}, // end token
 	}
 
-	l := lexer.NewLexer([]byte(INPUT4))
-
-	for i, tt := range tests {
-		tok := l.Scan()
-
-		if tok.Type != tt.expectedType {
-			t.Fatalf("tests[%d] - tokentype wrong. expected='%s', got='%s' at line %d, column %d",
-				i, token.TokMap.Id(tt.expectedType), token.TokMap.Id(tok.Type), tok.Pos.Line, tok.Pos.Column)
-		}
-
-		if string(tok.Lit) != tt.expectedLiteral {
-			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
-				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
-		}
-	}
+	runTest(tests, INPUT4, t)
 }
 
 func TestEscape(t *testing.T) {
@@ -206,8 +150,12 @@ func TestEscape(t *testing.T) {
 		{token.TokMap.Type("string_escape_error"), "\"invalid \\q escape character\""},
 	}
 
-	l := lexer.NewLexer([]byte(INPUT5))
+	runTest(tests, INPUT5, t)
+}
 
+// pass input through checker
+func runTest(tests []Test, input string, t *testing.T) {
+	l := lexer.NewLexer([]byte(input))
 	for i, tt := range tests {
 		tok := l.Scan()
 
@@ -222,7 +170,3 @@ func TestEscape(t *testing.T) {
 		}
 	}
 }
-
-
-
-

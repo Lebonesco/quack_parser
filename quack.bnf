@@ -27,9 +27,10 @@ _not_escape : 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 
 string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
 string_literal : '"' _alpha {(_alpha | ' ')} '"' ;
 int : '1'-'9' {_digit} ;
+
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
 		| 'a' 'n' 'd' | 'o' 'r' | 'n' 'o' 't' 
-		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _letter {_letter} ;
+		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _alpha ;
 
 // --- [ Comments (suppressed) ] -----------------------------------------------
 !comment      : _lineComment | _blockComment | _tripleQuoteComment ;
@@ -59,4 +60,4 @@ semicolon : ';' ;
 period : '.' ;
 colon : ':' ;
 
-unknown : . ; // maybe remove this
+unknown : . ; // if nothing matches
