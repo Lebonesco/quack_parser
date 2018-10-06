@@ -27,6 +27,5 @@ class Pt(x: Int, y: Int) {
 }
 
 let err = "this return an error \k";
-\\xsaf
-"thadfja\ads"
-\\adcadc\\
+" "
+

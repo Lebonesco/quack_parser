@@ -25,7 +25,7 @@ _not_escape : 'a' | 'c' | 'd' | 'e' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
 					| 'm' | 'o' | 'p' | 'q' | 's' | 'u' | 'v' | 'w' 
 					| 'x' | 'y' | 'z' ;
 string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
-string_literal : '"' _alpha {(_alpha | ' ')} '"' ;
+string_literal : '"' {(_alpha | ' ')} '"' ;
 int : '1'-'9' {_digit} ;
 
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
