@@ -21,11 +21,15 @@ true : 't' 'r' 'u' 'e' ;
 false : 'f' 'a' 'l' 's' 'e' ;
 
 /* predefined identifiers */
+_valid_escape : '\\' ( '0' | 'b' | 't' | 'n' | 'r' | 'f' | '"' | '\\') ;
 _not_escape : 'a' | 'c' | 'd' | 'e' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
 					| 'm' | 'o' | 'p' | 'q' | 's' | 'u' | 'v' | 'w' 
 					| 'x' | 'y' | 'z' ;
 string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
-string_literal : '"' {(_alpha | ' ')} '"' ;
+//string_newline_error : '"' {.} '\\' 'n' ;
+string_literal : '"' {(_alpha | ' ' | '{' | '}' | '[' | ']' | '~' | ',' | '.' | ';' | ':' 
+						| '^' | '!' | '@' | '#' | '$' | '%' | '&' | '*' | '(' | ')' | '-' | '?' | '<' | '>' | '|' | '=' | '/'
+						| '+')} '"' ;
 int : '1'-'9' {_digit} ;
 
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'

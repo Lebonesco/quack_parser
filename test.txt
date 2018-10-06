@@ -27,5 +27,4 @@ class Pt(x: Int, y: Int) {
 }
 
 let err = "this return an error \k";
-" "
-
+"1234567890!@#$%^&*()_-+=|/}{[]qwertyuiopasdfghjkl;:zxcvbnm<WDDD>,.?"
