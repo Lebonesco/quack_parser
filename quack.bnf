@@ -36,7 +36,6 @@ string_literal : '"' {(_alpha | ' ' | '{' | '}' | '[' | ']' | '~' | ',' | '.' | 
 int : '1'-'9' {_digit} ;
 
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
-		| 'a' 'n' 'd' | 'o' 'r' | 'n' 'o' 't' 
 		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _letter {_alpha} ;
 
 // --- [ Comments (suppressed) ] -----------------------------------------------
@@ -79,8 +78,16 @@ import (
 >>
 
 Program 
-	: ClassSignature ClassBody Program 
-	| Statement Program
+	: Class Statements << $1, nil >>
+	;
+
+Class
+	: ClassSignature ClassBody Class
+	| empty
+	;
+
+Statements
+	: Statement Statements
 	| empty
 	;
 
@@ -100,11 +107,14 @@ FormalArgsList
 	| empty
 	;
 
-ClassBody : lbrace Statement rbrace lbrace Method rbrace semicolon ;
+ClassBody : lbrace Statements Method rbrace ;
 
-Method : def ident FormalArgs Type StatementBlock ;
+Method 
+	: def ident lparen FormalArgs rparen Type StatementBlock 
+	| empty
+	;
 
-StatementBlock : lbrace Statement rbrace ;
+StatementBlock : lbrace Statements rbrace ;
 
 Statement 
 		: if RExpr StatementBlock IfStatement
@@ -115,11 +125,7 @@ Statement
 		| Typecase
 		;
 
-OptionalReturn
-	: RExpr
-	| empty
-	;
-
+// define variable type
 Type
 	: colon ident
 	| empty
@@ -136,20 +142,27 @@ LExpr : ident
 	  ;
 
 RExpr 
-	  : string_literal
-      | RExpr plus Term 			<< $0.(int64) + $2.(int64), nil >>
-      | RExpr minus Term 			<< $0.(int64) - $2.(int64), nil >>
-      | Term
-      | Bool and Bool				<< $0.(bool) && $2.(bool), nil >>
-      | Bool or Bool    			<< $0.(bool) || $2.(bool), nil >>
-      | RExpr period ident lparen ActualArgs rparen
+	  : string_literal								<< $0.(string), nil >>
+      | RExpr plus Term 							<< $0.(int64) + $2.(int64), nil >>
+      | RExpr minus Term 							<< $0.(int64) - $2.(int64), nil >>
+      | RExpr atleast Term							<< $0.(int64) <= $2.(int64), nil >>
+      | RExpr atmost Term							<< $0.(int64) >= $2.(int64), nil >>
+      | RExpr lt Term			    				<< $0.(int64) < $2.(int64), nil >>
+      | RExpr gt Term								<< $0.(int64) > $2.(int64), nil >>
+      | Term										
+      | Bool and Bool								<< $0.(bool) && $2.(bool), nil >>
+      | Bool or Bool    							<< $0.(bool) || $2.(bool), nil >>
+      | not Bool 									<< !$1.(bool), nil >>
+      | Bool  										<< $0.(bool), nil >>
+      | RExpr period ident lparen ActualArgs rparen	
       | ident lparen ActualArgs rparen
+      | return RExpr semicolon
       ;
 
 Term 
-	: Term mul Factor      << $0.(int64) * $2.(int64), nil >>
-	| Term div Factor      << $0.(int64) / $2.(int64), nil >>
-	| Factor 
+	: Term mul Factor      	<< $0.(int64) * $2.(int64), nil >>
+	| Term div Factor		<< $0.(int64) / $2.(int64), nil >>
+	| Factor 				
 	;
 
 Factor
@@ -163,10 +176,18 @@ Bool
 	;
 
 ActualArgs
-	: RExpr comma RExpr
+	: RExpr ArgsList
 	| empty 
+	;
+
+ArgsList
+	: comma RExpr ArgsList
+	| empty
 	;
 
 Typecase : typecase RExpr lbrace TypeAlternative rbrace ;
 
-TypeAlternative : ident colon ident StatementBlock ;
+TypeAlternative
+	 : ident colon ident StatementBlock TypeAlternative
+	 | empty
+	 ;

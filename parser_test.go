@@ -179,11 +179,12 @@ func TestParserMath(t *testing.T) {
 		expect int64
 	}{
 		{"1 + 1", 2},
-		{"1 + 2 ", 3},
+		{"1 + 2", 3},
 		{"1 + 3 * 7", 22},
 		{"200 / 10 - 3", 17},
 		{"5 * 5", 25},
 		{"1 - 3 * 5", -14},
+		{"( 5 )", 5},
 	}
 
 	p := parser.NewParser()
@@ -215,6 +216,9 @@ func TestBoolLogic(t *testing.T) {
 		{"false and false", false},
 		{"true or false", true},
 		{"false or false", false},
+		{"not true", false},
+		{"not false", true},
+		{"true", true},
 	}
 
 	p := parser.NewParser()
