@@ -204,3 +204,35 @@ func TestParserMath(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestBoolLogic(t *testing.T) {
+	tests := []struct{
+		src string
+		expect bool
+	}{
+		{"true and true", true},
+		{"true and false ", false},
+		{"false and false", false},
+		{"true or false", true},
+		{"false or false", false},
+	}
+
+	p := parser.NewParser()
+	pass := true
+	for _, ts := range tests {
+		s := lexer.NewLexer([]byte(ts.src))
+		sum, err := p.Parse(s)
+		if err != nil {
+			pass = false
+			t.Log(err.Error())
+		}
+		if sum != ts.expect {
+			pass = false
+			t.Log(fmt.Sprintf("Error: %s = %t. Got %t\n", ts.src, ts.expect, sum))
+		}
+	}
+	if !pass {
+		t.Fail()
+	}
+}
+

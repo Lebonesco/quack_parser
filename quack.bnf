@@ -140,7 +140,8 @@ RExpr
       | RExpr plus Term 			<< $0.(int64) + $2.(int64), nil >>
       | RExpr minus Term 			<< $0.(int64) - $2.(int64), nil >>
       | Term
-      | Bool and  Bool
+      | Bool and Bool				<< $0.(bool) && $2.(bool), nil >>
+      | Bool or Bool    			<< $0.(bool) || $2.(bool), nil >>
       | RExpr period ident lparen ActualArgs rparen
       | ident lparen ActualArgs rparen
       ;

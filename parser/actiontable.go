@@ -39,6 +39,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -52,7 +53,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -85,6 +85,7 @@ var actionTab = actionTable{
 			nil,          /* plus */
 			nil,          /* minus */
 			nil,          /* and */
+			nil,          /* or */
 			nil,          /* mul */
 			nil,          /* div */
 			nil,          /* int */
@@ -98,7 +99,6 @@ var actionTab = actionTable{
 			nil,          /* let */
 			nil,          /* lt */
 			nil,          /* not */
-			nil,          /* or */
 			nil,          /* string_escape_error */
 			nil,          /* unknown */
 		},
@@ -131,6 +131,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -144,7 +145,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -177,6 +177,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -190,7 +191,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -223,6 +223,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -236,7 +237,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -269,6 +269,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -282,7 +283,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -315,6 +315,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -328,7 +329,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -361,6 +361,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -374,7 +375,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -407,6 +407,7 @@ var actionTab = actionTable{
 			shift(43),  /* plus */
 			shift(44),  /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(17), /* int, reduce: Statement */
@@ -420,7 +421,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -453,6 +453,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -466,7 +467,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -499,6 +499,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -512,7 +513,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -545,6 +545,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -558,7 +559,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -591,6 +591,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(19), /* int, reduce: Statement */
@@ -604,7 +605,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -637,6 +637,7 @@ var actionTab = actionTable{
 			reduce(29), /* plus, reduce: RExpr */
 			reduce(29), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(29), /* int, reduce: RExpr */
@@ -650,7 +651,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -683,6 +683,7 @@ var actionTab = actionTable{
 			reduce(32), /* plus, reduce: RExpr */
 			reduce(32), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			shift(49),  /* mul */
 			shift(50),  /* div */
 			reduce(32), /* int, reduce: RExpr */
@@ -696,7 +697,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -729,6 +729,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			shift(51), /* and */
+			shift(52), /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -742,7 +743,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -751,11 +751,11 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(38), /* $, reduce: Term */
+			reduce(39), /* $, reduce: Term */
 			nil,        /* empty */
-			reduce(38), /* class, reduce: Term */
-			reduce(38), /* ident, reduce: Term */
-			reduce(38), /* lparen, reduce: Term */
+			reduce(39), /* class, reduce: Term */
+			reduce(39), /* ident, reduce: Term */
+			reduce(39), /* lparen, reduce: Term */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -764,23 +764,24 @@ var actionTab = actionTable{
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
-			reduce(38), /* if, reduce: Term */
-			reduce(38), /* while, reduce: Term */
+			reduce(39), /* if, reduce: Term */
+			reduce(39), /* while, reduce: Term */
 			nil,        /* assign */
-			reduce(38), /* return, reduce: Term */
+			reduce(39), /* return, reduce: Term */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
-			reduce(38), /* string_literal, reduce: Term */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
+			reduce(39), /* period, reduce: Term */
+			reduce(39), /* string_literal, reduce: Term */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
 			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
-			reduce(38), /* int, reduce: Term */
-			reduce(38), /* true, reduce: Term */
-			reduce(38), /* false, reduce: Term */
-			reduce(38), /* typecase, reduce: Term */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
+			reduce(39), /* int, reduce: Term */
+			reduce(39), /* true, reduce: Term */
+			reduce(39), /* false, reduce: Term */
+			reduce(39), /* typecase, reduce: Term */
 			nil,        /* atleast */
 			nil,        /* atmost */
 			nil,        /* eq */
@@ -788,7 +789,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -797,11 +797,11 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(40), /* $, reduce: Factor */
+			reduce(41), /* $, reduce: Factor */
 			nil,        /* empty */
-			reduce(40), /* class, reduce: Factor */
-			reduce(40), /* ident, reduce: Factor */
-			reduce(40), /* lparen, reduce: Factor */
+			reduce(41), /* class, reduce: Factor */
+			reduce(41), /* ident, reduce: Factor */
+			reduce(41), /* lparen, reduce: Factor */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -810,23 +810,24 @@ var actionTab = actionTable{
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
-			reduce(40), /* if, reduce: Factor */
-			reduce(40), /* while, reduce: Factor */
+			reduce(41), /* if, reduce: Factor */
+			reduce(41), /* while, reduce: Factor */
 			nil,        /* assign */
-			reduce(40), /* return, reduce: Factor */
+			reduce(41), /* return, reduce: Factor */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
-			reduce(40), /* string_literal, reduce: Factor */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
+			reduce(41), /* period, reduce: Factor */
+			reduce(41), /* string_literal, reduce: Factor */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
 			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
-			reduce(40), /* int, reduce: Factor */
-			reduce(40), /* true, reduce: Factor */
-			reduce(40), /* false, reduce: Factor */
-			reduce(40), /* typecase, reduce: Factor */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
+			reduce(41), /* int, reduce: Factor */
+			reduce(41), /* true, reduce: Factor */
+			reduce(41), /* false, reduce: Factor */
+			reduce(41), /* typecase, reduce: Factor */
 			nil,        /* atleast */
 			nil,        /* atmost */
 			nil,        /* eq */
@@ -834,7 +835,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -866,7 +866,8 @@ var actionTab = actionTable{
 			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
-			reduce(41), /* and, reduce: Bool */
+			reduce(42), /* and, reduce: Bool */
+			reduce(42), /* or, reduce: Bool */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -880,7 +881,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -912,7 +912,8 @@ var actionTab = actionTable{
 			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
-			reduce(42), /* and, reduce: Bool */
+			reduce(43), /* and, reduce: Bool */
+			reduce(43), /* or, reduce: Bool */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -926,7 +927,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -959,6 +959,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -972,7 +973,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1005,6 +1005,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -1018,7 +1019,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1030,8 +1030,8 @@ var actionTab = actionTable{
 			nil,       /* $ */
 			nil,       /* empty */
 			nil,       /* class */
-			shift(55), /* ident */
-			shift(56), /* lparen */
+			shift(56), /* ident */
+			shift(57), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -1040,23 +1040,24 @@ var actionTab = actionTable{
 			nil,       /* rbrace */
 			nil,       /* semicolon */
 			nil,       /* def */
-			shift(57), /* if */
-			shift(59), /* while */
+			shift(58), /* if */
+			shift(60), /* while */
 			nil,       /* assign */
-			shift(61), /* return */
+			shift(62), /* return */
 			nil,       /* elif */
 			nil,       /* else */
 			nil,       /* period */
-			shift(63), /* string_literal */
+			shift(64), /* string_literal */
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
-			shift(67), /* int */
+			shift(68), /* int */
 			shift(18), /* true */
 			shift(19), /* false */
-			shift(68), /* typecase */
+			shift(69), /* typecase */
 			nil,       /* atleast */
 			nil,       /* atmost */
 			nil,       /* eq */
@@ -1064,7 +1065,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1097,6 +1097,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1110,7 +1111,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1123,7 +1123,7 @@ var actionTab = actionTable{
 			nil,       /* empty */
 			nil,       /* class */
 			nil,       /* ident */
-			shift(69), /* lparen */
+			shift(70), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -1143,6 +1143,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1156,7 +1157,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1168,9 +1168,9 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -1185,13 +1185,14 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			shift(73),  /* string_literal */
+			shift(74),  /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			shift(78),  /* int */
+			shift(79),  /* int */
 			shift(18),  /* true */
 			shift(19),  /* false */
 			nil,        /* typecase */
@@ -1202,7 +1203,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1215,7 +1215,7 @@ var actionTab = actionTable{
 			nil,       /* empty */
 			nil,       /* class */
 			nil,       /* ident */
-			shift(79), /* lparen */
+			shift(80), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -1235,6 +1235,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1248,7 +1249,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1281,6 +1281,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -1294,7 +1295,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1308,7 +1308,7 @@ var actionTab = actionTable{
 			nil,       /* class */
 			nil,       /* ident */
 			nil,       /* lparen */
-			shift(81), /* rparen */
+			shift(82), /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
 			nil,       /* comma */
@@ -1322,11 +1322,12 @@ var actionTab = actionTable{
 			nil,       /* return */
 			nil,       /* elif */
 			nil,       /* else */
-			shift(82), /* period */
+			shift(83), /* period */
 			nil,       /* string_literal */
-			shift(83), /* plus */
-			shift(84), /* minus */
+			shift(84), /* plus */
+			shift(85), /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1340,7 +1341,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1373,6 +1373,7 @@ var actionTab = actionTable{
 			reduce(29), /* plus, reduce: RExpr */
 			reduce(29), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -1386,7 +1387,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1419,8 +1419,9 @@ var actionTab = actionTable{
 			reduce(32), /* plus, reduce: RExpr */
 			reduce(32), /* minus, reduce: RExpr */
 			nil,        /* and */
-			shift(85),  /* mul */
-			shift(86),  /* div */
+			nil,        /* or */
+			shift(86),  /* mul */
+			shift(87),  /* div */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1432,7 +1433,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1464,7 +1464,8 @@ var actionTab = actionTable{
 			nil,       /* string_literal */
 			nil,       /* plus */
 			nil,       /* minus */
-			shift(87), /* and */
+			shift(88), /* and */
+			shift(89), /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1478,7 +1479,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1492,7 +1492,7 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			reduce(38), /* rparen, reduce: Term */
+			reduce(39), /* rparen, reduce: Term */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -1506,13 +1506,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
+			reduce(39), /* period, reduce: Term */
 			nil,        /* string_literal */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
 			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1524,7 +1525,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1538,7 +1538,7 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			reduce(40), /* rparen, reduce: Factor */
+			reduce(41), /* rparen, reduce: Factor */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -1552,13 +1552,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
+			reduce(41), /* period, reduce: Factor */
 			nil,        /* string_literal */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
 			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1570,7 +1571,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1583,7 +1583,7 @@ var actionTab = actionTable{
 			nil,       /* empty */
 			nil,       /* class */
 			nil,       /* ident */
-			shift(88), /* lparen */
+			shift(90), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -1603,6 +1603,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1616,7 +1617,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1649,6 +1649,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -1662,7 +1663,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1680,7 +1680,7 @@ var actionTab = actionTable{
 			nil,       /* extends */
 			nil,       /* colon */
 			nil,       /* comma */
-			shift(90), /* lbrace */
+			shift(92), /* lbrace */
 			nil,       /* rbrace */
 			nil,       /* semicolon */
 			nil,       /* def */
@@ -1690,11 +1690,12 @@ var actionTab = actionTable{
 			nil,       /* return */
 			nil,       /* elif */
 			nil,       /* else */
-			shift(92), /* period */
+			shift(94), /* period */
 			nil,       /* string_literal */
-			shift(93), /* plus */
-			shift(94), /* minus */
+			shift(95), /* plus */
+			shift(96), /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -1708,7 +1709,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -1741,6 +1741,7 @@ var actionTab = actionTable{
 			reduce(29), /* plus, reduce: RExpr */
 			reduce(29), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -1754,7 +1755,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1787,8 +1787,9 @@ var actionTab = actionTable{
 			reduce(32), /* plus, reduce: RExpr */
 			reduce(32), /* minus, reduce: RExpr */
 			nil,        /* and */
-			shift(95),  /* mul */
-			shift(96),  /* div */
+			nil,        /* or */
+			shift(97),  /* mul */
+			shift(98),  /* div */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1800,7 +1801,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1808,47 +1808,47 @@ var actionTab = actionTable{
 	actionRow{ // S39
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			nil,       /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			shift(97), /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			nil,       /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			shift(99),  /* and */
+			shift(100), /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
 		},
 	},
 	actionRow{ // S40
@@ -1864,7 +1864,7 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			reduce(38), /* lbrace, reduce: Term */
+			reduce(39), /* lbrace, reduce: Term */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -1874,13 +1874,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
+			reduce(39), /* period, reduce: Term */
 			nil,        /* string_literal */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
 			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1892,7 +1893,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1910,7 +1910,7 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			reduce(40), /* lbrace, reduce: Factor */
+			reduce(41), /* lbrace, reduce: Factor */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -1920,13 +1920,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
+			reduce(41), /* period, reduce: Factor */
 			nil,        /* string_literal */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
 			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -1938,7 +1939,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -1946,47 +1946,47 @@ var actionTab = actionTable{
 	actionRow{ // S42
 		canRecover: false,
 		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(98), /* ident */
-			nil,       /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			nil,       /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(101), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
 		},
 	},
 	actionRow{ // S43
@@ -2017,6 +2017,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -2030,7 +2031,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -2063,6 +2063,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -2076,7 +2077,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -2094,7 +2094,7 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			shift(101), /* lbrace */
+			shift(104), /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -2104,11 +2104,12 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(92),  /* period */
+			shift(94),  /* period */
 			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2122,7 +2123,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -2134,7 +2134,7 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(103), /* ident */
+			shift(106), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -2155,6 +2155,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2168,7 +2169,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -2192,7 +2192,7 @@ var actionTab = actionTable{
 			nil,        /* def */
 			nil,        /* if */
 			nil,        /* while */
-			shift(104), /* assign */
+			shift(107), /* assign */
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
@@ -2201,6 +2201,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2214,7 +2215,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -2247,6 +2247,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(18), /* int, reduce: Statement */
@@ -2260,7 +2261,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -2293,6 +2293,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -2306,7 +2307,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -2339,6 +2339,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(17), /* int */
@@ -2352,7 +2353,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -2385,11 +2385,12 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
-			shift(108), /* true */
-			shift(109), /* false */
+			shift(111), /* true */
+			shift(112), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -2398,7 +2399,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -2416,7 +2416,7 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			shift(110), /* lbrace */
+			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -2426,11 +2426,58 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(92),  /* period */
+			nil,        /* period */
 			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
+			nil,        /* plus */
+			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(111), /* true */
+			shift(112), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S53
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(114), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(94),  /* period */
+			nil,        /* string_literal */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2444,12 +2491,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S53
+	actionRow{ // S54
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -2477,6 +2523,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -2490,12 +2537,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S54
+	actionRow{ // S55
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2509,7 +2555,7 @@ var actionTab = actionTable{
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			shift(111), /* rbrace */
+			shift(115), /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
@@ -2523,6 +2569,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2536,12 +2583,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S55
+	actionRow{ // S56
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2549,7 +2595,7 @@ var actionTab = actionTable{
 			nil,        /* empty */
 			nil,        /* class */
 			nil,        /* ident */
-			shift(112), /* lparen */
+			shift(116), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			reduce(27), /* colon, reduce: LExpr */
@@ -2569,6 +2615,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2582,12 +2629,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S56
+	actionRow{ // S57
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -2615,6 +2661,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -2628,12 +2675,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S57
+	actionRow{ // S58
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -2661,6 +2707,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -2674,12 +2721,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S58
+	actionRow{ // S59
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2702,11 +2748,12 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(115), /* period */
+			shift(119), /* period */
 			nil,        /* string_literal */
-			shift(116), /* plus */
-			shift(117), /* minus */
+			shift(120), /* plus */
+			shift(121), /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2720,12 +2767,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S59
+	actionRow{ // S60
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -2753,6 +2799,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -2766,12 +2813,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S60
+	actionRow{ // S61
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2799,6 +2845,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2812,12 +2859,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S61
+	actionRow{ // S62
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2832,7 +2878,7 @@ var actionTab = actionTable{
 			nil,        /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
-			shift(120), /* semicolon */
+			shift(124), /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
 			nil,        /* while */
@@ -2845,6 +2891,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2858,12 +2905,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S62
+	actionRow{ // S63
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2891,6 +2937,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2904,12 +2951,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S63
+	actionRow{ // S64
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2937,6 +2983,7 @@ var actionTab = actionTable{
 			reduce(29), /* plus, reduce: RExpr */
 			reduce(29), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -2950,12 +2997,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S64
+	actionRow{ // S65
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -2983,8 +3029,9 @@ var actionTab = actionTable{
 			reduce(32), /* plus, reduce: RExpr */
 			reduce(32), /* minus, reduce: RExpr */
 			nil,        /* and */
-			shift(121), /* mul */
-			shift(122), /* div */
+			nil,        /* or */
+			shift(125), /* mul */
+			shift(126), /* div */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -2996,12 +3043,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S65
+	actionRow{ // S66
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3028,7 +3074,8 @@ var actionTab = actionTable{
 			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
-			shift(123), /* and */
+			shift(127), /* and */
+			shift(128), /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3042,53 +3089,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S66
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(38), /* rbrace, reduce: Term */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3107,7 +3107,7 @@ var actionTab = actionTable{
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			reduce(40), /* rbrace, reduce: Factor */
+			reduce(39), /* rbrace, reduce: Term */
 			nil,        /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
@@ -3116,13 +3116,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
+			reduce(39), /* period, reduce: Term */
 			nil,        /* string_literal */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
 			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -3134,12 +3135,57 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
 	actionRow{ // S68
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(41), /* rbrace, reduce: Factor */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(41), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S69
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -3167,6 +3213,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -3180,19 +3227,18 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S69
+	actionRow{ // S70
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(125), /* ident */
+			shift(130), /* ident */
 			nil,        /* lparen */
 			reduce(8),  /* rparen, reduce: FormalArgs */
 			nil,        /* extends */
@@ -3213,6 +3259,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3226,12 +3273,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S70
+	actionRow{ // S71
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3239,7 +3285,7 @@ var actionTab = actionTable{
 			nil,        /* empty */
 			nil,        /* class */
 			nil,        /* ident */
-			shift(127), /* lparen */
+			shift(132), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -3259,6 +3305,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3272,12 +3319,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S71
+	actionRow{ // S72
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -3305,6 +3351,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -3318,12 +3365,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S72
+	actionRow{ // S73
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3335,7 +3381,7 @@ var actionTab = actionTable{
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
-			shift(129), /* comma */
+			shift(134), /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -3346,11 +3392,12 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(130), /* period */
+			shift(135), /* period */
 			nil,        /* string_literal */
-			shift(131), /* plus */
-			shift(132), /* minus */
+			shift(136), /* plus */
+			shift(137), /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3364,12 +3411,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S73
+	actionRow{ // S74
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3397,6 +3443,7 @@ var actionTab = actionTable{
 			reduce(29), /* plus, reduce: RExpr */
 			reduce(29), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3410,12 +3457,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S74
+	actionRow{ // S75
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -3443,8 +3489,9 @@ var actionTab = actionTable{
 			reduce(32), /* plus, reduce: RExpr */
 			reduce(32), /* minus, reduce: RExpr */
 			nil,        /* and */
-			shift(133), /* mul */
-			shift(134), /* div */
+			nil,        /* or */
+			shift(138), /* mul */
+			shift(139), /* div */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -3456,53 +3503,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S75
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			shift(135), /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3516,7 +3516,53 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			shift(136), /* rparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			shift(140), /* and */
+			shift(141), /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S77
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(142), /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -3535,6 +3581,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3548,53 +3595,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S77
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(38), /* comma, reduce: Term */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3611,7 +3611,7 @@ var actionTab = actionTable{
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
-			reduce(40), /* comma, reduce: Factor */
+			reduce(39), /* comma, reduce: Term */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -3622,13 +3622,14 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
+			reduce(39), /* period, reduce: Term */
 			nil,        /* string_literal */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
 			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
 			nil,        /* int */
 			nil,        /* true */
 			nil,        /* false */
@@ -3640,7 +3641,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3652,12 +3652,12 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
-			nil,        /* comma */
+			reduce(41), /* comma, reduce: Factor */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -3668,16 +3668,17 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
+			reduce(41), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
 			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -3686,7 +3687,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3698,9 +3698,9 @@ var actionTab = actionTable{
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(138), /* rparen */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -3714,11 +3714,58 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S81
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(144), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
+			nil,        /* string_literal */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3732,53 +3779,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S81
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(39), /* $, reduce: Factor */
-			nil,        /* empty */
-			reduce(39), /* class, reduce: Factor */
-			reduce(39), /* ident, reduce: Factor */
-			reduce(39), /* lparen, reduce: Factor */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(39), /* if, reduce: Factor */
-			reduce(39), /* while, reduce: Factor */
-			nil,        /* assign */
-			reduce(39), /* return, reduce: Factor */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			reduce(39), /* string_literal, reduce: Factor */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			reduce(39), /* int, reduce: Factor */
-			reduce(39), /* true, reduce: Factor */
-			reduce(39), /* false, reduce: Factor */
-			reduce(39), /* typecase, reduce: Factor */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -3787,10 +3787,56 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
+			reduce(40), /* $, reduce: Factor */
+			nil,        /* empty */
+			reduce(40), /* class, reduce: Factor */
+			reduce(40), /* ident, reduce: Factor */
+			reduce(40), /* lparen, reduce: Factor */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(40), /* if, reduce: Factor */
+			reduce(40), /* while, reduce: Factor */
+			nil,        /* assign */
+			reduce(40), /* return, reduce: Factor */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			reduce(40), /* string_literal, reduce: Factor */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			reduce(40), /* int, reduce: Factor */
+			reduce(40), /* true, reduce: Factor */
+			reduce(40), /* false, reduce: Factor */
+			reduce(40), /* typecase, reduce: Factor */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S83
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(139), /* ident */
+			shift(145), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -3811,6 +3857,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -3824,55 +3871,8 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S83
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(27), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(33), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
 		},
 	},
 	actionRow{ // S84
@@ -3903,6 +3903,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -3916,7 +3917,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -3949,6 +3949,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -3962,7 +3963,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -3995,6 +3995,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(33), /* int */
@@ -4008,12 +4009,57 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
 	actionRow{ // S87
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(27), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(33), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S88
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4041,11 +4087,12 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
-			shift(145), /* true */
-			shift(146), /* false */
+			shift(151), /* true */
+			shift(152), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -4054,21 +4101,20 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S88
+	actionRow{ // S89
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -4083,15 +4129,16 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			shift(73),  /* string_literal */
+			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
+			nil,        /* int */
+			shift(151), /* true */
+			shift(152), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -4100,21 +4147,20 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S89
+	actionRow{ // S90
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(148), /* rparen */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -4128,11 +4174,58 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S91
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(155), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
+			nil,        /* string_literal */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -4146,20 +4239,19 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S90
+	actionRow{ // S92
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
 			nil,       /* $ */
 			nil,       /* empty */
 			nil,       /* class */
-			shift(55), /* ident */
-			shift(56), /* lparen */
+			shift(56), /* ident */
+			shift(57), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -4168,23 +4260,24 @@ var actionTab = actionTable{
 			nil,       /* rbrace */
 			nil,       /* semicolon */
 			nil,       /* def */
-			shift(57), /* if */
-			shift(59), /* while */
+			shift(58), /* if */
+			shift(60), /* while */
 			nil,       /* assign */
-			shift(61), /* return */
+			shift(62), /* return */
 			nil,       /* elif */
 			nil,       /* else */
 			nil,       /* period */
-			shift(63), /* string_literal */
+			shift(64), /* string_literal */
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
-			shift(67), /* int */
+			shift(68), /* int */
 			shift(18), /* true */
 			shift(19), /* false */
-			shift(68), /* typecase */
+			shift(69), /* typecase */
 			nil,       /* atleast */
 			nil,       /* atmost */
 			nil,       /* eq */
@@ -4192,12 +4285,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S91
+	actionRow{ // S93
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4218,13 +4310,14 @@ var actionTab = actionTable{
 			reduce(26), /* while, reduce: IfStatement */
 			nil,        /* assign */
 			reduce(26), /* return, reduce: IfStatement */
-			shift(151), /* elif */
-			shift(152), /* else */
+			shift(158), /* elif */
+			shift(159), /* else */
 			nil,        /* period */
 			reduce(26), /* string_literal, reduce: IfStatement */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(26), /* int, reduce: IfStatement */
@@ -4238,19 +4331,18 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S92
+	actionRow{ // S94
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(153), /* ident */
+			shift(160), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -4271,6 +4363,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -4284,101 +4377,8 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S93
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(35), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(41), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S94
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(35), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(41), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
 		},
 	},
 	actionRow{ // S95
@@ -4409,6 +4409,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -4422,7 +4423,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
@@ -4455,6 +4455,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			shift(41), /* int */
@@ -4468,12 +4469,103 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
 	actionRow{ // S97
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(35), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(41), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S98
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(35), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(41), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S99
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4501,11 +4593,12 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
-			shift(159), /* true */
-			shift(160), /* false */
+			shift(166), /* true */
+			shift(167), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -4514,12 +4607,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S98
+	actionRow{ // S100
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4527,7 +4619,53 @@ var actionTab = actionTable{
 			nil,        /* empty */
 			nil,        /* class */
 			nil,        /* ident */
-			shift(161), /* lparen */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(166), /* true */
+			shift(167), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S101
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(169), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			reduce(28), /* colon, reduce: LExpr */
@@ -4547,6 +4685,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -4560,12 +4699,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S99
+	actionRow{ // S102
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4593,6 +4731,7 @@ var actionTab = actionTable{
 			reduce(30), /* plus, reduce: RExpr */
 			reduce(30), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			shift(49),  /* mul */
 			shift(50),  /* div */
 			reduce(30), /* int, reduce: RExpr */
@@ -4606,12 +4745,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S100
+	actionRow{ // S103
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4639,6 +4777,7 @@ var actionTab = actionTable{
 			reduce(31), /* plus, reduce: RExpr */
 			reduce(31), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			shift(49),  /* mul */
 			shift(50),  /* div */
 			reduce(31), /* int, reduce: RExpr */
@@ -4652,20 +4791,19 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S101
+	actionRow{ // S104
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
 			nil,       /* $ */
 			nil,       /* empty */
 			nil,       /* class */
-			shift(55), /* ident */
-			shift(56), /* lparen */
+			shift(56), /* ident */
+			shift(57), /* lparen */
 			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
@@ -4674,23 +4812,24 @@ var actionTab = actionTable{
 			nil,       /* rbrace */
 			nil,       /* semicolon */
 			nil,       /* def */
-			shift(57), /* if */
-			shift(59), /* while */
+			shift(58), /* if */
+			shift(60), /* while */
 			nil,       /* assign */
-			shift(61), /* return */
+			shift(62), /* return */
 			nil,       /* elif */
 			nil,       /* else */
 			nil,       /* period */
-			shift(63), /* string_literal */
+			shift(64), /* string_literal */
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
-			shift(67), /* int */
+			shift(68), /* int */
 			shift(18), /* true */
 			shift(19), /* false */
-			shift(68), /* typecase */
+			shift(69), /* typecase */
 			nil,       /* atleast */
 			nil,       /* atmost */
 			nil,       /* eq */
@@ -4698,12 +4837,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S102
+	actionRow{ // S105
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4731,6 +4869,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(15), /* int, reduce: Statement */
@@ -4744,12 +4883,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S103
+	actionRow{ // S106
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4777,6 +4915,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -4790,20 +4929,19 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S104
+	actionRow{ // S107
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(163), /* ident */
-			shift(164), /* lparen */
+			shift(171), /* ident */
+			shift(172), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -4819,13 +4957,14 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			shift(166), /* string_literal */
+			shift(174), /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			shift(170), /* int */
+			shift(178), /* int */
 			shift(18),  /* true */
 			shift(19),  /* false */
 			nil,        /* typecase */
@@ -4836,58 +4975,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S105
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(36), /* $, reduce: Term */
-			nil,        /* empty */
-			reduce(36), /* class, reduce: Term */
-			reduce(36), /* ident, reduce: Term */
-			reduce(36), /* lparen, reduce: Term */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(36), /* if, reduce: Term */
-			reduce(36), /* while, reduce: Term */
-			nil,        /* assign */
-			reduce(36), /* return, reduce: Term */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			reduce(36), /* string_literal, reduce: Term */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			reduce(36), /* int, reduce: Term */
-			reduce(36), /* true, reduce: Term */
-			reduce(36), /* false, reduce: Term */
-			reduce(36), /* typecase, reduce: Term */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S106
+	actionRow{ // S108
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4915,6 +5007,7 @@ var actionTab = actionTable{
 			reduce(37), /* plus, reduce: Term */
 			reduce(37), /* minus, reduce: Term */
 			nil,        /* and */
+			nil,        /* or */
 			reduce(37), /* mul, reduce: Term */
 			reduce(37), /* div, reduce: Term */
 			reduce(37), /* int, reduce: Term */
@@ -4928,12 +5021,57 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S107
+	actionRow{ // S109
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(38), /* $, reduce: Term */
+			nil,        /* empty */
+			reduce(38), /* class, reduce: Term */
+			reduce(38), /* ident, reduce: Term */
+			reduce(38), /* lparen, reduce: Term */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(38), /* if, reduce: Term */
+			reduce(38), /* while, reduce: Term */
+			nil,        /* assign */
+			reduce(38), /* return, reduce: Term */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			reduce(38), /* string_literal, reduce: Term */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			reduce(38), /* int, reduce: Term */
+			reduce(38), /* true, reduce: Term */
+			reduce(38), /* false, reduce: Term */
+			reduce(38), /* typecase, reduce: Term */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S110
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -4961,6 +5099,7 @@ var actionTab = actionTable{
 			reduce(33), /* plus, reduce: RExpr */
 			reduce(33), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(33), /* int, reduce: RExpr */
@@ -4974,58 +5113,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S108
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(41), /* $, reduce: Bool */
-			nil,        /* empty */
-			reduce(41), /* class, reduce: Bool */
-			reduce(41), /* ident, reduce: Bool */
-			reduce(41), /* lparen, reduce: Bool */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(41), /* if, reduce: Bool */
-			reduce(41), /* while, reduce: Bool */
-			nil,        /* assign */
-			reduce(41), /* return, reduce: Bool */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			reduce(41), /* string_literal, reduce: Bool */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(41), /* int, reduce: Bool */
-			reduce(41), /* true, reduce: Bool */
-			reduce(41), /* false, reduce: Bool */
-			reduce(41), /* typecase, reduce: Bool */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S109
+	actionRow{ // S111
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -5053,6 +5145,7 @@ var actionTab = actionTable{
 			reduce(42), /* plus, reduce: Bool */
 			reduce(42), /* minus, reduce: Bool */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(42), /* int, reduce: Bool */
@@ -5066,99 +5159,6 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S110
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(171), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S111
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(173), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -5167,12 +5167,12 @@ var actionTab = actionTable{
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			nil,        /* $ */
+			reduce(43), /* $, reduce: Bool */
 			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
+			reduce(43), /* class, reduce: Bool */
+			reduce(43), /* ident, reduce: Bool */
+			reduce(43), /* lparen, reduce: Bool */
+			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -5180,23 +5180,24 @@ var actionTab = actionTable{
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
+			reduce(43), /* if, reduce: Bool */
+			reduce(43), /* while, reduce: Bool */
 			nil,        /* assign */
-			nil,        /* return */
+			reduce(43), /* return, reduce: Bool */
 			nil,        /* elif */
 			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
+			reduce(43), /* period, reduce: Bool */
+			reduce(43), /* string_literal, reduce: Bool */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
+			reduce(43), /* int, reduce: Bool */
+			reduce(43), /* true, reduce: Bool */
+			reduce(43), /* false, reduce: Bool */
+			reduce(43), /* typecase, reduce: Bool */
 			nil,        /* atleast */
 			nil,        /* atmost */
 			nil,        /* eq */
@@ -5204,5946 +5205,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
 	actionRow{ // S113
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(175), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S114
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(176), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(92),  /* period */
-			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S115
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(178), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S116
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S117
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S118
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(181), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(92),  /* period */
-			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S119
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			shift(183), /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S120
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(18), /* rbrace, reduce: Statement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S121
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S122
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S123
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			shift(187), /* true */
-			shift(188), /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S124
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(189), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(92),  /* period */
-			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S125
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			shift(190), /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S126
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(191), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S127
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S128
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(193), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S129
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(26), /* ident */
-			shift(27), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(29), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(33), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S130
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(195), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S131
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(71), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(78), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S132
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(71), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(78), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S133
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(71), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(78), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S134
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			shift(71), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(78), /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S135
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			shift(201), /* true */
-			shift(202), /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S136
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(35), /* $, reduce: RExpr */
-			nil,        /* empty */
-			reduce(35), /* class, reduce: RExpr */
-			reduce(35), /* ident, reduce: RExpr */
-			reduce(35), /* lparen, reduce: RExpr */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(35), /* if, reduce: RExpr */
-			reduce(35), /* while, reduce: RExpr */
-			nil,        /* assign */
-			reduce(35), /* return, reduce: RExpr */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			reduce(35), /* string_literal, reduce: RExpr */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(35), /* int, reduce: RExpr */
-			reduce(35), /* true, reduce: RExpr */
-			reduce(35), /* false, reduce: RExpr */
-			reduce(35), /* typecase, reduce: RExpr */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S137
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(203), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S138
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(39), /* rparen, reduce: Factor */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S139
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(204), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S140
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(30), /* rparen, reduce: RExpr */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(30), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(30), /* plus, reduce: RExpr */
-			reduce(30), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(85),  /* mul */
-			shift(86),  /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S141
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(31), /* rparen, reduce: RExpr */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(31), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(31), /* plus, reduce: RExpr */
-			reduce(31), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(85),  /* mul */
-			shift(86),  /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S142
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(36), /* rparen, reduce: Term */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S143
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(37), /* rparen, reduce: Term */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(37), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(37), /* plus, reduce: Term */
-			reduce(37), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(37), /* mul, reduce: Term */
-			reduce(37), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S144
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(33), /* rparen, reduce: RExpr */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(33), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(33), /* plus, reduce: RExpr */
-			reduce(33), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S145
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(41), /* rparen, reduce: Bool */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S146
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(42), /* rparen, reduce: Bool */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(42), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(42), /* plus, reduce: Bool */
-			reduce(42), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S147
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(205), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S148
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(39), /* lbrace, reduce: Factor */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S149
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(206), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S150
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(14), /* $, reduce: Statement */
-			nil,        /* empty */
-			reduce(14), /* class, reduce: Statement */
-			reduce(14), /* ident, reduce: Statement */
-			reduce(14), /* lparen, reduce: Statement */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(14), /* if, reduce: Statement */
-			reduce(14), /* while, reduce: Statement */
-			nil,        /* assign */
-			reduce(14), /* return, reduce: Statement */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			reduce(14), /* string_literal, reduce: Statement */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(14), /* int, reduce: Statement */
-			reduce(14), /* true, reduce: Statement */
-			reduce(14), /* false, reduce: Statement */
-			reduce(14), /* typecase, reduce: Statement */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S151
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(34), /* ident */
-			shift(35), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(37), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(41), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S152
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(101), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S153
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(209), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S154
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(30), /* lbrace, reduce: RExpr */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(30), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(30), /* plus, reduce: RExpr */
-			reduce(30), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(95),  /* mul */
-			shift(96),  /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S155
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(31), /* lbrace, reduce: RExpr */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(31), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(31), /* plus, reduce: RExpr */
-			reduce(31), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(95),  /* mul */
-			shift(96),  /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S156
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(36), /* lbrace, reduce: Term */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S157
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(37), /* lbrace, reduce: Term */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(37), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(37), /* plus, reduce: Term */
-			reduce(37), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(37), /* mul, reduce: Term */
-			reduce(37), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S158
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(33), /* lbrace, reduce: RExpr */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(33), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(33), /* plus, reduce: RExpr */
-			reduce(33), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S159
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(41), /* lbrace, reduce: Bool */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S160
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(42), /* lbrace, reduce: Bool */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(42), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(42), /* plus, reduce: Bool */
-			reduce(42), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S161
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S162
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(211), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S163
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(212), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S164
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(26), /* ident */
-			shift(27), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(29), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(33), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S165
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			shift(214), /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(215), /* period */
-			nil,        /* string_literal */
-			shift(216), /* plus */
-			shift(217), /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S166
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(29), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(29), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(29), /* plus, reduce: RExpr */
-			reduce(29), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S167
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(32), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(32), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(32), /* plus, reduce: RExpr */
-			reduce(32), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(218), /* mul */
-			shift(219), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S168
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			shift(220), /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S169
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(38), /* semicolon, reduce: Term */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(38), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(38), /* plus, reduce: Term */
-			reduce(38), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(38), /* mul, reduce: Term */
-			reduce(38), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S170
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(40), /* semicolon, reduce: Factor */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(40), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(40), /* plus, reduce: Factor */
-			reduce(40), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(40), /* mul, reduce: Factor */
-			reduce(40), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S171
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			shift(221), /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S172
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(222), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S173
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			shift(224), /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S174
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(225), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S175
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(39), /* rbrace, reduce: Factor */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S176
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(55), /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			shift(57), /* if */
-			shift(59), /* while */
-			nil,       /* assign */
-			shift(61), /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(63), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			shift(68), /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S177
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(26), /* rbrace, reduce: IfStatement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			shift(228), /* elif */
-			shift(229), /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S178
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(230), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			reduce(28), /* colon, reduce: LExpr */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			reduce(28), /* assign, reduce: LExpr */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S179
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(30), /* rbrace, reduce: RExpr */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(30), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(30), /* plus, reduce: RExpr */
-			reduce(30), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(121), /* mul */
-			shift(122), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S180
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(31), /* rbrace, reduce: RExpr */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(31), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(31), /* plus, reduce: RExpr */
-			reduce(31), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(121), /* mul */
-			shift(122), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S181
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(55), /* ident */
-			shift(56), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			shift(57), /* if */
-			shift(59), /* while */
-			nil,       /* assign */
-			shift(61), /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(63), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(67), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			shift(68), /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S182
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(15), /* rbrace, reduce: Statement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S183
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(163), /* ident */
-			shift(164), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(166), /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(170), /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S184
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(36), /* rbrace, reduce: Term */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S185
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(37), /* rbrace, reduce: Term */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(37), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(37), /* plus, reduce: Term */
-			reduce(37), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(37), /* mul, reduce: Term */
-			reduce(37), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S186
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(33), /* rbrace, reduce: RExpr */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(33), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(33), /* plus, reduce: RExpr */
-			reduce(33), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S187
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(41), /* rbrace, reduce: Bool */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S188
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(42), /* rbrace, reduce: Bool */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(42), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(42), /* plus, reduce: Bool */
-			reduce(42), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S189
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(171), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S190
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(234), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S191
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			shift(236), /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(6),  /* lbrace, reduce: Extend */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S192
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(237), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S193
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(39), /* comma, reduce: Factor */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S194
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(43), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S195
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(238), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S196
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(30), /* comma, reduce: RExpr */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(30), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(30), /* plus, reduce: RExpr */
-			reduce(30), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(133), /* mul */
-			shift(134), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S197
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(31), /* comma, reduce: RExpr */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(31), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(31), /* plus, reduce: RExpr */
-			reduce(31), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(133), /* mul */
-			shift(134), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S198
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(36), /* comma, reduce: Term */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S199
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(37), /* comma, reduce: Term */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(37), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(37), /* plus, reduce: Term */
-			reduce(37), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(37), /* mul, reduce: Term */
-			reduce(37), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S200
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(33), /* comma, reduce: RExpr */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(33), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(33), /* plus, reduce: RExpr */
-			reduce(33), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S201
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(41), /* comma, reduce: Bool */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S202
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(42), /* comma, reduce: Bool */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(42), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(42), /* plus, reduce: Bool */
-			reduce(42), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S203
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(35), /* rparen, reduce: RExpr */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S204
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S205
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			reduce(35), /* lbrace, reduce: RExpr */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S206
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(13), /* $, reduce: StatementBlock */
-			nil,        /* empty */
-			reduce(13), /* class, reduce: StatementBlock */
-			reduce(13), /* ident, reduce: StatementBlock */
-			reduce(13), /* lparen, reduce: StatementBlock */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(13), /* if, reduce: StatementBlock */
-			reduce(13), /* while, reduce: StatementBlock */
-			nil,        /* assign */
-			reduce(13), /* return, reduce: StatementBlock */
-			reduce(13), /* elif, reduce: StatementBlock */
-			reduce(13), /* else, reduce: StatementBlock */
-			nil,        /* period */
-			reduce(13), /* string_literal, reduce: StatementBlock */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(13), /* int, reduce: StatementBlock */
-			reduce(13), /* true, reduce: StatementBlock */
-			reduce(13), /* false, reduce: StatementBlock */
-			reduce(13), /* typecase, reduce: StatementBlock */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S207
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			nil,       /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			shift(90), /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			shift(92), /* period */
-			nil,       /* string_literal */
-			shift(93), /* plus */
-			shift(94), /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			nil,       /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S208
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(25), /* $, reduce: IfStatement */
-			nil,        /* empty */
-			reduce(25), /* class, reduce: IfStatement */
-			reduce(25), /* ident, reduce: IfStatement */
-			reduce(25), /* lparen, reduce: IfStatement */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(25), /* if, reduce: IfStatement */
-			reduce(25), /* while, reduce: IfStatement */
-			nil,        /* assign */
-			reduce(25), /* return, reduce: IfStatement */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			reduce(25), /* string_literal, reduce: IfStatement */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(25), /* int, reduce: IfStatement */
-			reduce(25), /* true, reduce: IfStatement */
-			reduce(25), /* false, reduce: IfStatement */
-			reduce(25), /* typecase, reduce: IfStatement */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S209
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S210
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(242), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S211
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(13), /* $, reduce: StatementBlock */
-			nil,        /* empty */
-			reduce(13), /* class, reduce: StatementBlock */
-			reduce(13), /* ident, reduce: StatementBlock */
-			reduce(13), /* lparen, reduce: StatementBlock */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(13), /* if, reduce: StatementBlock */
-			reduce(13), /* while, reduce: StatementBlock */
-			nil,        /* assign */
-			reduce(13), /* return, reduce: StatementBlock */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			reduce(13), /* string_literal, reduce: StatementBlock */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(13), /* int, reduce: StatementBlock */
-			reduce(13), /* true, reduce: StatementBlock */
-			reduce(13), /* false, reduce: StatementBlock */
-			reduce(13), /* typecase, reduce: StatementBlock */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S212
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S213
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(244), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(82),  /* period */
-			nil,        /* string_literal */
-			shift(83),  /* plus */
-			shift(84),  /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S214
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(16), /* $, reduce: Statement */
-			nil,        /* empty */
-			reduce(16), /* class, reduce: Statement */
-			reduce(16), /* ident, reduce: Statement */
-			reduce(16), /* lparen, reduce: Statement */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(16), /* if, reduce: Statement */
-			reduce(16), /* while, reduce: Statement */
-			nil,        /* assign */
-			reduce(16), /* return, reduce: Statement */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			reduce(16), /* string_literal, reduce: Statement */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(16), /* int, reduce: Statement */
-			reduce(16), /* true, reduce: Statement */
-			reduce(16), /* false, reduce: Statement */
-			reduce(16), /* typecase, reduce: Statement */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S215
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(245), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S216
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(164), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(170), /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S217
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(164), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(170), /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S218
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(164), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(170), /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S219
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(164), /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(170), /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S220
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			shift(251), /* true */
-			shift(252), /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S221
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(253), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S222
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(45), /* $, reduce: Typecase */
-			nil,        /* empty */
-			reduce(45), /* class, reduce: Typecase */
-			reduce(45), /* ident, reduce: Typecase */
-			reduce(45), /* lparen, reduce: Typecase */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(45), /* if, reduce: Typecase */
-			reduce(45), /* while, reduce: Typecase */
-			nil,        /* assign */
-			reduce(45), /* return, reduce: Typecase */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			reduce(45), /* string_literal, reduce: Typecase */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(45), /* int, reduce: Typecase */
-			reduce(45), /* true, reduce: Typecase */
-			reduce(45), /* false, reduce: Typecase */
-			reduce(45), /* typecase, reduce: Typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S223
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(254), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S224
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(255), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S225
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(35), /* rbrace, reduce: RExpr */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S226
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(256), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S227
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(14), /* rbrace, reduce: Statement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S228
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			shift(34), /* ident */
-			shift(35), /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			nil,       /* lbrace */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			shift(37), /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			shift(41), /* int */
-			shift(18), /* true */
-			shift(19), /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S229
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			shift(181), /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S230
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S231
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(260), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S232
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			shift(261), /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			shift(215), /* period */
-			nil,        /* string_literal */
-			shift(216), /* plus */
-			shift(217), /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S233
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			shift(262), /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S234
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			reduce(10), /* rparen, reduce: FormalArgsList */
-			nil,        /* extends */
-			nil,        /* colon */
-			shift(264), /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S235
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			nil,       /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			reduce(4), /* lbrace, reduce: ClassSignature */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			nil,       /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S236
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(265), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S237
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			reduce(35), /* comma, reduce: RExpr */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S238
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			shift(73),  /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			shift(78),  /* int */
-			shift(18),  /* true */
-			shift(19),  /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S239
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(267), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S240
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			reduce(26), /* $, reduce: IfStatement */
-			nil,        /* empty */
-			reduce(26), /* class, reduce: IfStatement */
-			reduce(26), /* ident, reduce: IfStatement */
-			reduce(26), /* lparen, reduce: IfStatement */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			reduce(26), /* if, reduce: IfStatement */
-			reduce(26), /* while, reduce: IfStatement */
-			nil,        /* assign */
-			reduce(26), /* return, reduce: IfStatement */
-			shift(151), /* elif */
-			shift(152), /* else */
-			nil,        /* period */
-			reduce(26), /* string_literal, reduce: IfStatement */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			reduce(26), /* int, reduce: IfStatement */
-			reduce(26), /* true, reduce: IfStatement */
-			reduce(26), /* false, reduce: IfStatement */
-			reduce(26), /* typecase, reduce: IfStatement */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S241
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(269), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S242
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -11171,6 +5237,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			reduce(34), /* int, reduce: RExpr */
@@ -11184,112 +5251,19 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S243
+	actionRow{ // S114
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
+			shift(179), /* ident */
 			nil,        /* lparen */
-			shift(270), /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S244
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(39), /* semicolon, reduce: Factor */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(39), /* period, reduce: Factor */
-			nil,        /* string_literal */
-			reduce(39), /* plus, reduce: Factor */
-			reduce(39), /* minus, reduce: Factor */
-			nil,        /* and */
-			reduce(39), /* mul, reduce: Factor */
-			reduce(39), /* div, reduce: Factor */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S245
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			shift(271), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -11309,6 +5283,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -11322,334 +5297,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S246
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(30), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(30), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(30), /* plus, reduce: RExpr */
-			reduce(30), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(218), /* mul */
-			shift(219), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S247
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(31), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(31), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(31), /* plus, reduce: RExpr */
-			reduce(31), /* minus, reduce: RExpr */
-			nil,        /* and */
-			shift(218), /* mul */
-			shift(219), /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S248
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(36), /* semicolon, reduce: Term */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(36), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(36), /* plus, reduce: Term */
-			reduce(36), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(36), /* mul, reduce: Term */
-			reduce(36), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S249
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(37), /* semicolon, reduce: Term */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(37), /* period, reduce: Term */
-			nil,        /* string_literal */
-			reduce(37), /* plus, reduce: Term */
-			reduce(37), /* minus, reduce: Term */
-			nil,        /* and */
-			reduce(37), /* mul, reduce: Term */
-			reduce(37), /* div, reduce: Term */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S250
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(33), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(33), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(33), /* plus, reduce: RExpr */
-			reduce(33), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S251
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(41), /* semicolon, reduce: Bool */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(41), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(41), /* plus, reduce: Bool */
-			reduce(41), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S252
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(42), /* semicolon, reduce: Bool */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(42), /* period, reduce: Bool */
-			nil,        /* string_literal */
-			reduce(42), /* plus, reduce: Bool */
-			reduce(42), /* minus, reduce: Bool */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S253
+	actionRow{ // S115
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -11677,6 +5329,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -11690,71 +5343,24 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S254
+	actionRow{ // S116
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			nil,        /* rbrace */
-			shift(273), /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S255
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(274), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			reduce(8),  /* colon, reduce: FormalArgs */
-			nil,        /* comma */
-			reduce(8),  /* lbrace, reduce: FormalArgs */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -11765,15 +5371,16 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			nil,        /* string_literal */
+			shift(74),  /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -11782,12 +5389,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S256
+	actionRow{ // S117
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -11796,25 +5402,26 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			nil,        /* rparen */
+			shift(183), /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			reduce(13), /* rbrace, reduce: StatementBlock */
+			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
 			nil,        /* while */
 			nil,        /* assign */
 			nil,        /* return */
-			reduce(13), /* elif, reduce: StatementBlock */
-			reduce(13), /* else, reduce: StatementBlock */
-			nil,        /* period */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
 			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -11828,12 +5435,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S257
+	actionRow{ // S118
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -11846,7 +5452,7 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			shift(176), /* lbrace */
+			shift(184), /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -11856,11 +5462,12 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			shift(92),  /* period */
+			shift(94),  /* period */
 			nil,        /* string_literal */
-			shift(93),  /* plus */
-			shift(94),  /* minus */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -11874,67 +5481,20 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S258
+	actionRow{ // S119
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
+			shift(186), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(25), /* rbrace, reduce: IfStatement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S259
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			shift(277), /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -11953,6 +5513,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -11966,150 +5527,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S260
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(13), /* rbrace, reduce: StatementBlock */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S261
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(16), /* rbrace, reduce: Statement */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S262
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			reduce(45), /* rbrace, reduce: Typecase */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S263
+	actionRow{ // S120
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -12117,8 +5539,8 @@ var actionTab = actionTable{
 			nil,       /* empty */
 			nil,       /* class */
 			nil,       /* ident */
-			nil,       /* lparen */
-			reduce(7), /* rparen, reduce: FormalArgs */
+			shift(57), /* lparen */
+			nil,       /* rparen */
 			nil,       /* extends */
 			nil,       /* colon */
 			nil,       /* comma */
@@ -12137,9 +5559,10 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
-			nil,       /* int */
+			shift(68), /* int */
 			nil,       /* true */
 			nil,       /* false */
 			nil,       /* typecase */
@@ -12150,19 +5573,294 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S264
+	actionRow{ // S121
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(57), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(68), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S122
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(278), /* ident */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(189), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(94),  /* period */
+			nil,        /* string_literal */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S123
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			shift(191), /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S124
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(18), /* rbrace, reduce: Statement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S125
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(57), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(68), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S126
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(57), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(68), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S127
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -12183,11 +5881,12 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
+			shift(195), /* true */
+			shift(196), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -12196,58 +5895,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S265
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,       /* INVALID */
-			nil,       /* $ */
-			nil,       /* empty */
-			nil,       /* class */
-			nil,       /* ident */
-			nil,       /* lparen */
-			nil,       /* rparen */
-			nil,       /* extends */
-			nil,       /* colon */
-			nil,       /* comma */
-			reduce(5), /* lbrace, reduce: Extend */
-			nil,       /* rbrace */
-			nil,       /* semicolon */
-			nil,       /* def */
-			nil,       /* if */
-			nil,       /* while */
-			nil,       /* assign */
-			nil,       /* return */
-			nil,       /* elif */
-			nil,       /* else */
-			nil,       /* period */
-			nil,       /* string_literal */
-			nil,       /* plus */
-			nil,       /* minus */
-			nil,       /* and */
-			nil,       /* mul */
-			nil,       /* div */
-			nil,       /* int */
-			nil,       /* true */
-			nil,       /* false */
-			nil,       /* typecase */
-			nil,       /* atleast */
-			nil,       /* atmost */
-			nil,       /* eq */
-			nil,       /* gt */
-			nil,       /* let */
-			nil,       /* lt */
-			nil,       /* not */
-			nil,       /* or */
-			nil,       /* string_escape_error */
-			nil,       /* unknown */
-		},
-	},
-	actionRow{ // S266
+	actionRow{ // S128
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12256,7 +5908,7 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			shift(279), /* rparen */
+			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -12275,6 +5927,53 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(195), /* true */
+			shift(196), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S129
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(198), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(94),  /* period */
+			nil,        /* string_literal */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12288,12 +5987,1069 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S267
+	actionRow{ // S130
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			shift(199), /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S131
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(200), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S132
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S133
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(202), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
+			nil,        /* string_literal */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S134
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(26), /* ident */
+			shift(27), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(29), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(33), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S135
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(204), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S136
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(72), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(79), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S137
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(72), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(79), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S138
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(72), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(79), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S139
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			shift(72), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(79), /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S140
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(210), /* true */
+			shift(211), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S141
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(210), /* true */
+			shift(211), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S142
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(36), /* $, reduce: RExpr */
+			nil,        /* empty */
+			reduce(36), /* class, reduce: RExpr */
+			reduce(36), /* ident, reduce: RExpr */
+			reduce(36), /* lparen, reduce: RExpr */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(36), /* if, reduce: RExpr */
+			reduce(36), /* while, reduce: RExpr */
+			nil,        /* assign */
+			reduce(36), /* return, reduce: RExpr */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(36), /* period, reduce: RExpr */
+			reduce(36), /* string_literal, reduce: RExpr */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(36), /* int, reduce: RExpr */
+			reduce(36), /* true, reduce: RExpr */
+			reduce(36), /* false, reduce: RExpr */
+			reduce(36), /* typecase, reduce: RExpr */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S143
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(213), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S144
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(40), /* rparen, reduce: Factor */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S145
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(214), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S146
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(30), /* rparen, reduce: RExpr */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(30), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(30), /* plus, reduce: RExpr */
+			reduce(30), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(86),  /* mul */
+			shift(87),  /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S147
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(31), /* rparen, reduce: RExpr */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(31), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(31), /* plus, reduce: RExpr */
+			reduce(31), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(86),  /* mul */
+			shift(87),  /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S148
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(37), /* rparen, reduce: Term */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(37), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(37), /* plus, reduce: Term */
+			reduce(37), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(37), /* mul, reduce: Term */
+			reduce(37), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S149
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(38), /* rparen, reduce: Term */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S150
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(33), /* rparen, reduce: RExpr */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(33), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(33), /* plus, reduce: RExpr */
+			reduce(33), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S151
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(42), /* rparen, reduce: Bool */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(42), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(42), /* plus, reduce: Bool */
+			reduce(42), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S152
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(43), /* rparen, reduce: Bool */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(43), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S153
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12321,6 +7077,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12334,20 +7091,157 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S268
+	actionRow{ // S154
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(24), /* $, reduce: IfStatement */
+			nil,        /* $ */
 			nil,        /* empty */
-			reduce(24), /* class, reduce: IfStatement */
-			reduce(24), /* ident, reduce: IfStatement */
-			reduce(24), /* lparen, reduce: IfStatement */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(215), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S155
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(40), /* lbrace, reduce: Factor */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S156
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			shift(216), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S157
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(14), /* $, reduce: Statement */
+			nil,        /* empty */
+			reduce(14), /* class, reduce: Statement */
+			reduce(14), /* ident, reduce: Statement */
+			reduce(14), /* lparen, reduce: Statement */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -12356,23 +7250,24 @@ var actionTab = actionTable{
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
-			reduce(24), /* if, reduce: IfStatement */
-			reduce(24), /* while, reduce: IfStatement */
+			reduce(14), /* if, reduce: Statement */
+			reduce(14), /* while, reduce: Statement */
 			nil,        /* assign */
-			reduce(24), /* return, reduce: IfStatement */
+			reduce(14), /* return, reduce: Statement */
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			reduce(24), /* string_literal, reduce: IfStatement */
+			reduce(14), /* string_literal, reduce: Statement */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			reduce(24), /* int, reduce: IfStatement */
-			reduce(24), /* true, reduce: IfStatement */
-			reduce(24), /* false, reduce: IfStatement */
-			reduce(24), /* typecase, reduce: IfStatement */
+			reduce(14), /* int, reduce: Statement */
+			reduce(14), /* true, reduce: Statement */
+			reduce(14), /* false, reduce: Statement */
+			reduce(14), /* typecase, reduce: Statement */
 			nil,        /* atleast */
 			nil,        /* atmost */
 			nil,        /* eq */
@@ -12380,12 +7275,471 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S269
+	actionRow{ // S158
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(34), /* ident */
+			shift(35), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(37), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(41), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S159
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(104), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S160
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(219), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S161
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(30), /* lbrace, reduce: RExpr */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(30), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(30), /* plus, reduce: RExpr */
+			reduce(30), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(97),  /* mul */
+			shift(98),  /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S162
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(31), /* lbrace, reduce: RExpr */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(31), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(31), /* plus, reduce: RExpr */
+			reduce(31), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(97),  /* mul */
+			shift(98),  /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S163
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(37), /* lbrace, reduce: Term */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(37), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(37), /* plus, reduce: Term */
+			reduce(37), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(37), /* mul, reduce: Term */
+			reduce(37), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S164
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(38), /* lbrace, reduce: Term */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S165
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(33), /* lbrace, reduce: RExpr */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(33), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(33), /* plus, reduce: RExpr */
+			reduce(33), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S166
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(42), /* lbrace, reduce: Bool */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(42), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(42), /* plus, reduce: Bool */
+			reduce(42), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S167
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(43), /* lbrace, reduce: Bool */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(43), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S168
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12413,6 +7767,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12426,67 +7781,20 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S270
+	actionRow{ // S169
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			reduce(35), /* semicolon, reduce: RExpr */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			reduce(35), /* period, reduce: RExpr */
-			nil,        /* string_literal */
-			reduce(35), /* plus, reduce: RExpr */
-			reduce(35), /* minus, reduce: RExpr */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S271
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(70),  /* ident */
-			shift(71),  /* lparen */
-			reduce(44), /* rparen, reduce: ActualArgs */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -12501,13 +7809,14 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			shift(73),  /* string_literal */
+			shift(74),  /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			shift(78),  /* int */
+			shift(79),  /* int */
 			shift(18),  /* true */
 			shift(19),  /* false */
 			nil,        /* typecase */
@@ -12518,12 +7827,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S272
+	actionRow{ // S170
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12537,7 +7845,7 @@ var actionTab = actionTable{
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			reduce(46), /* rbrace, reduce: TypeAlternative */
+			shift(221), /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
@@ -12551,6 +7859,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12564,20 +7873,19 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S273
+	actionRow{ // S171
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
-			reduce(11), /* $, reduce: ClassBody */
+			nil,        /* $ */
 			nil,        /* empty */
-			reduce(11), /* class, reduce: ClassBody */
-			reduce(11), /* ident, reduce: ClassBody */
-			reduce(11), /* lparen, reduce: ClassBody */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(222), /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
 			nil,        /* colon */
@@ -12586,23 +7894,24 @@ var actionTab = actionTable{
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
-			reduce(11), /* if, reduce: ClassBody */
-			reduce(11), /* while, reduce: ClassBody */
+			nil,        /* if */
+			nil,        /* while */
 			nil,        /* assign */
-			reduce(11), /* return, reduce: ClassBody */
+			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			reduce(11), /* string_literal, reduce: ClassBody */
+			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			reduce(11), /* int, reduce: ClassBody */
-			reduce(11), /* true, reduce: ClassBody */
-			reduce(11), /* false, reduce: ClassBody */
-			reduce(11), /* typecase, reduce: ClassBody */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
 			nil,        /* eq */
@@ -12610,12 +7919,57 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S274
+	actionRow{ // S172
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(26), /* ident */
+			shift(27), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(29), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(33), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S173
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12626,7 +7980,283 @@ var actionTab = actionTable{
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
-			shift(281), /* colon */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			shift(224), /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(225), /* period */
+			nil,        /* string_literal */
+			shift(226), /* plus */
+			shift(227), /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S174
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(29), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(29), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(29), /* plus, reduce: RExpr */
+			reduce(29), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S175
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(32), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(32), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(32), /* plus, reduce: RExpr */
+			reduce(32), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(228), /* mul */
+			shift(229), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S176
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			shift(230), /* and */
+			shift(231), /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S177
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(39), /* semicolon, reduce: Term */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(39), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(39), /* plus, reduce: Term */
+			reduce(39), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(39), /* mul, reduce: Term */
+			reduce(39), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S178
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(41), /* semicolon, reduce: Factor */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(41), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(41), /* plus, reduce: Factor */
+			reduce(41), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(41), /* mul, reduce: Factor */
+			reduce(41), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S179
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			shift(232), /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
@@ -12643,6 +8273,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12656,12 +8287,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S275
+	actionRow{ // S180
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12672,9 +8302,101 @@ var actionTab = actionTable{
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
-			shift(282), /* colon */
+			nil,        /* colon */
 			nil,        /* comma */
-			reduce(23), /* lbrace, reduce: Type */
+			nil,        /* lbrace */
+			shift(233), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S181
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			shift(235), /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S182
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(236), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -12689,6 +8411,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12702,12 +8425,103 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S276
+	actionRow{ // S183
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(40), /* rbrace, reduce: Factor */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S184
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(56), /* ident */
+			shift(57), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			shift(58), /* if */
+			shift(60), /* while */
+			nil,       /* assign */
+			shift(62), /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(64), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(68), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			shift(69), /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S185
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12728,13 +8542,14 @@ var actionTab = actionTable{
 			nil,        /* while */
 			nil,        /* assign */
 			nil,        /* return */
-			shift(228), /* elif */
-			shift(229), /* else */
+			shift(239), /* elif */
+			shift(240), /* else */
 			nil,        /* period */
 			nil,        /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12748,12 +8563,517 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S277
+	actionRow{ // S186
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(241), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			reduce(28), /* colon, reduce: LExpr */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			reduce(28), /* assign, reduce: LExpr */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S187
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(30), /* rbrace, reduce: RExpr */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(30), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(30), /* plus, reduce: RExpr */
+			reduce(30), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(125), /* mul */
+			shift(126), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S188
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(31), /* rbrace, reduce: RExpr */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(31), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(31), /* plus, reduce: RExpr */
+			reduce(31), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(125), /* mul */
+			shift(126), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S189
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(56), /* ident */
+			shift(57), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			shift(58), /* if */
+			shift(60), /* while */
+			nil,       /* assign */
+			shift(62), /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(64), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(68), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			shift(69), /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S190
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(15), /* rbrace, reduce: Statement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S191
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(171), /* ident */
+			shift(172), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(174), /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(178), /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S192
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(37), /* rbrace, reduce: Term */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(37), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(37), /* plus, reduce: Term */
+			reduce(37), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(37), /* mul, reduce: Term */
+			reduce(37), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S193
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(38), /* rbrace, reduce: Term */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S194
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(33), /* rbrace, reduce: RExpr */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(33), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(33), /* plus, reduce: RExpr */
+			reduce(33), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S195
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(42), /* rbrace, reduce: Bool */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(42), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(42), /* plus, reduce: Bool */
+			reduce(42), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S196
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(43), /* rbrace, reduce: Bool */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(43), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S197
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12781,6 +9101,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12794,23 +9115,22 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S278
+	actionRow{ // S198
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			nil,        /* ident */
+			shift(179), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
-			shift(285), /* colon */
+			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
@@ -12827,6 +9147,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12840,12 +9161,609 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S279
+	actionRow{ // S199
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(245), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S200
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			shift(247), /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(6),  /* lbrace, reduce: Extend */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S201
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(248), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S202
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(40), /* comma, reduce: Factor */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S203
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(44), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
+			nil,        /* string_literal */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S204
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(249), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S205
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(30), /* comma, reduce: RExpr */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(30), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(30), /* plus, reduce: RExpr */
+			reduce(30), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(138), /* mul */
+			shift(139), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S206
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(31), /* comma, reduce: RExpr */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(31), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(31), /* plus, reduce: RExpr */
+			reduce(31), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(138), /* mul */
+			shift(139), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S207
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(37), /* comma, reduce: Term */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(37), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(37), /* plus, reduce: Term */
+			reduce(37), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(37), /* mul, reduce: Term */
+			reduce(37), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S208
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(38), /* comma, reduce: Term */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S209
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(33), /* comma, reduce: RExpr */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(33), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(33), /* plus, reduce: RExpr */
+			reduce(33), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S210
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(42), /* comma, reduce: Bool */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(42), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(42), /* plus, reduce: Bool */
+			reduce(42), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S211
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(43), /* comma, reduce: Bool */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(43), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S212
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12873,6 +9791,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12886,12 +9805,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S280
+	actionRow{ // S213
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -12900,7 +9818,7 @@ var actionTab = actionTable{
 			nil,        /* class */
 			nil,        /* ident */
 			nil,        /* lparen */
-			shift(286), /* rparen */
+			reduce(36), /* rparen, reduce: RExpr */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -12914,11 +9832,12 @@ var actionTab = actionTable{
 			nil,        /* return */
 			nil,        /* elif */
 			nil,        /* else */
-			nil,        /* period */
+			reduce(36), /* period, reduce: RExpr */
 			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -12932,21 +9851,20 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S281
+	actionRow{ // S214
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(287), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
@@ -12961,15 +9879,16 @@ var actionTab = actionTable{
 			nil,        /* elif */
 			nil,        /* else */
 			nil,        /* period */
-			nil,        /* string_literal */
+			shift(74),  /* string_literal */
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -12978,58 +9897,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S282
-		canRecover: false,
-		actions: [numSymbols]action{
-			nil,        /* INVALID */
-			nil,        /* $ */
-			nil,        /* empty */
-			nil,        /* class */
-			shift(288), /* ident */
-			nil,        /* lparen */
-			nil,        /* rparen */
-			nil,        /* extends */
-			nil,        /* colon */
-			nil,        /* comma */
-			nil,        /* lbrace */
-			nil,        /* rbrace */
-			nil,        /* semicolon */
-			nil,        /* def */
-			nil,        /* if */
-			nil,        /* while */
-			nil,        /* assign */
-			nil,        /* return */
-			nil,        /* elif */
-			nil,        /* else */
-			nil,        /* period */
-			nil,        /* string_literal */
-			nil,        /* plus */
-			nil,        /* minus */
-			nil,        /* and */
-			nil,        /* mul */
-			nil,        /* div */
-			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
-			nil,        /* typecase */
-			nil,        /* atleast */
-			nil,        /* atmost */
-			nil,        /* eq */
-			nil,        /* gt */
-			nil,        /* let */
-			nil,        /* lt */
-			nil,        /* not */
-			nil,        /* or */
-			nil,        /* string_escape_error */
-			nil,        /* unknown */
-		},
-	},
-	actionRow{ // S283
+	actionRow{ // S215
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13042,7 +9914,237 @@ var actionTab = actionTable{
 			nil,        /* extends */
 			nil,        /* colon */
 			nil,        /* comma */
-			shift(181), /* lbrace */
+			reduce(36), /* lbrace, reduce: RExpr */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(36), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S216
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(13), /* $, reduce: StatementBlock */
+			nil,        /* empty */
+			reduce(13), /* class, reduce: StatementBlock */
+			reduce(13), /* ident, reduce: StatementBlock */
+			reduce(13), /* lparen, reduce: StatementBlock */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(13), /* if, reduce: StatementBlock */
+			reduce(13), /* while, reduce: StatementBlock */
+			nil,        /* assign */
+			reduce(13), /* return, reduce: StatementBlock */
+			reduce(13), /* elif, reduce: StatementBlock */
+			reduce(13), /* else, reduce: StatementBlock */
+			nil,        /* period */
+			reduce(13), /* string_literal, reduce: StatementBlock */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(13), /* int, reduce: StatementBlock */
+			reduce(13), /* true, reduce: StatementBlock */
+			reduce(13), /* false, reduce: StatementBlock */
+			reduce(13), /* typecase, reduce: StatementBlock */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S217
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			nil,       /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			shift(92), /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			shift(94), /* period */
+			nil,       /* string_literal */
+			shift(95), /* plus */
+			shift(96), /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			nil,       /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S218
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(25), /* $, reduce: IfStatement */
+			nil,        /* empty */
+			reduce(25), /* class, reduce: IfStatement */
+			reduce(25), /* ident, reduce: IfStatement */
+			reduce(25), /* lparen, reduce: IfStatement */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(25), /* if, reduce: IfStatement */
+			reduce(25), /* while, reduce: IfStatement */
+			nil,        /* assign */
+			reduce(25), /* return, reduce: IfStatement */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(25), /* string_literal, reduce: IfStatement */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(25), /* int, reduce: IfStatement */
+			reduce(25), /* true, reduce: IfStatement */
+			reduce(25), /* false, reduce: IfStatement */
+			reduce(25), /* typecase, reduce: IfStatement */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S219
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S220
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(253), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
@@ -13057,6 +10159,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13070,12 +10173,425 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S284
+	actionRow{ // S221
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(13), /* $, reduce: StatementBlock */
+			nil,        /* empty */
+			reduce(13), /* class, reduce: StatementBlock */
+			reduce(13), /* ident, reduce: StatementBlock */
+			reduce(13), /* lparen, reduce: StatementBlock */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(13), /* if, reduce: StatementBlock */
+			reduce(13), /* while, reduce: StatementBlock */
+			nil,        /* assign */
+			reduce(13), /* return, reduce: StatementBlock */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(13), /* string_literal, reduce: StatementBlock */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(13), /* int, reduce: StatementBlock */
+			reduce(13), /* true, reduce: StatementBlock */
+			reduce(13), /* false, reduce: StatementBlock */
+			reduce(13), /* typecase, reduce: StatementBlock */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S222
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S223
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(255), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(83),  /* period */
+			nil,        /* string_literal */
+			shift(84),  /* plus */
+			shift(85),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S224
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(16), /* $, reduce: Statement */
+			nil,        /* empty */
+			reduce(16), /* class, reduce: Statement */
+			reduce(16), /* ident, reduce: Statement */
+			reduce(16), /* lparen, reduce: Statement */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(16), /* if, reduce: Statement */
+			reduce(16), /* while, reduce: Statement */
+			nil,        /* assign */
+			reduce(16), /* return, reduce: Statement */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(16), /* string_literal, reduce: Statement */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(16), /* int, reduce: Statement */
+			reduce(16), /* true, reduce: Statement */
+			reduce(16), /* false, reduce: Statement */
+			reduce(16), /* typecase, reduce: Statement */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S225
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(256), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S226
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(172), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(178), /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S227
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(172), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(178), /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S228
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(172), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(178), /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S229
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(172), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(178), /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S230
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13089,7 +10605,7 @@ var actionTab = actionTable{
 			nil,        /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
-			reduce(24), /* rbrace, reduce: IfStatement */
+			nil,        /* rbrace */
 			nil,        /* semicolon */
 			nil,        /* def */
 			nil,        /* if */
@@ -13103,11 +10619,12 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
-			nil,        /* true */
-			nil,        /* false */
+			shift(262), /* true */
+			shift(263), /* false */
 			nil,        /* typecase */
 			nil,        /* atleast */
 			nil,        /* atmost */
@@ -13116,19 +10633,18 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S285
+	actionRow{ // S231
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(290), /* ident */
+			nil,        /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -13149,6 +10665,53 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			shift(262), /* true */
+			shift(263), /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S232
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(265), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13162,12 +10725,1437 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S286
+	actionRow{ // S233
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(46), /* $, reduce: Typecase */
+			nil,        /* empty */
+			reduce(46), /* class, reduce: Typecase */
+			reduce(46), /* ident, reduce: Typecase */
+			reduce(46), /* lparen, reduce: Typecase */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(46), /* if, reduce: Typecase */
+			reduce(46), /* while, reduce: Typecase */
+			nil,        /* assign */
+			reduce(46), /* return, reduce: Typecase */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(46), /* string_literal, reduce: Typecase */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(46), /* int, reduce: Typecase */
+			reduce(46), /* true, reduce: Typecase */
+			reduce(46), /* false, reduce: Typecase */
+			reduce(46), /* typecase, reduce: Typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S234
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			shift(266), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S235
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(267), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S236
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(36), /* rbrace, reduce: RExpr */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(36), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S237
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			shift(268), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S238
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(14), /* rbrace, reduce: Statement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S239
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			shift(34), /* ident */
+			shift(35), /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			shift(37), /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			shift(41), /* int */
+			shift(18), /* true */
+			shift(19), /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S240
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(189), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S241
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S242
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			shift(272), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S243
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			shift(273), /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(225), /* period */
+			nil,        /* string_literal */
+			shift(226), /* plus */
+			shift(227), /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S244
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			shift(274), /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S245
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(10), /* rparen, reduce: FormalArgsList */
+			nil,        /* extends */
+			nil,        /* colon */
+			shift(276), /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S246
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			nil,       /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			reduce(4), /* lbrace, reduce: ClassSignature */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			nil,       /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S247
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(277), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S248
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(36), /* comma, reduce: RExpr */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(36), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S249
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S250
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(279), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S251
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(26), /* $, reduce: IfStatement */
+			nil,        /* empty */
+			reduce(26), /* class, reduce: IfStatement */
+			reduce(26), /* ident, reduce: IfStatement */
+			reduce(26), /* lparen, reduce: IfStatement */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(26), /* if, reduce: IfStatement */
+			reduce(26), /* while, reduce: IfStatement */
+			nil,        /* assign */
+			reduce(26), /* return, reduce: IfStatement */
+			shift(158), /* elif */
+			shift(159), /* else */
+			nil,        /* period */
+			reduce(26), /* string_literal, reduce: IfStatement */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(26), /* int, reduce: IfStatement */
+			reduce(26), /* true, reduce: IfStatement */
+			reduce(26), /* false, reduce: IfStatement */
+			reduce(26), /* typecase, reduce: IfStatement */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S252
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(281), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S253
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(35), /* $, reduce: RExpr */
+			nil,        /* empty */
+			reduce(35), /* class, reduce: RExpr */
+			reduce(35), /* ident, reduce: RExpr */
+			reduce(35), /* lparen, reduce: RExpr */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(35), /* if, reduce: RExpr */
+			reduce(35), /* while, reduce: RExpr */
+			nil,        /* assign */
+			reduce(35), /* return, reduce: RExpr */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			reduce(35), /* string_literal, reduce: RExpr */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(35), /* int, reduce: RExpr */
+			reduce(35), /* true, reduce: RExpr */
+			reduce(35), /* false, reduce: RExpr */
+			reduce(35), /* typecase, reduce: RExpr */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S254
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(282), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S255
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(40), /* semicolon, reduce: Factor */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(40), /* period, reduce: Factor */
+			nil,        /* string_literal */
+			reduce(40), /* plus, reduce: Factor */
+			reduce(40), /* minus, reduce: Factor */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(40), /* mul, reduce: Factor */
+			reduce(40), /* div, reduce: Factor */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S256
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			shift(283), /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S257
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(30), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(30), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(30), /* plus, reduce: RExpr */
+			reduce(30), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(228), /* mul */
+			shift(229), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S258
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(31), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(31), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(31), /* plus, reduce: RExpr */
+			reduce(31), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			shift(228), /* mul */
+			shift(229), /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S259
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(37), /* semicolon, reduce: Term */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(37), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(37), /* plus, reduce: Term */
+			reduce(37), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(37), /* mul, reduce: Term */
+			reduce(37), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S260
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(38), /* semicolon, reduce: Term */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(38), /* period, reduce: Term */
+			nil,        /* string_literal */
+			reduce(38), /* plus, reduce: Term */
+			reduce(38), /* minus, reduce: Term */
+			nil,        /* and */
+			nil,        /* or */
+			reduce(38), /* mul, reduce: Term */
+			reduce(38), /* div, reduce: Term */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S261
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(33), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(33), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(33), /* plus, reduce: RExpr */
+			reduce(33), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S262
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(42), /* semicolon, reduce: Bool */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(42), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(42), /* plus, reduce: Bool */
+			reduce(42), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S263
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(43), /* semicolon, reduce: Bool */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(43), /* period, reduce: Bool */
+			nil,        /* string_literal */
+			reduce(43), /* plus, reduce: Bool */
+			reduce(43), /* minus, reduce: Bool */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S264
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13195,6 +12183,7 @@ var actionTab = actionTable{
 			reduce(34), /* plus, reduce: RExpr */
 			reduce(34), /* minus, reduce: RExpr */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13208,7 +12197,1018 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S265
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(189), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
 			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S266
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			shift(285), /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S267
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(286), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			reduce(8),  /* colon, reduce: FormalArgs */
+			nil,        /* comma */
+			reduce(8),  /* lbrace, reduce: FormalArgs */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S268
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(13), /* rbrace, reduce: StatementBlock */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			reduce(13), /* elif, reduce: StatementBlock */
+			reduce(13), /* else, reduce: StatementBlock */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S269
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(184), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			shift(94),  /* period */
+			nil,        /* string_literal */
+			shift(95),  /* plus */
+			shift(96),  /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S270
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(25), /* rbrace, reduce: IfStatement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S271
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(289), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S272
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(13), /* rbrace, reduce: StatementBlock */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S273
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(16), /* rbrace, reduce: Statement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S274
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(46), /* rbrace, reduce: Typecase */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S275
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			nil,       /* lparen */
+			reduce(7), /* rparen, reduce: FormalArgs */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			nil,       /* lbrace */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			nil,       /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S276
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(290), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S277
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,       /* INVALID */
+			nil,       /* $ */
+			nil,       /* empty */
+			nil,       /* class */
+			nil,       /* ident */
+			nil,       /* lparen */
+			nil,       /* rparen */
+			nil,       /* extends */
+			nil,       /* colon */
+			nil,       /* comma */
+			reduce(5), /* lbrace, reduce: Extend */
+			nil,       /* rbrace */
+			nil,       /* semicolon */
+			nil,       /* def */
+			nil,       /* if */
+			nil,       /* while */
+			nil,       /* assign */
+			nil,       /* return */
+			nil,       /* elif */
+			nil,       /* else */
+			nil,       /* period */
+			nil,       /* string_literal */
+			nil,       /* plus */
+			nil,       /* minus */
+			nil,       /* and */
+			nil,       /* or */
+			nil,       /* mul */
+			nil,       /* div */
+			nil,       /* int */
+			nil,       /* true */
+			nil,       /* false */
+			nil,       /* typecase */
+			nil,       /* atleast */
+			nil,       /* atmost */
+			nil,       /* eq */
+			nil,       /* gt */
+			nil,       /* let */
+			nil,       /* lt */
+			nil,       /* not */
+			nil,       /* string_escape_error */
+			nil,       /* unknown */
+		},
+	},
+	actionRow{ // S278
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(291), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S279
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			reduce(35), /* rparen, reduce: RExpr */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S280
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(24), /* $, reduce: IfStatement */
+			nil,        /* empty */
+			reduce(24), /* class, reduce: IfStatement */
+			reduce(24), /* ident, reduce: IfStatement */
+			reduce(24), /* lparen, reduce: IfStatement */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(24), /* if, reduce: IfStatement */
+			reduce(24), /* while, reduce: IfStatement */
+			nil,        /* assign */
+			reduce(24), /* return, reduce: IfStatement */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(24), /* string_literal, reduce: IfStatement */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(24), /* int, reduce: IfStatement */
+			reduce(24), /* true, reduce: IfStatement */
+			reduce(24), /* false, reduce: IfStatement */
+			reduce(24), /* typecase, reduce: IfStatement */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S281
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			reduce(35), /* lbrace, reduce: RExpr */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S282
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(36), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(36), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(36), /* plus, reduce: RExpr */
+			reduce(36), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S283
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(71),  /* ident */
+			shift(72),  /* lparen */
+			reduce(45), /* rparen, reduce: ActualArgs */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			shift(74),  /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			shift(79),  /* int */
+			shift(18),  /* true */
+			shift(19),  /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S284
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(47), /* rbrace, reduce: TypeAlternative */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S285
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			reduce(11), /* $, reduce: ClassBody */
+			nil,        /* empty */
+			reduce(11), /* class, reduce: ClassBody */
+			reduce(11), /* ident, reduce: ClassBody */
+			reduce(11), /* lparen, reduce: ClassBody */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			reduce(11), /* if, reduce: ClassBody */
+			reduce(11), /* while, reduce: ClassBody */
+			nil,        /* assign */
+			reduce(11), /* return, reduce: ClassBody */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			reduce(11), /* string_literal, reduce: ClassBody */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			reduce(11), /* int, reduce: ClassBody */
+			reduce(11), /* true, reduce: ClassBody */
+			reduce(11), /* false, reduce: ClassBody */
+			reduce(11), /* typecase, reduce: ClassBody */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S286
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			shift(293), /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
@@ -13224,8 +13224,560 @@ var actionTab = actionTable{
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
+			shift(294), /* colon */
+			nil,        /* comma */
+			reduce(23), /* lbrace, reduce: Type */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S288
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(26), /* rbrace, reduce: IfStatement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			shift(239), /* elif */
+			shift(240), /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S289
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(35), /* rbrace, reduce: RExpr */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S290
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			shift(297), /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S291
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			reduce(35), /* comma, reduce: RExpr */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S292
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			shift(298), /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S293
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(299), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S294
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(300), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S295
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			shift(189), /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S296
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			reduce(24), /* rbrace, reduce: IfStatement */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S297
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			shift(302), /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			nil,        /* semicolon */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			nil,        /* period */
+			nil,        /* string_literal */
+			nil,        /* plus */
+			nil,        /* minus */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S298
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
+			nil,        /* colon */
+			nil,        /* comma */
+			nil,        /* lbrace */
+			nil,        /* rbrace */
+			reduce(35), /* semicolon, reduce: RExpr */
+			nil,        /* def */
+			nil,        /* if */
+			nil,        /* while */
+			nil,        /* assign */
+			nil,        /* return */
+			nil,        /* elif */
+			nil,        /* else */
+			reduce(35), /* period, reduce: RExpr */
+			nil,        /* string_literal */
+			reduce(35), /* plus, reduce: RExpr */
+			reduce(35), /* minus, reduce: RExpr */
+			nil,        /* and */
+			nil,        /* or */
+			nil,        /* mul */
+			nil,        /* div */
+			nil,        /* int */
+			nil,        /* true */
+			nil,        /* false */
+			nil,        /* typecase */
+			nil,        /* atleast */
+			nil,        /* atmost */
+			nil,        /* eq */
+			nil,        /* gt */
+			nil,        /* let */
+			nil,        /* lt */
+			nil,        /* not */
+			nil,        /* string_escape_error */
+			nil,        /* unknown */
+		},
+	},
+	actionRow{ // S299
+		canRecover: false,
+		actions: [numSymbols]action{
+			nil,        /* INVALID */
+			nil,        /* $ */
+			nil,        /* empty */
+			nil,        /* class */
+			nil,        /* ident */
+			nil,        /* lparen */
+			nil,        /* rparen */
+			nil,        /* extends */
 			reduce(10), /* colon, reduce: FormalArgsList */
-			shift(292), /* comma */
+			shift(304), /* comma */
 			reduce(10), /* lbrace, reduce: FormalArgsList */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -13241,6 +13793,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13254,12 +13807,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S288
+	actionRow{ // S300
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13287,6 +13839,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13300,12 +13853,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S289
+	actionRow{ // S301
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13333,6 +13885,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13346,12 +13899,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S290
+	actionRow{ // S302
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13363,7 +13915,7 @@ var actionTab = actionTable{
 			reduce(10), /* rparen, reduce: FormalArgsList */
 			nil,        /* extends */
 			nil,        /* colon */
-			shift(264), /* comma */
+			shift(276), /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -13379,6 +13931,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13392,12 +13945,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S291
+	actionRow{ // S303
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -13425,6 +13977,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -13438,19 +13991,18 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S292
+	actionRow{ // S304
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(294), /* ident */
+			shift(306), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -13471,6 +14023,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13484,12 +14037,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S293
+	actionRow{ // S305
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -13517,6 +14069,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -13530,12 +14083,11 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},
 	},
-	actionRow{ // S294
+	actionRow{ // S306
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13546,7 +14098,7 @@ var actionTab = actionTable{
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
-			shift(295), /* colon */
+			shift(307), /* colon */
 			nil,        /* comma */
 			nil,        /* lbrace */
 			nil,        /* rbrace */
@@ -13563,6 +14115,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13576,19 +14129,18 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S295
+	actionRow{ // S307
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
 			nil,        /* $ */
 			nil,        /* empty */
 			nil,        /* class */
-			shift(296), /* ident */
+			shift(308), /* ident */
 			nil,        /* lparen */
 			nil,        /* rparen */
 			nil,        /* extends */
@@ -13609,6 +14161,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13622,12 +14175,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S296
+	actionRow{ // S308
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,        /* INVALID */
@@ -13639,7 +14191,7 @@ var actionTab = actionTable{
 			nil,        /* rparen */
 			nil,        /* extends */
 			reduce(10), /* colon, reduce: FormalArgsList */
-			shift(292), /* comma */
+			shift(304), /* comma */
 			reduce(10), /* lbrace, reduce: FormalArgsList */
 			nil,        /* rbrace */
 			nil,        /* semicolon */
@@ -13655,6 +14207,7 @@ var actionTab = actionTable{
 			nil,        /* plus */
 			nil,        /* minus */
 			nil,        /* and */
+			nil,        /* or */
 			nil,        /* mul */
 			nil,        /* div */
 			nil,        /* int */
@@ -13668,12 +14221,11 @@ var actionTab = actionTable{
 			nil,        /* let */
 			nil,        /* lt */
 			nil,        /* not */
-			nil,        /* or */
 			nil,        /* string_escape_error */
 			nil,        /* unknown */
 		},
 	},
-	actionRow{ // S297
+	actionRow{ // S309
 		canRecover: false,
 		actions: [numSymbols]action{
 			nil,       /* INVALID */
@@ -13701,6 +14253,7 @@ var actionTab = actionTable{
 			nil,       /* plus */
 			nil,       /* minus */
 			nil,       /* and */
+			nil,       /* or */
 			nil,       /* mul */
 			nil,       /* div */
 			nil,       /* int */
@@ -13714,7 +14267,6 @@ var actionTab = actionTable{
 			nil,       /* let */
 			nil,       /* lt */
 			nil,       /* not */
-			nil,       /* or */
 			nil,       /* string_escape_error */
 			nil,       /* unknown */
 		},

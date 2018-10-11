@@ -485,7 +485,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // IfStatement
 		-1, // LExpr
-		52, // RExpr
+		53, // RExpr
 		38, // Term
 		40, // Factor
 		39, // Bool
@@ -495,7 +495,7 @@ var gotoTab = gotoTable{
 	},
 	gotoRow{ // S21
 		-1, // S'
-		53, // Program
+		54, // Program
 		2,  // ClassSignature
 		-1, // Extend
 		-1, // FormalArgs
@@ -526,17 +526,17 @@ var gotoTab = gotoTable{
 		-1, // ClassBody
 		-1, // Method
 		-1, // StatementBlock
-		54, // Statement
+		55, // Statement
 		-1, // OptionalReturn
 		-1, // Type
 		-1, // IfStatement
-		60, // LExpr
-		58, // RExpr
-		64, // Term
-		66, // Factor
-		65, // Bool
+		61, // LExpr
+		59, // RExpr
+		65, // Term
+		67, // Factor
+		66, // Bool
 		-1, // ActualArgs
-		62, // Typecase
+		63, // Typecase
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S23
@@ -600,11 +600,11 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // IfStatement
 		-1, // LExpr
-		72, // RExpr
-		74, // Term
-		77, // Factor
-		75, // Bool
-		76, // ActualArgs
+		73, // RExpr
+		75, // Term
+		78, // Factor
+		76, // Bool
+		77, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
 	},
@@ -646,7 +646,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // IfStatement
 		-1, // LExpr
-		80, // RExpr
+		81, // RExpr
 		30, // Term
 		32, // Factor
 		31, // Bool
@@ -830,7 +830,7 @@ var gotoTab = gotoTable{
 		-1, // Type
 		-1, // IfStatement
 		-1, // LExpr
-		89, // RExpr
+		91, // RExpr
 		30, // Term
 		32, // Factor
 		31, // Bool
@@ -847,7 +847,7 @@ var gotoTab = gotoTable{
 		-1, // FormalArgsList
 		-1, // ClassBody
 		-1, // Method
-		91, // StatementBlock
+		93, // StatementBlock
 		-1, // Statement
 		-1, // OptionalReturn
 		-1, // Type
@@ -1000,27 +1000,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S43
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		99, // Term
-		16, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		102, // Term
+		16,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S44
 		-1,  // S'
@@ -1038,7 +1038,7 @@ var gotoTab = gotoTable{
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		100, // Term
+		103, // Term
 		16,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
@@ -1054,7 +1054,7 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		102, // StatementBlock
+		105, // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
@@ -1154,7 +1154,7 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		105, // Factor
+		108, // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -1177,7 +1177,7 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		106, // Factor
+		109, // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -1201,33 +1201,33 @@ var gotoTab = gotoTable{
 		-1,  // RExpr
 		-1,  // Term
 		-1,  // Factor
-		107, // Bool
+		110, // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S52
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		113, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S53
 		-1, // S'
@@ -1299,52 +1299,6 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S56
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		113, // RExpr
-		30,  // Term
-		32,  // Factor
-		31,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S57
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		114, // RExpr
-		38,  // Term
-		40,  // Factor
-		39,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S58
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -1367,7 +1321,30 @@ var gotoTab = gotoTable{
 		-1, // Typecase
 		-1, // TypeAlternative
 	},
-	gotoRow{ // S59
+	gotoRow{ // S57
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		117, // RExpr
+		30,  // Term
+		32,  // Factor
+		31,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S58
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -1390,30 +1367,7 @@ var gotoTab = gotoTable{
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S60
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		119, // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S61
+	gotoRow{ // S59
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -1435,6 +1389,52 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
+	},
+	gotoRow{ // S60
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		122, // RExpr
+		38,  // Term
+		40,  // Factor
+		39,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S61
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		123, // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S62
 		-1, // S'
@@ -1575,6 +1575,29 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S68
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S69
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -1589,7 +1612,7 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		124, // RExpr
+		129, // RExpr
 		38,  // Term
 		40,  // Factor
 		39,  // Bool
@@ -1597,12 +1620,12 @@ var gotoTab = gotoTable{
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S69
+	gotoRow{ // S70
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
 		-1,  // Extend
-		126, // FormalArgs
+		131, // FormalArgs
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
@@ -1620,7 +1643,7 @@ var gotoTab = gotoTable{
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S70
+	gotoRow{ // S71
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -1643,7 +1666,7 @@ var gotoTab = gotoTable{
 		-1, // Typecase
 		-1, // TypeAlternative
 	},
-	gotoRow{ // S71
+	gotoRow{ // S72
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -1658,36 +1681,13 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		128, // RExpr
+		133, // RExpr
 		30,  // Term
 		32,  // Factor
 		31,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
-	},
-	gotoRow{ // S72
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
 	},
 	gotoRow{ // S73
 		-1, // S'
@@ -1828,29 +1828,6 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S79
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		137, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S80
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -1872,6 +1849,29 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
+	},
+	gotoRow{ // S80
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		143, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S81
 		-1, // S'
@@ -1920,27 +1920,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S83
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		140, // Term
-		32,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S84
 		-1,  // S'
@@ -1958,7 +1958,7 @@ var gotoTab = gotoTable{
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		141, // Term
+		146, // Term
 		32,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
@@ -1981,8 +1981,8 @@ var gotoTab = gotoTable{
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		-1,  // Term
-		142, // Factor
+		147, // Term
+		32,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -2005,7 +2005,7 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		143, // Factor
+		148, // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -2028,8 +2028,8 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		-1,  // Factor
-		144, // Bool
+		149, // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
@@ -2049,61 +2049,15 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		147, // ActualArgs
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		150, // Bool
+		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S89
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S90
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		149, // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		60,  // LExpr
-		58,  // RExpr
-		64,  // Term
-		66,  // Factor
-		65,  // Bool
-		-1,  // ActualArgs
-		62,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S91
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -2116,17 +2070,40 @@ var gotoTab = gotoTable{
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
-		150, // IfStatement
+		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
 		-1,  // Factor
-		-1,  // Bool
+		153, // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S92
+	gotoRow{ // S90
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		154, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S91
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -2148,6 +2125,29 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
+	},
+	gotoRow{ // S92
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		156, // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		61,  // LExpr
+		59,  // RExpr
+		65,  // Term
+		67,  // Factor
+		66,  // Bool
+		-1,  // ActualArgs
+		63,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S93
 		-1,  // S'
@@ -2162,38 +2162,38 @@ var gotoTab = gotoTable{
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
-		-1,  // IfStatement
+		157, // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		154, // Term
-		40,  // Factor
+		-1,  // Term
+		-1,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S94
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		155, // Term
-		40,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S95
 		-1,  // S'
@@ -2211,8 +2211,8 @@ var gotoTab = gotoTable{
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		-1,  // Term
-		156, // Factor
+		161, // Term
+		40,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -2234,8 +2234,8 @@ var gotoTab = gotoTable{
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
-		-1,  // Term
-		157, // Factor
+		162, // Term
+		40,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -2258,82 +2258,13 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		-1,  // Factor
-		158, // Bool
+		163, // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S98
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S99
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S100
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S101
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -2343,18 +2274,87 @@ var gotoTab = gotoTable{
 		-1,  // ClassBody
 		-1,  // Method
 		-1,  // StatementBlock
-		162, // Statement
+		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
 		-1,  // IfStatement
-		60,  // LExpr
-		58,  // RExpr
-		64,  // Term
-		66,  // Factor
-		65,  // Bool
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		164, // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
-		62,  // Typecase
+		-1,  // Typecase
 		-1,  // TypeAlternative
+	},
+	gotoRow{ // S99
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		165, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S100
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		168, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S101
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S102
 		-1, // S'
@@ -2412,17 +2412,17 @@ var gotoTab = gotoTable{
 		-1,  // ClassBody
 		-1,  // Method
 		-1,  // StatementBlock
-		-1,  // Statement
+		170, // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
 		-1,  // IfStatement
-		-1,  // LExpr
-		165, // RExpr
-		167, // Term
-		169, // Factor
-		168, // Bool
+		61,  // LExpr
+		59,  // RExpr
+		65,  // Term
+		67,  // Factor
+		66,  // Bool
 		-1,  // ActualArgs
-		-1,  // Typecase
+		63,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S105
@@ -2472,27 +2472,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S107
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		173, // RExpr
+		175, // Term
+		177, // Factor
+		176, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S108
 		-1, // S'
@@ -2541,27 +2541,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S110
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		172, // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S111
 		-1, // S'
@@ -2587,27 +2587,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S112
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		174, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S113
 		-1, // S'
@@ -2641,7 +2641,7 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		177, // StatementBlock
+		-1,  // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
@@ -2653,7 +2653,7 @@ var gotoTab = gotoTable{
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
-		-1,  // TypeAlternative
+		180, // TypeAlternative
 	},
 	gotoRow{ // S115
 		-1, // S'
@@ -2693,36 +2693,36 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		179, // Term
-		66,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		182, // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S117
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		180, // Term
-		66,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S118
 		-1,  // S'
@@ -2733,7 +2733,7 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		182, // StatementBlock
+		185, // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
@@ -2771,6 +2771,75 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S120
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		187, // Term
+		67,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S121
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		188, // Term
+		67,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S122
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		190, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S123
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -2792,75 +2861,6 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
-	},
-	gotoRow{ // S121
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		184, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S122
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		185, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S123
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		186, // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
 	},
 	gotoRow{ // S124
 		-1, // S'
@@ -2886,50 +2886,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S125
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		192, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S126
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		193, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S127
 		-1,  // S'
@@ -2946,15 +2946,38 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		192, // ActualArgs
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		194, // Bool
+		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S128
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		197, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S129
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -2976,29 +2999,6 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
-	},
-	gotoRow{ // S129
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		194, // RExpr
-		30,  // Term
-		32,  // Factor
-		31,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
 	},
 	gotoRow{ // S130
 		-1, // S'
@@ -3024,27 +3024,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S131
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		196, // Term
-		77,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S132
 		-1,  // S'
@@ -3061,36 +3061,36 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		197, // Term
-		77,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		201, // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S133
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		198, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S134
 		-1,  // S'
@@ -3107,15 +3107,130 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		199, // Factor
-		-1,  // Bool
+		203, // RExpr
+		30,  // Term
+		32,  // Factor
+		31,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S135
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S136
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		205, // Term
+		78,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S137
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		206, // Term
+		78,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S138
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		207, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S139
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		208, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S140
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -3133,148 +3248,33 @@ var gotoTab = gotoTable{
 		-1,  // RExpr
 		-1,  // Term
 		-1,  // Factor
-		200, // Bool
+		209, // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S136
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S137
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S138
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S139
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S140
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
 	gotoRow{ // S141
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		212, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S142
 		-1, // S'
@@ -3484,50 +3484,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S151
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		207, // RExpr
-		38,  // Term
-		40,  // Factor
-		39,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S152
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		208, // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S153
 		-1, // S'
@@ -3645,50 +3645,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S158
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		217, // RExpr
+		38,  // Term
+		40,  // Factor
+		39,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S159
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		218, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S160
 		-1, // S'
@@ -3714,27 +3714,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S161
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		210, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S162
 		-1, // S'
@@ -3783,27 +3783,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S164
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		213, // RExpr
-		30,  // Term
-		32,  // Factor
-		31,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S165
 		-1, // S'
@@ -3898,27 +3898,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S169
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		220, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S170
 		-1, // S'
@@ -3967,6 +3967,29 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S172
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		223, // RExpr
+		30,  // Term
+		32,  // Factor
+		31,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S173
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -3988,29 +4011,6 @@ var gotoTab = gotoTable{
 		-1, // ActualArgs
 		-1, // Typecase
 		-1, // TypeAlternative
-	},
-	gotoRow{ // S173
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		223, // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
 	},
 	gotoRow{ // S174
 		-1, // S'
@@ -4059,50 +4059,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S176
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		226, // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		60,  // LExpr
-		58,  // RExpr
-		64,  // Term
-		66,  // Factor
-		65,  // Bool
-		-1,  // ActualArgs
-		62,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S177
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		227, // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S178
 		-1, // S'
@@ -4181,19 +4181,19 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgs
 		-1,  // FormalArgsList
 		-1,  // ClassBody
-		-1,  // Method
+		234, // Method
 		-1,  // StatementBlock
-		231, // Statement
+		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
 		-1,  // IfStatement
-		60,  // LExpr
-		58,  // RExpr
-		64,  // Term
-		66,  // Factor
-		65,  // Bool
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
-		62,  // Typecase
+		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S182
@@ -4220,6 +4220,52 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S183
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S184
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		237, // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		61,  // LExpr
+		59,  // RExpr
+		65,  // Term
+		67,  // Factor
+		66,  // Bool
+		-1,  // ActualArgs
+		63,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S185
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -4232,61 +4278,15 @@ var gotoTab = gotoTable{
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
-		-1,  // IfStatement
+		238, // IfStatement
 		-1,  // LExpr
-		232, // RExpr
-		167, // Term
-		169, // Factor
-		168, // Bool
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
-	},
-	gotoRow{ // S184
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
-	gotoRow{ // S185
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
 	},
 	gotoRow{ // S186
 		-1, // S'
@@ -4367,18 +4367,18 @@ var gotoTab = gotoTable{
 		-1,  // ClassBody
 		-1,  // Method
 		-1,  // StatementBlock
-		-1,  // Statement
+		242, // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
 		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
+		61,  // LExpr
+		59,  // RExpr
+		65,  // Term
+		67,  // Factor
+		66,  // Bool
 		-1,  // ActualArgs
-		-1,  // Typecase
-		233, // TypeAlternative
+		63,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S190
 		-1, // S'
@@ -4407,7 +4407,7 @@ var gotoTab = gotoTable{
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
-		235, // Extend
+		-1,  // Extend
 		-1,  // FormalArgs
 		-1,  // FormalArgsList
 		-1,  // ClassBody
@@ -4418,10 +4418,10 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
+		243, // RExpr
+		175, // Term
+		177, // Factor
+		176, // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
@@ -4565,27 +4565,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S198
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		244, // TypeAlternative
 	},
 	gotoRow{ // S199
 		-1, // S'
@@ -4611,27 +4611,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S200
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		246, // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S201
 		-1, // S'
@@ -4703,27 +4703,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S204
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		239, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S205
 		-1, // S'
@@ -4772,27 +4772,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S207
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		240, // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S208
 		-1, // S'
@@ -4818,27 +4818,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S209
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		241, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S210
 		-1, // S'
@@ -4887,27 +4887,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S212
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		243, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S213
 		-1, // S'
@@ -4933,27 +4933,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S214
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		250, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S215
 		-1, // S'
@@ -4979,27 +4979,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S216
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		246, // Term
-		169, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S217
 		-1,  // S'
@@ -5010,30 +5010,7 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		247, // Term
-		169, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
-	},
-	gotoRow{ // S218
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
+		251, // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
@@ -5041,11 +5018,34 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		248, // Factor
+		-1,  // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
+	},
+	gotoRow{ // S218
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S219
 		-1,  // S'
@@ -5062,36 +5062,36 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		249, // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		252, // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S220
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		250, // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S221
 		-1, // S'
@@ -5117,27 +5117,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S222
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		254, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S223
 		-1, // S'
@@ -5209,50 +5209,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S226
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		257, // Term
+		177, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S227
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		258, // Term
+		177, // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S228
 		-1,  // S'
@@ -5269,10 +5269,10 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		257, // RExpr
-		38,  // Term
-		40,  // Factor
-		39,  // Bool
+		-1,  // RExpr
+		-1,  // Term
+		259, // Factor
+		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
@@ -5286,7 +5286,7 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		258, // StatementBlock
+		-1,  // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
@@ -5294,7 +5294,7 @@ var gotoTab = gotoTable{
 		-1,  // LExpr
 		-1,  // RExpr
 		-1,  // Term
-		-1,  // Factor
+		260, // Factor
 		-1,  // Bool
 		-1,  // ActualArgs
 		-1,  // Typecase
@@ -5315,36 +5315,36 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		259, // ActualArgs
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		261, // Bool
+		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S231
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		264, // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S232
 		-1, // S'
@@ -5393,27 +5393,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S234
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		263, // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S235
 		-1, // S'
@@ -5485,6 +5485,29 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S238
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S239
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -5499,38 +5522,38 @@ var gotoTab = gotoTable{
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		266, // ActualArgs
+		269, // RExpr
+		38,  // Term
+		40,  // Factor
+		39,  // Bool
+		-1,  // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S239
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
-	},
 	gotoRow{ // S240
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		270, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S241
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
@@ -5543,38 +5566,15 @@ var gotoTab = gotoTable{
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
-		268, // IfStatement
+		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		271, // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
-	},
-	gotoRow{ // S241
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
 	},
 	gotoRow{ // S242
 		-1, // S'
@@ -5646,27 +5646,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S245
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		275, // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S246
 		-1, // S'
@@ -5738,27 +5738,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S249
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		278, // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S250
 		-1, // S'
@@ -5784,27 +5784,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S251
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		280, // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S252
 		-1, // S'
@@ -5830,27 +5830,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S253
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		272, // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S254
 		-1, // S'
@@ -5876,27 +5876,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S255
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		275, // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S256
 		-1, // S'
@@ -5922,27 +5922,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S257
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		276, // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S258
 		-1, // S'
@@ -6106,27 +6106,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S265
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		284, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S266
 		-1, // S'
@@ -6152,27 +6152,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S267
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		287, // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S268
 		-1, // S'
@@ -6198,27 +6198,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S269
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		288, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S270
 		-1, // S'
@@ -6244,27 +6244,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S271
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		72,  // RExpr
-		74,  // Term
-		77,  // Factor
-		75,  // Bool
-		280, // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S272
 		-1, // S'
@@ -6336,50 +6336,50 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S275
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		283, // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S276
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		-1,  // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		284, // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S277
 		-1, // S'
@@ -6528,17 +6528,17 @@ var gotoTab = gotoTable{
 		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
-		289, // StatementBlock
+		-1,  // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
 		-1,  // Type
 		-1,  // IfStatement
 		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
+		73,  // RExpr
+		75,  // Term
+		78,  // Factor
+		76,  // Bool
+		292, // ActualArgs
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
@@ -6617,13 +6617,13 @@ var gotoTab = gotoTable{
 		-1,  // ClassSignature
 		-1,  // Extend
 		-1,  // FormalArgs
-		291, // FormalArgsList
+		-1,  // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
 		-1,  // StatementBlock
 		-1,  // Statement
 		-1,  // OptionalReturn
-		-1,  // Type
+		295, // Type
 		-1,  // IfStatement
 		-1,  // LExpr
 		-1,  // RExpr
@@ -6635,27 +6635,27 @@ var gotoTab = gotoTable{
 		-1,  // TypeAlternative
 	},
 	gotoRow{ // S288
-		-1, // S'
-		-1, // Program
-		-1, // ClassSignature
-		-1, // Extend
-		-1, // FormalArgs
-		-1, // FormalArgsList
-		-1, // ClassBody
-		-1, // Method
-		-1, // StatementBlock
-		-1, // Statement
-		-1, // OptionalReturn
-		-1, // Type
-		-1, // IfStatement
-		-1, // LExpr
-		-1, // RExpr
-		-1, // Term
-		-1, // Factor
-		-1, // Bool
-		-1, // ActualArgs
-		-1, // Typecase
-		-1, // TypeAlternative
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		296, // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
 	},
 	gotoRow{ // S289
 		-1, // S'
@@ -6681,27 +6681,27 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S290
-		-1,  // S'
-		-1,  // Program
-		-1,  // ClassSignature
-		-1,  // Extend
-		-1,  // FormalArgs
-		293, // FormalArgsList
-		-1,  // ClassBody
-		-1,  // Method
-		-1,  // StatementBlock
-		-1,  // Statement
-		-1,  // OptionalReturn
-		-1,  // Type
-		-1,  // IfStatement
-		-1,  // LExpr
-		-1,  // RExpr
-		-1,  // Term
-		-1,  // Factor
-		-1,  // Bool
-		-1,  // ActualArgs
-		-1,  // Typecase
-		-1,  // TypeAlternative
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
 	},
 	gotoRow{ // S291
 		-1, // S'
@@ -6796,6 +6796,29 @@ var gotoTab = gotoTable{
 		-1, // TypeAlternative
 	},
 	gotoRow{ // S295
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		-1,  // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		301, // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S296
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
@@ -6818,13 +6841,59 @@ var gotoTab = gotoTable{
 		-1, // Typecase
 		-1, // TypeAlternative
 	},
-	gotoRow{ // S296
+	gotoRow{ // S297
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S298
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S299
 		-1,  // S'
 		-1,  // Program
 		-1,  // ClassSignature
 		-1,  // Extend
 		-1,  // FormalArgs
-		297, // FormalArgsList
+		303, // FormalArgsList
 		-1,  // ClassBody
 		-1,  // Method
 		-1,  // StatementBlock
@@ -6841,7 +6910,214 @@ var gotoTab = gotoTable{
 		-1,  // Typecase
 		-1,  // TypeAlternative
 	},
-	gotoRow{ // S297
+	gotoRow{ // S300
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S301
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S302
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		305, // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S303
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S304
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S305
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S306
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S307
+		-1, // S'
+		-1, // Program
+		-1, // ClassSignature
+		-1, // Extend
+		-1, // FormalArgs
+		-1, // FormalArgsList
+		-1, // ClassBody
+		-1, // Method
+		-1, // StatementBlock
+		-1, // Statement
+		-1, // OptionalReturn
+		-1, // Type
+		-1, // IfStatement
+		-1, // LExpr
+		-1, // RExpr
+		-1, // Term
+		-1, // Factor
+		-1, // Bool
+		-1, // ActualArgs
+		-1, // Typecase
+		-1, // TypeAlternative
+	},
+	gotoRow{ // S308
+		-1,  // S'
+		-1,  // Program
+		-1,  // ClassSignature
+		-1,  // Extend
+		-1,  // FormalArgs
+		309, // FormalArgsList
+		-1,  // ClassBody
+		-1,  // Method
+		-1,  // StatementBlock
+		-1,  // Statement
+		-1,  // OptionalReturn
+		-1,  // Type
+		-1,  // IfStatement
+		-1,  // LExpr
+		-1,  // RExpr
+		-1,  // Term
+		-1,  // Factor
+		-1,  // Bool
+		-1,  // ActualArgs
+		-1,  // Typecase
+		-1,  // TypeAlternative
+	},
+	gotoRow{ // S309
 		-1, // S'
 		-1, // Program
 		-1, // ClassSignature
