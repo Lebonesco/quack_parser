@@ -1,8 +1,8 @@
 package main
 
 import (
-	"github.com/Lebonesco/quack_scanner/lexer"
-	"github.com/Lebonesco/quack_scanner/token"
+	"github.com/Lebonesco/quack_parser/lexer"
+	"github.com/Lebonesco/quack_parser/token"
 	"fmt"
 	"io/ioutil"
 	"os"

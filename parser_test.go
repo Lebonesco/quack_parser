@@ -2,8 +2,10 @@ package main
 
 import (
 	"testing"
-	"github.com/Lebonesco/quack_scanner/lexer"
-	"github.com/Lebonesco/quack_scanner/token"
+	"fmt"
+	"github.com/Lebonesco/quack_parser/lexer"
+	"github.com/Lebonesco/quack_parser/token"
+	"github.com/Lebonesco/quack_parser/parser"
 )
 
 type Test struct {
@@ -11,7 +13,7 @@ type Test struct {
 	expectedLiteral string
 }
 
-func TestToken(t *testing.T) {
+func TestScannerToken(t *testing.T) {
 	tests := []Test{
 		{token.TokMap.Type("let"), "let"},
 		{token.TokMap.Type("ident"), "five"},
@@ -114,7 +116,7 @@ func TestToken(t *testing.T) {
 	runTest(tests, INPUT1, t)
 }
 
-func TestStrings(t *testing.T) {
+func TestScannerStrings(t *testing.T) {
 	tests := []Test{
 		{token.TokMap.Type("let"), "let"},
 		{token.TokMap.Type("ident"), "five"},
@@ -128,7 +130,7 @@ func TestStrings(t *testing.T) {
 	runTest(tests, INPUT2, t)
 }
 
-func TestComments(t *testing.T) {
+func TestScannerComments(t *testing.T) {
 	tests := []Test{
 		{token.TokMap.Type("INVALID"), "/*"},
 		{token.TokMap.Type("$"), ""}, // end token
@@ -137,7 +139,7 @@ func TestComments(t *testing.T) {
 	runTest(tests, INPUT3, t)
 }
 
-func TestTripleQuote(t *testing.T) {
+func TestScannerTripleQuote(t *testing.T) {
 	tests := []Test{
 		{token.TokMap.Type("$"), ""}, // end token
 	}
@@ -145,7 +147,7 @@ func TestTripleQuote(t *testing.T) {
 	runTest(tests, INPUT4, t)
 }
 
-func TestEscape(t *testing.T) {
+func TestScannerEscape(t *testing.T) {
 	tests := []Test{
 		{token.TokMap.Type("string_escape_error"), "\"invalid \\q escape character\""},
 	}
@@ -153,7 +155,7 @@ func TestEscape(t *testing.T) {
 	runTest(tests, INPUT5, t)
 }
 
-// pass input through checker
+// pass input through token checker
 func runTest(tests []Test, input string, t *testing.T) {
 	l := lexer.NewLexer([]byte(input))
 	for i, tt := range tests {
@@ -168,5 +170,33 @@ func runTest(tests []Test, input string, t *testing.T) {
 			t.Fatalf("tests[%d] - literal wrong. expected='%q', got='%q' at line %d, column %d",
 				i, tt.expectedLiteral, string(tok.Lit), tok.Pos.Line, tok.Pos.Column)
 		}
+	}
+}
+
+func TestParserMath(t *testing.T) {
+	tests := []struct{
+		src string
+		expect int64
+	}{
+		{"1 + 1", 2},
+		{"1 + 2 ", 3},
+	}
+
+	p := parser.NewParser()
+	pass := true
+	for _, ts := range tests {
+		s := lexer.NewLexer([]byte(ts.src))
+		sum, err := p.Parse(s)
+		if err != nil {
+			pass = false
+			t.Log(err.Error())
+		}
+		if sum != ts.expect {
+			pass = false
+			t.Log(fmt.Sprintf("Error: %s = %d. Got %d\n", ts.src, ts.expect, sum))
+		}
+	}
+	if !pass {
+		t.Fail()
 	}
 }

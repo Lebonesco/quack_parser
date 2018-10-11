@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
-	"github.com/Lebonesco/quack_scanner/token"
+	"github.com/Lebonesco/quack_parser/token"
 )
 
 var errorCount = 0
