@@ -324,7 +324,7 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RExpr : Term plus Term	<< X[0].(int64) + X[2].(int64), nil >>`,
+		String: `RExpr : RExpr plus Term	<< X[0].(int64) + X[2].(int64), nil >>`,
 		Id:         "RExpr",
 		NTType:     14,
 		Index:      30,
@@ -334,10 +334,30 @@ var productionsTable = ProdTab{
 		},
 	},
 	ProdTabEntry{
-		String: `RExpr : Bool and Bool	<<  >>`,
+		String: `RExpr : RExpr minus Term	<< X[0].(int64) - X[2].(int64), nil >>`,
 		Id:         "RExpr",
 		NTType:     14,
 		Index:      31,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0].(int64) - X[2].(int64), nil
+		},
+	},
+	ProdTabEntry{
+		String: `RExpr : Term	<<  >>`,
+		Id:         "RExpr",
+		NTType:     14,
+		Index:      32,
+		NumSymbols: 1,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0], nil
+		},
+	},
+	ProdTabEntry{
+		String: `RExpr : Bool and Bool	<<  >>`,
+		Id:         "RExpr",
+		NTType:     14,
+		Index:      33,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -347,7 +367,7 @@ var productionsTable = ProdTab{
 		String: `RExpr : RExpr period ident lparen ActualArgs rparen	<<  >>`,
 		Id:         "RExpr",
 		NTType:     14,
-		Index:      32,
+		Index:      34,
 		NumSymbols: 6,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -357,17 +377,37 @@ var productionsTable = ProdTab{
 		String: `RExpr : ident lparen ActualArgs rparen	<<  >>`,
 		Id:         "RExpr",
 		NTType:     14,
-		Index:      33,
+		Index:      35,
 		NumSymbols: 4,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
 		},
 	},
 	ProdTabEntry{
-		String: `Term : Factor	<< X[0], nil >>`,
+		String: `Term : Term mul Factor	<< X[0].(int64) * X[2].(int64), nil >>`,
 		Id:         "Term",
 		NTType:     15,
-		Index:      34,
+		Index:      36,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0].(int64) * X[2].(int64), nil
+		},
+	},
+	ProdTabEntry{
+		String: `Term : Term div Factor	<< X[0].(int64) / X[2].(int64), nil >>`,
+		Id:         "Term",
+		NTType:     15,
+		Index:      37,
+		NumSymbols: 3,
+		ReduceFunc: func(X []Attrib) (Attrib, error) {
+			return X[0].(int64) / X[2].(int64), nil
+		},
+	},
+	ProdTabEntry{
+		String: `Term : Factor	<<  >>`,
+		Id:         "Term",
+		NTType:     15,
+		Index:      38,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -377,7 +417,7 @@ var productionsTable = ProdTab{
 		String: `Factor : lparen RExpr rparen	<< X[1], nil >>`,
 		Id:         "Factor",
 		NTType:     16,
-		Index:      35,
+		Index:      39,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[1], nil
@@ -387,37 +427,17 @@ var productionsTable = ProdTab{
 		String: `Factor : int	<< util.IntValue(X[0].(*token.Token).Lit) >>`,
 		Id:         "Factor",
 		NTType:     16,
-		Index:      36,
+		Index:      40,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return util.IntValue(X[0].(*token.Token).Lit)
 		},
 	},
 	ProdTabEntry{
-		String: `Factor : mul Factor	<<  >>`,
-		Id:         "Factor",
-		NTType:     16,
-		Index:      37,
-		NumSymbols: 2,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return X[0], nil
-		},
-	},
-	ProdTabEntry{
-		String: `Factor : div Factor	<<  >>`,
-		Id:         "Factor",
-		NTType:     16,
-		Index:      38,
-		NumSymbols: 2,
-		ReduceFunc: func(X []Attrib) (Attrib, error) {
-			return X[0], nil
-		},
-	},
-	ProdTabEntry{
 		String: `Bool : true	<< true, nil >>`,
 		Id:         "Bool",
 		NTType:     17,
-		Index:      39,
+		Index:      41,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return true, nil
@@ -427,7 +447,7 @@ var productionsTable = ProdTab{
 		String: `Bool : false	<< false, nil >>`,
 		Id:         "Bool",
 		NTType:     17,
-		Index:      40,
+		Index:      42,
 		NumSymbols: 1,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return false, nil
@@ -437,7 +457,7 @@ var productionsTable = ProdTab{
 		String: `ActualArgs : RExpr comma RExpr	<<  >>`,
 		Id:         "ActualArgs",
 		NTType:     18,
-		Index:      41,
+		Index:      43,
 		NumSymbols: 3,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -447,7 +467,7 @@ var productionsTable = ProdTab{
 		String: `ActualArgs : empty	<<  >>`,
 		Id:         "ActualArgs",
 		NTType:     18,
-		Index:      42,
+		Index:      44,
 		NumSymbols: 0,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return nil, nil
@@ -457,7 +477,7 @@ var productionsTable = ProdTab{
 		String: `Typecase : typecase RExpr lbrace TypeAlternative rbrace	<<  >>`,
 		Id:         "Typecase",
 		NTType:     19,
-		Index:      43,
+		Index:      45,
 		NumSymbols: 5,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil
@@ -467,7 +487,7 @@ var productionsTable = ProdTab{
 		String: `TypeAlternative : ident colon ident StatementBlock	<<  >>`,
 		Id:         "TypeAlternative",
 		NTType:     20,
-		Index:      44,
+		Index:      46,
 		NumSymbols: 4,
 		ReduceFunc: func(X []Attrib) (Attrib, error) {
 			return X[0], nil

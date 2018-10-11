@@ -137,19 +137,23 @@ LExpr : ident
 
 RExpr 
 	  : string_literal
-      | Term plus Term 			<< $0.(int64) + $2.(int64), nil >>
+      | RExpr plus Term 			<< $0.(int64) + $2.(int64), nil >>
+      | RExpr minus Term 			<< $0.(int64) - $2.(int64), nil >>
+      | Term
       | Bool and  Bool
       | RExpr period ident lparen ActualArgs rparen
       | ident lparen ActualArgs rparen
       ;
 
-Term : Factor  << $0, nil >> ;
+Term 
+	: Term mul Factor      << $0.(int64) * $2.(int64), nil >>
+	| Term div Factor      << $0.(int64) / $2.(int64), nil >>
+	| Factor 
+	;
 
 Factor
 	: lparen RExpr rparen	<< $1, nil >>
 	| int 					<< util.IntValue($0.(*token.Token).Lit) >>
-	| mul Factor			
-	| div Factor
 	;
 
 Bool
