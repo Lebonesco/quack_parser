@@ -51,6 +51,7 @@ mul : '*' ;
 div : '/' ;
 
 eq : '=' '=' ;
+neq : '!' '=' ;
 atmost : '<' '=' ;
 lt : '<' ;
 atleast : '>' '=' ;
@@ -121,7 +122,7 @@ Statement
 		: if RExpr StatementBlock IfStatement
 		| while RExpr StatementBlock				
 		| let LExpr assign RExpr semicolon			 << ast.NewLetStatement($1, $3) >>
-		| RExpr semicolon
+		| RExpr semicolon							 << ast.NewExpressionStatement($0) >>
 		| return semicolon
 		| Typecase
 		;
@@ -144,12 +145,14 @@ LExpr : ident 										<< ast.NewIdentifier($0) >>
 
 RExpr 
 	  : string_literal								<< ast.NewStringLiteral($0) >>
-      | RExpr plus Term 							<< $0.(int64) + $2.(int64), nil >>
-      | RExpr minus Term 							//<< ast.NewLessThanExpr($2, $1) >>
-      | RExpr atleast Term							//<< ast.NewLessThanExpr($1, $2) >>
-      | RExpr atmost Term							<< $0.(int64) <= $2.(int64), nil >>
-      | RExpr lt Term			    				<< $0.(int64) < $2.(int64), nil >>
-      | RExpr gt Term								<< $0.(int64) > $2.(int64), nil >>
+      | RExpr plus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr minus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr atleast Term							<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr atmost Term							<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr lt Term			    				<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr gt Term								<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr eq Term								<< ast.NewInfixExpression($0, $1, $2) >>
+      | RExpr neq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | Term
       | ident 										<< ast.NewIdentifier($0) >>
       | Bool and Bool								//<< ast.NewBoolAnd($0, $2) >>
@@ -163,8 +166,8 @@ RExpr
       ;
 
 Term 
-	: Term mul Factor      	<< $0.(int64) * $2.(int64), nil >>
-	| Term div Factor		<< $0.(int64) / $2.(int64), nil >>
+	: Term mul Factor      	<< ast.NewInfixExpression($0, $1, $2) >>
+	| Term div Factor		<< ast.NewInfixExpression($0, $1, $2) >>
 	| Factor 				
 	;
 
