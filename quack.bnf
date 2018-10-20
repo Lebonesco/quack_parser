@@ -72,13 +72,14 @@ unknown : . ; // catch unmatched tokens
 
 <<
 import (
-	"github.com/Lebonesco/quack_parser/token"
-	"github.com/Lebonesco/quack_parser/util"
+//	"github.com/Lebonesco/quack_parser/token"
+//	"github.com/Lebonesco/quack_parser/util"
+	"github.com/Lebonesco/quack_parser/ast"
 )
 >>
 
 Program 
-	: Class Statements << $1, nil >>
+	: Class Statements << ast.NewProgram($1) >>
 	;
 
 Class
@@ -87,8 +88,8 @@ Class
 	;
 
 Statements
-	: Statement Statements
-	| empty
+	: Statements Statement 	<< ast.AppendStatement($0, $1) >>
+	| Statement 			<< ast.NewStatementList($0) >>
 	;
 
 ClassSignature : class ident lparen FormalArgs rparen Extend ;
@@ -99,28 +100,28 @@ Extend
 	;
 
 FormalArgs 
-	: ident colon ident FormalArgsList
+	: ident colon ident FormalArgsList				
 	| empty ;
 
 FormalArgsList
-	: comma ident colon ident FormalArgsList
+	: comma ident colon ident FormalArgsList		
 	| empty
 	;
 
-ClassBody : lbrace Statements Method rbrace ;
+ClassBody : lbrace Statements Method rbrace ;	
 
 Method 
 	: def ident lparen FormalArgs rparen Type StatementBlock 
 	| empty
 	;
 
-StatementBlock : lbrace Statements rbrace ;
+StatementBlock : lbrace Statements rbrace ;	
 
 Statement 
 		: if RExpr StatementBlock IfStatement
-		| while RExpr StatementBlock
-		| LExpr Type assign RExpr semicolon
-		| RExpr
+		| while RExpr StatementBlock				
+		| let LExpr assign RExpr semicolon			 << ast.NewLetStatement($1, $3) >>
+		| RExpr semicolon
 		| return semicolon
 		| Typecase
 		;
@@ -137,26 +138,28 @@ IfStatement
 	| empty
 	;
 
-LExpr : ident
+LExpr : ident 										<< ast.NewIdentifier($0) >>
 	  | RExpr period ident
 	  ;
 
 RExpr 
-	  : string_literal								<< $0.(string), nil >>
+	  : string_literal								<< ast.NewStringLiteral($0) >>
       | RExpr plus Term 							<< $0.(int64) + $2.(int64), nil >>
-      | RExpr minus Term 							<< $0.(int64) - $2.(int64), nil >>
-      | RExpr atleast Term							<< $0.(int64) <= $2.(int64), nil >>
-      | RExpr atmost Term							<< $0.(int64) >= $2.(int64), nil >>
+      | RExpr minus Term 							//<< ast.NewLessThanExpr($2, $1) >>
+      | RExpr atleast Term							//<< ast.NewLessThanExpr($1, $2) >>
+      | RExpr atmost Term							<< $0.(int64) <= $2.(int64), nil >>
       | RExpr lt Term			    				<< $0.(int64) < $2.(int64), nil >>
       | RExpr gt Term								<< $0.(int64) > $2.(int64), nil >>
-      | Term										
-      | Bool and Bool								<< $0.(bool) && $2.(bool), nil >>
-      | Bool or Bool    							<< $0.(bool) || $2.(bool), nil >>
+      | Term
+      | ident 										<< ast.NewIdentifier($0) >>
+      | Bool and Bool								//<< ast.NewBoolAnd($0, $2) >>
+      | Bool or Bool    							//<< ast.NewBoolOr($0, $2) >>
       | not Bool 									<< !$1.(bool), nil >>
-      | Bool  										<< $0.(bool), nil >>
+      | Bool  										<< ast.NewBool($0) >>
       | RExpr period ident lparen ActualArgs rparen	
       | ident lparen ActualArgs rparen
       | return RExpr semicolon
+      | error
       ;
 
 Term 
@@ -167,7 +170,7 @@ Term
 
 Factor
 	: lparen RExpr rparen	<< $1, nil >>
-	| int 					<< util.IntValue($0.(*token.Token).Lit) >>
+	| int 					<< ast.NewIntLiteral($0) >>
 	;
 
 Bool

@@ -2,10 +2,10 @@ package main
 
 import (
 	"testing"
-	"fmt"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/token"
 	"github.com/Lebonesco/quack_parser/parser"
+	"github.com/Lebonesco/quack_parser/ast"
 )
 
 type Test struct {
@@ -155,6 +155,18 @@ func TestScannerEscape(t *testing.T) {
 	runTest(tests, INPUT5, t)
 }
 
+func TestEndString(t *testing.T) {
+	tests := []Test{
+		{token.TokMap.Type("ident"), "s"},
+		{token.TokMap.Type("colon"), ":"},
+		{token.TokMap.Type("ident"), "String"},
+		{token.TokMap.Type("assign"), "="},
+		{token.TokMap.Type("INVALID"), "\"This cquote runs off the end of the file"},
+	}
+
+	runTest(tests, `s: String = "This cquote runs off the end of the file`, t)
+}
+
 // pass input through token checker
 func runTest(tests []Test, input string, t *testing.T) {
 	l := lexer.NewLexer([]byte(input))
@@ -173,70 +185,126 @@ func runTest(tests []Test, input string, t *testing.T) {
 	}
 }
 
-func TestParserMath(t *testing.T) {
+// func TestParserMath(t *testing.T) {
+// 	tests := []struct{
+// 		src string
+// 		expect int64
+// 	}{
+// 		{"1 + 1;", 2},
+// 		{"1 + 2;", 3},
+// 		{"1 + 3 * 7;", 22},
+// 		{"200 / 10 - 3;", 17},
+// 		{"5 * 5;", 25},
+// 		{"1 - 3 * 5;", -14},
+// 		{"( 5 );", 5},
+// 	}
+
+// 	p := parser.NewParser()
+// 	pass := true
+// 	for _, ts := range tests {
+// 		s := lexer.NewLexer([]byte(ts.src))
+// 		sum, err := p.Parse(s)
+// 		if err != nil {
+// 			pass = false
+// 			t.Log(err.Error())
+// 		}
+// 		if sum != ts.expect {
+// 			pass = false
+// 			t.Log(fmt.Sprintf("Error: %s = %d. Got %d\n", ts.src, ts.expect, sum))
+// 		}
+// 	}
+// 	if !pass {
+// 		t.Fail()
+// 	}
+// }
+
+// func TestBoolLogic(t *testing.T) {
+// 	tests := []struct{
+// 		src string
+// 		expect bool
+// 	}{
+// 		{"true and true;", true},
+// 		{"true and false; ", false},
+// 		{"false and false;", false},
+// 		{"true or false;", true},
+// 		{"false or false;", false},
+// 		{"not true;", false},
+// 		{"not false;", true},
+// 		{"true;", true},
+// 		{"5 < 6;", true},
+// 		{"5 < 4;", false},
+// 		{"3 <= 4;", true},
+// 		{"3 >= 5;", false},
+// 		{"5 > 1;", true},
+// 	}
+
+// 	p := parser.NewParser()
+// 	pass := true
+// 	for _, ts := range tests {
+// 		s := lexer.NewLexer([]byte(ts.src))
+// 		sum, err := p.Parse(s)
+// 		if err != nil {
+// 			pass = false
+// 			t.Log(err.Error())
+// 		}
+// 		if sum != ts.expect {
+// 			pass = false
+// 			t.Log(fmt.Sprintf("Error: %s = %t. Got %t\n", ts.src, ts.expect, sum))
+// 		}
+// 	}
+// 	if !pass {
+// 		t.Fail()
+// 	}
+// }
+
+func TestAssignment(t *testing.T) {
 	tests := []struct{
 		src string
-		expect int64
+		expectedIdentifier string
+		expectedValue interface{}
 	}{
-		{"1 + 1", 2},
-		{"1 + 2", 3},
-		{"1 + 3 * 7", 22},
-		{"200 / 10 - 3", 17},
-		{"5 * 5", 25},
-		{"1 - 3 * 5", -14},
-		{"( 5 )", 5},
+		{"let five = 5;", "five", 5},
+		{"let x = true;", "x", true},
+		{"let y = \"k\";", "y", "k"},
+		{"let foo = k;", "foo", "k"},
 	}
 
-	p := parser.NewParser()
-	pass := true
-	for _, ts := range tests {
-		s := lexer.NewLexer([]byte(ts.src))
-		sum, err := p.Parse(s)
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
 		if err != nil {
-			pass = false
-			t.Log(err.Error())
+			t.Fatalf(err.Error())
 		}
-		if sum != ts.expect {
-			pass = false
-			t.Log(fmt.Sprintf("Error: %s = %d. Got %d\n", ts.src, ts.expect, sum))
+
+		program, _ := res.(*ast.Program)
+		stmt := program.Statements[0]
+		if !testLetStatement(t, stmt, tt.expectedIdentifier) {
+			return
 		}
-	}
-	if !pass {
-		t.Fail()
 	}
 }
 
-func TestBoolLogic(t *testing.T) {
-	tests := []struct{
-		src string
-		expect bool
-	}{
-		{"true and true", true},
-		{"true and false ", false},
-		{"false and false", false},
-		{"true or false", true},
-		{"false or false", false},
-		{"not true", false},
-		{"not false", true},
-		{"true", true},
+func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
+	if s.TokenLiteral() != "LetStatement" {
+		t.Errorf("s.TokenLiteral() not 'LetStatement', got=%q", s.TokenLiteral())
+		return false
 	}
 
-	p := parser.NewParser()
-	pass := true
-	for _, ts := range tests {
-		s := lexer.NewLexer([]byte(ts.src))
-		sum, err := p.Parse(s)
-		if err != nil {
-			pass = false
-			t.Log(err.Error())
-		}
-		if sum != ts.expect {
-			pass = false
-			t.Log(fmt.Sprintf("Error: %s = %t. Got %t\n", ts.src, ts.expect, sum))
-		}
+	letStmt, ok := s.(*ast.LetStatement)
+	if !ok {
+		t.Errorf("s not *ast.LetStatement, got=%T", s)
+		return false
 	}
-	if !pass {
-		t.Fail()
+
+	if letStmt.Name.Value != name {
+		t.Errorf("letStmt.Name.Value not '%s'. got='%s'", name, letStmt.Name.Value)
+		return false
 	}
+
+	if letStmt.Name.Value != name {
+		t.Errorf("letStmt.Name.TokenLiteral() not '%s'. got='%s'", name, letStmt.Name)
+		return false
+	}
+	return true
 }
-

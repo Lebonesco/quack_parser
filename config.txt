@@ -1,6 +1,6 @@
 [DEFAULT]
 name = Jospeh Livni
 host = ix-dev.cs.uoregon.edu
-path = /home/users/jlivni/public/quack_scanner
+path = /home/users/jlivni/public/quack_parser
 program = main
-repo = https://github.com/Lebonesco/quack_scanner
+repo = https://github.com/Lebonesco/quack_parser
