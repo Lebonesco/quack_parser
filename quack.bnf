@@ -155,8 +155,8 @@ RExpr
       | RExpr neq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | Term
       | ident 										<< ast.NewIdentifier($0) >>
-      | Bool and Bool								//<< ast.NewBoolAnd($0, $2) >>
-      | Bool or Bool    							//<< ast.NewBoolOr($0, $2) >>
+      | RExpr and Bool								<< ast.NewBoolExpr($0, $2, "and") >>
+      | RExpr or Bool    							<< ast.NewBoolExpr($0, $2, "or") >>
       | not Bool 									<< !$1.(bool), nil >>
       | Bool  										<< ast.NewBool($0) >>
       | RExpr period ident lparen ActualArgs rparen	

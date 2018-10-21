@@ -73,7 +73,7 @@ const (
 type BoolExpr struct {
 	A bool
 	B bool
-	Op Op
+	Operator Op
 }
 
 type IntegerLiteral struct {

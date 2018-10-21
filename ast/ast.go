@@ -47,6 +47,7 @@ func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
 
 
 
+
 func NewProgram(stmts Attrib) (*Program, error) {
 	// fmt.Println(stmts)
 	// stmts, ok := stmts.([]Statement)
@@ -124,4 +125,18 @@ func NewIdentifier(ident Attrib) (*Identifier, error) {
 
 func NewBool(val Attrib) (Expression, error) {
 	return &Boolean{Value: val.(bool)}, nil
+}
+
+func NewBoolExpr(left, right Attrib, oper string) (Expression, error) {
+	l, ok := left.(Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid left expression. got=%T", left)
+	}
+
+	r, ok := right.(bool)
+	if !ok {
+		return nil, fmt.Errorf("invalid right expression. got=%T", right)
+	}
+
+	return &InfixExpression{Left: l, Operator: oper, Right: &Boolean{Value: r}}, nil
 }

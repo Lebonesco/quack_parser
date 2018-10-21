@@ -308,3 +308,130 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 	}
 	return true
 }
+
+func TestOperators(t *testing.T) {
+	tests := []struct{
+		src string
+		expectedLeft int64
+		expectedRight int64
+		expectedOp string
+	}{
+		{`5 + 5;`, 5, 5, `+`},
+		{`5 + 5;`, 5, 5, `+`},
+		{`5 < 6;`, 5, 6, "<"},
+		{`5 <= 6;`, 5, 6, "<="},	
+		{`5 > 6;`, 5, 6, ">"},	
+		{`5 >= 6;`, 5, 6, ">="},
+		{"5 == 3;", 5, 3, "=="},
+		{"5 != 3;", 5, 3, "!="},		
+	}	
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+		
+		if s.TokenLiteral() != "ExpressionStatement" {
+			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
+		}
+
+		ExpStmt, ok := s.(*ast.ExpressionStatement)
+		if !ok {
+			t.Errorf("s not *ast.ExpressionStatement, got=%T", s)
+		}
+
+		Exp, ok := ExpStmt.Expression.(*ast.InfixExpression)
+		if !ok {
+			t.Errorf("ExpStmt not have *ast.InfixExpression")
+		}
+
+		if Exp.Operator != tt.expectedOp {
+			t.Errorf("expected operator %s, got=%s", tt.expectedOp, Exp.Operator)
+		}
+
+		left, ok := Exp.Left.(*ast.IntegerLiteral)
+		if !ok {
+			t.Fatalf("not valid left expression, got=%T", Exp.Left)
+		}
+
+		right, ok := Exp.Right.(*ast.IntegerLiteral)
+		if !ok {
+			t.Fatalf("not valid right expression, got=%T", Exp.Right)
+		}
+
+		if right.Value != tt.expectedRight {
+			t.Fatalf("not correct right value expected %d, got=%d", tt.expectedRight, left.Value)
+		}
+
+		if left.Value != tt.expectedLeft {
+			t.Fatalf("not correct left value expected %d, got=%d", tt.expectedLeft, left.Value)
+		}		
+	}
+}
+
+func TestBoolOperations(t *testing.T) {
+	tests := []struct{
+		src string
+		expectedLeft bool
+		expectedRight bool
+		expectedOp string
+	}{
+		{`true and true;`, true, true, "and"},
+		{`true or false;`, true, false, "or"},		
+	}	
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+		
+		if s.TokenLiteral() != "ExpressionStatement" {
+			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
+		}
+
+		ExpStmt, ok := s.(*ast.ExpressionStatement)
+		if !ok {
+			t.Errorf("s not *ast.ExpressionStatement, got=%T", s)
+		}
+
+		Exp, ok := ExpStmt.Expression.(*ast.InfixExpression)
+		if !ok {
+			t.Errorf("ExpStmt not have *ast.InfixExpression")
+		}
+
+		if Exp.Operator != tt.expectedOp {
+			t.Errorf("expected operator %s, got=%s", tt.expectedOp, Exp.Operator)
+		}
+
+		left, ok := Exp.Left.(*ast.Boolean)
+		if !ok {
+			t.Fatalf("not valid left expression, got=%T", Exp.Left)
+		}
+
+		right, ok := Exp.Right.(*ast.Boolean)
+		if !ok {
+			t.Fatalf("not valid right expression, got=%T", Exp.Right)
+		}
+
+		if right.Value != tt.expectedRight {
+			t.Fatalf("not correct right value expected %t, got=%t", tt.expectedRight, left.Value)
+		}
+
+		if left.Value != tt.expectedLeft {
+			t.Fatalf("not correct left value expected %t, got=%t", tt.expectedLeft, left.Value)
+		}		
+	}
+}
+
