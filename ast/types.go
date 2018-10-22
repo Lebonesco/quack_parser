@@ -80,7 +80,7 @@ type Class struct {
 type ClassSignature struct {
 	Name string
 	Args []FormalArgs
-	Extend Extends
+	Extend *Extends
 }
 
 type FormalArgs struct {

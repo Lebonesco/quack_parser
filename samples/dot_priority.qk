@@ -1,0 +1,12 @@
+/*
+ * Test associativity of .
+ * a.b.c is (a.b).c
+ * Priority of . :
+ * i+a.b+j is PLUS(PLUS(i, a.b),j)
+ */
+
+ // a.b.c;
+
+ i + a.b + j;
+
+

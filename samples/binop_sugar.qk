@@ -1,0 +1,7 @@
+/* Tiny test of binary operator sugaring */
+
+5 + 3;
+
+// The parser should accept the following,
+// but it will fail in the static semantics phase.
+a.b(c) + d;

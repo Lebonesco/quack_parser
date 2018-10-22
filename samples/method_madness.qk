@@ -1,0 +1,6 @@
+/*
+ * Example from Sam's question
+ * (Not a complete legal program, just a fragment for parsing.
+ */
+
+o.foo(p.bar());

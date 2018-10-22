@@ -1,0 +1,7 @@
+/* Tiniest possible Quack program
+ * is an integer literal, which
+ * should evaluate to itself and
+ * not print anything.
+ */
+ 42;
+ 

@@ -1,0 +1,83 @@
+/**
+ * A simple sample Quack program
+ */
+
+class Pt(x: Int, y: Int) extends Obj {
+  this.x : Int = x;
+  this.y : Int = y;
+
+  def STR() : String {
+      return "(" + this.x.STR() + "," 
+                 + this.y.STR() + ")";
+  }
+
+  def PLUS(other: Pt) : Pt {
+      return Pt(this.x + other.x, this.y + other.y);
+  }
+
+  def _x() : Int {
+      return this.x;
+  }
+
+  def _y() : Int {
+      return this.y;
+  }
+
+  /* Note because EQUAL overloads Obj.EQUAL, the argument 'other'
+   * must be type Obj and not type Pt.  Typecase lets us "downcast"
+   * it to Pt if it has dynamic type Pt (or subtype of Pt).
+   */
+  def  EQUAL(other: Obj) : Boolean {
+       typecase other {
+         pt: Pt {  return this.x == pt.x and this.y == pt.y; }
+       }
+       return false;
+  }
+
+}
+
+class Rect(ll: Pt, ur: Pt) extends Obj {
+  this.ll: Pt = ll;
+  this.ur: Pt  = ur;
+
+  def translate(delta: Pt) : Pt {
+      return Rect(ll+Pt, ur+Pt);
+  }
+
+  def STR() {
+      lr = Pt( this.ur._y(), this.ll._x() );  // lower right 
+      ul = Pt( this.ll._x(), this.ur._y() );  // upper left
+      return "(" + this.ll.STR() + ", "
+                 +      ul.STR() + "," 
+                 + this.ur.STR() + ","
+                 +      lr.STR() + ")";
+  }
+
+  /* The EQUAL method of Rect can be called as ==, and the
+   * calls the EQUAL method of Pt.
+   */
+   def EQUAL(other: Obj) : Boolean {
+       typecase other {
+          r: Rect { return this.lr == r.lr
+	               and this.ur == r.ur;
+		  }
+	}
+	return false; 
+   }
+}
+
+class Square(ll: Pt, side: Int) extends Rect {
+  this.ll = ll;
+  this.ur = Pt(this.ll._x() + side, this.ll._y() + side);
+}
+  
+a_square: Rect = Square( Pt(3,3), 5 );
+b_square: Rect = Rect( Pt(5,5), Pt(10,10));
+a_square = a_square.translate( Pt(2,2) );
+a_square.PRINT();
+if a_square == b_square {
+   "They are the same".PRINT();
+} else {
+   (b_square.STR() + " is different").PRINT();
+}
+

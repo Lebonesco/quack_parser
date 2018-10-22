@@ -1,0 +1,7 @@
+/* A minimal Quack program to test assignments
+ * with different kinds of expressions.
+ */
+
+// x = 17;
+ y.z = 13;
+// a = b.foo(7);

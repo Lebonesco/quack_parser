@@ -126,15 +126,19 @@ func NewClassSignature(name, args, extend Attrib) (*ClassSignature, error) {
 		return nil, fmt.Errorf("invalid type of name. got=%T", name)
 	}
 
-	a, ok := args.([]FormalArgs)
-	if !ok {
-		return nil, debug("NewClassSignature", "[]FormalArgs", "args", args)
+	a := []FormalArgs{}
+	if args != nil {
+		var ok bool
+		a, ok = args.([]FormalArgs)
+		if !ok {
+			return nil, debug("NewClassSignature", "[]FormalArgs", "args", args)
+		}
 	}
 
-	e := Extends{}
+	e := &Extends{}
 	if extend != nil {
 		var ok bool
-		e, ok = extend.(Extends)
+		e, ok = extend.(*Extends)
 		if !ok {
 			return nil, debug("NewClassSignature", "Extends", "extend", extend)
 		}
@@ -192,8 +196,12 @@ func AppendMethod(methods, name, args, kind, stmts Attrib) ([]Method, error) {
 }
 
 
-func NewExtends(parent Attrib) (Extends, error) {
-	return Extends{Parent: parent.(string)}, nil
+func NewExtends(parent Attrib) (*Extends, error) {
+	p, ok := parent.(*token.Token)
+	if !ok {
+		return nil, debug("NewExtends", "*token.Token", "parent", parent)
+	}
+	return &Extends{Parent: string(p.Lit)}, nil
 }
 
 func NewStatementBlock(stmts Attrib) (*BlockStatement, error) {
@@ -298,9 +306,13 @@ func NewFunctionCall(name, args Attrib) (Expression, error) {
 		return nil, fmt.Errorf("invalid type of name. got=%T", name)
 	}
 
-	a, ok := args.([]Expression)
-	if !ok {
-		return nil, debug("NewFunctionCall", "[]Expression", "args", args)
+	a := []Expression{}
+	if args != nil {
+		var ok bool
+		a, ok = args.([]Expression)
+		if !ok {
+			return nil, debug("NewFunctionCall", "[]Expression", "args", args)
+		}
 	}
 
 	return &FunctionCall{Name: string(n.Lit), Args: a}, nil
