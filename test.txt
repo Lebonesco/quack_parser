@@ -41,3 +41,5 @@ cool = "test";
 cool = "test";
 
 "test";
+
+let test = "taijq0f4"5 "test";

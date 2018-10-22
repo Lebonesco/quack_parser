@@ -45,6 +45,5 @@ func main() {
 		fmt.Println("Yay, there were no errors!")
 	}
 
-	_ = res
 	fmt.Println("parser is done...")
 }
