@@ -5,6 +5,9 @@ import (
 	"strconv"
 	"github.com/Lebonesco/quack_parser/token"
 )
+func debug(fun, expected, v string, got interface{}) (error) {
+	return fmt.Errorf("In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
+}
 
 func (p *Program) TokenLiteral() string {
 	if len(p.Statements) > 0 {
@@ -91,27 +94,55 @@ func NewClass() ([]Class, error) {
 	return []Class{}, nil
 }
 
-func AppendClass(classList, class Attrib) ([]Class, error) {
-	return append(classList.([]Class), class.(Class)), nil
+func AppendClass(classList, classSignature, classBody Attrib) ([]Class, error) {
+	cs, ok := classSignature.(*ClassSignature)
+	if !ok {
+		return nil, debug("AppendClass", "*ClassSignature", "classSignature", classSignature)
+	}
+
+	cb, ok := classBody.(*ClassBody)
+	if !ok {
+		return nil, debug("AppendClass", "*ClassBody", "classBody", classBody)
+	}
+
+	return append(classList.([]Class), Class{Signature: cs, Body: cb}), nil
 }
 
 func NewClassSignature(name, args, extend Attrib) (*ClassSignature, error) {
-	n, ok := name.(string)
+	n, ok := name.(*token.Token)
 	if !ok {
 		return nil, fmt.Errorf("invalid type of name. got=%T", name)
 	}
 
 	a, ok := args.([]FormalArgs)
 	if !ok {
-		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+		return nil, debug("NewClassSignature", "[]FormalArgs", "args", args)
 	}
 
-	e, ok := extend.(Extends)
+	e := Extends{}
+	if extend != nil {
+		var ok bool
+		e, ok = extend.(Extends)
+		if !ok {
+			return nil, debug("NewClassSignature", "Extends", "extend", extend)
+		}
+	}
+
+	return &ClassSignature{Name: string(n.Lit), Args: a, Extend: e}, nil
+}
+
+func NewClassBody(stmts, methods Attrib) (*ClassBody, error) {
+	s, ok := stmts.([]Statement)
 	if !ok {
-		return nil, fmt.Errorf("invalid type of extend. got=%T", extend)
+		return nil, debug("NewClassBody", "[]Statement", "stmts", stmts)
 	}
 
-	return &ClassSignature{Name: n, Args: a, Extend: e}, nil
+	m, ok := methods.([]Method)
+	if !ok {
+		return nil, debug("NewClassSignature", "[]Method", "methods", methods)
+	}
+
+	return &ClassBody{Statements: s, Methods: m}, nil
 }
 
 func NewMethod() ([]Method, error) {
@@ -231,7 +262,7 @@ func NewFunctionCall(name, args Attrib) (Expression, error) {
 
 	a, ok := args.([]Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+		return nil, debug("NewFunctionCall", "[]Expression", "args", args)
 	}
 
 	return &FunctionCall{Name: string(n.Lit), Args: a}, nil
@@ -244,7 +275,7 @@ func NewArg() ([]Expression, error) {
 func AppendArgs(args, arg Attrib) ([]Expression, error) {
 	as, ok := args.([]Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+		return nil, debug("AppendArgs", "[]Expression", "args", args)
 	}
 
 	a, ok := arg.(Expression)
@@ -257,4 +288,27 @@ func AppendArgs(args, arg Attrib) ([]Expression, error) {
 
 func NewReturnExpression(exp Attrib) (Statement, error) {
 	return &ReturnStatement{ReturnValue: exp.(Expression)}, nil
+}
+
+func NewFormalArg() ([]FormalArgs, error) {
+	return []FormalArgs{}, nil
+}
+
+func AppendFormalArgs(arg, kind, args Attrib) ([]FormalArgs, error) {
+	as, ok := args.([]FormalArgs)
+	if !ok {
+		return nil, debug("AppendFormalArgs", "[]FormalArgs", "args", args)
+	}
+
+	a, ok := arg.(*token.Token)
+	if !ok {
+		return nil, debug("AppendFormalArgs", "*token.Token", "arg", arg)
+	}
+
+	k, ok := kind.(*token.Token)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of kind. got=%T", kind)
+	}
+
+	return append(as, FormalArgs{string(a.Lit), string(k.Lit)}), nil
 }

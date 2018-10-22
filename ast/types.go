@@ -59,8 +59,8 @@ type BlockStatement struct {
 
 type Class struct {
 	Token token.Token
-	Signature ClassSignature
-	Body ClassBody
+	Signature *ClassSignature
+	Body *ClassBody
 }
 
 type ClassSignature struct {

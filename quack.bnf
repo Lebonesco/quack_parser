@@ -84,7 +84,7 @@ Program
 	;
 
 Class
-	: Class ClassSignature ClassBody	<< ast.AppendClass($0, $1) >>
+	: Class ClassSignature ClassBody	<< ast.AppendClass($0, $1, $2) >>
 	| empty								<< ast.NewClass() >>
 	;
 
@@ -103,16 +103,18 @@ Extend
 	;
 
 FormalArgs 
-	: ident colon ident FormalArgsList 
+	: ident colon ident FormalArgsList << ast.AppendFormalArgs($0, $2, $3) >> 
 	| empty 
 	;
 
 FormalArgsList
-	: comma ident colon ident FormalArgsList		
-	| empty
+	: FormalArgsList comma ident colon ident << ast.AppendFormalArgs($2, $4, $0) >> 
+	| empty									 << ast.NewFormalArg() >>
 	;
 
-ClassBody : lbrace Statements Method rbrace ;	
+ClassBody 
+	: lbrace Statements Method rbrace	<< ast.NewClassBody($1, $2) >>
+	;
 
 Method 
 	: Method def ident lparen FormalArgs rparen Type StatementBlock << ast.AppendMethod($0, $1) >>
