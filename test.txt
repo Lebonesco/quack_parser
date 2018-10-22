@@ -1,8 +1,19 @@
 /* comment should not be scanned */
+
+class Pt(x: Int, y: Int) {
+	"""
+	example of a class in quack
+	"""
+	//this.x = x;
+	//this.y = y;
+		
+	def _x() : Int { return "test"; }
+}
+
 let five = "test";
 let ten = 10;
 let result = add(five, ten);  
-5 < 10 > 5;
+5 < 10 > 5b;
 10 == 10;
 let k = add(five, 5, true, "test");
 
@@ -16,16 +27,4 @@ if (5 < 10) {
 	return false;
 } else {
 	return false;
-};
-
-"""
-class Pt(x: Int, y: Int) {
-	"""
-	example of a class in quack
-	"""
-	this.x = x;
-	this.y = y;
-		
-	def _x() : Int { return this.y; }
 }
-"""

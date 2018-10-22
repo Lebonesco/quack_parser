@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"github.com/Lebonesco/quack_parser/token"
+	"github.com/Lebonesco/quack_parser/errors"
 )
 func debug(fun, expected, v string, got interface{}) (error) {
 	return fmt.Errorf("In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
@@ -69,7 +70,11 @@ func NewStatementList() ([]Statement, error) {
 }
 
 func AppendStatement(stmtList, stmt Attrib) ([]Statement, error) {
-	return append(stmtList.([]Statement), stmt.(Statement)), nil
+	s, ok := stmt.(Statement)
+	if !ok {
+		return nil, debug("AppendStatement", "Statement", "stmt", stmt)
+	}
+	return append(stmtList.([]Statement), s), nil
 }
 
 func NewLetStatement(name, value interface{}) (*LetStatement, error) {
@@ -88,7 +93,12 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 }
 
 func NewExpressionStatement(expr Attrib) (*ExpressionStatement, error) {
-		return &ExpressionStatement{Expression: expr.(Expression)}, nil
+		e, ok := expr.(Expression)
+		if !ok {
+			fmt.Println(expr.(*errors.Error).Error())
+			return nil, debug("NewExpressionStatement", "Expression", "expr", expr)
+		}
+		return &ExpressionStatement{Expression: e}, nil
 }
 
 func NewClass() ([]Class, error) {

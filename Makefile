@@ -17,10 +17,10 @@ test:
 clean:
 	$(GOCLEAN)
 	rm -rf $(BINARY_NAME) util token lexer parser errors
-	rm -f LR1_conflicts.txt LR1_sets.txt
+	rm -f LR1_conflicts.txt LR1_sets.txt first.txt lexer_sets.txt terminals.txt
 run:
 	 $(GENERATE) $(GENERATOR) 
-	$(GOBUILD) -o $(BINARY_NAME) -v ./...
+	$(GOBUILD) -o $(BINARY_NAME) -v
 	./$(BINARY_NAME)
 deps:
-	$(GOGET) github.com/goccmack/gocc.git
+	$(GOGET) github.com/goccmack/gocc
