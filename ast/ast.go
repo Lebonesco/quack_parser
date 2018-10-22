@@ -23,6 +23,9 @@ func (rs *ReturnStatement) TokenLiteral() string { return "ReturnStatement" }
 func (es *ExpressionStatement) statementNode() {}
 func (es *ExpressionStatement) TokenLiteral() string { return "ExpressionStatement" }
 
+func (w *WhileStatement) statementNode() {}
+func(w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
+
 // Expressions
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
@@ -45,24 +48,17 @@ func (oe *IfExpression) TokenLiteral() string { return string(oe.Token.Lit) }
 func (fl *FunctionLiteral) expressionNode() {}
 func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
 
+func (fc *FunctionCall) expressionNode() {}
+func (fc *FunctionCall) TokenLiteral() string { return string(fc.Token.Lit) }
 
 
-
-func NewProgram(stmts Attrib) (*Program, error) {
-	// fmt.Println(stmts)
-	// stmts, ok := stmts.([]Statement)
-	// if !ok {
-	// 	return &Program{}, nil
-	// }
-	if stmts == nil {
-		return &Program{}, nil
-	}
-
-	return &Program{Statements: stmts.([]Statement)}, nil
+// AST builders
+func NewProgram(classes, stmts Attrib) (*Program, error) {
+	return &Program{Classes: classes.([]Class), Statements: stmts.([]Statement)}, nil
 }
 
-func NewStatementList(stmt Attrib) ([]Statement, error) {
-	return []Statement{stmt.(Statement)}, nil
+func NewStatementList() ([]Statement, error) {
+	return []Statement{}, nil
 }
 
 func AppendStatement(stmtList, stmt Attrib) ([]Statement, error) {
@@ -77,7 +73,8 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 
 	v, ok := value.(Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid type definition of Identifier. got=%T", value)
+		fmt.Println(string(value.(*token.Token).Lit))
+		return nil, fmt.Errorf("invalid type definition of Expression. got=%T", value)
 	}
 
 	return &LetStatement{Name: n, Value: v}, nil
@@ -86,6 +83,65 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 func NewExpressionStatement(expr Attrib) (*ExpressionStatement, error) {
 		return &ExpressionStatement{Expression: expr.(Expression)}, nil
 }
+
+func NewClass() ([]Class, error) {
+	return []Class{}, nil
+}
+
+func AppendClass(classList, class Attrib) ([]Class, error) {
+	return append(classList.([]Class), class.(Class)), nil
+}
+
+func NewClassSignature(name, args, extend Attrib) (*ClassSignature, error) {
+	n, ok := name.(string)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of name. got=%T", name)
+	}
+
+	a, ok := args.([]FormalArgs)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+	}
+
+	e, ok := extend.(Extends)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of extend. got=%T", extend)
+	}
+
+	return &ClassSignature{Name: n, Args: a, Extend: e}, nil
+}
+
+func NewMethod() ([]Method, error) {
+	return []Method{}, nil
+}
+
+func AppendMethod(methods, method Attrib) ([]Method, error) {
+	return append(methods.([]Method), method.(Method)), nil
+}
+
+
+func NewExtends(parent Attrib) (Extends, error) {
+	return Extends{Parent: parent.(string)}, nil
+}
+
+func NewStatementBlock(stmts Attrib) (BlockStatement, error) {
+	return BlockStatement{Statements: stmts.([]Statement)}, nil
+}
+
+func NewWhileStatement(cond, stmts Attrib) (*WhileStatement, error) {
+	c, ok := cond.(Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid expression for WhileStatement. got=%T", cond)
+	}
+
+	b, ok := stmts.(BlockStatement)
+	if !ok {
+		return nil, fmt.Errorf("invalid BlockStatement for WhileStatement. got=%T", stmts)
+	}
+
+	return &WhileStatement{Cond: c, BlockStatement: b}, nil
+}
+
 
 func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 	l, ok := left.(Expression)
@@ -139,4 +195,36 @@ func NewBoolExpr(left, right Attrib, oper string) (Expression, error) {
 	}
 
 	return &InfixExpression{Left: l, Operator: oper, Right: &Boolean{Value: r}}, nil
+}
+
+func NewFunctionCall(name, args Attrib) (Expression, error) {
+	n, ok := name.(*token.Token)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of name. got=%T", name)
+	}
+
+	a, ok := args.([]Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+	}
+
+	return &FunctionCall{Name: string(n.Lit), Args: a}, nil
+}
+
+func NewArg() ([]Expression, error) {
+	return []Expression{}, nil
+}
+
+func AppendArgs(args, arg Attrib) ([]Expression, error) {
+	as, ok := args.([]Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of args. got=%T", args)
+	}
+
+	a, ok := arg.(Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of arg. got=%T", arg)
+	}
+
+	return append(as, a), nil
 }

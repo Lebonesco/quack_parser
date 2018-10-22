@@ -25,7 +25,7 @@ type Expression interface {
 }
 
 type Program struct {
-	//Classes []Class
+	Classes []Class
 	Statements []Statement
 }
 
@@ -34,6 +34,12 @@ type LetStatement struct {
 	Token token.Token // token.Let token
 	Name *Identifier
 	Value Expression
+}
+
+type WhileStatement struct {
+	Token token.Token  // token while
+	Cond Expression
+	BlockStatement BlockStatement
 }
 
 type ReturnStatement struct {
@@ -49,6 +55,43 @@ type ExpressionStatement struct {
 type BlockStatement struct {
 	Token token.Token
 	Statements []Statement
+}
+
+type Class struct {
+	Token token.Token
+	Signature ClassSignature
+	Body ClassBody
+}
+
+type ClassSignature struct {
+	Name string
+	Args []FormalArgs
+	Extend Extends
+}
+
+type FormalArgs struct {
+	Arg string
+	Type string
+}
+
+type Extends struct {
+	Parent string
+}
+
+type ClassBody struct {
+	Statements []Statement
+	Methods []Method
+}
+
+type Method struct {
+	Name string
+	Args []FormalArgs
+	Type ValType
+	StmtBlock BlockStatement
+}
+
+type ValType struct {
+	Type string
 }
 
 // Expression
@@ -106,10 +149,9 @@ type FunctionLiteral struct {
 	Body *BlockStatement
 }
 
-
-
-
-
-
-
+type FunctionCall struct {
+	Token token.Token
+	Name string
+	Args []Expression
+}
 

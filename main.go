@@ -32,8 +32,5 @@ func main() {
 	}
 
 	fmt.Println(res)
-	
-
-	
 	fmt.Println("parser is done...")
 }

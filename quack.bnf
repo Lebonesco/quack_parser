@@ -80,29 +80,32 @@ import (
 >>
 
 Program 
-	: Class Statements << ast.NewProgram($1) >>
+	: Class Statements << ast.NewProgram($0, $1) >>
 	;
 
 Class
-	: ClassSignature ClassBody Class
-	| empty
+	: Class ClassSignature ClassBody	<< ast.AppendClass($0, $1) >>
+	| empty								<< ast.NewClass() >>
 	;
 
 Statements
 	: Statements Statement 	<< ast.AppendStatement($0, $1) >>
-	| Statement 			<< ast.NewStatementList($0) >>
+	| empty					<< ast.NewStatementList() >>
 	;
 
-ClassSignature : class ident lparen FormalArgs rparen Extend ;
+ClassSignature 
+	: class ident lparen FormalArgs rparen Extend << ast.NewClassSignature($1, $3, $5) >>
+	;
 
 Extend
-	: extends ident
+	: extends ident << ast.NewExtends($1) >>
 	| empty
 	;
 
 FormalArgs 
-	: ident colon ident FormalArgsList				
-	| empty ;
+	: ident colon ident FormalArgsList 
+	| empty 
+	;
 
 FormalArgsList
 	: comma ident colon ident FormalArgsList		
@@ -112,18 +115,20 @@ FormalArgsList
 ClassBody : lbrace Statements Method rbrace ;	
 
 Method 
-	: def ident lparen FormalArgs rparen Type StatementBlock 
-	| empty
+	: Method def ident lparen FormalArgs rparen Type StatementBlock << ast.AppendMethod($0, $1) >>
+	| empty															<< ast.NewMethod() >>
 	;
 
-StatementBlock : lbrace Statements rbrace ;	
+StatementBlock 
+	: lbrace Statements rbrace	<< ast.NewStatementBlock($1) >> 
+	;
 
 Statement 
 		: if RExpr StatementBlock IfStatement
-		| while RExpr StatementBlock				
+		| while RExpr StatementBlock				 << ast.NewWhileStatement($1, $2) >>
 		| let LExpr assign RExpr semicolon			 << ast.NewLetStatement($1, $3) >>
 		| RExpr semicolon							 << ast.NewExpressionStatement($0) >>
-		| return semicolon
+		| return semicolon							
 		| Typecase
 		;
 
@@ -147,6 +152,7 @@ RExpr
 	  : string_literal								<< ast.NewStringLiteral($0) >>
       | RExpr plus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr minus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
+      | minus Term
       | RExpr atleast Term							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr atmost Term							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr lt Term			    				<< ast.NewInfixExpression($0, $1, $2) >>
@@ -154,13 +160,13 @@ RExpr
       | RExpr eq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr neq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | Term
+      | ident lparen ActualArgs rparen				<< ast.NewFunctionCall($0, $2) >> 
       | ident 										<< ast.NewIdentifier($0) >>
       | RExpr and Bool								<< ast.NewBoolExpr($0, $2, "and") >>
       | RExpr or Bool    							<< ast.NewBoolExpr($0, $2, "or") >>
       | not Bool 									<< !$1.(bool), nil >>
       | Bool  										<< ast.NewBool($0) >>
       | RExpr period ident lparen ActualArgs rparen	
-      | ident lparen ActualArgs rparen
       | return RExpr semicolon
       | error
       ;
@@ -182,13 +188,13 @@ Bool
 	;
 
 ActualArgs
-	: RExpr ArgsList
-	| empty 
+	: RExpr ArgsList                           << ast.AppendArgs($1, $0) >>
+	| empty 			
 	;
 
 ArgsList
-	: comma RExpr ArgsList
-	| empty
+	: comma RExpr ArgsList                      << ast.AppendArgs($2, $1) >>
+	| empty										<< ast.NewArg() >> 
 	;
 
 Typecase : typecase RExpr lbrace TypeAlternative rbrace ;

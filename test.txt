@@ -1,27 +1,6 @@
 /* comment should not be scanned */
 let five = "test";
 let ten = 10;
-let add = fn(x, y) {
-	x + y;
-};
-
 let result = add(five, ten);  
 5 < 10 > 5;
-
-if (5 < 10) {
-	return true;
-} else {
-	return false;
-}
-
 10 == 10;
-
-class Pt(x: Int, y: Int) {
-	"""
-	example of a class in quack
-	"""
-	this.x = x;
-	this.y = y;
-		
-	def _x() : Int { return thisy; }
-}
