@@ -39,7 +39,7 @@ type LetStatement struct {
 type WhileStatement struct {
 	Token token.Token  // token while
 	Cond Expression
-	BlockStatement BlockStatement
+	BlockStatement *BlockStatement
 }
 
 type ReturnStatement struct {

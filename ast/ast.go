@@ -142,7 +142,7 @@ func NewWhileStatement(cond, stmts Attrib) (*WhileStatement, error) {
 		return nil, fmt.Errorf("invalid expression for WhileStatement. got=%T", cond)
 	}
 
-	b, ok := stmts.(BlockStatement)
+	b, ok := stmts.(*BlockStatement)
 	if !ok {
 		return nil, fmt.Errorf("invalid BlockStatement for WhileStatement. got=%T", stmts)
 	}

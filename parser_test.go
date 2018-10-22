@@ -185,78 +185,6 @@ func runTest(tests []Test, input string, t *testing.T) {
 	}
 }
 
-// func TestParserMath(t *testing.T) {
-// 	tests := []struct{
-// 		src string
-// 		expect int64
-// 	}{
-// 		{"1 + 1;", 2},
-// 		{"1 + 2;", 3},
-// 		{"1 + 3 * 7;", 22},
-// 		{"200 / 10 - 3;", 17},
-// 		{"5 * 5;", 25},
-// 		{"1 - 3 * 5;", -14},
-// 		{"( 5 );", 5},
-// 	}
-
-// 	p := parser.NewParser()
-// 	pass := true
-// 	for _, ts := range tests {
-// 		s := lexer.NewLexer([]byte(ts.src))
-// 		sum, err := p.Parse(s)
-// 		if err != nil {
-// 			pass = false
-// 			t.Log(err.Error())
-// 		}
-// 		if sum != ts.expect {
-// 			pass = false
-// 			t.Log(fmt.Sprintf("Error: %s = %d. Got %d\n", ts.src, ts.expect, sum))
-// 		}
-// 	}
-// 	if !pass {
-// 		t.Fail()
-// 	}
-// }
-
-// func TestBoolLogic(t *testing.T) {
-// 	tests := []struct{
-// 		src string
-// 		expect bool
-// 	}{
-// 		{"true and true;", true},
-// 		{"true and false; ", false},
-// 		{"false and false;", false},
-// 		{"true or false;", true},
-// 		{"false or false;", false},
-// 		{"not true;", false},
-// 		{"not false;", true},
-// 		{"true;", true},
-// 		{"5 < 6;", true},
-// 		{"5 < 4;", false},
-// 		{"3 <= 4;", true},
-// 		{"3 >= 5;", false},
-// 		{"5 > 1;", true},
-// 	}
-
-// 	p := parser.NewParser()
-// 	pass := true
-// 	for _, ts := range tests {
-// 		s := lexer.NewLexer([]byte(ts.src))
-// 		sum, err := p.Parse(s)
-// 		if err != nil {
-// 			pass = false
-// 			t.Log(err.Error())
-// 		}
-// 		if sum != ts.expect {
-// 			pass = false
-// 			t.Log(fmt.Sprintf("Error: %s = %t. Got %t\n", ts.src, ts.expect, sum))
-// 		}
-// 	}
-// 	if !pass {
-// 		t.Fail()
-// 	}
-// }
-
 func TestAssignment(t *testing.T) {
 	tests := []struct{
 		src string
@@ -267,6 +195,7 @@ func TestAssignment(t *testing.T) {
 		{"let x = true;", "x", true},
 		{"let y = \"k\";", "y", "k"},
 		{"let foo = k;", "foo", "k"},
+		{"let z = add(five, ten);", "z", ""},
 	}
 
 	for _, tt := range tests {
@@ -435,3 +364,53 @@ func TestBoolOperations(t *testing.T) {
 	}
 }
 
+func TestIfStatement(t *testing.T) {
+	tests := []struct{
+		src string
+	}{
+		{
+		`if (5 < 10) {
+			return true;
+		} elif (false) {
+			return false;
+		} else {
+			return false;
+		}`},
+	}	
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		_ = program.Statements[0]
+	}
+}
+
+func TestWhileStatement(t *testing.T) {
+	tests := []struct{
+		src string
+	}{
+		{
+		`while i < 4 {
+			let tmp = 4;
+		}`},
+	}	
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+		t.Log(s)
+	}
+}
