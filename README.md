@@ -18,7 +18,7 @@ make sure that it is in the file path:
 At this point, everything can be run from the `Makefile`
 
 ### Build, Test, Run Program
-```make```
+```make file=test.txt```
 
 ### Install Dependencies
 ```make deps```
@@ -30,7 +30,7 @@ At this point, everything can be run from the `Makefile`
 ```make test```
 
 ### Run Program
-```make run```
+```make run file=text.txt```
 
 ### Clean Directory
 ```make clean```
