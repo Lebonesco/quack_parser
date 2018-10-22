@@ -14,8 +14,7 @@ import (
 
 func format(e *errors.Error) string {
 	w := new(bytes.Buffer)
-	fmt.Fprintf(w, "Value: '%s' in line %d\n", e.ErrorToken.Lit, e.ErrorToken.Pos.Line)
-	fmt.Fprintf(w, "Expected one of: ")
+	fmt.Fprintf(w, "Error: value: '%s' in line %d, expected one of: \n", e.ErrorToken.Lit, e.ErrorToken.Pos.Line)
 	for _, sym := range e.ExpectedTokens {
 		fmt.Fprintf(w, "'%s' ", sym)
 	}
@@ -45,5 +44,6 @@ func main() {
 		fmt.Println("Yay, there were no errors!")
 	}
 
+	_ = res
 	fmt.Println("parser is done...")
 }
