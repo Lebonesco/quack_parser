@@ -154,6 +154,7 @@ LExpr : ident 										<< ast.NewIdentifier($0) >>
 
 RExpr 
 	  : string_literal								<< ast.NewStringLiteral($0) >>
+	  | error
       | RExpr plus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr minus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
       | minus Term									
@@ -172,7 +173,6 @@ RExpr
       | Bool  										<< ast.NewBool($0) >>
       | RExpr period ident lparen ActualArgs rparen		
       | RExpr period ident 							<< ast.NewClassVariable($0, $2) >>								
-      | error
       ;
 
 Term 

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 	"github.com/Lebonesco/quack_parser/token"
-	"github.com/Lebonesco/quack_parser/errors"
+	_ "github.com/Lebonesco/quack_parser/errors"
 )
 func debug(fun, expected, v string, got interface{}) (error) {
 	return fmt.Errorf("In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
@@ -88,7 +88,6 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 
 	v, ok := value.(Expression)
 	if !ok {
-		fmt.Println(string(value.(*token.Token).Lit))
 		return nil, fmt.Errorf("invalid type definition of Expression. got=%T", value)
 	}
 
@@ -98,7 +97,6 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 func NewExpressionStatement(expr Attrib) (*ExpressionStatement, error) {
 		e, ok := expr.(Expression)
 		if !ok {
-			fmt.Println(expr.(*errors.Error).Error())
 			return nil, debug("NewExpressionStatement", "Expression", "expr", expr)
 		}
 		return &ExpressionStatement{Expression: e}, nil
