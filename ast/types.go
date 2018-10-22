@@ -105,20 +105,6 @@ type Boolean struct {
 	Value bool 
 }
 
-type Op int64
-
-const (
-	NOOP = iota
-	OR
-	AND
-)
-
-type BoolExpr struct {
-	A bool
-	B bool
-	Operator Op
-}
-
 type IntegerLiteral struct {
 	Token token.Token
 	Value int64
@@ -136,11 +122,11 @@ type InfixExpression struct {
 	Right Expression 
 }
 
-type IfExpression struct {
+type IfStatement struct {
 	Token token.Token // 'if' token
 	Condition Expression
 	Consequence *BlockStatement
-	Alternative *BlockStatement
+	Alternative *Statement
 }
 
 type FunctionLiteral struct {

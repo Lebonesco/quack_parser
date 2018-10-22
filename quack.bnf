@@ -124,11 +124,12 @@ StatementBlock
 	;
 
 Statement 
-		: if RExpr StatementBlock IfStatement
+		: if RExpr StatementBlock IfStatement		 << ast.NewIfStatement($1, $2, $3) >>
 		| while RExpr StatementBlock				 << ast.NewWhileStatement($1, $2) >>
 		| let LExpr assign RExpr semicolon			 << ast.NewLetStatement($1, $3) >>
 		| RExpr semicolon							 << ast.NewExpressionStatement($0) >>
 		| return semicolon							
+		| return RExpr semicolon						<< ast.NewReturnExpression($1) >>
 		| Typecase
 		;
 
@@ -139,8 +140,8 @@ Type
 	;
 
 IfStatement
-	: elif RExpr StatementBlock IfStatement
-	| else StatementBlock
+	: elif RExpr StatementBlock IfStatement         << ast.NewIfStatement($1, $2, $3) >>
+	| else StatementBlock 							<< $1, nil >> 
 	| empty
 	;
 
@@ -167,7 +168,6 @@ RExpr
       | not Bool 									<< !$1.(bool), nil >>
       | Bool  										<< ast.NewBool($0) >>
       | RExpr period ident lparen ActualArgs rparen	
-      | return RExpr semicolon
       | error
       ;
 

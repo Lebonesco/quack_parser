@@ -26,6 +26,12 @@ func (es *ExpressionStatement) TokenLiteral() string { return "ExpressionStateme
 func (w *WhileStatement) statementNode() {}
 func(w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
 
+func (is *IfStatement) statementNode() {}
+func (is *IfStatement) TokenLiteral() string { return string(is.Token.Lit) }
+
+func (bs *BlockStatement) statementNode() {}
+func (bs *BlockStatement) TokenLiteral() string { return "BlockStatement" }
+
 // Expressions
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
@@ -41,9 +47,6 @@ func (il *IntegerLiteral) TokenLiteral() string { return string(il.Token.Lit) }
 
 func (oe *InfixExpression) expressionNode() {}
 func (oe *InfixExpression) TokenLiteral() string { return string(oe.Token.Lit) }
-
-func (oe *IfExpression) expressionNode() {}
-func (oe *IfExpression) TokenLiteral() string { return string(oe.Token.Lit) }
 
 func (fl *FunctionLiteral) expressionNode() {}
 func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
@@ -124,8 +127,13 @@ func NewExtends(parent Attrib) (Extends, error) {
 	return Extends{Parent: parent.(string)}, nil
 }
 
-func NewStatementBlock(stmts Attrib) (BlockStatement, error) {
-	return BlockStatement{Statements: stmts.([]Statement)}, nil
+func NewStatementBlock(stmts Attrib) (*BlockStatement, error) {
+	s, ok := stmts.([]Statement)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of stmts. got=%T", stmts)
+	}
+
+	return &BlockStatement{Statements: s}, nil
 }
 
 func NewWhileStatement(cond, stmts Attrib) (*WhileStatement, error) {
@@ -142,6 +150,24 @@ func NewWhileStatement(cond, stmts Attrib) (*WhileStatement, error) {
 	return &WhileStatement{Cond: c, BlockStatement: b}, nil
 }
 
+func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
+	c, ok := cond.(Expression)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of cond. got=%T", cond)
+	}
+
+	cs, ok := cons.(*BlockStatement)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of cons. got=%T", cons)
+	}
+
+	a, ok := alt.(Statement)
+	if !ok {
+		return nil, fmt.Errorf("invalid type of alt. got=%T", alt)
+	}
+
+	return &IfStatement{Condition: c, Consequence: cs, Alternative: &a}, nil
+}
 
 func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 	l, ok := left.(Expression)
@@ -227,4 +253,8 @@ func AppendArgs(args, arg Attrib) ([]Expression, error) {
 	}
 
 	return append(as, a), nil
+}
+
+func NewReturnExpression(exp Attrib) (Statement, error) {
+	return &ReturnStatement{ReturnValue: exp.(Expression)}, nil
 }
