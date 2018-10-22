@@ -8,12 +8,12 @@ GENERATE=../../../../bin/gocc
 BINARY_NAME=scanner
 
 
-all: test build
+all: test build run
 build: 
 	$(GOBUILD) -o $(BINARY_NAME) -v
 test:
 	$(GENERATE) $(GENERATOR)
-	$(GOTEST) -v ./...
+	$(GOTEST) -v 
 clean:
 	$(GOCLEAN)
 	rm -rf $(BINARY_NAME) util token lexer parser errors
@@ -21,6 +21,6 @@ clean:
 run:
 	 $(GENERATE) $(GENERATOR) 
 	$(GOBUILD) -o $(BINARY_NAME) -v
-	./$(BINARY_NAME)
+	./$(BINARY_NAME) $(file)
 deps:
 	$(GOGET) github.com/goccmack/gocc
