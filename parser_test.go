@@ -439,30 +439,27 @@ func TestClass(t *testing.T) {
 		}
 
 		program, _ := res.(*ast.Program)
-		s := program.Classes[0]
-		t.Log(s)
+		_ = program.Classes[0]
+	}
+}
 
+func TestTypecase(t *testing.T) {
+	tests := []struct{
+		src string
+	}{
+		{
+		`typecase 5 {  }`},
+	}	
 
-	// 	if s.TokenLiteral() != "LetStatement" {
-	// 	t.Errorf("s.TokenLiteral() not 'LetStatement', got=%q", s.TokenLiteral())
-	// 	return false
-	// }
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
 
-	// letStmt, ok := s.(*ast.LetStatement)
-	// if !ok {
-	// 	t.Errorf("s not *ast.LetStatement, got=%T", s)
-	// 	return false
-	// }
-
-	// if letStmt.Name.Value != name {
-	// 	t.Errorf("letStmt.Name.Value not '%s'. got='%s'", name, letStmt.Name.Value)
-	// 	return false
-	// }
-
-	// if letStmt.Name.Value != name {
-	// 	t.Errorf("letStmt.Name.TokenLiteral() not '%s'. got='%s'", name, letStmt.Name)
-	// 	return false
-	// }
-	// return true
+		program, _ := res.(*ast.Program)
+		_ = program.Statements[0]
 	}
 }

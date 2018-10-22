@@ -13,7 +13,7 @@ class Pt(x: Int, y: Int) {
 let five = "test";
 let ten = 10;
 let result = add(five, ten);  
-5 < 10 > 5b;
+5 < 10 > 5;
 10 == 10;
 let k = add(five, 5, true, "test");
 

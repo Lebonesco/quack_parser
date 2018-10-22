@@ -37,6 +37,9 @@ func (is *IfStatement) TokenLiteral() string { return string(is.Token.Lit) }
 func (bs *BlockStatement) statementNode() {}
 func (bs *BlockStatement) TokenLiteral() string { return "BlockStatement" }
 
+func (tc *TypecaseStatement) statementNode() {}
+func (tc *TypecaseStatement) TokenLiteral() string { return "TypecaseStatement" }
+
 // Expressions
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
@@ -362,4 +365,42 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 	}
 
 	return &Identifier{Value: string(i.Lit)}, nil
+}
+
+func NewTypeAlt() ([]TypeAlt, error) {
+	return []TypeAlt{}, nil
+}
+
+func AppendTypeAlt(alts, value, kind, stmts Attrib) ([]TypeAlt, error) {
+	v, ok := value.(*token.Token)
+	if !ok {
+		return nil, debug("AppendTypeAlt", "*token.Token", "value", value)	
+	}
+
+	k, ok := kind.(*token.Token)
+	if !ok {
+		return nil, debug("AppendTypeAlt", "*token.Token", "kind", kind)
+	}
+
+	s, ok := stmts.(*BlockStatement)
+	if !ok {
+		return nil, debug("AppendTypeAlt", "*BlockStatement", "stmts", stmts)
+	}
+
+	alt := TypeAlt{Value: string(v.Lit), Kind: string(k.Lit), StmtBlock: s}
+	return append(alts.([]TypeAlt), alt), nil
+}
+
+func NewTypecase(expr, typeAlt Attrib) (Statement, error) {
+	e, ok := expr.(Expression)
+	if !ok {
+		return nil, debug("NewTypecase", "Expression", "expr", expr)
+	}
+
+	t, ok := typeAlt.([]TypeAlt)
+	if !ok {
+		return nil, debug("NewTypecase", "[]TypeAlt", "typeAlt", typeAlt)
+	}
+
+	return &TypecaseStatement{Expression: e, TypeAlt: t}, nil
 }

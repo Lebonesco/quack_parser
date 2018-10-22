@@ -57,6 +57,20 @@ type BlockStatement struct {
 	Statements []Statement
 }
 
+type TypecaseStatement struct {
+	Token token.Token // 'typecase'
+	Expression Expression
+	TypeAlt []TypeAlt
+}
+
+type TypeAlt struct {
+	Value string
+	Kind string
+	StmtBlock *BlockStatement
+}
+
+
+
 type Class struct {
 	Token token.Token
 	Signature *ClassSignature
