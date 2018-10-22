@@ -423,10 +423,11 @@ func TestClass(t *testing.T) {
 			"""
 			example of a class in quack
 			"""
-			let this.x = x;
-			let this.y = y;
+			this.x = x;
+			this.y = y;
 				
-			def _x() : Int { return "test"; }
+			def _x() : Int { return ; }
+			def _y() : Int { return this.y; }
 		}`},
 	}	
 

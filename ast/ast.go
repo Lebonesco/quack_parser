@@ -178,7 +178,7 @@ func AppendMethod(methods, name, args, kind, stmts Attrib) ([]Method, error) {
 		}
 	}
 
-	k, ok := kind.(*token.Token)
+	k, ok := kind.(*token.Token) // this is optional, add nil case
 	if !ok {
 		return nil, debug("AppendMethod", "*token.Token", "kind", kind)
 	}
@@ -327,6 +327,9 @@ func AppendArgs(args, arg Attrib) ([]Expression, error) {
 }
 
 func NewReturnExpression(exp Attrib) (Statement, error) {
+	if exp == nil {
+		return &ReturnStatement{}, nil
+	}
 	return &ReturnStatement{ReturnValue: exp.(Expression)}, nil
 }
 

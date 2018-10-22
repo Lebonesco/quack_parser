@@ -4,8 +4,8 @@ class Pt(x: Int, y: Int) {
 	"""
 	example of a class in quack
 	"""
-	//this.x = x;
-	//this.y = y;
+	this.x = x;
+	this.y = y;
 		
 	def _x() : Int { return "test"; }
 }
