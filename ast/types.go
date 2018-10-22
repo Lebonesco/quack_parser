@@ -86,12 +86,8 @@ type ClassBody struct {
 type Method struct {
 	Name string
 	Args []FormalArgs
-	Type ValType
-	StmtBlock BlockStatement
-}
-
-type ValType struct {
-	Type string
+	Typ string
+	StmtBlock *BlockStatement
 }
 
 // Expression
@@ -141,3 +137,8 @@ type FunctionCall struct {
 	Args []Expression
 }
 
+type MethodExpression struct {
+	Token token.Token
+	Expression Expression
+	Ident string
+}

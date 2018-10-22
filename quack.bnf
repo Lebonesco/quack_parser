@@ -117,7 +117,7 @@ ClassBody
 	;
 
 Method 
-	: Method def ident lparen FormalArgs rparen Type StatementBlock << ast.AppendMethod($0, $1) >>
+	: Method def ident lparen FormalArgs rparen Type StatementBlock << ast.AppendMethod($0, $2, $4, $6, $7) >>
 	| empty															<< ast.NewMethod() >>
 	;
 
@@ -148,7 +148,7 @@ IfStatement
 	;
 
 LExpr : ident 										<< ast.NewIdentifier($0) >>
-	  | RExpr period ident
+	  | RExpr period ident 							<< ast.NewClassVariable($0, $2) >>
 	  ;
 
 RExpr 

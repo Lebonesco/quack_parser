@@ -17,6 +17,7 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
+
 func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return "LetStatement" }
 
@@ -149,8 +150,34 @@ func NewMethod() ([]Method, error) {
 	return []Method{}, nil
 }
 
-func AppendMethod(methods, method Attrib) ([]Method, error) {
-	return append(methods.([]Method), method.(Method)), nil
+func AppendMethod(methods, name, args, kind, stmts Attrib) ([]Method, error) {
+	n, ok := name.(*token.Token)
+	if !ok {
+		return nil, debug("AppendMethod", "*token.Token", "name", name)
+	}
+
+	a := []FormalArgs{}
+	if args != nil {
+		var ok bool
+		a, ok = args.([]FormalArgs)
+		if !ok {
+			return nil, debug("AppendMethod", "[]FormalArgs", "args", args)
+		}
+	}
+
+	k, ok := kind.(*token.Token)
+	if !ok {
+		return nil, debug("AppendMethod", "*token.Token", "kind", kind)
+	}
+
+	s, ok := stmts.(*BlockStatement)
+	if !ok {
+		return nil, debug("AppendMethod", "*BlockStatement", "stmts", stmts)
+	}
+
+	method := Method{Name: string(n.Lit), Args: a, Typ: string(k.Lit), StmtBlock: s}
+
+	return append(methods.([]Method), method), nil
 }
 
 
@@ -311,4 +338,18 @@ func AppendFormalArgs(arg, kind, args Attrib) ([]FormalArgs, error) {
 	}
 
 	return append(as, FormalArgs{string(a.Lit), string(k.Lit)}), nil
+}
+
+func NewClassVariable(exp, ident Attrib) (Expression, error) {
+	_, ok := exp.(Expression)
+	if !ok {
+		return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
+	}
+
+	i, ok := ident.(*token.Token)
+	if !ok {
+		return nil, debug("NewClassVariable", "*token.Token", "ident", ident)
+	}
+
+	return &Identifier{Value: string(i.Lit)}, nil
 }
