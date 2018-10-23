@@ -162,10 +162,9 @@ RExpr
       | Term									    
       | RExpr period ident 							<< ast.NewClassVariable($0, $2) >>
 	  | ident lparen ActualArgs rparen				<< ast.NewFunctionCall($0, $2) >> 
-      | RExpr and Bool								<< ast.NewBoolExpr($0, $2, "and") >>
-      | RExpr or Bool    							<< ast.NewBoolExpr($0, $2, "or") >>
-      | not Bool 									<< !$1.(bool), nil >>
-      | Bool  										<< ast.NewBool($0) >>
+      | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
+      | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
+      | not Term 									<< !$1.(bool), nil >>
       | RExpr period ident lparen ActualArgs rparen								
       ;
 
@@ -174,6 +173,7 @@ Term
 	| Term div Factor		<< ast.NewInfixExpression($0, $1, $2) >>
 	| Factor 				
 	| ident                 << ast.NewIdentifier($0) >>
+	| Bool  				<< ast.NewBool($0) >>
 	;
 
 Factor

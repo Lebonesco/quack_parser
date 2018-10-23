@@ -203,9 +203,13 @@ func AppendMethod(methods, name, args, kind, stmts Attrib) ([]Method, error) {
 		}
 	}
 
-	k, ok := kind.(*token.Token) // this is optional, add nil case
-	if !ok {
-		return nil, debug("AppendMethod", "*token.Token", "kind", kind)
+	k := &token.Token{}
+	if kind != nil {
+		var ok bool
+		k, ok = kind.(*token.Token) // this is optional, add nil case
+		if !ok {
+			return nil, debug("AppendMethod", "*token.Token", "kind", kind)
+		}
 	}
 
 	s, ok := stmts.(*BlockStatement)
@@ -315,12 +319,12 @@ func NewBoolExpr(left, right Attrib, oper string) (Expression, error) {
 		return nil, fmt.Errorf("invalid left expression. got=%T", left)
 	}
 
-	r, ok := right.(bool)
+	r, ok := right.(Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid right expression. got=%T", right)
+		return nil, debug("NewBoolExpr", "*bool", "right", right)
 	}
 
-	return &InfixExpression{Left: l, Operator: oper, Right: &Boolean{Value: r}}, nil
+	return &InfixExpression{Left: l, Operator: oper, Right: r}, nil
 }
 
 func NewFunctionCall(name, args Attrib) (Expression, error) {
