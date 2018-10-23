@@ -114,6 +114,7 @@ FormalArgsList
 
 ClassBody 
 	: lbrace Statements Method rbrace	<< ast.NewClassBody($1, $2) >>
+	| error
 	;
 
 Method 

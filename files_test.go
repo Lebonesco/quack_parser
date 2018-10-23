@@ -18,7 +18,7 @@ func TestFiles(t *testing.T) {
     }
 
 	for i, file := range files {
-		fmt.Printf("Testing file %d/%d - %s\n", i, len(files), file.Name())
+		fmt.Printf("Testing file %d/%d - %s\n", i+1, len(files), file.Name())
 		data, err := ioutil.ReadFile(DIR+"/"+file.Name())
 		if err != nil {
 			t.Fatalf(err.Error())
@@ -29,7 +29,9 @@ func TestFiles(t *testing.T) {
 		p := parser.NewParser()
 		res, err := p.Parse(l)
 		if err != nil {
-			t.Fatalf(err.Error())
+			t.Log(file.Name())
+			t.Log(err.Error())
+			t.Log("\n------------------------------------------------------------------")
 		}
 
 		_, _ = res.(*ast.Program)

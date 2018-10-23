@@ -276,7 +276,7 @@ func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
 func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 	l, ok := left.(Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid left expression. got=%T", left)
+		return nil, debug("NewInfixExpression", "Expression", "left", left)
 	}
 
 	o, ok := oper.(*token.Token)

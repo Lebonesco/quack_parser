@@ -473,6 +473,7 @@ func TestIdentOperations(t *testing.T) {
 		{`this.y + this.x;`},
 		{"cat + 5 + cat;"},
 		{`cat + "five" + cat;`},
+		{`this.x = x + y;`},
 	}	
 
 	for _, tt := range tests {

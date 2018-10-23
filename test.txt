@@ -10,6 +10,18 @@ class Pt(x: Int, y: Int) {
 	def _x() : Int { return "test"; }
 }
 
+class Challenge() {
+   this.x = /*  Comments can be anywhere */ y
+           + z // line-ending comment
+	       // This doesn't end it. ;
+	       ;
+
+   /* comment before */ z = """
+You can put all kinds of 
+crazy \z\a\.\""" + "stuff in a triple-quoted string"; 
+}
+
+
 let five = "test";
 let ten = 10;
 let result = add(five, ten);  
@@ -45,8 +57,3 @@ cool = "test";
 let test = "taijq0f4" ;
 
 this.x : Int = x;
-
- def STR() : String {
-      return "(" + this.x.STR() + "," 
-                 + this.y.STR() + ")";
-  }
