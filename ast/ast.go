@@ -80,7 +80,30 @@ func AppendStatement(stmtList, stmt Attrib) ([]Statement, error) {
 	return append(stmtList.([]Statement), s), nil
 }
 
-func NewLetStatement(name, value interface{}) (*LetStatement, error) {
+func NewLetStatement(name, kind, value interface{}) (*LetStatement, error) {
+	n, ok := name.(*Identifier)
+	if !ok {
+		return nil, fmt.Errorf("invalid type definition of Identifier. got=%T", name)
+	}
+
+	k := &token.Token{}
+	if kind != nil {
+		var ok bool
+		k, ok = kind.(*token.Token)
+		if !ok {
+			return nil, fmt.Errorf("invalid type definition of Identifier. got=%T", kind)
+		}
+	}
+
+	v, ok := value.(Expression)
+	if !ok {
+		return nil, debug("NewLetStatement", "Expression", "value", value)
+	}
+
+	return &LetStatement{Name: n, Value: v, Kind: string(k.Lit)}, nil
+}
+
+func NewAssignmentStatement(name, value interface{}) (*LetStatement, error) {
 	n, ok := name.(*Identifier)
 	if !ok {
 		return nil, fmt.Errorf("invalid type definition of Identifier. got=%T", name)

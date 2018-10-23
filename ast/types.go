@@ -34,6 +34,7 @@ type LetStatement struct {
 	Token token.Token // token.Let token
 	Name *Identifier
 	Value Expression
+	Kind string
 }
 
 type WhileStatement struct {

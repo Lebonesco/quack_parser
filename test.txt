@@ -43,3 +43,5 @@ cool = "test";
 "test";
 
 let test = "taijq0f4" ;
+
+this.x : Int = x;

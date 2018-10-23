@@ -4,6 +4,7 @@ import (
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/errors"
+	"github.com/Lebonesco/quack_parser/token"
 	"fmt"
 	"bytes"
 	"io/ioutil"
@@ -14,7 +15,7 @@ import (
 
 func format(e *errors.Error) string {
 	w := new(bytes.Buffer)
-	fmt.Fprintf(w, "Error: value: '%s' in line %d, expected one of: \n", e.ErrorToken.Lit, e.ErrorToken.Pos.Line)
+	fmt.Fprintf(w, "Error: value: '%s' type: '%s' in line %d, expected one of: \n", e.ErrorToken.Lit, token.TokMap.StringType(e.ErrorToken.Type), e.ErrorToken.Pos.Line)
 	for _, sym := range e.ExpectedTokens {
 		fmt.Fprintf(w, "'%s' ", sym)
 	}
