@@ -1,0 +1,34 @@
+/* Tiniest possible Quack program
+ * is an integer literal, which
+ * should evaluate to itself and
+ * not print anything.
+ */
+ 42;
+
+ /* Normal and triple-quoted strings */
+
+// In a normal string, we expect escaped characters to
+// be translated.
+
+bog_standard = "This is a bog standard string";
+escaped = "This\tstring\nhas escapes";
+triple = """This string
+has a newline""";
+raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
+
+/* Normal and triple-quoted strings */
+
+// In a normal string, we expect escaped characters to
+// be translated.
+
+bog_standard = "This is a bog standard string";
+escaped = "This\tstring\nhas escapes";
+triple = """This string
+has a newline""";
+raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
+
+x = "oh no, comments must be closed." /*
+
+So far so good, but where's the end?
+
+s: String = "This cquote runs off the end of the file

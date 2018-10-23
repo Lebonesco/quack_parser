@@ -141,7 +141,7 @@ func TestScannerComments(t *testing.T) {
 
 func TestScannerTripleQuote(t *testing.T) {
 	tests := []Test{
-		{token.TokMap.Type("$"), ""}, // end token
+		{token.TokMap.Type("string_literal"), "\"\"\" this is also a comment?\n\t\t\t\t\"\"\""}, // end token
 	}
 
 	runTest(tests, INPUT4, t)
@@ -422,7 +422,7 @@ func TestClass(t *testing.T) {
 		`class Pt(x: Int, y: Int) {
 			"""
 			example of a class in quack
-			"""
+			""";
 			this.x = x;
 			this.y = y;
 				

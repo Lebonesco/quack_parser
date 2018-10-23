@@ -15,10 +15,6 @@ class Challenge() {
            + z // line-ending comment
 	       // This doesn't end it. ;
 	       ;
-
-   /* comment before */ z = """
-You can put all kinds of 
-crazy \z\a\.\""" + "stuff in a triple-quoted string"; 
 }
 
 

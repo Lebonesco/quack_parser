@@ -30,7 +30,7 @@ _not_escape : 'a' | 'c' | 'd' | 'e' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
 					| 'x' | 'y' | 'z' ;
 string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
 //string_newline_error : '"' {.} '\\' 'n' ;
-string_literal : '"' {(_alpha | ' ' | '{' | '}' | '[' | ']' | '~' | ',' | '.' | ';' | ':' 
+string_literal : '"' {(_alpha | ' ' | '{' | '}' | '[' | ']' | '~' | ',' | '.' | ';' | ':' | '"' '"' { . | '\\' | ' '} '"' '"'
 						| '^' | '!' | '@' | '#' | '$' | '%' | '&' | '*' | '(' | ')' | '-' | '?' | '<' | '>' | '|' | '=' | '/'
 						| '+')} '"' ;
 int : '1'-'9' {_digit} ;
@@ -39,7 +39,7 @@ ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e
 		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _letter {_alpha} ;
 
 // --- [ Comments (suppressed) ] -----------------------------------------------
-!comment      : _lineComment | _blockComment | _tripleQuoteComment ;
+!comment      : _lineComment | _blockComment ;
 _lineComment  : '/' '/' { . } '\n' ;
 _blockComment : '/' '*' { . | '*' } '*' '/' ;
 _tripleQuoteComment : '"' '"' '"' { . } '"' '"' '"' ;
@@ -73,8 +73,6 @@ unknown : . ; // catch unmatched tokens
 
 <<
 import (
-//	"github.com/Lebonesco/quack_parser/token"
-//	"github.com/Lebonesco/quack_parser/util"
 	"github.com/Lebonesco/quack_parser/ast"
 )
 >>
@@ -124,6 +122,7 @@ Method
 
 StatementBlock 
 	: lbrace Statements rbrace	<< ast.NewStatementBlock($1) >> 
+	| error
 	;
 
 Statement 
@@ -151,8 +150,7 @@ IfStatement
 	;
 
 RExpr 
-	  : error
-      | RExpr plus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
+      : RExpr plus Term 							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr minus Term 							<< ast.NewInfixExpression($0, $1, $2) >>		
       | RExpr atleast Term							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr atmost Term							<< ast.NewInfixExpression($0, $1, $2) >>
@@ -183,6 +181,7 @@ Factor
 	: lparen RExpr rparen	<< $1, nil >>
 	| int 					<< ast.NewIntLiteral($0) >>
 	| string_literal        << ast.NewStringLiteral($0) >>
+	| error
 	;
 
 Bool
