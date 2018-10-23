@@ -47,6 +47,9 @@ func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
 func (sl *StringLiteral) expressionNode()      {}
 func (sl *StringLiteral) TokenLiteral() string { return string(sl.Token.Lit) }
 
+func (se *StringEscapeError) expressionNode()  {}
+func (se *StringEscapeError) TokenLiteral() string { return string(se.Token.Lit) }
+
 func (b *Boolean) expressionNode() {}
 func (b *Boolean) TokenLiteral() string { return string(b.Token.Lit) }
 
@@ -443,4 +446,23 @@ func NewTypecase(expr, typeAlt Attrib) (Statement, error) {
 	}
 
 	return &TypecaseStatement{Expression: e, TypeAlt: t}, nil
+}
+
+// handles unknown tokens
+func Unknown(unknown Attrib) (Expression, error) {
+	u, ok := unknown.(token.Token)
+	if !ok {
+		return nil, debug("Unknown", "token.Token", "unknown", unknown)
+	}
+
+	return &StringLiteral{Token: u, Value: string(u.Lit)}, nil
+}
+
+func NewStringEscapeError(s_error Attrib) (Expression, error) {
+	se, ok := s_error.(token.Token)
+	if !ok {
+		return nil, debug("NewStringEscapeError", "token.Token", "s_error", s_error)
+	}
+
+	return &StringEscapeError{Token: se, Value: string(se.Lit)}, nil
 }

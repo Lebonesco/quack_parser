@@ -157,3 +157,8 @@ type MethodExpression struct {
 	Expression Expression
 	Ident string
 }
+
+type StringEscapeError struct {
+	Token token.Token // string escape error
+	Value string
+}

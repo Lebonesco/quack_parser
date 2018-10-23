@@ -166,7 +166,9 @@ RExpr
       | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
       | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
       | not Term 									<< !$1.(bool), nil >>
-      | RExpr period ident lparen ActualArgs rparen								
+      | RExpr period ident lparen ActualArgs rparen			
+      | unknown										<< ast.Unknown($0) >>		
+      | string_escape_error							<< ast.NewStringEscapeError($0) >>			
       ;
 
 Term 
