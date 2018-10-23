@@ -1,4 +1,4 @@
-# quack_scanner
+# Quack Parser with AST
 
 ## How to Run
 
