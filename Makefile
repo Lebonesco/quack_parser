@@ -10,6 +10,7 @@ BINARY_NAME=scanner
 
 all: test build run
 build: 
+	$(GENERATE) $(GENERATOR) 
 	$(GOBUILD) -o $(BINARY_NAME) -v
 test:
 	$(GENERATE) $(GENERATOR)
