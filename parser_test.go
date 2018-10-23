@@ -464,3 +464,26 @@ func TestTypecase(t *testing.T) {
 		_ = program.Statements[0]
 	}
 }
+
+func TestIdentOperations(t *testing.T) {
+	tests := []struct{
+		src string
+	}{
+		{`"(" + this.x.STR() + "," + this.y.STR() + ")";`},
+		{`this.y + this.x;`},
+		{"cat + 5 + cat;"},
+		{`cat + "five" + cat;`},
+	}	
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		_ = program.Statements[0]
+	}
+}

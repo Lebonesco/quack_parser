@@ -45,3 +45,8 @@ cool = "test";
 let test = "taijq0f4" ;
 
 this.x : Int = x;
+
+ def STR() : String {
+      return "(" + this.x.STR() + "," 
+                 + this.y.STR() + ")";
+  }
