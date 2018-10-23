@@ -88,7 +88,7 @@ func NewLetStatement(name, value interface{}) (*LetStatement, error) {
 
 	v, ok := value.(Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid type definition of Expression. got=%T", value)
+		return nil, debug("NewLetStatement", "Expression", "value", value)
 	}
 
 	return &LetStatement{Name: n, Value: v}, nil

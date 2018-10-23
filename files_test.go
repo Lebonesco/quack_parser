@@ -6,6 +6,7 @@ import (
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/ast"
 	"io/ioutil"
+	"fmt"
 )
 
 const DIR = "./samples"
@@ -17,10 +18,10 @@ func TestFiles(t *testing.T) {
     }
 
 	for i, file := range files {
-		t.Log(i, file.Name())
+		fmt.Printf("Testing file %d/%d - %s\n", i, len(files), file.Name())
 		data, err := ioutil.ReadFile(DIR+"/"+file.Name())
 		if err != nil {
-			t.Errorf(err.Error())
+			t.Fatalf(err.Error())
 			continue
 		}
 
@@ -31,7 +32,6 @@ func TestFiles(t *testing.T) {
 			t.Fatalf(err.Error())
 		}
 
-		program, _ := res.(*ast.Program)
-		_ = program.Statements[0]
+		_, _ = res.(*ast.Program)
 	}
 }
