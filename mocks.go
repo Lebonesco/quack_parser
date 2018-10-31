@@ -1,6 +1,6 @@
 package main
 
-var ( 
+var (
 	INPUT1 = `
 			/* comment should not be scanned */
 			let five = "test";

@@ -1,11 +1,12 @@
 package main
 
 import (
-	"testing"
-	"github.com/Lebonesco/quack_parser/lexer"
-	"github.com/Lebonesco/quack_parser/token"
-	"github.com/Lebonesco/quack_parser/parser"
+	"encoding/json"
 	"github.com/Lebonesco/quack_parser/ast"
+	"github.com/Lebonesco/quack_parser/lexer"
+	"github.com/Lebonesco/quack_parser/parser"
+	"github.com/Lebonesco/quack_parser/token"
+	"testing"
 )
 
 type Test struct {
@@ -186,10 +187,10 @@ func runTest(tests []Test, input string, t *testing.T) {
 }
 
 func TestAssignment(t *testing.T) {
-	tests := []struct{
-		src string
+	tests := []struct {
+		src                string
 		expectedIdentifier string
-		expectedValue interface{}
+		expectedValue      interface{}
 	}{
 		{"let five = 5;", "five", 5},
 		{"let x = true;", "x", true},
@@ -239,21 +240,21 @@ func testLetStatement(t *testing.T, s ast.Statement, name string) bool {
 }
 
 func TestOperators(t *testing.T) {
-	tests := []struct{
-		src string
-		expectedLeft int64
+	tests := []struct {
+		src           string
+		expectedLeft  int64
 		expectedRight int64
-		expectedOp string
+		expectedOp    string
 	}{
 		{`5 + 5;`, 5, 5, `+`},
 		{`5 + 5;`, 5, 5, `+`},
 		{`5 < 6;`, 5, 6, "<"},
-		{`5 <= 6;`, 5, 6, "<="},	
-		{`5 > 6;`, 5, 6, ">"},	
+		{`5 <= 6;`, 5, 6, "<="},
+		{`5 > 6;`, 5, 6, ">"},
 		{`5 >= 6;`, 5, 6, ">="},
 		{"5 == 3;", 5, 3, "=="},
-		{"5 != 3;", 5, 3, "!="},		
-	}	
+		{"5 != 3;", 5, 3, "!="},
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -265,7 +266,7 @@ func TestOperators(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 		s := program.Statements[0]
-		
+
 		if s.TokenLiteral() != "ExpressionStatement" {
 			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
 		}
@@ -300,20 +301,20 @@ func TestOperators(t *testing.T) {
 
 		if left.Value != tt.expectedLeft {
 			t.Fatalf("not correct left value expected %d, got=%d", tt.expectedLeft, left.Value)
-		}		
+		}
 	}
 }
 
 func TestBoolOperations(t *testing.T) {
-	tests := []struct{
-		src string
-		expectedLeft bool
+	tests := []struct {
+		src           string
+		expectedLeft  bool
 		expectedRight bool
-		expectedOp string
+		expectedOp    string
 	}{
 		{`true and true;`, true, true, "and"},
-		{`true or false;`, true, false, "or"},		
-	}	
+		{`true or false;`, true, false, "or"},
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -325,7 +326,7 @@ func TestBoolOperations(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 		s := program.Statements[0]
-		
+
 		if s.TokenLiteral() != "ExpressionStatement" {
 			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
 		}
@@ -360,23 +361,23 @@ func TestBoolOperations(t *testing.T) {
 
 		if left.Value != tt.expectedLeft {
 			t.Fatalf("not correct left value expected %t, got=%t", tt.expectedLeft, left.Value)
-		}		
+		}
 	}
 }
 
 func TestIfStatement(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		src string
 	}{
 		{
-		`if (5 < 10) {
+			`if (5 < 10) {
 			return true;
 		} elif (false) {
 			return false;
 		} else {
 			return false;
 		}`},
-	}	
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -387,19 +388,24 @@ func TestIfStatement(t *testing.T) {
 		}
 
 		program, _ := res.(*ast.Program)
-		_ = program.Statements[0]
+		// _ = program.Statements[0]
+		_, err = json.Marshal(program)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+		//t.Log(string(jsonObj))
 	}
 }
 
 func TestWhileStatement(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		src string
 	}{
 		{
-		`while i < 4 {
+			`while i < 4 {
 			let tmp = 4;
 		}`},
-	}	
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -415,11 +421,11 @@ func TestWhileStatement(t *testing.T) {
 }
 
 func TestClass(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		src string
 	}{
 		{
-		`class Pt(x: Int, y: Int) {
+			`class Pt(x: Int, y: Int) {
 			"""
 			example of a class in quack
 			""";
@@ -429,7 +435,7 @@ func TestClass(t *testing.T) {
 			def _x() : Int { return ; }
 			def _y() : Int { return this.y; }
 		}`},
-	}	
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -445,12 +451,12 @@ func TestClass(t *testing.T) {
 }
 
 func TestTypecase(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		src string
 	}{
 		{
-		`typecase 5 {  }`},
-	}	
+			`typecase 5 {  }`},
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))
@@ -466,7 +472,7 @@ func TestTypecase(t *testing.T) {
 }
 
 func TestIdentOperations(t *testing.T) {
-	tests := []struct{
+	tests := []struct {
 		src string
 	}{
 		{`"(" + this.x.STR() + "," + this.y.STR() + ")";`},
@@ -474,7 +480,7 @@ func TestIdentOperations(t *testing.T) {
 		{"cat + 5 + cat;"},
 		{`cat + "five" + cat;`},
 		{`this.x = x + y;`},
-	}	
+	}
 
 	for _, tt := range tests {
 		l := lexer.NewLexer([]byte(tt.src))

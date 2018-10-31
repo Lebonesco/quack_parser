@@ -1,16 +1,16 @@
 package main
 
 import (
+	"bytes"
+	"fmt"
+	"github.com/Lebonesco/quack_parser/errors"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
-	"github.com/Lebonesco/quack_parser/errors"
 	"github.com/Lebonesco/quack_parser/token"
-	"fmt"
-	"bytes"
 	"io/ioutil"
+	"log"
 	"os"
 	"path/filepath"
-	"log"
 )
 
 func format(e *errors.Error) string {
@@ -41,10 +41,11 @@ func main() {
 	if err != nil {
 		fmt.Println("Oh no, there were errors!")
 		fmt.Println(format(err.(*errors.Error)))
-	} else {
-		fmt.Println("Yay, there were no errors!")
+		return
 	}
 
+	fmt.Println("AST has successfully been constructed")
+
 	_ = res
-	fmt.Println("parser is done...")
+	fmt.Println("compiler is done...")
 }

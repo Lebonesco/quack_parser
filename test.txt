@@ -1,9 +1,6 @@
 /* comment should not be scanned */
 
 class Pt(x: Int, y: Int) {
-	"""
-	example of a class in quack
-	"""
 	this.x = x;
 	this.y = y;
 		
@@ -53,3 +50,5 @@ cool = "test";
 let test = "taijq0f4" ;
 
 this.x : Int = x;
+
+-99;

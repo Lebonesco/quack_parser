@@ -2,11 +2,14 @@ package ast
 
 import (
 	"fmt"
-	"strconv"
-	"github.com/Lebonesco/quack_parser/token"
 	_ "github.com/Lebonesco/quack_parser/errors"
+	"github.com/Lebonesco/quack_parser/token"
+	"strconv"
 )
-func debug(fun, expected, v string, got interface{}) (error) {
+
+type node map[string][]node
+
+func debug(fun, expected, v string, got interface{}) error {
 	return fmt.Errorf("In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
 }
 
@@ -18,53 +21,57 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
-
 func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return "LetStatement" }
 
 func (rs *ReturnStatement) statementNode()       {}
 func (rs *ReturnStatement) TokenLiteral() string { return "ReturnStatement" }
 
-func (es *ExpressionStatement) statementNode() {}
+func (es *ExpressionStatement) statementNode()       {}
 func (es *ExpressionStatement) TokenLiteral() string { return "ExpressionStatement" }
 
-func (w *WhileStatement) statementNode() {}
-func(w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
+func (w *WhileStatement) statementNode()       {}
+func (w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
 
-func (is *IfStatement) statementNode() {}
-func (is *IfStatement) TokenLiteral() string { return string(is.Token.Lit) }
+func (is *IfStatement) statementNode()       {}
+func (is *IfStatement) TokenLiteral() string { return "IfStatement" }
 
-func (bs *BlockStatement) statementNode() {}
+func (bs *BlockStatement) statementNode()       {}
 func (bs *BlockStatement) TokenLiteral() string { return "BlockStatement" }
 
-func (tc *TypecaseStatement) statementNode() {}
+func (tc *TypecaseStatement) statementNode()       {}
 func (tc *TypecaseStatement) TokenLiteral() string { return "TypecaseStatement" }
 
 // Expressions
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
+func (i *Identifier) Json() node {
+	return node{i.TokenLiteral(): nil}
+}
 
 func (sl *StringLiteral) expressionNode()      {}
 func (sl *StringLiteral) TokenLiteral() string { return string(sl.Token.Lit) }
 
-func (se *StringEscapeError) expressionNode()  {}
+func (se *StringEscapeError) expressionNode()      {}
 func (se *StringEscapeError) TokenLiteral() string { return string(se.Token.Lit) }
 
-func (b *Boolean) expressionNode() {}
+func (b *Boolean) expressionNode()      {}
 func (b *Boolean) TokenLiteral() string { return string(b.Token.Lit) }
 
-func (il *IntegerLiteral) expressionNode() {}
+func (il *IntegerLiteral) expressionNode()      {}
 func (il *IntegerLiteral) TokenLiteral() string { return string(il.Token.Lit) }
 
-func (oe *InfixExpression) expressionNode() {}
+func (oe *InfixExpression) expressionNode()      {}
 func (oe *InfixExpression) TokenLiteral() string { return string(oe.Token.Lit) }
 
-func (fl *FunctionLiteral) expressionNode() {}
+func (pf *PrefixExpression) expressionNode() {}
+func(pf *PrefixExpression) TokenLiteral() string { return string(pf.Token.Lit) }
+
+func (fl *FunctionLiteral) expressionNode()      {}
 func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
 
-func (fc *FunctionCall) expressionNode() {}
+func (fc *FunctionCall) expressionNode()      {}
 func (fc *FunctionCall) TokenLiteral() string { return string(fc.Token.Lit) }
-
 
 // AST builders
 func NewProgram(classes, stmts Attrib) (*Program, error) {
@@ -121,11 +128,11 @@ func NewAssignmentStatement(name, value interface{}) (*LetStatement, error) {
 }
 
 func NewExpressionStatement(expr Attrib) (*ExpressionStatement, error) {
-		e, ok := expr.(Expression)
-		if !ok {
-			return nil, debug("NewExpressionStatement", "Expression", "expr", expr)
-		}
-		return &ExpressionStatement{Expression: e}, nil
+	e, ok := expr.(Expression)
+	if !ok {
+		return nil, debug("NewExpressionStatement", "Expression", "expr", expr)
+	}
+	return &ExpressionStatement{Expression: e}, nil
 }
 
 func NewClass() ([]Class, error) {
@@ -225,7 +232,6 @@ func AppendMethod(methods, name, args, kind, stmts Attrib) ([]Method, error) {
 	return append(methods.([]Method), method), nil
 }
 
-
 func NewExtends(parent Attrib) (*Extends, error) {
 	p, ok := parent.(*token.Token)
 	if !ok {
@@ -293,6 +299,20 @@ func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 	}
 
 	return &InfixExpression{Left: l, Operator: string(o.Lit), Right: r}, nil
+}
+
+func NewPrefixExpression(oper, value Attrib) (Expression, error) {
+	o, ok := oper.(*token.Token)
+	if !ok {
+		return nil, debug("NewPrefixExpression", "*token.Token", "oper", oper)
+	}
+
+	v, ok := value.(Expression)
+	if !ok {
+		return nil, debug("NewPrefixExpression", "Expression", "value", value)
+	}
+
+	return &PrefixExpression{Value: v, Operator: string(o.Lit)}, nil
 }
 
 func NewIntLiteral(integer Attrib) (Expression, error) {
@@ -417,7 +437,7 @@ func NewTypeAlt() ([]TypeAlt, error) {
 func AppendTypeAlt(alts, value, kind, stmts Attrib) ([]TypeAlt, error) {
 	v, ok := value.(*token.Token)
 	if !ok {
-		return nil, debug("AppendTypeAlt", "*token.Token", "value", value)	
+		return nil, debug("AppendTypeAlt", "*token.Token", "value", value)
 	}
 
 	k, ok := kind.(*token.Token)

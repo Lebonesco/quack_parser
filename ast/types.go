@@ -9,7 +9,7 @@ type Attrib interface{}
 // base interface
 type Node interface {
 	TokenLiteral() string
-	// Json() string // used to contruct json tree
+	//Json() []node // used to contruct json tree
 }
 
 // all statement nodes
@@ -25,67 +25,65 @@ type Expression interface {
 }
 
 type Program struct {
-	Classes []Class
+	Classes    []Class
 	Statements []Statement
 }
 
 // Statements
 type LetStatement struct {
 	Token token.Token // token.Let token
-	Name *Identifier
+	Name  *Identifier
 	Value Expression
-	Kind string
+	Kind  string
 }
 
 type WhileStatement struct {
-	Token token.Token  // token while
-	Cond Expression
+	Token          token.Token // token while
+	Cond           Expression
 	BlockStatement *BlockStatement
 }
 
 type ReturnStatement struct {
-	Token token.Token // 'return' token
+	Token       token.Token // 'return' token
 	ReturnValue Expression
 }
 
 type ExpressionStatement struct {
-	Token token.Token 
+	Token      token.Token
 	Expression Expression
 }
 
 type BlockStatement struct {
-	Token token.Token
+	Token      token.Token
 	Statements []Statement
 }
 
 type TypecaseStatement struct {
-	Token token.Token // 'typecase'
+	Token      token.Token // 'typecase'
 	Expression Expression
-	TypeAlt []TypeAlt
+	TypeAlt    []TypeAlt
 }
 
 type TypeAlt struct {
-	Value string
-	Kind string
+	Value     string
+	Kind      string
 	StmtBlock *BlockStatement
 }
 
-
-
 type Class struct {
-	Token token.Token
+	Token     token.Token
 	Signature *ClassSignature
-	Body *ClassBody
+	Body      *ClassBody
 }
 
 type ClassSignature struct {
-	Name string
-	Args []FormalArgs
+	Name   string
+	Args   []FormalArgs
 	Extend *Extends
 }
 
 type FormalArgs struct {
-	Arg string
+	Arg  string
 	Type string
 }
 
@@ -95,13 +93,13 @@ type Extends struct {
 
 type ClassBody struct {
 	Statements []Statement
-	Methods []Method
+	Methods    []Method
 }
 
 type Method struct {
-	Name string
-	Args []FormalArgs
-	Typ string
+	Name      string
+	Args      []FormalArgs
+	Typ       string
 	StmtBlock *BlockStatement
 }
 
@@ -113,7 +111,7 @@ type Identifier struct {
 
 type Boolean struct {
 	Token token.Token
-	Value bool 
+	Value bool
 }
 
 type IntegerLiteral struct {
@@ -127,35 +125,41 @@ type StringLiteral struct {
 }
 
 type InfixExpression struct {
-	Token token.Token // operator token
-	Left Expression
+	Token    token.Token // operator token
+	Left     Expression
 	Operator string
-	Right Expression 
+	Right    Expression
+}
+
+type PrefixExpression struct {
+	Token token.Token
+	Value Expression
+	Operator string
 }
 
 type IfStatement struct {
-	Token token.Token // 'if' token
-	Condition Expression
+	Token       token.Token // 'if' token
+	Condition   Expression
 	Consequence *BlockStatement
 	Alternative *Statement
 }
 
 type FunctionLiteral struct {
-	Token token.Token
+	Token      token.Token
 	Parameters []*Identifier
-	Body *BlockStatement
+	Body       *BlockStatement
 }
 
 type FunctionCall struct {
 	Token token.Token
-	Name string
-	Args []Expression
+	Name  string
+	Args  []Expression
 }
 
 type MethodExpression struct {
-	Token token.Token
+	Token      token.Token
 	Expression Expression
-	Ident string
+	Ident      string
 }
 
 type StringEscapeError struct {
