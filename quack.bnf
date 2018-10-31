@@ -163,7 +163,7 @@ RExpr
 	  | ident lparen ActualArgs rparen				<< ast.NewFunctionCall($0, $2) >> 
       | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
       | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
-      | not Term 									<< !$1.(bool), nil >>
+      | not Term 									<< ast.NewPrefixExpression($0, $1) >>
       | RExpr period ident lparen ActualArgs rparen			
       | unknown										<< ast.Unknown($0) >>		
       | string_escape_error							<< ast.NewStringEscapeError($0) >>			
@@ -181,7 +181,7 @@ Factor
 	: lparen RExpr rparen	<< $1, nil >>
 	| int 					<< ast.NewIntLiteral($0) >>
 	| string_literal        << ast.NewStringLiteral($0) >>
-	| minus Factor								<< ast.NewPrefixExpression($0, $1) >>
+	| minus Factor			<< ast.NewPrefixExpression($0, $1) >>
 	| error
 	;
 
