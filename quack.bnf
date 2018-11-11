@@ -2,7 +2,6 @@
 
 !whitespace : '\t' | '\n' | '\r' | ' ' ;
 
-
 _letter : 'A'-'Z' | 'a'-'z' | '_' ;
 _digit : '0'-'9' ;
 _alpha : _letter | _digit ;
@@ -31,9 +30,9 @@ _not_escape : 'a' | 'c' | 'd' | 'e' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l'
 string_escape_error : '"'{(_alpha | ' ')}  '\\' _not_escape {(_alpha | ' ')}  '"' ;
 //string_newline_error : '"' {.} '\\' 'n' ;
 string_literal : '"' {(_alpha | ' ' | '{' | '}' | '[' | ']' | '~' | ',' | '.' | ';' | ':' | '"' '"' { . | '\\' | ' '} '"' '"'
-						| '^' | '!' | '@' | '#' | '$' | '%' | '&' | '*' | '(' | ')' | '-' | '?' | '<' | '>' | '|' | '=' | '/'
+						| '^' | '!' | '@' | '#' | '$' | '%' | '&' | '*' | '(' | ')' | '-' | '?' | '<' | '>' | '|' | '=' | '/' | '\\' [ '0' | 'b' | 't' | 'n' | 'r' | 'f' | '\\' | '"']
 						| '+')} '"' ;
-int : '1'-'9' {_digit} ;
+int : '0' | '1'-'9' {_digit} ;
 
 ident : 'S' 't' 'r' 'i' 'n' 'g' | 'I' 'n' 't' | 'O' 'b' 'j' | 'B' 'o' 'o' 'l' 'e' 'a' 'n'
 		| 'N' 'o' 't' 'h' 'i' 'n' 'g' | 'n' 'o' 'n' 'e' | _letter {_alpha} ;
@@ -133,7 +132,7 @@ Statement
 		| RExpr Type assign RExpr semicolon			<< ast.NewLetStatement($0, $1, $3) >>
 		| RExpr semicolon							<< ast.NewExpressionStatement($0) >>
 		| return semicolon							<< ast.NewReturnExpression(nil) >>
-		| return RExpr semicolon					<< ast.NewReturnExpression($1) >>
+		| return RExpr semicolon					<< ast.NewReturnExpression($1) >>								
 		| Typecase
 		;
 

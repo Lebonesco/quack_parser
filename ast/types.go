@@ -141,7 +141,7 @@ type IfStatement struct {
 	Token       token.Token // 'if' token
 	Condition   Expression
 	Consequence *BlockStatement
-	Alternative *Statement
+	Alternative *IfStatement
 }
 
 type FunctionLiteral struct {

@@ -274,9 +274,12 @@ func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
 		return nil, fmt.Errorf("invalid type of cons. got=%T", cons)
 	}
 
-	a, ok := alt.(Statement)
-	if !ok {
-		return nil, fmt.Errorf("invalid type of alt. got=%T", alt)
+	a := IfStatement{}
+	if alt != nil {
+		a, ok = alt.(IfStatement)
+		if !ok {
+			return nil, fmt.Errorf("invalid type of alt. got=%T", alt)
+		}
 	}
 
 	return &IfStatement{Condition: c, Consequence: cs, Alternative: &a}, nil
