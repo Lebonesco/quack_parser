@@ -370,13 +370,31 @@ func TestIfStatement(t *testing.T) {
 		src string
 	}{
 		{
-			`if (5 < 10) {
+		`if (5 < 10) {
 			return true;
 		} elif (false) {
 			return false;
 		} else {
 			return false;
 		}`},
+		{
+			`if 0 < x {
+				a = 4;
+			}`},
+		{
+		`if x < x {
+			a = 5;
+		}`},
+		{
+		` if x < 0 {
+	      y = 1;
+	      z = 1;
+	      c = y + z;
+	    } else {
+	      y = "hello";
+	      z = " world";
+	      c = y + z;
+	    }`},
 	}
 
 	for _, tt := range tests {

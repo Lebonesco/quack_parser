@@ -5,6 +5,7 @@ import (
 	"github.com/Lebonesco/quack_parser/ast"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
+	"github.com/Lebonesco/quack_parser/typechecker"
 	"io/ioutil"
 	"testing"
 )
@@ -29,12 +30,21 @@ func TestFiles(t *testing.T) {
 		p := parser.NewParser()
 		res, err := p.Parse(l)
 		if err != nil {
-			//t.Log(file.Name())
-			//t.Log(err.Error())
+			t.Log(err.Error())
 			//t.Log("\n------------------------------------------------------------------")
-			t.Log("error...")
+			t.Log(file.Name(), "error...")
 		}
 
-		_, _ = res.(*ast.Program)
+		program, ok := res.(*ast.Program)
+		if !ok {
+			//t.Fatalf(err.Error())
+		}
+
+		//t.Log("Passed grammatical check")
+		env := typechecker.CreateEnvironment()
+		_, err = typechecker.TypeCheck(program, env)
+		if err != nil {
+			t.Errorf(err.Error())
+		}
 	}
 }

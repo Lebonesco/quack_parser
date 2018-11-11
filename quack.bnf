@@ -172,7 +172,6 @@ Term
 	: Term mul Factor      	<< ast.NewInfixExpression($0, $1, $2) >>
 	| Term div Factor		<< ast.NewInfixExpression($0, $1, $2) >>
 	| Factor 				
-	| ident                 << ast.NewIdentifier($0) >>
 	| Bool  				<< ast.NewBool($0) >>
 	;
 
@@ -181,6 +180,7 @@ Factor
 	| int 					<< ast.NewIntLiteral($0) >>
 	| string_literal        << ast.NewStringLiteral($0) >>
 	| minus Factor			<< ast.NewPrefixExpression($0, $1) >>
+	| ident                 << ast.NewIdentifier($0) >>
 	| error
 	;
 
