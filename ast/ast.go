@@ -10,7 +10,7 @@ import (
 type node map[string][]node
 
 func debug(fun, expected, v string, got interface{}) error {
-	return fmt.Errorf("In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
+	return fmt.Errorf("AST construction error: In function: %s, expected %s for %s. got=%T", fun, expected, v, got)
 }
 
 func (p *Program) TokenLiteral() string {
@@ -175,6 +175,8 @@ func NewClassSignature(name, args, extend Attrib) (*ClassSignature, error) {
 		if !ok {
 			return nil, debug("NewClassSignature", "Extends", "extend", extend)
 		}
+	} else {
+		e = nil
 	}
 
 	return &ClassSignature{Name: string(n.Lit), Args: a, Extend: e}, nil
@@ -274,9 +276,9 @@ func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
 		return nil, fmt.Errorf("invalid type of cons. got=%T", cons)
 	}
 
-	a := IfStatement{}
+	var a Statement
 	if alt != nil {
-		a, ok = alt.(IfStatement)
+		a, ok = alt.(Statement)
 		if !ok {
 			return nil, fmt.Errorf("invalid type of alt. got=%T", alt)
 		}
@@ -298,7 +300,7 @@ func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 
 	r, ok := right.(Expression)
 	if !ok {
-		return nil, fmt.Errorf("invalid rigth expression. got=%T", right)
+		return nil, debug("NewInfixExpression", "Expression", "right", right)
 	}
 
 	return &InfixExpression{Left: l, Operator: string(o.Lit), Right: r}, nil
@@ -473,12 +475,12 @@ func NewTypecase(expr, typeAlt Attrib) (Statement, error) {
 
 // handles unknown tokens
 func Unknown(unknown Attrib) (Expression, error) {
-	u, ok := unknown.(token.Token)
+	u, ok := unknown.(*token.Token)
 	if !ok {
-		return nil, debug("Unknown", "token.Token", "unknown", unknown)
+		return nil, debug("Unknown", "*token.Token", "unknown", unknown)
 	}
 
-	return &StringLiteral{Token: u, Value: string(u.Lit)}, nil
+	return &StringLiteral{Token: *u, Value: string(u.Lit)}, nil
 }
 
 func NewStringEscapeError(s_error Attrib) (Expression, error) {

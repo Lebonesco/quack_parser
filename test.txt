@@ -22,7 +22,7 @@ let result = add(five, ten);
 10 == 10;
 let k = add(five, 5, true, "test");
 
-while 10 < 4 {
+while x < 4 {
 	let tmp = 5;
 }
 

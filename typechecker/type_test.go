@@ -11,16 +11,40 @@ func TestIfStatement(t *testing.T) {
 	tests := []struct {
 		src string
 		Success bool
+		Error error
 	}{
 		{
-		`if (5 < 10) {
-			return true;
-		} elif (false) {
-			return false;
-		} else {
-			return false;
-		}`,
-		true},
+	`class C1()  extends Obj {
+	   def foo():  Top {
+	       return C1();    /* CHANGED */
+	   }
+	}
+
+	class C2() extends C1 {
+	   def foo():  C1 {
+	        return C1();    /* Conforms to C1.foo() */
+	   }
+	}
+
+	class C3() extends C2 { 
+	   def foo(): C2 {
+	        return C2();   /* Conforms to C2.foo() */
+	   }
+	}
+
+	class C4() extends C3 {
+	    def foo() : C3 {
+	         return C3();  /* Conforms to C3.foo() */
+	    }
+	}
+
+//	x = C4();
+//	while ( True ) {
+//	   x = x.foo();      /* Type system should reject this */
+//	}
+	`,
+		false,
+		nil},
 	}
 
 	for _, tt := range tests {
@@ -32,7 +56,12 @@ func TestIfStatement(t *testing.T) {
 		}
 
 		program, _ := res.(*ast.Program)
-		_ = program.Statements[0]
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		env := CreateEnvironment()
+		_, err = TypeCheck(program, env)
 		if err != nil {
 			t.Fatalf(err.Error())
 		}

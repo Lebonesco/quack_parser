@@ -16,27 +16,33 @@ type MethodSignature struct {
 	Returns []ObjectType
 }
 
+// handles tracking of Type Hierarchy
 type Object struct {
-	MethodTable map[string]MethodSignature // each method method name maps to an array of input types and returns
-	parent string
-	Type ObjectType
+	MethodTable map[string]MethodSignature // each method name maps to an array of input types and returns
+	Constructor []ObjectType // list of constructor arguments
+	Parent ObjectType// parent type name
+	Type ObjectType // Object Type
 }
 
-func (co *Object) Parent(e *Environment) *Object { 
-	res, ok := e.Get(co.parent)
-	if !ok {
-		return nil
-	} 
-	tmp := &res
-	return tmp
+// mapping of Object Types
+type Objects map[ObjectType]*Object
+
+// every variable
+type Variable struct {
+	Name string
+	Type *Object
 }
 
 func NewObject() *Object { return &Object{} }
 
-func (co *Object) AddMethod(signature *MethodSignature) {
-	co.MethodTable[signature.Name] = *signature
+func (o *Object) AddMethod(signature *MethodSignature) {
+	o.MethodTable[signature.Name] = *signature
 }
 
-func (co *Object) ValidSubType(parent string) bool {
-	return false
-}
+// func (o *Object) ValidSubType(parent string) bool {
+// 	search := o.Type
+// 	for search != parent {
+// 		search := o.
+// 	}
+// 	return true
+// }
