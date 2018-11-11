@@ -44,7 +44,7 @@ func TestFiles(t *testing.T) {
 		env := typechecker.CreateEnvironment()
 		_, err = typechecker.TypeCheck(program, env)
 		if err != nil {
-			t.Errorf(err.Error())
+			t.Errorf(file.Name() + ": " + err.Error())
 		}
 	}
 }

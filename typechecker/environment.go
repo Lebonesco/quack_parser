@@ -1,11 +1,11 @@
 package typechecker
 
-// import "fmt"
+//import "fmt"
 
 // tracks Objects at each layer of scope
 type Environment struct {
-	Vals   map[string]Variable
-	Parent *Environment
+	Vals      map[string]Variable
+	Parent    *Environment
 	TypeTable *Objects
 }
 
@@ -14,7 +14,7 @@ func (e *Environment) CycleExist() bool {
 	deps := map[ObjectType][]ObjectType{}
 
 	// generate dependency graph
-	for k := range (*e.TypeTable) {
+	for k := range *e.TypeTable {
 		if _, ok := deps[k]; !ok {
 			deps[k] = []ObjectType{}
 		}
@@ -22,7 +22,50 @@ func (e *Environment) CycleExist() bool {
 			deps[k] = append(deps[k], (*e.TypeTable)[k].Parent)
 		}
 	}
+
+	visited := map[ObjectType]bool{}
+	visiting := map[ObjectType]bool{}
+	for k := range deps {
+		if _, ok := visited[k]; !ok { // if hasn't been visited check for cycle
+			if cycle(k, deps, visited, visiting) {
+				return true
+			}
+		}
+	}
 	return false
+}
+
+// used topological sort to check for cycles
+func cycle(cur ObjectType, deps map[ObjectType][]ObjectType, visited, visiting map[ObjectType]bool) bool {
+	visiting[cur] = true
+	for _, dep := range deps[cur] {
+		if _, ok := visiting[dep]; ok { // if currently visiting node, cycle found
+			return true
+		}
+
+		if _, ok := visited[dep]; ok { // if already visited don't need to check further
+			continue
+		}
+
+		if cycle(dep, deps, visited, visiting) {
+			return true
+		}
+
+	}
+	delete(visiting, cur)
+	visited[cur] = true
+	return false
+}
+
+func (e *Environment) TypesExist() bool {
+	// check that all parents have types
+	for k := range *e.TypeTable {
+		parent := (*e.TypeTable)[k].Parent;
+		if _, ok := (*e.TypeTable)[parent]; !ok && parent != "Obj" {
+			return false
+		}
+	}
+	return true
 }
 
 // create new scope

@@ -32,11 +32,14 @@ func evalProgram(p *ast.Program, env *Environment) (Object, error) {
 		}
 	}
 
-	// check for existence 
+	// check for type loops
 	if env.CycleExist() {
 		return result, fmt.Errorf("Error class cycle exists")
 	}
-	// check for loops
+	// check for class existence
+	if !env.TypesExist() {
+		return result, fmt.Errorf("Error class doesn't exist")
+	}
 
 	// for _, statement := range p.Statements {
 	// 	// switch result := result.(type) {
