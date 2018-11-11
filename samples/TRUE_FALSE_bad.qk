@@ -1,0 +1,19 @@
+/*
+ * This is a whirlwind of odd things. Does Quack allow TRUE/FALSE to 
+ * be assigned? If TRUE is assigned FALSE, then when we assign some x
+ * to be TRUE, is it actually FALSE?
+ */
+
+class Test() {
+	def IsThisLegal () {
+	  x = TRUE;
+	  y = FALSE;
+	  
+	  TRUE = FALSE;
+	  x = TRUE;
+
+	  if x == FALSE {
+	    z = "This is weird";
+	  }
+	}
+}

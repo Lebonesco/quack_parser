@@ -1,0 +1,7 @@
+// This is ok because we have two integers and then perform 
+//integer addition on them, storing it in an integer value, x.
+
+a = 5;
+b = 2;
+
+x: Int = a + b;

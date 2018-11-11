@@ -1,0 +1,15 @@
+/*
+ * This is supposed to show a method "running off the end". The method afterwards
+ * is using the return value of the first, except the first doesn't ever return 
+ * anything. Should be a type error.
+ */
+
+def ReturnString () {
+  x = "hello";
+  y = " world";
+}
+
+def UseString () {
+  z = "";
+  z = ReturnString();
+}

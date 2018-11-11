@@ -1,0 +1,7 @@
+// This will fail because a is not of type Int, but we need that
+// for the addition.
+
+a = FALSE;
+b = 0;
+
+x: Int = a + b;

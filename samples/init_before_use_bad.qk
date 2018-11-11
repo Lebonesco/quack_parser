@@ -1,0 +1,6 @@
+//Since Quack has static types, this won't work!
+
+if ( 1 > 0)
+  x = 7;
+
+y = x;

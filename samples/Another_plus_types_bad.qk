@@ -1,0 +1,25 @@
+/*
+ * This is a less obvious example of a type error that occurs when dealing with static types.
+ * With a dynamic typing language like Python, this would be ok because we would know dynamically
+ * what the type of a and b are when we do the '==' operation on it. However, Quack has static 
+ * typing, so we use the least common ancestor, Obj, which does not have a '==' operator. Thus, this
+ * creates a type error.
+ */
+
+class C1_Fer(x: Int, y: Boolean, z: String) {
+  def static_types(x: Int) : Int {
+    if x < 0 {
+      y = 1;
+      z = 1;
+      c = y + z;
+    } else {
+      y = "hello";
+      z = " world";
+      c = y + z;
+    }
+    
+    if a == b {
+      return c;
+    }
+  }
+}

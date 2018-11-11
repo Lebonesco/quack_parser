@@ -1,0 +1,17 @@
+/*
+ * This is an obvious example of how we shouldn't accept a program that has
+ * a function specifically for integers but is called with two strings.
+ * To fix the other program, we just removed the bad call.
+ */
+
+class Add(x: Int, y: Int) {
+  this.x = x;
+  this.y = y;
+
+  def Plus (my: Add) : Add {
+    return Add(my.x + my.y);
+  }
+}
+
+an_add = Add(4, 5);
+an_add.PRINT();

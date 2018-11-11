@@ -27,8 +27,6 @@ triple = """This string
 has a newline""";
 raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
 
-x = "oh no, comments must be closed." /*
+x = "oh no, comments must be closed."; 
 
-So far so good, but where's the end?
-
-s: String = "This cquote runs off the end of the file
+s: String = "This cquote runs off the end of the file";

@@ -2,9 +2,9 @@
  * A simple sample Quack program
  */
 
-class Pt(x: Int, y: Int) : 
+class Pt(x: Int, y: Int) {
   this.x = x;
-  this.y = = y;
+  this.y = y;
 
   def STR() : String {
       return "(" + this.x.STR() + "," 

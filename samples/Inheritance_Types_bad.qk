@@ -1,0 +1,20 @@
+/*
+ * This sample program shows an example of inheriting instance variables
+ * that must be consistently initialized. There is an error here
+ * because we should keep the initializations of 'factor' consistent. 
+ */
+
+class Filter() {
+  this.type = "Filter";
+  this.factor = "Zero";
+
+  def ApplyFilter(type: String, factor: String) {
+     /* Apply the filter on an image */
+  }
+}
+
+class Blend(output_file: String) extends Filter {
+  this.type = "Blender";
+  this.factor = 10; //Error, not a String
+  this.output = output_file;
+}

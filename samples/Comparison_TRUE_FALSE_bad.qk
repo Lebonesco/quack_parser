@@ -1,0 +1,16 @@
+/*
+ * This should fail in two spots: once for comparing x, an Int, with TRUE,
+ * and once when we use y in the 'if' statement.
+ *
+*/
+class Test() {
+	def Comparison(x : Int) {
+	  if x == TRUE {
+	    y = 0;
+	  }
+
+	  if y >= 0 {
+	    z = "This is an error!";
+	  }
+	}
+}
