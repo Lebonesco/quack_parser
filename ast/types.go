@@ -156,6 +156,13 @@ type FunctionCall struct {
 	Args  []Expression
 }
 
+type MethodCall struct {
+	Token token.Token
+	Variable string
+	Method string
+	Args []Expression
+}
+
 type MethodExpression struct {
 	Token      token.Token
 	Expression Expression

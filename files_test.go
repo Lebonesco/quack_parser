@@ -12,6 +12,11 @@ import (
 
 const DIR = "./samples"
 
+
+var results = map[string]typechecker.ErrorType{
+	"PT_missing_fields.qk": typechecker.INVALID_SUBCLASS}
+
+
 func TestFiles(t *testing.T) {
 	files, err := ioutil.ReadDir(DIR)
 	if err != nil {
@@ -30,21 +35,16 @@ func TestFiles(t *testing.T) {
 		p := parser.NewParser()
 		res, err := p.Parse(l)
 		if err != nil {
-			t.Log(err.Error())
 			//t.Log("\n------------------------------------------------------------------")
-			t.Log(file.Name(), "error...")
+			t.Log(file.Name(), " parse error")
 		}
 
-		program, ok := res.(*ast.Program)
-		if !ok {
-			//t.Fatalf(err.Error())
-		}
+		program, _ := res.(*ast.Program)
 
-		//t.Log("Passed grammatical check")
-		env := typechecker.CreateEnvironment()
-		_, err = typechecker.TypeCheck(program, env)
-		if err != nil {
-			t.Errorf(file.Name() + ": " + err.Error())
+		env := typechecker.CreateEnvironment() // create new environment
+		_ , typeErr := typechecker.TypeCheck(program, env)
+		if typeErr != nil {
+			t.Errorf(file.Name() + ": " + typeErr.Message.Error())
 		}
 	}
 }

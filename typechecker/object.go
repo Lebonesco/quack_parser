@@ -1,13 +1,13 @@
 package typechecker
 
+// Variable Type 
 type ObjectType string
 
 const (
-	STRING_OBJ = "STRING_OBJ"
-	INTEGER_OBJ = "INTEGER_OBJ"
-	BOOL_OBJ = "BOOL_OBJ"
-	FUNCTION_OBJ = "FUNCTION_OBJ"
-	CLASS_OBJ = "CLASS_OBJ"
+	OBJ_CLASS = "Obj"
+	STRING_CLASS = "String"
+	INTEGER_CLASS = "Int"
+	BOOL_CLASS = "Boolean"
 )
 
 type MethodSignature struct {
@@ -19,7 +19,8 @@ type MethodSignature struct {
 // handles tracking of Type Hierarchy
 type Object struct {
 	MethodTable map[string]MethodSignature // each method name maps to an array of input types and returns
-	Constructor []ObjectType // list of constructor arguments
+	Variables map[string]ObjectType // variables initialized in constructor
+	Constructor []Variable // list of constructor arguments
 	Parent ObjectType// parent type name
 	Type ObjectType // Object Type
 }
@@ -30,19 +31,18 @@ type Objects map[ObjectType]*Object
 // every variable
 type Variable struct {
 	Name string
-	Type *Object
+	Type ObjectType
 }
-
-func NewObject() *Object { return &Object{} }
 
 func (o *Object) AddMethod(signature *MethodSignature) {
 	o.MethodTable[signature.Name] = *signature
 }
 
-// func (o *Object) ValidSubType(parent string) bool {
-// 	search := o.Type
-// 	for search != parent {
-// 		search := o.
-// 	}
-// 	return true
-// }
+func (o *Object) InConstructor(ident string) (*Variable, bool) {
+	for _, val := range o.Constructor {
+		if ident == val.Name {
+			return &val, true
+		}
+	}
+	return nil, false 
+}

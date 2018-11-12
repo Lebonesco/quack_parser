@@ -4,7 +4,7 @@ package typechecker
 
 // tracks Objects at each layer of scope
 type Environment struct {
-	Vals      map[string]Variable
+	Vals      map[string]ObjectType // change to ObjectType?
 	Parent    *Environment
 	TypeTable *Objects
 }
@@ -57,6 +57,7 @@ func cycle(cur ObjectType, deps map[ObjectType][]ObjectType, visited, visiting m
 	return false
 }
 
+// makes sure that all extended types exist
 func (e *Environment) TypesExist() bool {
 	// check that all parents have types
 	for k := range *e.TypeTable {
@@ -68,19 +69,26 @@ func (e *Environment) TypesExist() bool {
 	return true
 }
 
+// returns new environment scope
+func (e *Environment) NewScope() *Environment {
+	newEnv := CreateEnvironment()
+	newEnv.Parent = e
+	return newEnv;
+}
+
 // create new scope
 func CreateEnvironment() *Environment {
-	v := make(map[string]Variable)
+	v := make(map[string]ObjectType)
 	return &Environment{Vals: v, Parent: nil, TypeTable: &Objects{}}
 }
 
 // set item in current scope
-func (e *Environment) Set(name string, val Variable) {
+func (e *Environment) Set(name string, val ObjectType) {
 	e.Vals[name] = val
 }
 
 // get item in shortest scope
-func (e *Environment) Get(name string) (Variable, bool) {
+func (e *Environment) Get(name string) (ObjectType, bool) {
 	obj, ok := e.Vals[name]
 	if !ok && e.Parent != nil {
 		obj, ok = e.Parent.Get(name)
@@ -94,4 +102,20 @@ func (e *Environment) TypeExist(name ObjectType) bool {
 		return true
 	}
 	return false
+}
+
+// checks if sub is subtype of parent
+func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
+	if sub == "Nothing" { // subtype for everything
+		return true
+	}
+	next := sub
+	for next != parent {
+		if sub == "Obj" && parent != "Obj" {
+			return false
+		}
+
+		next = (*e.TypeTable)[(*e.TypeTable)[next].Parent].Type
+	}
+	return true
 }

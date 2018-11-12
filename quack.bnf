@@ -163,7 +163,7 @@ RExpr
       | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
       | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
       | not Term 									<< ast.NewPrefixExpression($0, $1) >>
-      | RExpr period ident lparen ActualArgs rparen			
+      | RExpr period ident lparen ActualArgs rparen	<< ast.NewMethodCall($0, $2, $4) >>		
       | unknown										<< ast.Unknown($0) >>		
       | string_escape_error							<< ast.NewStringEscapeError($0) >>			
       ;
