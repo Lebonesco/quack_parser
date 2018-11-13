@@ -8,6 +8,7 @@ const (
 	STRING_CLASS = "String"
 	INTEGER_CLASS = "Int"
 	BOOL_CLASS = "Boolean"
+	TYPE_HOLDER = "$TYPE_HOLDER" // represents unknown type
 )
 
 type MethodSignature struct {

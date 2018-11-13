@@ -11,7 +11,7 @@ import (
 type ErrorType string
 
 type CheckError struct {
-	Type string
+	Type ErrorType
 	Message error
 }
 
@@ -22,10 +22,11 @@ const (
 	CLASS_NOT_EXIST = "CLASS_NOT_EXIST"
 	DUPLICATE_CLASS = "DUPLICATE_CLASS"
 	CLASS_CYCLE = "CLASS_CYCLE"
+	INVALID_OPERATION_TYPE = "INVALID_OPERATION_TYPE"
 )
 
 func createError(errorType, message string) *CheckError {
-	return &CheckError{Type: errorType, Message: errors.New(message)}
+	return &CheckError{Type: ErrorType(errorType), Message: errors.New(message)}
 }
 
 // start of checker
@@ -113,13 +114,20 @@ func evalClass(class *ast.Class, env *Environment) error {
 		return fmt.Errorf("not same variable/types defined")
 	}
 
+	// compare again children that may have already been created
+
 	return nil
 }
 
 func compareClassVars(block1, block2 ObjectType, env *Environment) bool {
-	block1Vars := (*env.TypeTable)[block1].Variables
-	block2Vars := (*env.TypeTable)[block2].Variables
-	return compareBlockVars(block1Vars, block2Vars) // return count so can use for class and not
+	// because allowed to define classes out of order need to 
+	// check parent Obj exists first
+	block1Vars, ok1 := (*env.TypeTable)[block1]
+	block2Vars, ok2 := (*env.TypeTable)[block2]
+	if ok1 && ok2 {
+		return compareBlockVars(block1Vars.Variables, block2Vars.Variables)
+	}
+	return true // return count so can use for class and not
 }
 
 // compares 2 environments
@@ -132,6 +140,7 @@ func compareStmtBlockVars(env1, env2 *Environment) bool {
 func compareBlockVars(vars1, vars2 map[string]ObjectType) bool {
 	for k := range vars1 {
 		if val2, ok := vars2[k]; ok && vars1[k] == val2 {
+			//fmt.Println(val2, vars1[k])
 			continue
 		} else {
 			return false
@@ -174,33 +183,51 @@ func evalClassBody(body *ast.ClassBody, newObj *Object, env *Environment) error 
 			// if type explicitly declared
 			if letStmt.Kind != "" {
 				newObj.Variables[letStmt.Name.Value] = ObjectType(letStmt.Kind) // set type
-			} else { 
-				newObj.Variables[letStmt.Name.Value] = ObjectType("Obj") // default to lowest subtype
 			}
 
 			// get type of expression
 			switch letStmt.Value.(type) {
 			case *ast.Identifier:
 				val := letStmt.Value.(*ast.Identifier)
-				// check if ident from constructor
 				if con, ok := newObj.InConstructor(val.Value); ok {
-					// check left side is subtype 
-					if !env.ValidSubType(con.Type, newObj.Variables[letStmt.Name.Value]) {
-						return fmt.Errorf("whoops, invalid type assignment")
+					err := handleRightExpression(letStmt.Name.Value, con.Type, newObj, env)
+					if err != nil {
+						return err
 					}
 				}
-			// case *ast.IntegerLiteral:
-			// 	val := letStmt.Value.(*ast.IntegerLiteral)
-			// case *ast.StringLiteral:
-			// 	val := letStmt.Value.(*ast.StringLiteral)
-			// case *ast.Boolean:
-			// 	val := letStmt.Value.(*ast.Boolean)
-			// case *ast.MethodCall:
-			// 	val := letStmt.Value.(*ast.MethodCall)
+			case *ast.IntegerLiteral:
+				err := handleRightExpression(letStmt.Name.Value, INTEGER_CLASS, newObj, env)
+					if err != nil {
+						return err
+					}
+			case *ast.StringLiteral:
+				err := handleRightExpression(letStmt.Name.Value, STRING_CLASS, newObj, env)
+					if err != nil {
+						return err
+					}
+			case *ast.Boolean:
+				err := handleRightExpression(letStmt.Name.Value, BOOL_CLASS, newObj, env)
+					if err != nil {
+						return err
+					}
+			case *ast.MethodCall:
+				// do stuff
 			}
 		}
 	}
+	return nil
+}
 
+// if already defined, checks if types compatable, else assigns type to name variable
+func handleRightExpression(name string, tpe ObjectType, obj *Object, env *Environment) error {
+	if kind, ok := obj.Variables[name]; ok {
+		if !env.ValidSubType(tpe, kind) {
+			return fmt.Errorf("whoops, invalid type assignment")
+		}
+		return nil
+	} else { // set type
+		obj.Variables[name] = ObjectType(tpe)
+	}
 	return nil
 }
 

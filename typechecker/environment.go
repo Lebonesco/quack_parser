@@ -1,6 +1,6 @@
 package typechecker
 
-//import "fmt"
+import "fmt"
 
 // tracks Objects at each layer of scope
 type Environment struct {
@@ -84,6 +84,7 @@ func CreateEnvironment() *Environment {
 
 // set item in current scope
 func (e *Environment) Set(name string, val ObjectType) {
+	fmt.Println("set")
 	e.Vals[name] = val
 }
 
@@ -106,12 +107,13 @@ func (e *Environment) TypeExist(name ObjectType) bool {
 
 // checks if sub is subtype of parent
 func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
-	if sub == "Nothing" { // subtype for everything
-		return true
-	}
+	// if sub == "Nothing" { // subtype for everything
+	// 	return true
+	// }
 	next := sub
 	for next != parent {
-		if sub == "Obj" && parent != "Obj" {
+	  //  fmt.Println(next, parent)
+		if next == "Obj" && parent != "Obj" {
 			return false
 		}
 

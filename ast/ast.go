@@ -73,6 +73,9 @@ func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
 func (fc *FunctionCall) expressionNode()      {}
 func (fc *FunctionCall) TokenLiteral() string { return string(fc.Token.Lit) }
 
+func (mc *MethodCall) expressionNode() {}
+func (mc *MethodCall) TokenLiteral() string { return string(mc.Token.Lit) }
+
 // AST builders
 func NewProgram(classes, stmts Attrib) (*Program, error) {
 	return &Program{Classes: classes.([]Class), Statements: stmts.([]Statement)}, nil
@@ -330,7 +333,7 @@ func NewIntLiteral(integer Attrib) (Expression, error) {
 }
 
 func NewStringLiteral(str Attrib) (Expression, error) {
-	return &Identifier{Value: string(str.(*token.Token).Lit)}, nil
+	return &StringLiteral{Value: string(str.(*token.Token).Lit)}, nil
 }
 
 func NewIdentifier(ident Attrib) (*Identifier, error) {

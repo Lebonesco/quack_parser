@@ -14,7 +14,16 @@ const DIR = "./samples"
 
 
 var results = map[string]typechecker.ErrorType{
-	"PT_missing_fields.qk": typechecker.INVALID_SUBCLASS}
+	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
+	"SqrDecl.qk": typechecker.CREATE_CLASS_FAIL,
+	"SqrDeclEQ.qk": typechecker.CREATE_CLASS_FAIL,
+	"circular_dependency.qk": typechecker.CLASS_CYCLE,
+	"duplicate_class.qk": typechecker.CREATE_CLASS_FAIL,
+	"invalid_super.qk": typechecker.CLASS_NOT_EXIST,
+	"invalid_super_type.qk": typechecker.CREATE_CLASS_FAIL,
+	"robot.qk": typechecker.CREATE_CLASS_FAIL,
+	"Inheritance_Types_bad.qk": typechecker.CREATE_CLASS_FAIL,	
+	"short_test_bad.qk": typechecker.INVALID_OPERATION_TYPE}
 
 
 func TestFiles(t *testing.T) {
@@ -44,7 +53,15 @@ func TestFiles(t *testing.T) {
 		env := typechecker.CreateEnvironment() // create new environment
 		_ , typeErr := typechecker.TypeCheck(program, env)
 		if typeErr != nil {
-			t.Errorf(file.Name() + ": " + typeErr.Message.Error())
+			if val, ok := results[file.Name()]; ok && typeErr.Type == val {
+				//t.Log(typeErr.Type)
+				continue
+			}
+			t.Errorf(file.Name() + ": " +  string(typeErr.Type) + ":" + typeErr.Message.Error())
+		}
+
+		if val, ok := results[file.Name()]; ok && typeErr == nil {
+				t.Errorf(file.Name() + ": " + "should be " + string(val))
 		}
 	}
 }
