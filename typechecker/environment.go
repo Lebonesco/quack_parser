@@ -9,6 +9,17 @@ type Environment struct {
 	TypeTable *Objects
 }
 
+// returns union of variables with same types between two environments
+func GetUnion(e1, e2 *Environment) map[string]ObjectType {
+	result := map[string]ObjectType{}
+	for k, val1 := range e1.Vals {
+		if val2, ok := e2.Vals[k]; ok && val1 == val2 {
+			result[k] = val1
+		}
+	}
+	return result
+}
+
 // check if dependency cycle with topological sort
 func (e *Environment) CycleExist() bool {
 	deps := map[ObjectType][]ObjectType{}

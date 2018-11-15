@@ -113,7 +113,10 @@ func evalBuiltIns(env *Environment) error {
 
 func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
 	// extract signatures
-	setSignatures(classes, env)
+	err := setSignatures(classes, env)
+	if err != nil {
+		return err
+	}
 	// check for cycles 
 	if env.CycleExist() {
 		createError(CLASS_CYCLE, "class cycle")
@@ -123,7 +126,7 @@ func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
 		createError(CLASS_NOT_EXIST, "class not exist")
 	}
 	// extract methods
-	err := setMethods(classes, env)
+	err = setMethods(classes, env)
 	if err != nil {
 		return err
 	}
@@ -293,7 +296,11 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 	for _, method := range methods {
 		sig := MethodSignature{Params: []Variable{}}
 		if _, ok := obj.MethodTable[method.Name]; ok {
-			return createError(ALREADY_INITIALIZED, "method name already exists in class")
+			return createError(ALREADY_INITIALIZED, "method name: %s already exists in class", method.Name)
+		}
+
+		if method.Name == string(obj.Type) {
+			return createError(ALREADY_INITIALIZED, "method %s can't be the same as the class", method.Name)
 		}
 
 		// add arguments
@@ -317,17 +324,25 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 	return nil
 }
 
-func setSignatures(classes []ast.Class, env *Environment) {
+func setSignatures(classes []ast.Class, env *Environment) (*CheckError) {
 	for _, class := range classes {
-		setSignature(class, env)
+		err := setSignature(class, env)
+		if err != nil {
+			return err
+		}
 	}
+	return nil
 }
 
-func setSignature(class ast.Class, env *Environment) {
+func setSignature(class ast.Class, env *Environment) (*CheckError) {
 	sig := class.Signature
 	obj := NewObject()
 
 	obj.Type = ObjectType(class.Signature.Name)
+	if env.TypeExist(obj.Type) {
+		return createError(DUPLICATE_CLASS, "class %s already exists", obj.Type)
+	}
+
 	// add arguments to constructor
 	for _, arg := range sig.Args {
 		obj.Constructor = append(obj.Constructor, Variable{arg.Arg, ObjectType(arg.Type)})
@@ -339,6 +354,7 @@ func setSignature(class ast.Class, env *Environment) {
 	}
 
 	(*env.TypeTable)[obj.Type] = obj // store object type
+	return nil
 }
 
 func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *CheckError) {
@@ -353,7 +369,7 @@ func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *Chec
 	if node.Kind != "" { // if type explicitly set
 		result.Type = ObjectType(node.Kind) 
 		if !env.ValidSubType(result.Type, rightType.Type) {
-			return result, createError(INCOMPATABLE_TYPES, "not subtype of the other")
+			return result, createError(INCOMPATABLE_TYPES, "%s not subtype of %s", result.Type, rightType.Type)
 		}
 	} else {
 		result.Type = rightType.Type
@@ -383,21 +399,28 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 	var result Variable
 	// create environment for each scope
 	newEnv1 := env.NewScope()
-	//newEnv2 := env.NewScope()
+	newEnv2 := env.NewScope()
 
-	result1, err := TypeCheck(node.Consequence, newEnv1)
+	_, err := TypeCheck(node.Consequence, newEnv1)
 	if err != nil {
-		return result1, err
+		return result, err
 	}
 
-	// if node.Alternative != nil {
-	// 	result2, err := TypeCheck(node.Alternative, newEnv2)
-	// 	if err != nil {
-	// 		return result2, err
-	// 	}
-	// } 
+	if node.Alternative == nil { // if no other statement don't bubble up variable
+		return result, nil
+	}
+
+
+	_, err = TypeCheck(*node.Alternative, newEnv2)
+	if err != nil {
+		return result, err
+	}
 
 	// compare environments or to current environment
+	union := GetUnion(newEnv1, newEnv2)
+	for k := range union { 
+		env.Set(k, union[k])
+	}
 
 	return result, nil
 }
@@ -433,6 +456,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 		return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
 	}
 
+	// check argument types
 	for i, arg := range args {
 		result, err := TypeCheck(node.Args[i], env)
 		if err != nil {
@@ -440,7 +464,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 		}
 
 		if arg.Type != result.Type {
-			return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+			return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type for Class %s", node.Name)
 		}
 	}
 
