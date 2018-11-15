@@ -97,6 +97,7 @@ type ClassBody struct {
 }
 
 type Method struct {
+	Token token.Token
 	Name      string
 	Args      []FormalArgs
 	Typ       string
@@ -150,6 +151,7 @@ type FunctionLiteral struct {
 	Body       *BlockStatement
 }
 
+// initializing object
 type FunctionCall struct {
 	Token token.Token
 	Name  string

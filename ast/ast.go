@@ -279,7 +279,7 @@ func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
 		return nil, fmt.Errorf("invalid type of cons. got=%T", cons)
 	}
 
-	var a Statement
+	var a Statement // could be BlockStatement or IfStatement
 	if alt != nil {
 		a, ok = alt.(Statement)
 		if !ok {

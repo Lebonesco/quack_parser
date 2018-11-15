@@ -1,6 +1,6 @@
 package typechecker
 
-import "fmt"
+//import "fmt"
 
 // tracks Objects at each layer of scope
 type Environment struct {
@@ -12,7 +12,6 @@ type Environment struct {
 // check if dependency cycle with topological sort
 func (e *Environment) CycleExist() bool {
 	deps := map[ObjectType][]ObjectType{}
-
 	// generate dependency graph
 	for k := range *e.TypeTable {
 		if _, ok := deps[k]; !ok {
@@ -62,7 +61,7 @@ func (e *Environment) TypesExist() bool {
 	// check that all parents have types
 	for k := range *e.TypeTable {
 		parent := (*e.TypeTable)[k].Parent;
-		if _, ok := (*e.TypeTable)[parent]; !ok && parent != "Obj" {
+		if ok := e.TypeExist(parent); !ok && parent != "Obj" {
 			return false
 		}
 	}
@@ -84,7 +83,6 @@ func CreateEnvironment() *Environment {
 
 // set item in current scope
 func (e *Environment) Set(name string, val ObjectType) {
-	fmt.Println("set")
 	e.Vals[name] = val
 }
 
@@ -107,9 +105,9 @@ func (e *Environment) TypeExist(name ObjectType) bool {
 
 // checks if sub is subtype of parent
 func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
-	// if sub == "Nothing" { // subtype for everything
-	// 	return true
-	// }
+	if parent == "Obj" { // supertype for everything
+		return true
+	}
 	next := sub
 	for next != parent {
 	  //  fmt.Println(next, parent)

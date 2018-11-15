@@ -8,13 +8,13 @@ const (
 	STRING_CLASS = "String"
 	INTEGER_CLASS = "Int"
 	BOOL_CLASS = "Boolean"
+	RETURN_VALUE_OBJ = "RETURN_VALUE_OBJ"
 	TYPE_HOLDER = "$TYPE_HOLDER" // represents unknown type
 )
 
 type MethodSignature struct {
-	Name string
-	Parameters []ObjectType
-	Returns []ObjectType
+	Params []Variable
+	Return ObjectType
 }
 
 // handles tracking of Type Hierarchy
@@ -35,8 +35,17 @@ type Variable struct {
 	Type ObjectType
 }
 
-func (o *Object) AddMethod(signature *MethodSignature) {
-	o.MethodTable[signature.Name] = *signature
+// init Object with default fields
+func NewObject() *Object {
+	return &Object{
+		Variables: map[string]ObjectType{}, 
+		Parent: ObjectType(OBJ_CLASS),
+		MethodTable: map[string]MethodSignature{},
+		Constructor: []Variable{}}
+}
+
+func (o *Object) AddMethod(name string, signature MethodSignature) {
+	o.MethodTable[name] = signature
 }
 
 func (o *Object) InConstructor(ident string) (*Variable, bool) {
