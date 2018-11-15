@@ -168,14 +168,29 @@ func compareParent(child, parent *Object) (*CheckError) {
 	// compare variables
 	ok := compareBlockVars(child.Variables, parent.Variables)
 	if !ok {
-		createError(CREATE_CLASS_FAIL, "variables in child incompatible with parent")
+		return createError(CREATE_CLASS_FAIL, "variables in %s incompatible with %s", child.Type, parent.Type)
 	}
 	// compare methods
 	ok = compareMethods(child.MethodTable, parent.MethodTable)
 	if !ok {
-		createError(CREATE_CLASS_FAIL, "child is missing methods found in parent")
+		return createError(CREATE_CLASS_FAIL, "child is missing methods found in parent")
 	}
 	return nil
+}
+
+// makes sure that two Statement Blocks have same variables/types at end
+func compareBlockVars(child, parent map[string]ObjectType) bool {
+	for k := range parent {
+		val, ok := child[k]; 
+		if !ok {
+			return false
+		} 
+
+		if parent[k] != val {
+			return false
+		}
+	}
+	return true
 }
 
 func compareMethods(child, parent map[string]MethodSignature) (bool) {
@@ -197,7 +212,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 	// check constructor types
 	// do it
 	newEnv := env.NewScope()
-	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object // is this a copy or a pointer?
+	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
 	// populate with constructor variables
 	for _, v := range obj.Constructor {
 		newEnv.Set(v.Name, v.Type)
@@ -217,6 +232,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 			obj.Variables[k] = newEnv.Vals[k]
 		}
 	}
+	//(*env.TypeTable)[ObjectType(class.Signature.Name)].Variables = obj.Variables
 	return nil
 }
 
@@ -319,25 +335,6 @@ func setSignature(class ast.Class, env *Environment) {
 	}
 
 	(*env.TypeTable)[obj.Type] = obj // store object type
-}
-
-// compares 2 environments
-func compareStmtBlockVars(env1, env2 *Environment) bool {
-	vars1 := env1.Vals 
-	vars2 := env2.Vals
-	return compareBlockVars(vars1, vars2)
-}
-
-// makes sure that two Statement Blocks have same variables/types at end
-func compareBlockVars(vars1, vars2 map[string]ObjectType) bool {
-	for k := range vars1 {
-		if val2, ok := vars2[k]; ok && vars1[k] == val2 {
-			continue
-		} else {
-			return false
-		}
-	}
-	return true
 }
 
 func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *CheckError) {
