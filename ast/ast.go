@@ -78,7 +78,17 @@ func (mc *MethodCall) TokenLiteral() string { return string(mc.Token.Lit) }
 
 // AST builders
 func NewProgram(classes, stmts Attrib) (*Program, error) {
-	return &Program{Classes: classes.([]Class), Statements: stmts.([]Statement)}, nil
+	c, ok := classes.([]Class)
+	if !ok {
+		return nil, debug("NewProgram", "[]Class", "classes", classes)
+	}
+
+	s, ok := stmts.([]Statement)
+	if !ok {
+		return nil, debug("NewProgram", "[]Statement", "stmts", stmts)
+	}
+
+	return &Program{Classes: c, Statements: s}, nil
 }
 
 func NewStatementList() ([]Statement, error) {
@@ -281,7 +291,13 @@ func NewIfStatement(cond, cons, alt Attrib) (*IfStatement, error) {
 
 	var a Statement // could be BlockStatement or IfStatement
 	if alt != nil {
-		a, ok = alt.(Statement)
+		switch alt.(type) {
+		case *BlockStatement:
+			a, ok = alt.(*BlockStatement)
+		case *IfStatement:
+			a, ok = alt.(*IfStatement)
+		}
+
 		if !ok {
 			return nil, fmt.Errorf("invalid type of alt. got=%T", alt)
 		}
@@ -306,7 +322,7 @@ func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 		return nil, debug("NewInfixExpression", "Expression", "right", right)
 	}
 
-	return &InfixExpression{Left: l, Operator: string(o.Lit), Right: r}, nil
+	return &InfixExpression{Left: l, Operator: string(o.Lit), Right: r, Token: *o}, nil
 }
 
 func NewPrefixExpression(oper, value Attrib) (Expression, error) {
@@ -337,7 +353,7 @@ func NewStringLiteral(str Attrib) (Expression, error) {
 }
 
 func NewIdentifier(ident Attrib) (*Identifier, error) {
-	return &Identifier{Value: string(ident.(*token.Token).Lit)}, nil
+	return &Identifier{Value: string(ident.(*token.Token).Lit), Token: *ident.(*token.Token)}, nil
 }
 
 func NewBool(val Attrib) (Expression, error) {
@@ -424,6 +440,7 @@ func AppendFormalArgs(arg, kind, args Attrib) ([]FormalArgs, error) {
 	return append(as, FormalArgs{string(a.Lit), string(k.Lit)}), nil
 }
 
+// need to fix this up? need to  handle class variable calls
 func NewClassVariable(exp, ident Attrib) (Expression, error) {
 	_, ok := exp.(Expression)
 	if !ok {
@@ -435,12 +452,36 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 		return nil, debug("NewClassVariable", "*token.Token", "ident", ident)
 	}
 
-	return &Identifier{Value: string(i.Lit)}, nil
+	return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
 }
 
 func NewTypeAlt() ([]TypeAlt, error) {
 	return []TypeAlt{}, nil
 }
+// ident.thing()
+func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
+	expr, ok := lexpr.(Expression)
+	if !ok {
+		return nil, debug("NewMethodCall", "Expression", "lexpr", lexpr)
+	}
+
+	m, ok := method.(*token.Token)
+	if !ok {
+		return nil, debug("NewMethodCall", "*token.Token", "method", method)
+	}
+
+	a := []Expression{}
+	if args != nil {
+		var ok bool
+		a, ok = args.([]Expression)
+		if !ok {
+			return nil, debug("NewMethodCall", "[]Expression", "args", args)
+		}
+	}
+
+	return &MethodCall{Variable: expr, Method: string(m.Lit), Args: a, Token: *m}, nil
+}
+
 
 func AppendTypeAlt(alts, value, kind, stmts Attrib) ([]TypeAlt, error) {
 	v, ok := value.(*token.Token)

@@ -18,9 +18,9 @@ var results = map[string]string{
 	"SqrDecl.qk": typechecker.CREATE_CLASS_FAIL,
 	"SqrDeclEQ.qk": typechecker.CREATE_CLASS_FAIL,
 	"circular_dependency.qk": typechecker.CLASS_CYCLE,
-	"duplicate_class.qk": typechecker.CREATE_CLASS_FAIL,
+	"duplicate_class.qk": typechecker.DUPLICATE_CLASS,
 	"invalid_super.qk": typechecker.CLASS_NOT_EXIST,
-	"invalid_super_type.qk": typechecker.CREATE_CLASS_FAIL,
+	"invalid_super_type.qk": typechecker.INCOMPATABLE_TYPES,
 	"robot.qk": typechecker.CREATE_CLASS_FAIL,
 	"Inheritance_Types_bad.qk": typechecker.CREATE_CLASS_FAIL,	
 	"short_test_bad.qk": typechecker.INVALID_OPERATION_TYPE,
@@ -30,10 +30,16 @@ var results = map[string]string{
 	"binop_sugar.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"duplicate_method.qk": typechecker.ALREADY_INITIALIZED,
 	"init_before_use_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
-	"Plus_types_bad.qk": typechecker.INVALID_CONSTRUCTOR_TYPE,
+	"Plus_types_bad.qk": typechecker.INCOMPATABLE_TYPES,
 	"simple_inheritingvariables_bad_wrongtype.qk": typechecker.CREATE_CLASS_FAIL,
 	"typing_test.qk": typechecker.CREATE_CLASS_FAIL,
-	"GoodWalk.qk": typechecker.CLASS_NOT_EXIST}
+	"GoodWalk.qk": typechecker.CLASS_NOT_EXIST,
+	"LexChallenge.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"unknown_return_type.qk": typechecker.CLASS_NOT_EXIST,
+	"simple_classes_tree_bad_nosuchsuper.qk": typechecker.CLASS_NOT_EXIST,
+	"simple_inheritingvariables_bad_notdefined.qk": typechecker.CREATE_CLASS_FAIL,
+	"simple_classes_tree_bad_alreadydefined.qk": typechecker.DUPLICATE_CLASS,
+	"simple_naming_bad_classandmethodsamename.qk": typechecker.ALREADY_INITIALIZED}
 
 
 func TestFiles(t *testing.T) {
@@ -56,7 +62,8 @@ func TestFiles(t *testing.T) {
 		res, err := p.Parse(l)
 		if err != nil {
 			//t.Log("\n------------------------------------------------------------------")
-			t.Log(file.Name(), " parse error")
+			t.Log(file.Name(), " parse error", err.Error())
+			//continue
 		}
 
 		program, _ := res.(*ast.Program)
@@ -73,8 +80,8 @@ func TestFiles(t *testing.T) {
 		}
 
 		if val, ok := results[file.Name()]; ok && typeErr == nil {
-				t.Errorf(file.Name() + ": " + "should be " + string(val))
-				counter += 1
+			t.Errorf(file.Name() + ": " + "should be " + string(val))
+			counter += 1
 		}
 	}
 	t.Log(counter)

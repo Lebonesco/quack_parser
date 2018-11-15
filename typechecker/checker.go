@@ -112,6 +112,9 @@ func evalBuiltIns(env *Environment) error {
 }
 
 func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
+	if len(classes) == 0 {
+		return nil
+	}
 	// extract signatures
 	err := setSignatures(classes, env)
 	if err != nil {
@@ -473,12 +476,14 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 
 // eval something like this class.method()
 func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckError) {
-	class, ok := (*env.TypeTable)[ObjectType(node.Variable)]
-	if !ok {
-		return Variable{}, createError(CLASS_NOT_EXIST, "class not exist on method call")
+	class, err := TypeCheck(node.Variable, env) // left can be any expression that returns a type
+	if err != nil {
+		return Variable{}, err
 	}
 
-	signature, ok := class.MethodTable[node.Method]
+	obj := env.GetClass(class.Type)
+
+	signature, ok := obj.MethodTable[node.Method]
 	if !ok {
 		return Variable{}, createError(METHOD_NOT_EXIST, "method not exist in class")
 	}
@@ -514,7 +519,7 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	}
 
 	if right.Type != left.Type { // maybe should compare if subtypes
-		return right, createError(INCOMPATABLE_TYPES, "types not work for infix expression")
+		return right, createError(INCOMPATABLE_TYPES, "types %s and %s not work for infix expression on line %d", right.Type, left.Type, node.Token.Pos.Line)
 	}
 	return right, nil
 }

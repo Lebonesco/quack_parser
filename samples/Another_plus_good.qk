@@ -1,0 +1,19 @@
+/*
+ * this should pass because c is same type
+ */
+
+class Test() {
+  def static_types(x: Int) : Int {
+    if x < 0 {
+      y = 1;
+      z = 1;
+      c = y + z;
+    } else {
+      y = 5;
+      z = 7;
+      c = y + z;
+    }
+
+    return c;
+  }
+}

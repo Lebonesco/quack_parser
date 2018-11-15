@@ -160,7 +160,7 @@ type FunctionCall struct {
 
 type MethodCall struct {
 	Token token.Token
-	Variable string
+	Variable Expression // left Side
 	Method string
 	Args []Expression
 }
