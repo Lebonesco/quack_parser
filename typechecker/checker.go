@@ -6,13 +6,12 @@ import (
 	"github.com/Lebonesco/quack_parser/parser"
 	"errors"
 	"reflect"
+	"fmt"
 	"strings"
 )
 
-type ErrorType string
-
 type CheckError struct {
-	Type ErrorType
+	Type string
 	Message error
 }
 
@@ -33,8 +32,8 @@ const (
 	BAD_FUNCTION_CALL = "BAD_FUNCTION_CALL"
 )
 
-func createError(errorType, message string) *CheckError {
-	return &CheckError{Type: ErrorType(errorType), Message: errors.New(message)}
+func createError(errorType, message string, args ...interface{}) *CheckError {
+	return &CheckError{Type: errorType, Message: errors.New(fmt.Sprintf(message, args...))}
 }
 
 // start of checker
@@ -84,7 +83,7 @@ func evalProgram(p *ast.Program, env *Environment) (Variable, *CheckError) {
 		return result, err
 	}
 
-	for _, statement := range p.Statements {
+	for _, statement := range p.Statements { // places this in cycle until env stops changing 
 		result, err := TypeCheck(statement, env)
 		if err != nil {
 			return result, err
@@ -199,6 +198,11 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 	// do it
 	newEnv := env.NewScope()
 	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object // is this a copy or a pointer?
+	// populate with constructor variables
+	for _, v := range obj.Constructor {
+		newEnv.Set(v.Name, v.Type)
+	}
+
 	// check constructor
 	for _, statement := range class.Body.Statements {
 		// extract all identifiers
@@ -209,7 +213,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 	}
 	// extract class variables
 	for k := range newEnv.Vals {
-		if strings.HasPrefix(k, "this.") { // if class variable
+		if strings.HasPrefix(k, "this.") { // if class variable add to class
 			obj.Variables[k] = newEnv.Vals[k]
 		}
 	}
@@ -232,7 +236,16 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 
 	for _, method := range methods {
 		newEnv := env.NewScope()
+		// populate with params
+		for _, arg := range obj.MethodTable[method.Name].Params {
+			newEnv.Set(arg.Name, arg.Type)
+		}
+
 		result, err := TypeCheck(method.StmtBlock, newEnv)
+		if err != nil {
+			return err
+		}
+
 		if reflect.TypeOf(result) == reflect.TypeOf(ast.ReturnStatement{}) {
 			if result.Type != obj.MethodTable[method.Name].Return {
 				return createError(INVALID_SUBCLASS, "incorrect return type in method")
@@ -264,7 +277,7 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 		}
 
 		// add arguments
-		for i, arg := range method.Args {
+		for _, arg := range method.Args {
 			if !env.TypeExist(ObjectType(arg.Type)) {
 				return createError(CLASS_NOT_EXIST, "type in method params not exist")
 			}
@@ -274,7 +287,7 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 
 		if method.Typ != "" {
 			if !env.TypeExist(ObjectType(method.Typ)) {
-				return createError(CLASS_NOT_EXIST, "type in method return signature not exist")
+				return createError(CLASS_NOT_EXIST, "type '%s' in method return signature '%s' not exist", method.Typ, method.Name)
 			}
 			sig.Return = ObjectType(method.Typ)
 		} // maybe put nothing type if nothing returned
@@ -404,8 +417,15 @@ func evalReturnStatement(node *ast.ReturnStatement, env *Environment) (Variable,
 	return TypeCheck(node.ReturnValue, env)
 }
 
+// init class Object, ei: PT(4, 5);
 func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *CheckError) {
+	if !env.TypeExist(ObjectType(node.Name)) {
+		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
+	}
 	class := (*env.TypeTable)[ObjectType(node.Name)]
+	if class == nil {
+		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist2", node.Name)
+	}
 	args := class.Constructor
 
 	if len(args) != len(node.Args) {
@@ -493,7 +513,7 @@ func evalBoolean(node *ast.Boolean, env *Environment) (Variable, *CheckError) {
 func evalIdentifier(node *ast.Identifier, env *Environment) (Variable, *CheckError) {
 	IdentType, ok := env.Get(node.Value) // check if it has been defined
 	if !ok {
-		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident is not defined")
+		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined", node.Value)
 	}
 	return Variable{Name: node.Value, Type: IdentType}, nil
 }

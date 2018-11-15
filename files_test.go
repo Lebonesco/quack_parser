@@ -13,7 +13,7 @@ import (
 const DIR = "./samples"
 
 
-var results = map[string]typechecker.ErrorType{
+var results = map[string]string{
 	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
 	"SqrDecl.qk": typechecker.CREATE_CLASS_FAIL,
 	"SqrDeclEQ.qk": typechecker.CREATE_CLASS_FAIL,
@@ -23,7 +23,17 @@ var results = map[string]typechecker.ErrorType{
 	"invalid_super_type.qk": typechecker.CREATE_CLASS_FAIL,
 	"robot.qk": typechecker.CREATE_CLASS_FAIL,
 	"Inheritance_Types_bad.qk": typechecker.CREATE_CLASS_FAIL,	
-	"short_test_bad.qk": typechecker.INVALID_OPERATION_TYPE}
+	"short_test_bad.qk": typechecker.INVALID_OPERATION_TYPE,
+	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"Another_plus_types_good.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"bad_init.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"binop_sugar.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"duplicate_method.qk": typechecker.ALREADY_INITIALIZED,
+	"init_before_use_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"Plus_types_bad.qk": typechecker.INVALID_CONSTRUCTOR_TYPE,
+	"simple_inheritingvariables_bad_wrongtype.qk": typechecker.CREATE_CLASS_FAIL,
+	"typing_test.qk": typechecker.CREATE_CLASS_FAIL,
+	"GoodWalk.qk": typechecker.CLASS_NOT_EXIST}
 
 
 func TestFiles(t *testing.T) {
@@ -57,7 +67,7 @@ func TestFiles(t *testing.T) {
 				//t.Log(typeErr.Type)
 				continue
 			}
-			t.Errorf(file.Name() + ": " +  string(typeErr.Type) + ":" + typeErr.Message.Error())
+			t.Errorf(file.Name() + ": " +  string(typeErr.Type) + " - " + typeErr.Message.Error())
 		}
 
 		if val, ok := results[file.Name()]; ok && typeErr == nil {

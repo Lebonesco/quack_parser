@@ -97,8 +97,12 @@ func (e *Environment) Get(name string) (ObjectType, bool) {
 
 // check if type already exists
 func (e *Environment) TypeExist(name ObjectType) bool {
-	if _, ok := (*e.TypeTable)[name]; ok {
-		return true
+	parent := e
+	for parent != nil {
+		if _, ok := (*parent.TypeTable)[name]; ok {
+			return true
+		}
+		parent = parent.Parent // check next scope up
 	}
 	return false
 }
@@ -118,4 +122,15 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 		next = (*e.TypeTable)[(*e.TypeTable)[next].Parent].Type
 	}
 	return true
+}
+
+func (e *Environment) GetClass(class ObjectType) *Object {
+	scope := e 
+	for scope != nil {
+		if val, ok := (*scope.TypeTable)[class]; ok {
+			return val
+		}
+		scope = scope.Parent
+	}
+	return nil
 }
