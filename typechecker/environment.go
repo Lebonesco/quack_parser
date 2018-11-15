@@ -1,6 +1,6 @@
 package typechecker
 
-// import "fmt"
+//import "fmt"
 
 // tracks Objects at each layer of scope
 type Environment struct {
@@ -152,4 +152,29 @@ func (e *Environment) GetClass(class ObjectType) *Object {
 		scope = scope.Parent
 	}
 	return nil
+}
+
+func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSignature, bool) {
+	obj := e.GetClass(class)
+	for {
+		if sig, ok := obj.MethodTable[method]; ok {
+			return sig, ok
+		}
+		fmt.Println(obj.MethodTable[method])
+
+		if obj.Type == OBJ_CLASS {
+			break
+		}
+
+		obj = e.GetParent(obj.Parent)
+		if obj == nil {
+			break
+		}
+
+	}
+	return MethodSignature{}, false	
+}
+
+func (e *Environment) GetParent(parent ObjectType) (*Object) {
+	return e.GetClass(parent)
 }

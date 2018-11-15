@@ -481,11 +481,9 @@ func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckErr
 		return Variable{}, err
 	}
 
-	obj := env.GetClass(class.Type)
-
-	signature, ok := obj.MethodTable[node.Method]
+	signature, ok := env.GetClassMethod(class.Type, node.Method)
 	if !ok {
-		return Variable{}, createError(METHOD_NOT_EXIST, "method not exist in class")
+		return Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s", node.Method, class.Type)
 	}
 
 	// recursively check correct arguments provided
