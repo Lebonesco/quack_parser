@@ -1,6 +1,6 @@
 package typechecker
 
-//import "fmt"
+// import "fmt"
 
 // tracks Objects at each layer of scope
 type Environment struct {
@@ -119,7 +119,15 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 			return false
 		}
 
-		next = (*e.TypeTable)[(*e.TypeTable)[next].Parent].Type
+		tmp := e.GetClass(next)
+		if tmp == nil {
+			return false
+		}
+		tmp = e.GetClass(tmp.Parent)
+		if tmp == nil {
+			return false
+		}
+		next = tmp.Type
 	}
 	return true
 }

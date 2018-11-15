@@ -148,11 +148,11 @@ func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
 
 func compareParents(classes []ast.Class, env *Environment) (*CheckError) {
 	for _, class := range classes {
-		obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
+		obj := env.GetClass(ObjectType(class.Signature.Name)) // get type object
 		if obj.Parent != "" {
-			parent, ok := (*env.TypeTable)[obj.Parent]
-			if !ok {
-				createError(CLASS_NOT_EXIST, "parent class not exist")
+			parent := env.GetClass(obj.Parent)
+			if parent == nil {
+				return createError(CLASS_NOT_EXIST, "parent class not exist")
 			}
 			err := compareParent(obj, parent)
 			if err != nil {
@@ -422,7 +422,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 	if !env.TypeExist(ObjectType(node.Name)) {
 		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
 	}
-	class := (*env.TypeTable)[ObjectType(node.Name)]
+	class := env.GetClass(ObjectType(node.Name))
 	if class == nil {
 		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist2", node.Name)
 	}

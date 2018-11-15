@@ -37,6 +37,7 @@ var results = map[string]string{
 
 
 func TestFiles(t *testing.T) {
+	counter := 0
 	files, err := ioutil.ReadDir(DIR)
 	if err != nil {
 		panic(err)
@@ -68,10 +69,13 @@ func TestFiles(t *testing.T) {
 				continue
 			}
 			t.Errorf(file.Name() + ": " +  string(typeErr.Type) + " - " + typeErr.Message.Error())
+			counter += 1
 		}
 
 		if val, ok := results[file.Name()]; ok && typeErr == nil {
 				t.Errorf(file.Name() + ": " + "should be " + string(val))
+				counter += 1
 		}
 	}
+	t.Log(counter)
 }
