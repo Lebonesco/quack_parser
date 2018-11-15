@@ -256,6 +256,10 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 		for _, arg := range obj.MethodTable[method.Name].Params {
 			newEnv.Set(arg.Name, arg.Type)
 		}
+		// popular with class variables
+		for k := range obj.Variables {
+			newEnv.Set(string(k), obj.Variables[string(k)])
+		}
 
 		result, err := TypeCheck(method.StmtBlock, newEnv)
 		if err != nil {
@@ -426,7 +430,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 	args := class.Constructor
 
 	if len(args) != len(node.Args) {
-		return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments")
+		return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
 	}
 
 	for i, arg := range args {
@@ -510,7 +514,7 @@ func evalBoolean(node *ast.Boolean, env *Environment) (Variable, *CheckError) {
 func evalIdentifier(node *ast.Identifier, env *Environment) (Variable, *CheckError) {
 	IdentType, ok := env.Get(node.Value) // check if it has been defined
 	if !ok {
-		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined", node.Value)
+		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined on line: %d", node.Value, node.Token.Pos.Line)
 	}
 	return Variable{Name: node.Value, Type: IdentType}, nil
 }
