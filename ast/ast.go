@@ -76,6 +76,9 @@ func (fc *FunctionCall) TokenLiteral() string { return string(fc.Token.Lit) }
 func (mc *MethodCall) expressionNode() {}
 func (mc *MethodCall) TokenLiteral() string { return string(mc.Token.Lit) }
 
+func (cv *ClassVariableCall) expressionNode() {}
+func (cv *ClassVariableCall) TokenLiteral() string { return string(cv.Token.Lit) }
+
 // AST builders
 func NewProgram(classes, stmts Attrib) (*Program, error) {
 	c, ok := classes.([]Class)
@@ -104,7 +107,7 @@ func AppendStatement(stmtList, stmt Attrib) ([]Statement, error) {
 }
 
 func NewLetStatement(name, kind, value interface{}) (*LetStatement, error) {
-	n, ok := name.(*Identifier)
+	n, ok := name.(*Identifier) // will need to change this to handle class vars
 	if !ok {
 		return nil, fmt.Errorf("invalid type definition of Identifier. got=%T", name)
 	}
@@ -414,7 +417,12 @@ func NewReturnExpression(exp Attrib) (Statement, error) {
 	if exp == nil {
 		return &ReturnStatement{}, nil
 	}
-	return &ReturnStatement{ReturnValue: exp.(Expression)}, nil
+
+	e, ok := exp.(Expression)
+	if !ok  {
+		return &ReturnStatement{}, debug("NewReturnExpression", "Expression", "exp", exp)
+	}
+	return &ReturnStatement{ReturnValue: e}, nil
 }
 
 func NewFormalArg() ([]FormalArgs, error) {
@@ -442,17 +450,22 @@ func AppendFormalArgs(arg, kind, args Attrib) ([]FormalArgs, error) {
 
 // need to fix this up? need to  handle class variable calls
 func NewClassVariable(exp, ident Attrib) (Expression, error) {
-	_, ok := exp.(Expression)
-	if !ok {
-		return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
-	}
-
 	i, ok := ident.(*token.Token)
 	if !ok {
 		return nil, debug("NewClassVariable", "*token.Token", "ident", ident)
 	}
 
-	return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
+	if exp == nil {
+		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
+	}
+
+	e, ok := exp.(Expression)
+	if !ok {
+		return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
+	}
+	//return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
+	return &ClassVariableCall{Expression: e, Ident: "this." + string(i.Lit), Token: *i}, nil
+
 }
 
 func NewTypeAlt() ([]TypeAlt, error) {

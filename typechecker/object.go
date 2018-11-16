@@ -9,6 +9,7 @@ const (
 	INTEGER_CLASS = "Int"
 	BOOL_CLASS = "Boolean"
 	RETURN_VALUE_OBJ = "RETURN_VALUE_OBJ"
+	NOTHING_CLASS = "NOTHING_CLASS"
 	TYPE_HOLDER = "$TYPE_HOLDER" // represents unknown type
 )
 

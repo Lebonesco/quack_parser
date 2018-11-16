@@ -29,5 +29,6 @@ var BUIILT_IN_CLASSES =
     def LESS(other: Int): Boolean { }       // <
     def ATLEAST(other: Int): Boolean { }    // >=
     def MORE(other: Int): Boolean { }       // >
+    def STR(): String {}                    // "this"
  }
 `

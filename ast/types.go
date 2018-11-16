@@ -175,3 +175,10 @@ type StringEscapeError struct {
 	Token token.Token // string escape error
 	Value string
 }
+
+// class variable call
+type ClassVariableCall struct {
+	Token token.Token 
+	Expression Expression
+	Ident string
+}

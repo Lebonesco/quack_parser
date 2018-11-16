@@ -143,6 +143,14 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 	return true
 }
 
+func (e *Environment) GetClassVariable(class ObjectType, variable string) (ObjectType, bool) {
+	obj := e.GetClass(class)
+	if sig, ok := obj.Variables[variable]; ok {
+		return sig, ok
+	}
+	return "", false	
+}
+
 func (e *Environment) GetClass(class ObjectType) *Object {
 	scope := e 
 	for scope != nil {
@@ -160,7 +168,6 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 		if sig, ok := obj.MethodTable[method]; ok {
 			return sig, ok
 		}
-		fmt.Println(obj.MethodTable[method])
 
 		if obj.Type == OBJ_CLASS {
 			break

@@ -66,8 +66,10 @@ func TypeCheck(node ast.Node, env *Environment) (Variable, *CheckError) {
 		return evalLetStatement(node, env)
 	case *ast.FunctionCall: // actually a class call, ei PT(1, 2);
 		return evalFunctionCall(node, env)
-	case *ast.MethodCall:
+	case *ast.MethodCall: // handle class.method()
 		return evalMethodCall(node, env)
+	case *ast.ClassVariableCall:
+		return evalClassVariableCall(node, env)
 	}
 	return Variable{}, nil
 }
@@ -297,7 +299,7 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
 
 	for _, method := range methods {
-		sig := MethodSignature{Params: []Variable{}}
+		sig := MethodSignature{Params: []Variable{}, Return: NOTHING_CLASS}
 		if _, ok := obj.MethodTable[method.Name]; ok {
 			return createError(ALREADY_INITIALIZED, "method name: %s already exists in class", method.Name)
 		}
@@ -498,7 +500,7 @@ func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckErr
 		}
 	}
 
-	return Variable{Type: signature.Return}, nil
+	return Variable{Type: signature.Return, Name: node.Method+"()"}, nil
 }
 
 func evalPrefixExpression(expr *ast.PrefixExpression, env *Environment) (Variable, *CheckError) {
@@ -517,9 +519,9 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	}
 
 	if right.Type != left.Type { // maybe should compare if subtypes
-		return right, createError(INCOMPATABLE_TYPES, "types %s and %s not work for infix expression on line %d", right.Type, left.Type, node.Token.Pos.Line)
+		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", right.Type, right.Name, left.Type, left.Name, node.Operator, node.Token.Pos.Line)
 	}
-	return right, nil
+	return left, nil
 }
 
 func evalOpeExpression(left, right Object) (Variable, *CheckError) {
@@ -544,4 +546,17 @@ func evalIdentifier(node *ast.Identifier, env *Environment) (Variable, *CheckErr
 		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined on line: %d", node.Value, node.Token.Pos.Line)
 	}
 	return Variable{Name: node.Value, Type: IdentType}, nil
+}
+
+func evalClassVariableCall(node *ast.ClassVariableCall, env *Environment) (Variable, *CheckError) {
+	left, err := TypeCheck(node.Expression, env)
+	if err != nil {
+		return Variable{}, err
+	}
+
+	kind, ok :=  env.GetClassVariable(left.Type, node.Ident) // type, method
+	if !ok {
+		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "type %s doesn't have variable %s", left.Type, node.Ident)
+	}
+	return Variable{Type: kind, Name: string(node.Token.Lit)}, nil
 }

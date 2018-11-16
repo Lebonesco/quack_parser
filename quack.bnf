@@ -160,7 +160,6 @@ RExpr
       | RExpr neq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | Term									    
       | RExpr period ident 							<< ast.NewClassVariable($0, $2) >>
-      //| this period ident 							<< ast.NewClassVar()
 	  | ident lparen ActualArgs rparen				<< ast.NewFunctionCall($0, $2) >> 
       | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
       | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
@@ -173,6 +172,7 @@ RExpr
 Term 
 	: Term mul Factor      	<< ast.NewInfixExpression($0, $1, $2) >>
 	| Term div Factor		<< ast.NewInfixExpression($0, $1, $2) >>
+	| this period ident 	<< ast.NewClassVariable(nil, $2) >>
 	| Factor 				
 	| Bool  				<< ast.NewBool($0) >>
 	;
