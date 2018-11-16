@@ -519,7 +519,7 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	}
 
 	if right.Type != left.Type { // maybe should compare if subtypes
-		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", right.Type, right.Name, left.Type, left.Name, node.Operator, node.Token.Pos.Line)
+		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
 	}
 	return left, nil
 }

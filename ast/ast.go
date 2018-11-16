@@ -459,12 +459,12 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
 	}
 
-	e, ok := exp.(Expression)
+	e, ok := exp.(*token.Token)
 	if !ok {
 		return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
 	}
 	//return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
-	return &ClassVariableCall{Expression: e, Ident: "this." + string(i.Lit), Token: *i}, nil
+	return &ClassVariableCall{Expression: &Identifier{Value: string(e.Lit)}, Ident: "this." + string(i.Lit), Token: *i}, nil
 
 }
 
@@ -473,7 +473,7 @@ func NewTypeAlt() ([]TypeAlt, error) {
 }
 // ident.thing()
 func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
-	expr, ok := lexpr.(Expression)
+	expr, ok := lexpr.(*token.Token)
 	if !ok {
 		return nil, debug("NewMethodCall", "Expression", "lexpr", lexpr)
 	}
@@ -492,7 +492,7 @@ func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
 		}
 	}
 
-	return &MethodCall{Variable: expr, Method: string(m.Lit), Args: a, Token: *m}, nil
+	return &MethodCall{Variable: &Identifier{Value: string(expr.Lit)}, Method: string(m.Lit), Args: a, Token: *m}, nil
 }
 
 

@@ -7,6 +7,7 @@ import (
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/token"
 	"testing"
+	"reflect"
 )
 
 type Test struct {
@@ -510,5 +511,181 @@ func TestIdentOperations(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 		_ = program.Statements[0]
+	}
+}
+
+func TestClassVars(t *testing.T) {
+	tests := []struct {
+		src string
+	}{
+		{`"(" + this.x.STR() + "," + this.y.STR() + ")";`},
+		{`this.y + this.x;`},
+		{"cat + 5 + cat;"},
+		{`cat + "five" + cat;`},
+		{`this.x = x + y;`},
+	}
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		_ = program.Statements[0]
+	}
+}
+
+func TestIdents(t *testing.T) {
+	tests := []struct {
+		src           string
+		left          ast.Node
+		right 		  ast.Node
+		expectedOp    string
+	}{
+		{`left + right;`, &ast.Identifier{}, &ast.Identifier{}, "+"},
+		{`this.x + this.y;`, &ast.Identifier{}, &ast.Identifier{}, "+"},
+	}
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+
+		if s.TokenLiteral() != "ExpressionStatement" {
+			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
+		}
+
+		ExpStmt, ok := s.(*ast.ExpressionStatement)
+		if !ok {
+			t.Errorf("s not *ast.ExpressionStatement, got=%T", s)
+		}
+
+		Exp, ok := ExpStmt.Expression.(*ast.InfixExpression)
+		if !ok {
+			t.Errorf("ExpStmt not have *ast.InfixExpression")
+		}
+
+		if Exp.Operator != tt.expectedOp {
+			t.Errorf("expected operator %s, got=%s", tt.expectedOp, Exp.Operator)
+		}
+
+		_, ok = Exp.Left.(*ast.Identifier)
+		if !ok {
+			t.Errorf("not valid left expression, got=%T", Exp.Left)
+		}
+
+		_, ok = Exp.Right.(*ast.Identifier)
+		if !ok {
+			t.Errorf("not valid right expression, got=%T", Exp.Right)
+		}
+	}
+}
+
+//		{`t.var + t.var;`, &ast.ClassVariableCall{}, &ast.ClassVariableCall{}, "+"},
+func TestClassVariableCall(t *testing.T) {
+	tests := []struct {
+		src           string
+		expectedOp    string
+	}{
+		{`t.var + t.var;`, "+"},
+	}
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+
+		if s.TokenLiteral() != "ExpressionStatement" {
+			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
+		}
+
+		ExpStmt, ok := s.(*ast.ExpressionStatement)
+		if !ok {
+			t.Errorf("s not *ast.ExpressionStatement, got=%T", s)
+		}
+
+		Exp, ok := ExpStmt.Expression.(*ast.InfixExpression)
+		if !ok {
+			t.Errorf("ExpStmt not have *ast.InfixExpression, got=%s", reflect.TypeOf(ExpStmt.Expression))
+		}
+
+		if Exp.Operator != tt.expectedOp {
+			t.Errorf("expected operator %s, got=%s", tt.expectedOp, Exp.Operator)
+		}
+
+		_, ok = Exp.Left.(*ast.ClassVariableCall)
+		if !ok {
+			t.Errorf("not valid left expression, got=%T", Exp.Left)
+		}
+
+		_, ok = Exp.Right.(*ast.ClassVariableCall)
+		if !ok {
+			t.Errorf("not valid right expression, got=%T", Exp.Right)
+		}
+	}
+}
+
+func TestMethodCall(t *testing.T) {
+	tests := []struct {
+		src           string
+		expectedOp    string
+	}{
+		{`t.method(r) + t.method(k);`, "+"}, // when right side is *ast.MethodCall failing
+		{`t.method(t.method()) + t.method();`, "+"},
+	}
+
+	for _, tt := range tests {
+		l := lexer.NewLexer([]byte(tt.src))
+		p := parser.NewParser()
+		res, err := p.Parse(l)
+		if err != nil {
+			t.Fatalf(err.Error())
+		}
+
+		program, _ := res.(*ast.Program)
+		s := program.Statements[0]
+
+		if s.TokenLiteral() != "ExpressionStatement" {
+			t.Errorf("s.TokenLiteral() not 'ExpressionStatement', got=%s", s.TokenLiteral())
+		}
+
+		ExpStmt, ok := s.(*ast.ExpressionStatement)
+		if !ok {
+			t.Errorf("s not *ast.ExpressionStatement, got=%T", s)
+		}
+
+		Exp, ok := ExpStmt.Expression.(*ast.InfixExpression)
+		if !ok {
+			t.Errorf("ExpStmt not have *ast.InfixExpression, got=%s", reflect.TypeOf(ExpStmt.Expression))
+		}
+
+		if Exp.Operator != tt.expectedOp {
+			t.Errorf("expected operator %s, got=%s", tt.expectedOp, Exp.Operator)
+		}
+
+		_, ok = Exp.Left.(*ast.MethodCall)
+		if !ok {
+			t.Errorf("not valid left expression, got=%T", Exp.Left)
+		}
+
+		_, ok = Exp.Right.(*ast.MethodCall)
+		if !ok {
+			t.Errorf("not valid right expression, got=%T", Exp.Right)
+		}
 	}
 }

@@ -1,0 +1,34 @@
+# Type System
+
+*A collection of rules for assigning type expression to various parts of a program*
+
+### Type Checker needs to know about
+*syntatic constructs in a language
+*basic types of language
+*rules for assigning type to construction
+
+### Basic Type:
+*integer
+*string
+*boolean
+
+was passing up errors,
+but the return type was a pointer to an error struct
+however I wasn't returing the error so it was
+just returning nil
+
+
+added new node type. was receiving bad error type
+but was failing to bubble up error to top level because
+I assumed the ast was working so wasn't checking for it
+but was causing everything to fail
+looked at git diff
+then looked at top level node and added check then 
+realized not checking on top
+
+
+when creating the grammar realized that I could decrease the ambiguity of some important statements that would fix the rest
+of my parsing issues 
+
+learned that sometimes solving for the simple case opened
+up my mind to solutions and configurations. 
