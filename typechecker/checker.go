@@ -30,6 +30,7 @@ const (
 	INVALID_CONSTRUCTOR_TYPE = "INVALID_CONSTRUCTOR_TYPE"
 	INCOMPATABLE_TYPES = "INCOMPATABLE_TYPES"
 	BAD_FUNCTION_CALL = "BAD_FUNCTION_CALL"
+	CONDITION_NOT_BOOL = "CONDITION_NOT_BOOL"
 )
 
 func createError(errorType, message string, args ...interface{}) *CheckError {
@@ -373,6 +374,10 @@ func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *Chec
 
 	if node.Kind != "" { // if type explicitly set
 		result.Type = ObjectType(node.Kind) 
+		if !env.TypeExist(result.Type) {
+			return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", result.Type)
+		}
+
 		if !env.ValidSubType(result.Type, rightType.Type) {
 			return result, createError(INCOMPATABLE_TYPES, "%s not subtype of %s", result.Type, rightType.Type)
 		}
@@ -402,11 +407,22 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 
 func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckError) {
 	var result Variable
+
+	// check that condition evals to bool type
+	result, err := TypeCheck(node.Condition, env)
+	if err != nil {
+		return result, err
+	}
+
+	if result.Type != BOOL_CLASS {
+		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
+	}
+
 	// create environment for each scope
 	newEnv1 := env.NewScope()
 	newEnv2 := env.NewScope()
 
-	_, err := TypeCheck(node.Consequence, newEnv1)
+	_, err = TypeCheck(node.Consequence, newEnv1)
 	if err != nil {
 		return result, err
 	}
@@ -432,6 +448,17 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 
 func evalWhileStatement(node *ast.WhileStatement, env *Environment) (Variable, *CheckError) {
 	var result Variable
+
+	// check that condition evals to bool type
+	result, err := TypeCheck(node.Cond, env)
+	if err != nil {
+		return result, err
+	}
+
+	if result.Type != BOOL_CLASS {
+		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
+	}
+
 	newEnv := env.NewScope()
 	for _, statement := range node.BlockStatement.Statements {
 		result, err := TypeCheck(statement, newEnv)
@@ -521,6 +548,12 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	if right.Type != left.Type { // maybe should compare if subtypes
 		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
 	}
+
+	switch node.Operator {
+	case "<", ">", "<=", ">=", "==", "!=", "and", "or":
+		return Variable{Type: BOOL_CLASS}, nil
+	}
+
 	return left, nil
 }
 
