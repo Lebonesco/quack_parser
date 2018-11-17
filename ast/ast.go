@@ -516,7 +516,6 @@ func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
 
 	cc, ok := classCall.(*ClassVariableCall)
 	if !ok {
-		//return nil, debug("NewClassCallLink", "NewClassVariable", "classCall", classCall)
 		mc, ok := classCall.(*MethodCall)
 		if !ok {
 			return nil, debug("NewClassCallLink", "NewClassVariable", "classCall", classCall)
@@ -541,11 +540,6 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
 	}
 
-	// e, ok := exp.(*token.Token)
-	// if !ok {
-	// 	return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
-	// }
-	//return &ClassVariableCall{Expression: &Identifier{Value: string(e.Lit)}, Ident: "this." + string(i.Lit), Token: *i}, nil
 	return &ClassVariableCall{Expression: nil, Ident: "this." + string(i.Lit), Token: *i}, nil
 
 }
@@ -555,11 +549,6 @@ func NewTypeAlt() ([]TypeAlt, error) {
 }
 // ident.thing()
 func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
-	// expr, ok := lexpr.(*token.Token)
-	// if !ok {
-	// 	return nil, debug("NewMethodCall", "Expression", "lexpr", lexpr)
-	// }
-
 	m, ok := method.(*token.Token)
 	if !ok {
 		return nil, debug("NewMethodCall", "*token.Token", "method", method)
@@ -574,5 +563,4 @@ func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
 		}
 	}
 	return &MethodCall{Variable: nil, Method: string(m.Lit), Args: a, Token: *m}, nil
-	//return &MethodCall{Variable: &Identifier{Value: string(expr.Lit)}, Method: string(m.Lit), Args: a, Token: *m}, nil
 }

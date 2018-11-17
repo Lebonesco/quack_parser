@@ -551,7 +551,11 @@ func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckErr
 }
 
 func evalPrefixExpression(expr *ast.PrefixExpression, env *Environment) (Variable, *CheckError) {
-	return Variable{}, nil
+	e, err := TypeCheck(expr, env)
+	if err != nil {
+		return e, err
+	}
+	return e, nil
 }
 
 func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable, *CheckError) {
