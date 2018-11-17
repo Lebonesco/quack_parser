@@ -448,54 +448,6 @@ func AppendFormalArgs(arg, kind, args Attrib) ([]FormalArgs, error) {
 	return append(as, FormalArgs{string(a.Lit), string(k.Lit)}), nil
 }
 
-// need to fix this up? need to  handle class variable calls
-func NewClassVariable(exp, ident Attrib) (Expression, error) {
-	i, ok := ident.(*token.Token)
-	if !ok {
-		return nil, debug("NewClassVariable", "*token.Token", "ident", ident)
-	}
-
-	if exp == nil {
-		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
-	}
-
-	e, ok := exp.(*token.Token)
-	if !ok {
-		return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
-	}
-	//return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
-	return &ClassVariableCall{Expression: &Identifier{Value: string(e.Lit)}, Ident: "this." + string(i.Lit), Token: *i}, nil
-
-}
-
-func NewTypeAlt() ([]TypeAlt, error) {
-	return []TypeAlt{}, nil
-}
-// ident.thing()
-func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
-	expr, ok := lexpr.(*token.Token)
-	if !ok {
-		return nil, debug("NewMethodCall", "Expression", "lexpr", lexpr)
-	}
-
-	m, ok := method.(*token.Token)
-	if !ok {
-		return nil, debug("NewMethodCall", "*token.Token", "method", method)
-	}
-
-	a := []Expression{}
-	if args != nil {
-		var ok bool
-		a, ok = args.([]Expression)
-		if !ok {
-			return nil, debug("NewMethodCall", "[]Expression", "args", args)
-		}
-	}
-
-	return &MethodCall{Variable: &Identifier{Value: string(expr.Lit)}, Method: string(m.Lit), Args: a, Token: *m}, nil
-}
-
-
 func AppendTypeAlt(alts, value, kind, stmts Attrib) ([]TypeAlt, error) {
 	v, ok := value.(*token.Token)
 	if !ok {
@@ -547,4 +499,80 @@ func NewStringEscapeError(s_error Attrib) (Expression, error) {
 	}
 
 	return &StringEscapeError{Token: se, Value: string(se.Lit)}, nil
+}
+
+// chains class methods and calls
+func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
+	e, ok := expr.(Expression)
+	if !ok {
+		return nil, debug("NewClassCallLink", "Expression", "expr", expr)
+	}	
+	// pass through both types already created ast.NewVariableCall ast.NewMethodCall
+	if classCall == nil {
+		return e, nil
+	}
+
+
+
+	cc, ok := classCall.(*ClassVariableCall)
+	if !ok {
+		//return nil, debug("NewClassCallLink", "NewClassVariable", "classCall", classCall)
+		mc, ok := classCall.(*MethodCall)
+		if !ok {
+			return nil, debug("NewClassCallLink", "NewClassVariable", "classCall", classCall)
+		}
+		mc.Variable = e 
+		return mc, nil
+	}
+
+	cc.Expression = e 
+	return cc, nil
+}
+
+// need to fix this up? need to  handle class variable calls
+// make it handle method and var calls
+func NewClassVariable(exp, ident Attrib) (Expression, error) {
+	i, ok := ident.(*token.Token)
+	if !ok {
+		return nil, debug("NewClassVariable", "*token.Token", "ident", ident)
+	}
+
+	if exp == "this" {
+		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
+	}
+
+	// e, ok := exp.(*token.Token)
+	// if !ok {
+	// 	return nil, debug("NewClassVariable", "Expresssion", "exp", exp)
+	// }
+	//return &ClassVariableCall{Expression: &Identifier{Value: string(e.Lit)}, Ident: "this." + string(i.Lit), Token: *i}, nil
+	return &ClassVariableCall{Expression: nil, Ident: "this." + string(i.Lit), Token: *i}, nil
+
+}
+
+func NewTypeAlt() ([]TypeAlt, error) {
+	return []TypeAlt{}, nil
+}
+// ident.thing()
+func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
+	// expr, ok := lexpr.(*token.Token)
+	// if !ok {
+	// 	return nil, debug("NewMethodCall", "Expression", "lexpr", lexpr)
+	// }
+
+	m, ok := method.(*token.Token)
+	if !ok {
+		return nil, debug("NewMethodCall", "*token.Token", "method", method)
+	}
+
+	a := []Expression{}
+	if args != nil {
+		var ok bool
+		a, ok = args.([]Expression)
+		if !ok {
+			return nil, debug("NewMethodCall", "[]Expression", "args", args)
+		}
+	}
+	return &MethodCall{Variable: nil, Method: string(m.Lit), Args: a, Token: *m}, nil
+	//return &MethodCall{Variable: &Identifier{Value: string(expr.Lit)}, Method: string(m.Lit), Args: a, Token: *m}, nil
 }

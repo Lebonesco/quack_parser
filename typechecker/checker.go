@@ -177,6 +177,7 @@ func compareParents(classes []ast.Class, env *Environment) (*CheckError) {
 func compareParent(child, parent *Object) (*CheckError) {
 	// how to handle parent with input?
 	// compare variables
+	fmt.Println(child.Variables, parent.Variables)
 	ok := compareBlockVars(child.Variables, parent.Variables)
 	if !ok {
 		return createError(CREATE_CLASS_FAIL, "variables in %s incompatible with %s", child.Type, parent.Type)

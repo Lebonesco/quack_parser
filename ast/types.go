@@ -151,34 +151,35 @@ type FunctionLiteral struct {
 	Body       *BlockStatement
 }
 
-// initializing object
+// initializing object or calling functino ei: Pt();
 type FunctionCall struct {
 	Token token.Token
 	Name  string
 	Args  []Expression
 }
 
-type MethodCall struct {
-	Token token.Token
-	Variable Expression // left Side, this will be recursive
-	Method string
-	Args []Expression
-}
-
-type MethodExpression struct {
-	Token      token.Token
-	Expression Expression
-	Ident      string
-}
+// type MethodExpression struct {
+// 	Token      token.Token
+// 	Expression Expression
+// 	Ident      string
+// }
 
 type StringEscapeError struct {
 	Token token.Token // string escape error
 	Value string
 }
 
+// These are class stuff objects
 // class variable call
 type ClassVariableCall struct {
 	Token token.Token 
-	Expression Expression
-	Ident string
+	Expression Expression // left Side, this will be recursive
+	Ident string // class var name
+}
+
+type MethodCall struct {
+	Token token.Token
+	Variable Expression // left Side, this will be recursive
+	Method string // method name
+	Args []Expression // args that go into method params
 }
