@@ -127,11 +127,11 @@ func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
 	}
 	// check for cycles 
 	if env.CycleExist() {
-		createError(CLASS_CYCLE, "class cycle")
+		return createError(CLASS_CYCLE, "class cycle")
 	}
 	// check for nonexistent types
 	if !env.TypesExist() {
-		createError(CLASS_NOT_EXIST, "class not exist")
+		return createError(CLASS_NOT_EXIST, "class not exist")
 	}
 	// extract methods
 	err = setMethods(classes, env)

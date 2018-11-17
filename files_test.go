@@ -43,7 +43,8 @@ var results = map[string]string{
 	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"dot_priority.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"method_madness.qk": typechecker.VARIABLE_NOT_INITIALIZED,
-	"method_madness_2.qk": typechecker.VARIABLE_NOT_INITIALIZED}
+	"method_madness_2.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"simple_classes_tree_bad_circular.qk": typechecker.CLASS_CYCLE}
 
 
 func TestFiles(t *testing.T) {
