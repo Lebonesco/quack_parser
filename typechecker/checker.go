@@ -177,7 +177,6 @@ func compareParents(classes []ast.Class, env *Environment) (*CheckError) {
 func compareParent(child, parent *Object) (*CheckError) {
 	// how to handle parent with input?
 	// compare variables
-	fmt.Println(child.Variables, parent.Variables)
 	ok := compareBlockVars(child.Variables, parent.Variables)
 	if !ok {
 		return createError(CREATE_CLASS_FAIL, "variables in %s incompatible with %s", child.Type, parent.Type)
@@ -383,8 +382,8 @@ func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *Chec
 			return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", result.Type)
 		}
 
-		if !env.ValidSubType(result.Type, rightType.Type) {
-			return result, createError(INCOMPATABLE_TYPES, "%s not subtype of %s", result.Type, rightType.Type)
+		if !env.ValidSubType(rightType.Type, result.Type) {
+			return result, createError(INCOMPATABLE_TYPES, "%s not supertype of %s", result.Type, rightType.Type)
 		}
 	} else {
 		result.Type = rightType.Type
@@ -491,7 +490,8 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 			return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
 		}
 
-		// check argument types
+		// check argument types // do this only for functions
+
 		for i, arg := range args {
 			result, err := TypeCheck(node.Args[i], env)
 			if err != nil {
@@ -499,7 +499,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 			}
 
 			if arg.Type != result.Type {
-				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type for Class %s", node.Name)
+				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
 			}
 		}
 
