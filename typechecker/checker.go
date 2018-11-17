@@ -566,19 +566,26 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	}
 
 	if right.Type != left.Type { // maybe should compare if subtypes
-		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
+		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d", 
+			left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
 	}
 
-	switch node.Operator {
+	// get least common type
+	obj := env.GetClass(env.GetLowestCommonType(right.Type, left.Type))
+	// check if method exists in type
+	methods := map[string]string{"+": PLUS, "-": MINUS, "==": EQUALS, "<": LESS, ">": MORE, ">=": ATLEAST,
+							"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": OR}
+	
+	if _, ok := env.GetClassMethod(obj.Type, methods[node.Operator]); !ok {
+			return Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s on line %d", methods[node.Operator], obj.Type, node.Token.Pos.Line)
+	}
+
+	switch node.Operator { // evaluates to a bool
 	case "<", ">", "<=", ">=", "==", "!=", "and", "or":
 		return Variable{Type: BOOL_CLASS}, nil
 	}
 
 	return left, nil
-}
-
-func evalOpeExpression(left, right Object) (Variable, *CheckError) {
-	return Variable{}, nil
 }
 
 func evalInteger(node *ast.IntegerLiteral, env *Environment) (Variable, *CheckError) {

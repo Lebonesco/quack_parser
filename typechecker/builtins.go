@@ -18,7 +18,9 @@ var BUIILT_IN_CLASSES =
     def MORE(other: String): Boolean { }     // >
  }
 
- class Boolean() { }
+ class Boolean() {
+    def EQUALS(right: Boolean): Boolean {}
+}
 
  class Int() {
     def PLUS(right: Int): Int {}   // this + right

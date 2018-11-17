@@ -392,7 +392,7 @@ func NewFunctionCall(name, args Attrib) (Expression, error) {
 		}
 	}
 
-	return &FunctionCall{Name: string(n.Lit), Args: a}, nil
+	return &FunctionCall{Name: string(n.Lit), Args: a, Token: *n}, nil
 }
 
 func NewArg() ([]Expression, error) {

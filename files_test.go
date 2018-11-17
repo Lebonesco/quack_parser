@@ -15,12 +15,11 @@ const DIR = "./samples"
 
 var results = map[string]string{
 	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
-	"SqrDecl.qk": typechecker.CREATE_CLASS_FAIL,
-	"SqrDeclEQ.qk": typechecker.CREATE_CLASS_FAIL,
+	"SqrDeclEQ.qk": typechecker.METHOD_NOT_EXIST,
 	"circular_dependency.qk": typechecker.CLASS_CYCLE,
 	"duplicate_class.qk": typechecker.DUPLICATE_CLASS,
 	"invalid_super.qk": typechecker.CLASS_NOT_EXIST,
-	"invalid_super_type.qk": typechecker.INCOMPATABLE_TYPES,
+	"invalid_super_type.qk": typechecker.CREATE_CLASS_FAIL,
 	"robot.qk": typechecker.CREATE_CLASS_FAIL,
 	"Inheritance_Types_bad.qk": typechecker.CREATE_CLASS_FAIL,	
 	"short_test_bad.qk": typechecker.INCOMPATABLE_TYPES,
@@ -44,7 +43,8 @@ var results = map[string]string{
 	"dot_priority.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"method_madness.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"method_madness_2.qk": typechecker.VARIABLE_NOT_INITIALIZED,
-	"simple_classes_tree_bad_circular.qk": typechecker.CLASS_CYCLE}
+	"simple_classes_tree_bad_circular.qk": typechecker.CLASS_CYCLE,
+	"not_a_duck.qk": typechecker.METHOD_NOT_EXIST}
 
 
 func TestFiles(t *testing.T) {

@@ -178,7 +178,7 @@ func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) (ObjectType) {
 }
 
 func (e *Environment) GetParentType(kind ObjectType) (ObjectType) {
-	if kind == OBJ_CLASS {
+	if kind == OBJ_CLASS || kind == NOTHING_CLASS {
 		return kind
 	}
 

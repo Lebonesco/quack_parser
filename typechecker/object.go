@@ -3,6 +3,7 @@ package typechecker
 // Variable Type 
 type ObjectType string
 
+// built in class types
 const (
 	OBJ_CLASS = "Obj"
 	STRING_CLASS = "String"
@@ -11,6 +12,21 @@ const (
 	RETURN_VALUE_OBJ = "RETURN_VALUE_OBJ"
 	NOTHING_CLASS = "NOTHING_CLASS"
 	TYPE_HOLDER = "$TYPE_HOLDER" // represents unknown type
+)
+
+// built in methods
+const (
+	PLUS = "PLUS"
+	EQUALS = "EQUALS"
+	ATMOST = "ATMOST"
+	ATLEAST = "ATLEAST"
+	LESS = "LESS"
+	MORE = "MORE"
+	MINUS = "MINUS"
+	DIVIDE = "DIVIDE"
+	TIMES = "TIMES"
+	AND = "AND"
+	OR = "OR"
 )
 
 type MethodSignature struct {
@@ -49,6 +65,7 @@ func (o *Object) AddMethod(name string, signature MethodSignature) {
 	o.MethodTable[name] = signature
 }
 
+// recursive checks for inherited method
 func (o *Object) GetMethod(name string) (MethodSignature, bool) {
 	if sig, ok := o.MethodTable[name]; ok {
 		return sig, true
