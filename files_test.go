@@ -23,23 +23,24 @@ var results = map[string]string{
 	"invalid_super_type.qk": typechecker.INCOMPATABLE_TYPES,
 	"robot.qk": typechecker.CREATE_CLASS_FAIL,
 	"Inheritance_Types_bad.qk": typechecker.CREATE_CLASS_FAIL,	
-	"short_test_bad.qk": typechecker.INVALID_OPERATION_TYPE,
-	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
-	"Another_plus_types_good.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"short_test_bad.qk": typechecker.INCOMPATABLE_TYPES,
 	"bad_init.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"binop_sugar.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"duplicate_method.qk": typechecker.ALREADY_INITIALIZED,
 	"init_before_use_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"Plus_types_bad.qk": typechecker.INCOMPATABLE_TYPES,
 	"simple_inheritingvariables_bad_wrongtype.qk": typechecker.CREATE_CLASS_FAIL,
-	"typing_test.qk": typechecker.CREATE_CLASS_FAIL,
+	"typing_test.qk": typechecker.CLASS_NOT_EXIST,
 	"GoodWalk.qk": typechecker.CLASS_NOT_EXIST,
 	"LexChallenge.qk": typechecker.VARIABLE_NOT_INITIALIZED,
 	"unknown_return_type.qk": typechecker.CLASS_NOT_EXIST,
 	"simple_classes_tree_bad_nosuchsuper.qk": typechecker.CLASS_NOT_EXIST,
 	"simple_inheritingvariables_bad_notdefined.qk": typechecker.CREATE_CLASS_FAIL,
 	"simple_classes_tree_bad_alreadydefined.qk": typechecker.DUPLICATE_CLASS,
-	"simple_naming_bad_classandmethodsamename.qk": typechecker.ALREADY_INITIALIZED}
+	"simple_naming_bad_classandmethodsamename.qk": typechecker.ALREADY_INITIALIZED,
+	"hands.qk": typechecker.METHOD_NOT_EXIST,
+	"Comparison_TRUE_FALSE_bad.qk": typechecker.INCOMPATABLE_TYPES,
+	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED}
 
 
 func TestFiles(t *testing.T) {

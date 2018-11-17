@@ -221,6 +221,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 	// check constructor types
 	// do it
 	newEnv := env.NewScope()
+
 	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
 	// populate with constructor variables
 	for _, v := range obj.Constructor {
@@ -261,6 +262,7 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 
 	for _, method := range methods {
 		newEnv := env.NewScope()
+		newEnv.SetClass(obj.Type) // this will allow methods to access class instance of 'this' and methods
 		// populate with params
 		for _, arg := range obj.MethodTable[method.Name].Params {
 			newEnv.Set(arg.Name, arg.Type)
@@ -274,7 +276,7 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 		if err != nil {
 			return err
 		}
-
+		// check if received return statement to compare against method signature
 		if reflect.TypeOf(result) == reflect.TypeOf(ast.ReturnStatement{}) {
 			if result.Type != obj.MethodTable[method.Name].Return {
 				return createError(INVALID_SUBCLASS, "incorrect return type in method")
@@ -473,34 +475,49 @@ func evalReturnStatement(node *ast.ReturnStatement, env *Environment) (Variable,
 	return TypeCheck(node.ReturnValue, env)
 }
 
-// init class Object, ei: PT(4, 5);
+// init class Object or if in class method call, ei: PT(4, 5);
 func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *CheckError) {
-	if !env.TypeExist(ObjectType(node.Name)) {
-		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
-	}
-	class := env.GetClass(ObjectType(node.Name))
-	if class == nil {
-		return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist2", node.Name)
-	}
-	args := class.Constructor
+	if env.TypeExist(ObjectType(node.Name)) { // if a class
+		class := env.GetClass(ObjectType(node.Name))
+		if class == nil {
+			return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
+		}
+		args := class.Constructor
 
-	if len(args) != len(node.Args) {
-		return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
-	}
-
-	// check argument types
-	for i, arg := range args {
-		result, err := TypeCheck(node.Args[i], env)
-		if err != nil {
-			return result, err
+		if len(args) != len(node.Args) {
+			return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
 		}
 
-		if arg.Type != result.Type {
-			return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type for Class %s", node.Name)
+		// check argument types
+		for i, arg := range args {
+			result, err := TypeCheck(node.Args[i], env)
+			if err != nil {
+				return result, err
+			}
+
+			if arg.Type != result.Type {
+				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type for Class %s", node.Name)
+			}
 		}
+
+		return Variable{Type: class.Type}, nil // return the type of the class 
 	}
 
-	return Variable{Type: class.Type}, nil // return the type of the class 
+	if signature, ok := env.GetClassObject().GetMethod(node.Name); ok { // if method
+		for i, param := range signature.Params {
+			result, err := TypeCheck(node.Args[i], env)
+			if err != nil {
+				return result, err
+			}
+
+			if param.Type != result.Type {
+				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+			}
+		}
+		return Variable{Type: signature.Return, Name: node.Name+"()"}, nil
+	}
+
+	return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
 }
 
 // eval something like this class.method()

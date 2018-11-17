@@ -7,6 +7,7 @@ type Environment struct {
 	Vals      map[string]ObjectType // change to ObjectType?
 	Parent    *Environment
 	TypeTable *Objects
+	Class ObjectType
 }
 
 // returns union of variables with same types between two environments
@@ -83,13 +84,22 @@ func (e *Environment) TypesExist() bool {
 func (e *Environment) NewScope() *Environment {
 	newEnv := CreateEnvironment()
 	newEnv.Parent = e
+	newEnv.Class = e.Class // if in class pass down
 	return newEnv;
 }
 
 // create new scope
 func CreateEnvironment() *Environment {
 	v := make(map[string]ObjectType)
-	return &Environment{Vals: v, Parent: nil, TypeTable: &Objects{}}
+	return &Environment{Vals: v, Parent: nil, TypeTable: &Objects{}, Class: NOTHING_CLASS}
+}
+
+func (e *Environment) SetClass(class ObjectType) {
+	e.Class = class
+}
+
+func (e *Environment) GetClassObject() *Object {
+	return e.GetClass(e.Class)
 }
 
 // set item in current scope

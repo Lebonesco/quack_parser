@@ -49,6 +49,13 @@ func (o *Object) AddMethod(name string, signature MethodSignature) {
 	o.MethodTable[name] = signature
 }
 
+func (o *Object) GetMethod(name string) (MethodSignature, bool) {
+	if sig, ok := o.MethodTable[name]; ok {
+		return sig, true
+	}
+	return MethodSignature{}, false
+}
+
 func (o *Object) InConstructor(ident string) (*Variable, bool) {
 	for _, val := range o.Constructor {
 		if ident == val.Name {
