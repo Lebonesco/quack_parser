@@ -41,7 +41,7 @@ class Rect(ll: Pt, ur: Pt) extends Obj {
   this.ur: Pt  = ur;
 
   def translate(delta: Pt) : Pt {
-      return Rect(ll+Pt, ur+Pt);
+      return Rect(this.ll+Pt(1,1), this.ur+Pt(1,1));
   }
 
   def STR() {
