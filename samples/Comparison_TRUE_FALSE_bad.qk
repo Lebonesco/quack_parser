@@ -5,7 +5,7 @@
 */
 class Test() {
 	def Comparison(x : Int) {
-	  if x == TRUE {
+	  if x == true {
 	    y = 0;
 	  }
 

@@ -8,7 +8,7 @@
  */
 
 class C1()  extends Obj {
-   def foo() : Top {
+   def foo() : Obj { 
        return Obj();
    }
 }
@@ -35,7 +35,7 @@ class C4() extends C3 {
 
 x = C4();           
 while ( x == x ) {
-   x = x.foo();      /* Type system should reject this */
+   x = x.foo();      /* Type system should reject this Obj.foo() not exist*/
 }
 /* 
      Discussion: 

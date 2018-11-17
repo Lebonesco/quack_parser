@@ -4,12 +4,14 @@
  * anything. Should be a type error.
  */
 
-def ReturnString () {
-  x = "hello";
-  y = " world";
-}
+class Test() {
+	def ReturnString () {
+	  x = "hello";
+	  y = " world";
+	}
 
-def UseString () {
-  z = "";
-  z = ReturnString();
+	def UseString () {
+	  z = "";
+	  z = ReturnString();
+	}
 }

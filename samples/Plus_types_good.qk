@@ -9,7 +9,7 @@ class Add(x: Int, y: Int) {
   this.y = y;
 
   def Plus (my: Add) : Add {
-    return Add(my.x + my.y);
+    return Add(my.x + my.y, 1);
   }
 }
 

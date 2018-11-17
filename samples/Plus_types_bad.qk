@@ -9,12 +9,12 @@ class Add(x: Int, y: Int) {
   this.y = y;
 
   def Plus (my: Add) : Add {
-    return Add(my.x + my.y);
+    return Add(my.x + my.y, 1);
   }
 }
 
 an_add = Add(4, 5);
 an_add.PRINT();
 
-another_add = Add ("hello", " world");
+another_add = Add("hello", " world");
 another_add.PRINT();
