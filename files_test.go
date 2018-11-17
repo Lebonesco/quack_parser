@@ -40,7 +40,10 @@ var results = map[string]string{
 	"simple_naming_bad_classandmethodsamename.qk": typechecker.ALREADY_INITIALIZED,
 	"hands.qk": typechecker.METHOD_NOT_EXIST,
 	"Comparison_TRUE_FALSE_bad.qk": typechecker.INCOMPATABLE_TYPES,
-	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED}
+	"Another_plus_types_bad.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"dot_priority.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"method_madness.qk": typechecker.VARIABLE_NOT_INITIALIZED,
+	"method_madness_2.qk": typechecker.VARIABLE_NOT_INITIALIZED}
 
 
 func TestFiles(t *testing.T) {

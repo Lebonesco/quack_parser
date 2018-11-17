@@ -51,6 +51,8 @@ func TypeCheck(node ast.Node, env *Environment) (Variable, *CheckError) {
 		return evalIfStatement(node, env)
 	case *ast.WhileStatement:
 		return evalWhileStatement(node, env)
+	case *ast.ExpressionStatement:
+		return evalExpressionStatement(node, env)
 	case *ast.PrefixExpression:
 		return evalPrefixExpression(node, env)
 	case *ast.InfixExpression:
@@ -609,4 +611,9 @@ func evalClassVariableCall(node *ast.ClassVariableCall, env *Environment) (Varia
 		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "type %s doesn't have variable %s", left.Type, node.Ident)
 	}
 	return Variable{Type: kind, Name: string(node.Token.Lit)}, nil
+}
+
+// ei: "string";
+func evalExpressionStatement(node *ast.ExpressionStatement, env *Environment) (Variable, *CheckError) {
+	return TypeCheck(node.Expression, env)
 }
