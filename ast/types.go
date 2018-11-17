@@ -160,7 +160,7 @@ type FunctionCall struct {
 
 type MethodCall struct {
 	Token token.Token
-	Variable Expression // left Side
+	Variable Expression // left Side, this will be recursive
 	Method string
 	Args []Expression
 }

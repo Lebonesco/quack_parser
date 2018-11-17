@@ -13,8 +13,8 @@ type Environment struct {
 func GetUnion(e1, e2 *Environment) map[string]ObjectType {
 	result := map[string]ObjectType{}
 	for k, val1 := range e1.Vals {
-		if val2, ok := e2.Vals[k]; ok && val1 == val2 {
-			result[k] = val1
+		if val2, ok := e2.Vals[k]; ok { // if both blocks have the variable
+			result[k] = e1.GetLowestCommonType(val1, val2)
 		}
 	}
 	return result
@@ -119,14 +119,13 @@ func (e *Environment) TypeExist(name ObjectType) bool {
 }
 
 // checks if sub is subtype of parent
-func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
-	if parent == "Obj" { // supertype for everything
+func (e *Environment) ValidSubType(sub, parent ObjectType) (bool) {
+	if parent == OBJ_CLASS { // supertype for everything
 		return true
 	}
 	next := sub
 	for next != parent {
-	  //  fmt.Println(next, parent)
-		if next == "Obj" && parent != "Obj" {
+		if next == OBJ_CLASS && parent != OBJ_CLASS {
 			return false
 		}
 
@@ -141,6 +140,39 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 		next = tmp.Type
 	}
 	return true
+}
+
+// brute force solution to get type
+func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) (ObjectType) {
+	if val1 == OBJ_CLASS || val2 == OBJ_CLASS {
+		return OBJ_CLASS
+	}
+
+	objects := []*Object{} // store type pointers
+	
+	for val1 != OBJ_CLASS { // traverse all the way up the lattice of types
+		objects = append(objects, e.GetClass(val1))
+		val1 = e.GetParentType(val1)
+	}
+
+	for val2 != OBJ_CLASS {
+		for _, obj := range objects {
+			if obj == e.GetClass(val2) {
+				return obj.Type
+			}
+		}
+		val2 = e.GetParentType(val2) // go one type up
+	}
+
+	return OBJ_CLASS
+}
+
+func (e *Environment) GetParentType(kind ObjectType) (ObjectType) {
+	if kind == OBJ_CLASS {
+		return kind
+	}
+
+	return e.GetClass(e.GetClass(kind).Parent).Type
 }
 
 func (e *Environment) GetClassVariable(class ObjectType, variable string) (ObjectType, bool) {
@@ -182,6 +214,7 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 	return MethodSignature{}, false	
 }
 
+// fix this to actually return parent Object
 func (e *Environment) GetParent(parent ObjectType) (*Object) {
 	return e.GetClass(parent)
 }
