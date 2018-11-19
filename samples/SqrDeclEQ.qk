@@ -58,7 +58,7 @@ class Rect(ll: Pt, ur: Pt) extends Obj {
    */
    def EQUAL(other: Obj) : Boolean {
        typecase other {
-          r: Rect { return this.lr == r.lr
+          r: Rect { return this.ll == r.ll
 	               and this.ur == r.ur;
 		  }
 	}

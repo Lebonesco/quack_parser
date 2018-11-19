@@ -8,7 +8,7 @@ class Point(x : Int, y:Int) {
 
     def EQUALS(other : Obj) : Boolean {
         typecase other {
-            pt: Point { return this.x == pt.x and this.y == pt.y; }
+            pt: Point { return (this.x == pt.x) and (this.y == pt.y); }
             thing: ObjNotExist { return false; }
         }
     }

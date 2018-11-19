@@ -119,6 +119,7 @@ func evalBuiltIns(env *Environment) error {
 	return nil
 }
 
+// driver for class analysis 
 func evalClasses(classes []ast.Class, env *Environment) (*CheckError) {
 	if len(classes) == 0 {
 		return nil
@@ -168,7 +169,7 @@ func compareParents(classes []ast.Class, env *Environment) (*CheckError) {
 			if parent == nil {
 				return createError(CLASS_NOT_EXIST, "parent class not exist")
 			}
-			err := compareParent(obj, parent)
+			err := compareParent(obj, parent, env)
 			if err != nil {
 				return err
 			}
@@ -177,7 +178,7 @@ func compareParents(classes []ast.Class, env *Environment) (*CheckError) {
 	return nil
 }
 
-func compareParent(child, parent *Object) (*CheckError) {
+func compareParent(child, parent *Object, env *Environment) (*CheckError) {
 	// how to handle parent with input?
 	// compare variables
 	ok := compareBlockVars(child.Variables, parent.Variables)
@@ -185,9 +186,9 @@ func compareParent(child, parent *Object) (*CheckError) {
 		return createError(CREATE_CLASS_FAIL, "variables in %s incompatible with %s", child.Type, parent.Type)
 	}
 	// compare methods
-	ok = compareMethods(child.MethodTable, parent.MethodTable)
-	if !ok {
-		return createError(CREATE_CLASS_FAIL, "child is missing methods found in parent")
+	err := compareMethods(child, parent, env)
+	if err != nil {
+		return err
 	}
 	return nil
 }
@@ -207,8 +208,26 @@ func compareBlockVars(child, parent map[string]ObjectType) bool {
 	return true
 }
 
-func compareMethods(child, parent map[string]MethodSignature) (bool) {
-	return true
+func compareMethods(child, parent *Object, env *Environment) (*CheckError) {
+	for k, v := range child.MethodTable {
+		if res, ok := parent.GetMethod(k); ok { // if method name in parent do check
+			// check input types
+			if len(v.Params) != len(res.Params) {
+				return createError(CREATE_CLASS_FAIL, "child overriding method have incorrect param length %d vs %d", 
+					len(v.Params), len(res.Params))
+			}
+
+			for i, param := range v.Params {
+				if !env.ValidSubType(param.Type, res.Params[i].Type) {
+					return createError(INCOMPATABLE_TYPES, "%s not supertype of %s", res.Params[i].Type, param.Type)
+				}
+
+				v.Params[i].Type = res.Params[i].Type // reassign param type to parents 
+			}
+			// check returns?
+		}
+	}
+	return nil
 }
 
 func checkClasses(classes []ast.Class, env *Environment) (*CheckError) {
@@ -227,7 +246,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 	// do it
 	newEnv := env.NewScope()
 
-	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
+	obj := env.GetClass(ObjectType(class.Signature.Name)) // get type object
 	// populate with constructor variables
 	for _, v := range obj.Constructor {
 		newEnv.Set(v.Name, v.Type)
@@ -247,7 +266,7 @@ func checkClass(class ast.Class, env *Environment) (*CheckError) {
 			obj.Variables[k] = newEnv.Vals[k]
 		}
 	}
-	//(*env.TypeTable)[ObjectType(class.Signature.Name)].Variables = obj.Variables
+	
 	return nil
 }
 
@@ -307,7 +326,7 @@ func setMethod(class ast.Class, env *Environment) (*CheckError) {
 	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
 
 	for _, method := range methods {
-		sig := MethodSignature{Params: []Variable{}, Return: NOTHING_CLASS}
+		sig := MethodSignature{Params: []Variable{}, Return: NOTHING_CLASS} // default to no return
 		if _, ok := obj.MethodTable[method.Name]; ok {
 			return createError(ALREADY_INITIALIZED, "method name: %s already exists in class", method.Name)
 		}
@@ -409,6 +428,7 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 			return result, nil
 		}
 	}
+	result.Type = NOTHING_CLASS // if no return default to NOTHING_CLASS
 	return result, nil
 }
 
