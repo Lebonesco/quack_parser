@@ -31,6 +31,7 @@ const (
 	INCOMPATABLE_TYPES = "INCOMPATABLE_TYPES"
 	BAD_FUNCTION_CALL = "BAD_FUNCTION_CALL"
 	CONDITION_NOT_BOOL = "CONDITION_NOT_BOOL"
+	INVALID_RETURN_TYPE = "INVALID_RETURN_TYPE"
 )
 
 func createError(errorType, message string, args ...interface{}) *CheckError {
@@ -53,6 +54,8 @@ func TypeCheck(node ast.Node, env *Environment) (Variable, *CheckError) {
 		return evalWhileStatement(node, env)
 	case *ast.ExpressionStatement:
 		return evalExpressionStatement(node, env)
+	case *ast.TypecaseStatement:
+		return evalTypeCaseStatement(node, env)
 	case *ast.PrefixExpression:
 		return evalPrefixExpression(node, env)
 	case *ast.InfixExpression:
@@ -628,4 +631,33 @@ func evalClassVariableCall(node *ast.ClassVariableCall, env *Environment) (Varia
 // ei: "string";
 func evalExpressionStatement(node *ast.ExpressionStatement, env *Environment) (Variable, *CheckError) {
 	return TypeCheck(node.Expression, env)
+}
+
+func evalTypeCaseStatement(node *ast.TypecaseStatement, env *Environment) (Variable, *CheckError) {
+	var result Variable
+	left, err := TypeCheck(node.Expression, env) // evaluate left side
+	if err != nil {
+		return left, err
+	}
+
+	// type check each alt statement
+	for i, stmt := range node.TypeAlt {
+		if !env.TypeExist(ObjectType(stmt.Kind)) {
+			return result, createError(CLASS_NOT_EXIST, "class %s not exist", stmt.Kind)
+		}
+
+		newEnv := env.NewScope()
+		newEnv.Set(stmt.Value, ObjectType(stmt.Kind)) // inject typecase var into statement
+
+		res, err := TypeCheck(stmt.StmtBlock, newEnv) // default return nothing type in statement block
+		if err != nil {
+			return res, err
+		}
+
+		if ObjectType(stmt.Kind) == res.Type {
+			return res, createError(INVALID_RETURN_TYPE, "typecase block %d wanted type %s, instead got %s", i, stmt.Kind, res.Type)
+		}
+	}
+
+	return result, nil
 }

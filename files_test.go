@@ -68,7 +68,7 @@ func TestFiles(t *testing.T) {
 		if err != nil {
 			//t.Log("\n------------------------------------------------------------------")
 			t.Log(file.Name(), " parse error", err.Error())
-			//continue
+			continue
 		}
 
 		program, _ := res.(*ast.Program)
