@@ -155,7 +155,6 @@ RExpr
       | RExpr atmost Term							<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr lt Term			    				<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr gt Term								<< ast.NewInfixExpression($0, $1, $2) >>
-      | RExpr eq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | RExpr neq Term								<< ast.NewInfixExpression($0, $1, $2) >>
       | Term 								     
       | RExpr and Term								<< ast.NewBoolExpr($0, $2, "and") >>
@@ -168,12 +167,13 @@ RExpr
 Term 
 	: Term mul Factor      	        				<< ast.NewInfixExpression($0, $1, $2) >>
 	| Term div Factor		        				<< ast.NewInfixExpression($0, $1, $2) >>
+	| Term eq Factor								<< ast.NewInfixExpression($0, $1, $2) >>
 	| Factor 				
-	| Bool  				        				<< ast.NewBool($0) >>
 	;
 
 Factor
 	: lparen RExpr rparen 			 				<< $1, nil >>
+	| Bool  				        				<< ast.NewBool($0) >>
 	| int 							 				<< ast.NewIntLiteral($0) >>
 	| string_literal   			  	 				<< ast.NewStringLiteral($0) >>
 	| minus int						 				<< ast.NewPrefixExpression($0, $1) >>

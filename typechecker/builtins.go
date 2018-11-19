@@ -20,6 +20,8 @@ var BUIILT_IN_CLASSES =
 
  class Boolean() {
     def EQUALS(right: Boolean): Boolean {}
+    def AND(right: Boolean): Boolean {}
+    def OR(right: Boolean): Boolean {}
 }
 
  class Int() {

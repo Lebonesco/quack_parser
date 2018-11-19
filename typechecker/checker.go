@@ -581,7 +581,7 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 	obj := env.GetClass(env.GetLowestCommonType(right.Type, left.Type))
 	// check if method exists in type
 	methods := map[string]string{"+": PLUS, "-": MINUS, "==": EQUALS, "<": LESS, ">": MORE, ">=": ATLEAST,
-							"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": OR}
+							"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": AND}
 	
 	if _, ok := env.GetClassMethod(obj.Type, methods[node.Operator]); !ok {
 			return Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s on line %d", methods[node.Operator], obj.Type, node.Token.Pos.Line)
