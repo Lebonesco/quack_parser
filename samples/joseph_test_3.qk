@@ -11,10 +11,10 @@ class C1(x : Int, y : Int) {
 	}
 }
 
-class C2(x : Int, y : Int) {
+class C2(x : Int, y : Int) extends C1 {
 	this.x = x;
 	this.y = y;
-	def Compare(other : C1) : Int {
+	def Compare(other : C1) : Int { // invalid return subtype
 		return this.x - other.x;
 	}
 }
