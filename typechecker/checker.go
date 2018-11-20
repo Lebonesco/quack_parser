@@ -219,13 +219,17 @@ func compareMethods(child, parent *Object, env *Environment) (*CheckError) {
 			}
 
 			for i, param := range v.Params {
-				if !env.ValidSubType(param.Type, res.Params[i].Type) {
-					return createError(INCOMPATABLE_TYPES, "%s not supertype of %s", res.Params[i].Type, param.Type)
+				if !env.ValidSubType(res.Params[i].Type, param.Type) {
+					return createError(INCOMPATABLE_TYPES, "%s not supertype of %s", param.Type, res.Params[i].Type)
 				}
 
 				v.Params[i].Type = res.Params[i].Type // reassign param type to parents 
 			}
-			// check returns?
+			
+			if res.Return != NOTHING_CLASS && !env.ValidSubType(v.Return, res.Return) {
+				return createError(INVALID_RETURN_TYPE, "overriding method '%s' in %s has incompatible return type '%s'. parent %s has type '%s'",
+					k, child.Type, v.Return, parent.Type, res.Return)
+			}
 		}
 	}
 	return nil
@@ -304,9 +308,8 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 		}
 		// check if received return statement to compare against method signature
 		if result.Type != NOTHING_CLASS && objMeth.Return != NOTHING_CLASS { // not sure how to handle non returns in methods
-			fmt.Println(result.Type, objMeth.Return)
 			if !env.ValidSubType(result.Type, objMeth.Return) { // child, parent
-				return createError(INVALID_SUBCLASS, "incorrect return subtype %s in method %s, wanted %s", result.Type, method.Name, objMeth.Return)
+				return createError(INVALID_RETURN_TYPE, "incorrect return subtype %s in method %s, wanted %s", result.Type, method.Name, objMeth.Return)
 			}
 		}
 	}
@@ -428,7 +431,6 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 		}
 
 		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
-			fmt.Println(result.Type)
 			return result, nil
 		}
 	}
@@ -438,7 +440,6 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 
 func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckError) {
 	var result Variable
-
 	// check that condition evals to bool type
 	result, err := TypeCheck(node.Condition, env)
 	if err != nil {
@@ -448,7 +449,6 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 	if result.Type != BOOL_CLASS {
 		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
 	}
-
 	// create environment for each scope
 	newEnv1 := env.NewScope()
 	newEnv2 := env.NewScope()
@@ -462,12 +462,10 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 		return result, nil
 	}
 
-
 	_, err = TypeCheck(*node.Alternative, newEnv2)
 	if err != nil {
 		return result, err
 	}
-
 	// compare environments or to current environment
 	union := GetUnion(newEnv1, newEnv2)
 	for k := range union { 
@@ -479,7 +477,6 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 
 func evalWhileStatement(node *ast.WhileStatement, env *Environment) (Variable, *CheckError) {
 	var result Variable
-
 	// check that condition evals to bool type
 	result, err := TypeCheck(node.Cond, env)
 	if err != nil {

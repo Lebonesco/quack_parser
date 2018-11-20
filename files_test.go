@@ -48,7 +48,9 @@ var results = map[string]string{
 	"bad_typecase_invalid_type.qk": typechecker.CLASS_NOT_EXIST,
 	"joseph_test_1.qk": typechecker.INVALID_RETURN_TYPE,
 	"joseph_test_3.qk": typechecker.INVALID_RETURN_TYPE,
-	"simple_overridingmethod_bad_numberargs.qk": typechecker.INCORRECT_ARGUMENT_COUNT}
+	"simple_overridingmethod_bad_numberargs.qk": typechecker.INCORRECT_ARGUMENT_COUNT,
+	"simple_method_return_bad_wrongtype.qk": typechecker.INVALID_RETURN_TYPE,
+	"subclass_method_return_mismatch.qk": typechecker.INVALID_RETURN_TYPE}
 
 
 func TestFiles(t *testing.T) {

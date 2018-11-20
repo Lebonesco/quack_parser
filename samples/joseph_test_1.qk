@@ -4,7 +4,7 @@
 */
 
 class Test() {
-	def testMethod(test1 : Int, test2 : Int) {
+	def testMethod(test1 : Int, test2 : Int) : Boolean {
 		return test1 + test2; // this return type should fail
 	}
 }

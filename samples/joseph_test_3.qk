@@ -1,5 +1,5 @@
 /*
-* subclasses that ovveride a method must have a return type that is the same or a subtype
+* subclasses that override a method must have a return type that is the same or a subtype
 * this should fail because 'Int' is not a subtype of 'Bool'
 */
 
