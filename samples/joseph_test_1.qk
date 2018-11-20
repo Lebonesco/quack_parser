@@ -1,0 +1,10 @@
+/*
+* You should be making sure that methods default to return the 'Nothing' class
+* This should fail when you check the method return
+*/
+
+class Test() {
+	def testMethod(test1 : Int, test2 : Int) {
+		return test1 + test2; // this return type should fail
+	}
+}

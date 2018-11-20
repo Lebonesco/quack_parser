@@ -32,6 +32,7 @@ const (
 	BAD_FUNCTION_CALL = "BAD_FUNCTION_CALL"
 	CONDITION_NOT_BOOL = "CONDITION_NOT_BOOL"
 	INVALID_RETURN_TYPE = "INVALID_RETURN_TYPE"
+	INCORRECT_ARGUMENT_COUNT = "INCORRECT_ARGUMENT_COUNT"
 )
 
 func createError(errorType, message string, args ...interface{}) *CheckError {
@@ -213,7 +214,7 @@ func compareMethods(child, parent *Object, env *Environment) (*CheckError) {
 		if res, ok := parent.GetMethod(k); ok { // if method name in parent do check
 			// check input types
 			if len(v.Params) != len(res.Params) {
-				return createError(CREATE_CLASS_FAIL, "child overriding method have incorrect param length %d vs %d", 
+				return createError(INCORRECT_ARGUMENT_COUNT, "child overriding method have incorrect param length %d vs %d", 
 					len(v.Params), len(res.Params))
 			}
 
@@ -288,7 +289,8 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 		newEnv := env.NewScope()
 		newEnv.SetClass(obj.Type) // this will allow methods to access class instance of 'this' and methods
 		// populate with params
-		for _, arg := range obj.MethodTable[method.Name].Params {
+		objMeth, _ := obj.GetMethod(method.Name)
+		for _, arg := range objMeth.Params {
 			newEnv.Set(arg.Name, arg.Type)
 		}
 		// popular with class variables
@@ -301,9 +303,10 @@ func checkMethod(class ast.Class, env *Environment) (*CheckError) {
 			return err
 		}
 		// check if received return statement to compare against method signature
-		if reflect.TypeOf(result) == reflect.TypeOf(ast.ReturnStatement{}) {
-			if result.Type != obj.MethodTable[method.Name].Return {
-				return createError(INVALID_SUBCLASS, "incorrect return type in method")
+		if result.Type != NOTHING_CLASS && objMeth.Return != NOTHING_CLASS { // not sure how to handle non returns in methods
+			fmt.Println(result.Type, objMeth.Return)
+			if !env.ValidSubType(result.Type, objMeth.Return) { // child, parent
+				return createError(INVALID_SUBCLASS, "incorrect return subtype %s in method %s, wanted %s", result.Type, method.Name, objMeth.Return)
 			}
 		}
 	}
@@ -424,7 +427,8 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 			return result, err
 		}
 
-		if reflect.TypeOf(statement) == reflect.TypeOf(ast.ReturnStatement{}) {
+		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
+			fmt.Println(result.Type)
 			return result, nil
 		}
 	}
