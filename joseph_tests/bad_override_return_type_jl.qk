@@ -1,0 +1,20 @@
+/*
+* subclasses that override a method must have a return type that is the same or a subtype
+* this should fail because 'Int' is not a subtype of 'Bool'
+*/
+
+class C1(x : Int, y : Int) {
+	this.x = x;
+	this.y = y;
+	def Compare(other : C1) : Boolean {
+		return other.x == this.x and other.y == this.y;
+	}
+}
+
+class C2(x : Int, y : Int) extends C1 {
+	this.x = x;
+	this.y = y;
+	def Compare(other : C1) : Int { // invalid return subtype
+		return this.x - other.x;
+	}
+}

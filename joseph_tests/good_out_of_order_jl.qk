@@ -1,0 +1,15 @@
+/*
+* You need to be able to handle defining classes out of order
+* This will fail if you don't first collect all class method signatures 
+* before checking class internals
+*/
+
+class C2() {
+	this.x = C1().method1(); // could fail here
+}
+
+class C1() {
+	def method1() : Int {
+		return 5;
+	}
+}

@@ -32,3 +32,10 @@ of my parsing issues
 
 learned that sometimes solving for the simple case opened
 up my mind to solutions and configurations. 
+
+to solve the problem of calling classes keep callable functions at
+hand in environment. the global will be built in classes:
+
+	-handles calling functions
+	-handles calling this.ident
+	-handles calling this

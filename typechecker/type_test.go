@@ -1,20 +1,20 @@
 package typechecker
 
 import (
-	"testing"
+	"github.com/Lebonesco/quack_parser/ast"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
-	"github.com/Lebonesco/quack_parser/ast"
+	"testing"
 )
 
 func TestIfStatement(t *testing.T) {
 	tests := []struct {
-		src string
+		src     string
 		Success bool
-		Error error
+		Error   error
 	}{
 		{
-	`class C1()  extends Obj {
+			`class C1()  extends Obj {
 	   def foo():  Top {
 	       return C1();    /* CHANGED */
 	   }
@@ -43,8 +43,8 @@ func TestIfStatement(t *testing.T) {
 //	   x = x.foo();      /* Type system should reject this */
 //	}
 	`,
-		false,
-		nil},
+			false,
+			nil},
 	}
 
 	for _, tt := range tests {

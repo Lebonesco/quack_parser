@@ -7,7 +7,8 @@ type Environment struct {
 	Vals      map[string]ObjectType // change to ObjectType?
 	Parent    *Environment
 	TypeTable *Objects
-	Class ObjectType
+	Class     ObjectType
+	Changed   bool // track if need to loop again
 }
 
 // returns union of variables with same types between two environments
@@ -72,7 +73,7 @@ func cycle(cur ObjectType, deps map[ObjectType][]ObjectType, visited, visiting m
 func (e *Environment) TypesExist() bool {
 	// check that all parents have types
 	for k := range *e.TypeTable {
-		parent := (*e.TypeTable)[k].Parent;
+		parent := (*e.TypeTable)[k].Parent
 		if ok := e.TypeExist(parent); !ok && parent != "Obj" {
 			return false
 		}
@@ -85,13 +86,13 @@ func (e *Environment) NewScope() *Environment {
 	newEnv := CreateEnvironment()
 	newEnv.Parent = e
 	newEnv.Class = e.Class // if in class pass down
-	return newEnv;
+	return newEnv
 }
 
 // create new scope
 func CreateEnvironment() *Environment {
 	v := make(map[string]ObjectType)
-	return &Environment{Vals: v, Parent: nil, TypeTable: &Objects{}, Class: NOTHING_CLASS}
+	return &Environment{Vals: v, Parent: nil, TypeTable: &Objects{}, Class: NOTHING_CLASS, Changed: false}
 }
 
 func (e *Environment) SetClass(class ObjectType) {
@@ -129,7 +130,7 @@ func (e *Environment) TypeExist(name ObjectType) bool {
 }
 
 // checks if sub is subtype of parent
-func (e *Environment) ValidSubType(sub, parent ObjectType) (bool) {
+func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 	if parent == OBJ_CLASS { // supertype for everything
 		return true
 	}
@@ -153,13 +154,13 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) (bool) {
 }
 
 // brute force solution to get type
-func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) (ObjectType) {
+func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) ObjectType {
 	if val1 == OBJ_CLASS || val2 == OBJ_CLASS {
 		return OBJ_CLASS
 	}
 
 	objects := []*Object{} // store type pointers
-	
+
 	for val1 != OBJ_CLASS { // traverse all the way up the lattice of types
 		objects = append(objects, e.GetClass(val1))
 		val1 = e.GetParentType(val1)
@@ -177,7 +178,7 @@ func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) (ObjectType) {
 	return OBJ_CLASS
 }
 
-func (e *Environment) GetParentType(kind ObjectType) (ObjectType) {
+func (e *Environment) GetParentType(kind ObjectType) ObjectType {
 	if kind == OBJ_CLASS || kind == NOTHING_CLASS {
 		return kind
 	}
@@ -190,11 +191,11 @@ func (e *Environment) GetClassVariable(class ObjectType, variable string) (Objec
 	if sig, ok := obj.Variables[variable]; ok {
 		return sig, ok
 	}
-	return "", false	
+	return "", false
 }
 
 func (e *Environment) GetClass(class ObjectType) *Object {
-	scope := e 
+	scope := e
 	for scope != nil {
 		if val, ok := (*scope.TypeTable)[class]; ok {
 			return val
@@ -221,10 +222,10 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 		}
 
 	}
-	return MethodSignature{}, false	
+	return MethodSignature{}, false
 }
 
 // fix this to actually return parent Object
-func (e *Environment) GetParent(parent ObjectType) (*Object) {
+func (e *Environment) GetParent(parent ObjectType) *Object {
 	return e.GetClass(parent)
 }
