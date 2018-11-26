@@ -56,9 +56,21 @@ func createError(errorType, message string, args ...interface{}) *CheckError {
 
 // start of checker
 func TypeCheck(node ast.Node, env *environment.Environment) (environment.Variable, *CheckError) {
-	// inject current environment into each node for use in code gen
+	// inject current environment into each statement node for use in code gen
 	switch node := node.(type) {
 	case *ast.BlockStatement:
+		node.Env = env
+	case *ast.IfStatement:
+		node.Env = env
+	case *ast.WhileStatement:
+		node.Env = env
+	case *ast.ReturnStatement:
+		node.Env = env
+	case *ast.ExpressionStatement:
+		node.Env = env
+	case *ast.TypecaseStatement:
+		node.Env = env
+	case *ast.LetStatement:
 		node.Env = env
 	}
 

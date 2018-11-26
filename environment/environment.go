@@ -108,6 +108,9 @@ func (e *Environment) Set(name string, val ObjectType) {
 
 // get item in shortest scope
 func (e *Environment) Get(name string) (ObjectType, bool) {
+	if e == nil {
+		return "", false
+	}
 	obj, ok := e.Vals[name]
 	if !ok && e.Parent != nil {
 		obj, ok = e.Parent.Get(name)

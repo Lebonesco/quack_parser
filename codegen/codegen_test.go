@@ -8,6 +8,7 @@ import (
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/typechecker"
+	"github.com/Lebonesco/quack_parser/environment"
 )
 
 func TestSmall(t *testing.T) {
@@ -22,9 +23,15 @@ func TestSmall(t *testing.T) {
 			src: `5;`,
 			res: `int main() { int_literal(5); return 0; }`},
 		{
-			src: `friend + friend;`,
-			res: `int main() { }`
-		}
+			src: `
+			friend = 8;
+			friend + 7;`,
+			res: `int main() {
+				obj_Int* friend;
+				friend = int_literal(8);
+				friend + int_literal(7);
+				return 0;
+			 	}`},
 
 	}
 
@@ -40,7 +47,7 @@ func TestSmall(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 
-		env := typechecker.CreateEnvironment() // create new environment
+		env := environment.CreateEnvironment() // create new environment
 		_, typeErr := typechecker.TypeCheck(program, env)
 		if typeErr != nil {
 			t.Errorf(string(typeErr.Type) + " - " + typeErr.Message.Error())
@@ -58,7 +65,7 @@ func TestSmall(t *testing.T) {
 		}
 
 		if code != test.res {
-			t.Errorf("not match between %s \n %s", code, test.res)
+			t.Errorf("not match between\n %s \n %s", code, test.res)
 		}
 	}
 }
