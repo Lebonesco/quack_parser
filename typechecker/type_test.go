@@ -4,6 +4,7 @@ import (
 	"github.com/Lebonesco/quack_parser/ast"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
+	"github.com/Lebonesco/quack_parser/environment"
 	"testing"
 )
 
@@ -60,7 +61,7 @@ func TestIfStatement(t *testing.T) {
 			t.Fatalf(err.Error())
 		}
 
-		env := CreateEnvironment()
+		env := environment.CreateEnvironment()
 		_, err = TypeCheck(program, env)
 		if err != nil {
 			t.Fatalf(err.Error())

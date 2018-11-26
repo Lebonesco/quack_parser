@@ -8,6 +8,7 @@ import (
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/token"
 	"github.com/Lebonesco/quack_parser/typechecker"
+	"github.com/Lebonesco/quack_parser/environment"
 	"github.com/Lebonesco/quack_parser/ast"
 	"io/ioutil"
 	"log"
@@ -49,7 +50,7 @@ func main() {
 	fmt.Println("AST has successfully been constructed")
 
 	program, _ := res.(*ast.Program)
-	env := typechecker.CreateEnvironment() // create new environment
+	env := environment.CreateEnvironment() // create new environment
 	_ , typeErr := typechecker.TypeCheck(program, env)
 	if typeErr != nil {
 		fmt.Println("checking errors")

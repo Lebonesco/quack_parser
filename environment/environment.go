@@ -1,6 +1,4 @@
-package typechecker
-
-//import "fmt"
+package environment
 
 // tracks Objects at each layer of scope
 type Environment struct {

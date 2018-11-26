@@ -2,6 +2,7 @@ package ast
 
 import (
 	"github.com/Lebonesco/quack_parser/token"
+	"github.com/Lebonesco/quack_parser/environment"
 )
 
 type Attrib interface{}
@@ -16,6 +17,7 @@ type Node interface {
 type Statement interface {
 	Node
 	statementNode()
+	GetEnvironment() *environment.Environment
 }
 
 // all expression nodes
@@ -35,33 +37,39 @@ type LetStatement struct {
 	Name  *Identifier
 	Value Expression
 	Kind  string
+	Env *environment.Environment
 }
 
 type WhileStatement struct {
 	Token          token.Token // token while
 	Cond           Expression
 	BlockStatement *BlockStatement
+	Env *environment.Environment
 }
 
 type ReturnStatement struct {
 	Token       token.Token // 'return' token
 	ReturnValue Expression
+	Env *environment.Environment
 }
 
 type ExpressionStatement struct {
 	Token      token.Token
 	Expression Expression
+	Env *environment.Environment
 }
 
 type BlockStatement struct {
 	Token      token.Token
 	Statements []Statement
+	Env *environment.Environment
 }
 
 type TypecaseStatement struct {
 	Token      token.Token // 'typecase'
 	Expression Expression
 	TypeAlt    []TypeAlt
+	Env *environment.Environment
 }
 
 type TypeAlt struct {
@@ -143,6 +151,7 @@ type IfStatement struct {
 	Condition   Expression
 	Consequence *BlockStatement
 	Alternative *Statement
+	Env *environment.Environment
 }
 
 type FunctionLiteral struct {
@@ -157,12 +166,6 @@ type FunctionCall struct {
 	Name  string
 	Args  []Expression
 }
-
-// type MethodExpression struct {
-// 	Token      token.Token
-// 	Expression Expression
-// 	Ident      string
-// }
 
 type StringEscapeError struct {
 	Token token.Token // string escape error

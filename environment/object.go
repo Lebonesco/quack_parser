@@ -1,4 +1,4 @@
-package typechecker
+package environment
 
 // Variable Type
 type ObjectType string

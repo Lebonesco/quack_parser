@@ -6,6 +6,7 @@ import (
 	"github.com/Lebonesco/quack_parser/ast"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
+	"github.com/Lebonesco/quack_parser/environment"
 	"reflect"
 	"strings"
 )
@@ -14,6 +15,20 @@ type CheckError struct {
 	Type    string
 	Message error
 }
+
+const (
+	PLUS    = "PLUS"
+	EQUALS  = "EQUALS"
+	ATMOST  = "ATMOST"
+	ATLEAST = "ATLEAST"
+	LESS    = "LESS"
+	MORE    = "MORE"
+	MINUS   = "MINUS"
+	DIVIDE  = "DIVIDE"
+	TIMES   = "TIMES"
+	AND     = "AND"
+	OR      = "OR"
+)
 
 // error types
 const (
@@ -40,7 +55,13 @@ func createError(errorType, message string, args ...interface{}) *CheckError {
 }
 
 // start of checker
-func TypeCheck(node ast.Node, env *Environment) (Variable, *CheckError) {
+func TypeCheck(node ast.Node, env *environment.Environment) (environment.Variable, *CheckError) {
+	// inject current environment into each node for use in code gen
+	switch node := node.(type) {
+	case *ast.BlockStatement:
+		node.Env = env
+	}
+
 	switch node := node.(type) {
 	// Statements
 	case *ast.Program:
@@ -78,11 +99,11 @@ func TypeCheck(node ast.Node, env *Environment) (Variable, *CheckError) {
 	case *ast.ClassVariableCall:
 		return evalClassVariableCall(node, env)
 	}
-	return Variable{}, nil
+	return environment.Variable{}, nil
 }
 
-func evalProgram(p *ast.Program, env *Environment) (Variable, *CheckError) {
-	var result Variable
+func evalProgram(p *ast.Program, env *environment.Environment) (environment.Variable, *CheckError) {
+	var result environment.Variable
 
 	if err := evalBuiltIns(env); err != nil {
 		return result, createError(INVALID_SUBCLASS, "builtin error")
@@ -103,7 +124,7 @@ func evalProgram(p *ast.Program, env *Environment) (Variable, *CheckError) {
 }
 
 // populate built in classes
-func evalBuiltIns(env *Environment) error {
+func evalBuiltIns(env *environment.Environment) error {
 	code := BUIILT_IN_CLASSES
 	l := lexer.NewLexer([]byte(code))
 	p := parser.NewParser()
@@ -121,7 +142,7 @@ func evalBuiltIns(env *Environment) error {
 }
 
 // driver for class analysis
-func evalClasses(classes []ast.Class, env *Environment) *CheckError {
+func evalClasses(classes []ast.Class, env *environment.Environment) *CheckError {
 	if len(classes) == 0 {
 		return nil
 	}
@@ -162,9 +183,9 @@ func evalClasses(classes []ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func compareParents(classes []ast.Class, env *Environment) *CheckError {
+func compareParents(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
-		obj := env.GetClass(ObjectType(class.Signature.Name)) // get type object
+		obj := env.GetClass(environment.ObjectType(class.Signature.Name)) // get type environment.Object
 		if obj.Parent != "" {
 			parent := env.GetClass(obj.Parent)
 			if parent == nil {
@@ -179,7 +200,7 @@ func compareParents(classes []ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func compareParent(child, parent *Object, env *Environment) *CheckError {
+func compareParent(child, parent *environment.Object, env *environment.Environment) *CheckError {
 	// how to handle parent with input?
 	// compare variables
 	ok := compareBlockVars(child.Variables, parent.Variables)
@@ -195,7 +216,7 @@ func compareParent(child, parent *Object, env *Environment) *CheckError {
 }
 
 // makes sure that two Statement Blocks have same variables/types at end
-func compareBlockVars(child, parent map[string]ObjectType) bool {
+func compareBlockVars(child, parent map[string]environment.ObjectType) bool {
 	for k := range parent {
 		val, ok := child[k]
 		if !ok {
@@ -209,7 +230,7 @@ func compareBlockVars(child, parent map[string]ObjectType) bool {
 	return true
 }
 
-func compareMethods(child, parent *Object, env *Environment) *CheckError {
+func compareMethods(child, parent *environment.Object, env *environment.Environment) *CheckError {
 	for k, v := range child.MethodTable {
 		if res, ok := parent.GetMethod(k); ok { // if method name in parent do check
 			// check input types
@@ -226,7 +247,7 @@ func compareMethods(child, parent *Object, env *Environment) *CheckError {
 				v.Params[i].Type = res.Params[i].Type // reassign param type to parents
 			}
 
-			if res.Return != NOTHING_CLASS && !env.ValidSubType(v.Return, res.Return) {
+			if res.Return != environment.NOTHING_CLASS && !env.ValidSubType(v.Return, res.Return) {
 				return createError(INVALID_RETURN_TYPE, "overriding method '%s' in %s has incompatible return type '%s'. parent %s has type '%s'",
 					k, child.Type, v.Return, parent.Type, res.Return)
 			}
@@ -235,7 +256,7 @@ func compareMethods(child, parent *Object, env *Environment) *CheckError {
 	return nil
 }
 
-func checkClasses(classes []ast.Class, env *Environment) *CheckError {
+func checkClasses(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
 		err := checkClass(class, env)
 		if err != nil {
@@ -246,12 +267,12 @@ func checkClasses(classes []ast.Class, env *Environment) *CheckError {
 }
 
 // extract class vars + check constructor/types and methods
-func checkClass(class ast.Class, env *Environment) *CheckError {
+func checkClass(class ast.Class, env *environment.Environment) *CheckError {
 	// check constructor types
 	// do it
 	newEnv := env.NewScope()
 
-	obj := env.GetClass(ObjectType(class.Signature.Name)) // get type object
+	obj := env.GetClass(environment.ObjectType(class.Signature.Name)) // get type environment.Object
 	// populate with constructor variables
 	for _, v := range obj.Constructor {
 		newEnv.Set(v.Name, v.Type)
@@ -267,7 +288,7 @@ func checkClass(class ast.Class, env *Environment) *CheckError {
 	}
 	// extract class variables
 	for k := range newEnv.Vals {
-		if strings.HasPrefix(k, "this.") { // if class variable add to class
+		if strings.HasPrefix(k, "this.") { // if class environment.Variable add to class
 			obj.Variables[k] = newEnv.Vals[k]
 		}
 	}
@@ -275,7 +296,7 @@ func checkClass(class ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func checkMethods(classes []ast.Class, env *Environment) *CheckError {
+func checkMethods(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
 		err := checkMethod(class, env)
 		if err != nil {
@@ -285,9 +306,9 @@ func checkMethods(classes []ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func checkMethod(class ast.Class, env *Environment) *CheckError {
+func checkMethod(class ast.Class, env *environment.Environment) *CheckError {
 	methods := class.Body.Methods
-	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
+	obj := (*env.TypeTable)[environment.ObjectType(class.Signature.Name)] // get type environment.Object
 
 	for _, method := range methods {
 		newEnv := env.NewScope()
@@ -307,7 +328,7 @@ func checkMethod(class ast.Class, env *Environment) *CheckError {
 			return err
 		}
 		// check if received return statement to compare against method signature
-		if result.Type != NOTHING_CLASS && objMeth.Return != NOTHING_CLASS { // not sure how to handle non returns in methods
+		if result.Type != environment.NOTHING_CLASS && objMeth.Return != environment.NOTHING_CLASS { // not sure how to handle non returns in methods
 			if !env.ValidSubType(result.Type, objMeth.Return) { // child, parent
 				return createError(INVALID_RETURN_TYPE, "incorrect return subtype %s in method %s, wanted %s", result.Type, method.Name, objMeth.Return)
 			}
@@ -316,7 +337,7 @@ func checkMethod(class ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func setMethods(classes []ast.Class, env *Environment) *CheckError {
+func setMethods(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
 		err := setMethod(class, env)
 		if err != nil {
@@ -327,12 +348,12 @@ func setMethods(classes []ast.Class, env *Environment) *CheckError {
 }
 
 // error for: duplicates, nonexistent types
-func setMethod(class ast.Class, env *Environment) *CheckError {
+func setMethod(class ast.Class, env *environment.Environment) *CheckError {
 	methods := class.Body.Methods
-	obj := (*env.TypeTable)[ObjectType(class.Signature.Name)] // get type object
+	obj := (*env.TypeTable)[environment.ObjectType(class.Signature.Name)] // get type environment.Object
 
 	for _, method := range methods {
-		sig := MethodSignature{Params: []Variable{}, Return: NOTHING_CLASS} // default to no return
+		sig := environment.MethodSignature{Params: []environment.Variable{}, Return: environment.NOTHING_CLASS} // default to no return
 		if _, ok := obj.MethodTable[method.Name]; ok {
 			return createError(ALREADY_INITIALIZED, "method name: %s already exists in class", method.Name)
 		}
@@ -343,18 +364,18 @@ func setMethod(class ast.Class, env *Environment) *CheckError {
 
 		// add arguments
 		for _, arg := range method.Args {
-			if !env.TypeExist(ObjectType(arg.Type)) {
+			if !env.TypeExist(environment.ObjectType(arg.Type)) {
 				return createError(CLASS_NOT_EXIST, "type in method params not exist")
 			}
 
-			sig.Params = append(sig.Params, Variable{arg.Arg, ObjectType(arg.Type)})
+			sig.Params = append(sig.Params, environment.Variable{arg.Arg, environment.ObjectType(arg.Type)})
 		}
 
 		if method.Typ != "" {
-			if !env.TypeExist(ObjectType(method.Typ)) {
+			if !env.TypeExist(environment.ObjectType(method.Typ)) {
 				return createError(CLASS_NOT_EXIST, "type '%s' in method return signature '%s' not exist", method.Typ, method.Name)
 			}
-			sig.Return = ObjectType(method.Typ)
+			sig.Return = environment.ObjectType(method.Typ)
 		} // maybe put nothing type if nothing returned
 
 		obj.AddMethod(method.Name, sig)
@@ -362,7 +383,7 @@ func setMethod(class ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func setSignatures(classes []ast.Class, env *Environment) *CheckError {
+func setSignatures(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
 		err := setSignature(class, env)
 		if err != nil {
@@ -372,31 +393,31 @@ func setSignatures(classes []ast.Class, env *Environment) *CheckError {
 	return nil
 }
 
-func setSignature(class ast.Class, env *Environment) *CheckError {
+func setSignature(class ast.Class, env *environment.Environment) *CheckError {
 	sig := class.Signature
-	obj := NewObject()
+	obj := environment.NewObject()
 
-	obj.Type = ObjectType(class.Signature.Name)
+	obj.Type = environment.ObjectType(class.Signature.Name)
 	if env.TypeExist(obj.Type) {
 		return createError(DUPLICATE_CLASS, "class %s already exists", obj.Type)
 	}
 
 	// add arguments to constructor
 	for _, arg := range sig.Args {
-		obj.Constructor = append(obj.Constructor, Variable{arg.Arg, ObjectType(arg.Type)})
+		obj.Constructor = append(obj.Constructor, environment.Variable{arg.Arg, environment.ObjectType(arg.Type)})
 	}
 
 	// if subtype, set super type
 	if sig.Extend != nil {
-		obj.Parent = ObjectType(sig.Extend.Parent)
+		obj.Parent = environment.ObjectType(sig.Extend.Parent)
 	}
 
-	(*env.TypeTable)[obj.Type] = obj // store object type
+	(*env.TypeTable)[obj.Type] = obj // store environment.Object type
 	return nil
 }
 
-func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *CheckError) {
-	result := Variable{Name: node.Name.Value}
+func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (environment.Variable, *CheckError) {
+	result := environment.Variable{Name: node.Name.Value}
 	right := node.Value
 
 	rightType, err := TypeCheck(right, env)
@@ -405,9 +426,9 @@ func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *Chec
 	}
 
 	if node.Kind != "" { // if type explicitly set
-		result.Type = ObjectType(node.Kind)
+		result.Type = environment.ObjectType(node.Kind)
 		if !env.TypeExist(result.Type) {
-			return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", result.Type)
+			return environment.Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", result.Type)
 		}
 
 		if !env.ValidSubType(rightType.Type, result.Type) {
@@ -417,12 +438,12 @@ func evalLetStatement(node *ast.LetStatement, env *Environment) (Variable, *Chec
 		result.Type = rightType.Type
 	}
 
-	env.Set(result.Name, result.Type) // set variable in environment
+	env.Set(result.Name, result.Type) // set environment.Variable in environment
 	return result, nil
 }
 
-func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, *CheckError) {
-	var result Variable
+func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment) (environment.Variable, *CheckError) {
+	var result environment.Variable
 
 	for _, statement := range block.Statements {
 		result, err := TypeCheck(statement, env)
@@ -431,25 +452,25 @@ func evalBlockStatement(block *ast.BlockStatement, env *Environment) (Variable, 
 		}
 
 
-		// need to change this to check type return instead. default to NOTHING_CLASS
+		// need to change this to check type return instead. default to environment.NOTHING_CLASS
 		fmt.Println()
 		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
 			return result, nil
 		}
 	}
-	result.Type = NOTHING_CLASS // if no return default to NOTHING_CLASS
+	result.Type = environment.NOTHING_CLASS // if no return default to environment.NOTHING_CLASS
 	return result, nil
 }
 
-func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckError) {
-	var result Variable
+func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (environment.Variable, *CheckError) {
+	var result environment.Variable
 	// check that condition evals to bool type
 	result, err := TypeCheck(node.Condition, env)
 	if err != nil {
 		return result, err
 	}
 
-	if result.Type != BOOL_CLASS {
+	if result.Type != environment.BOOL_CLASS {
 		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
 	}
 	// create environment for each scope
@@ -461,7 +482,7 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 		return result1, err
 	}
 
-	if node.Alternative == nil { // if no other statement don't bubble up variable
+	if node.Alternative == nil { // if no other statement don't bubble up environment.Variable
 		return result, nil
 	}
 
@@ -470,17 +491,17 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 		return result2, err
 	}
 	// compare environments or to current environment
-	union := GetUnion(newEnv1, newEnv2)
+	union := environment.GetUnion(newEnv1, newEnv2)
 	for k := range union {
 		env.Set(k, union[k])
 	}
 
 	// check for 'return'
-	if (result1.Type == NOTHING_CLASS || result1.Type == "") && (result2.Type == NOTHING_CLASS || result2.Type == "") {
+	if (result1.Type == environment.NOTHING_CLASS || result1.Type == "") && (result2.Type == environment.NOTHING_CLASS || result2.Type == "") {
 		return result, nil
-	} else if result1.Type == NOTHING_CLASS {
+	} else if result1.Type == environment.NOTHING_CLASS {
 		return result, createError(INVALID_RETURN_TYPE, "not return in all paths") 
-	} else if result2.Type == NOTHING_CLASS {
+	} else if result2.Type == environment.NOTHING_CLASS {
 		return result2, createError(INVALID_RETURN_TYPE, "not return in all paths")
 	} else if result1.Type != result2.Type {
 		return result, createError(INVALID_RETURN_TYPE, "not same types %s and %s", result1.Type, result2.Type)
@@ -490,15 +511,15 @@ func evalIfStatement(node *ast.IfStatement, env *Environment) (Variable, *CheckE
 	return result, nil
 }
 
-func evalWhileStatement(node *ast.WhileStatement, env *Environment) (Variable, *CheckError) {
-	var result Variable
+func evalWhileStatement(node *ast.WhileStatement, env *environment.Environment) (environment.Variable, *CheckError) {
+	var result environment.Variable
 	// check that condition evals to bool type
 	result, err := TypeCheck(node.Cond, env)
 	if err != nil {
 		return result, err
 	}
 
-	if result.Type != BOOL_CLASS {
+	if result.Type != environment.BOOL_CLASS {
 		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
 	}
 
@@ -512,21 +533,21 @@ func evalWhileStatement(node *ast.WhileStatement, env *Environment) (Variable, *
 	return result, nil
 }
 
-func evalReturnStatement(node *ast.ReturnStatement, env *Environment) (Variable, *CheckError) {
+func evalReturnStatement(node *ast.ReturnStatement, env *environment.Environment) (environment.Variable, *CheckError) {
 	return TypeCheck(node.ReturnValue, env)
 }
 
-// init class Object or if in class method call, ei: PT(4, 5);
-func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *CheckError) {
-	if env.TypeExist(ObjectType(node.Name)) { // if a class
-		class := env.GetClass(ObjectType(node.Name))
+// init class environment.Object or if in class method call, ei: PT(4, 5);
+func evalFunctionCall(node *ast.FunctionCall, env *environment.Environment) (environment.Variable, *CheckError) {
+	if env.TypeExist(environment.ObjectType(node.Name)) { // if a class
+		class := env.GetClass(environment.ObjectType(node.Name))
 		if class == nil {
-			return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
+			return environment.Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
 		}
 		args := class.Constructor
 
 		if len(args) != len(node.Args) {
-			return Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
+			return environment.Variable{}, createError(BAD_FUNCTION_CALL, "incorrect amount of arguments for %s wants %d provided %d", node.Name, len(args), len(node.Args))
 		}
 
 		// check argument types // do this only for functions
@@ -538,11 +559,11 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 			}
 
 			if arg.Type != result.Type {
-				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
+				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
 			}
 		}
 
-		return Variable{Type: class.Type}, nil // return the type of the class
+		return environment.Variable{Type: class.Type}, nil // return the type of the class
 	}
 
 	if signature, ok := env.GetClassObject().GetMethod(node.Name); ok { // if method
@@ -553,25 +574,25 @@ func evalFunctionCall(node *ast.FunctionCall, env *Environment) (Variable, *Chec
 			}
 
 			if param.Type != result.Type {
-				return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
 			}
 		}
-		return Variable{Type: signature.Return, Name: node.Name + "()"}, nil
+		return environment.Variable{Type: signature.Return, Name: node.Name + "()"}, nil
 	}
 
-	return Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
+	return environment.Variable{}, createError(CLASS_NOT_EXIST, "class '%s' doesn't exist", node.Name)
 }
 
 // eval something like this class.method()
-func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckError) {
+func evalMethodCall(node *ast.MethodCall, env *environment.Environment) (environment.Variable, *CheckError) {
 	class, err := TypeCheck(node.Variable, env) // left can be any expression that returns a type
 	if err != nil {
-		return Variable{}, err
+		return environment.Variable{}, err
 	}
 
 	signature, ok := env.GetClassMethod(class.Type, node.Method)
 	if !ok {
-		return Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s", node.Method, class.Type)
+		return environment.Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s", node.Method, class.Type)
 	}
 
 	// recursively check correct arguments provided
@@ -582,14 +603,14 @@ func evalMethodCall(node *ast.MethodCall, env *Environment) (Variable, *CheckErr
 		}
 
 		if param.Type != result.Type {
-			return Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+			return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
 		}
 	}
 
-	return Variable{Type: signature.Return, Name: node.Method + "()"}, nil
+	return environment.Variable{Type: signature.Return, Name: node.Method + "()"}, nil
 }
 
-func evalPrefixExpression(expr *ast.PrefixExpression, env *Environment) (Variable, *CheckError) {
+func evalPrefixExpression(expr *ast.PrefixExpression, env *environment.Environment) (environment.Variable, *CheckError) {
 	e, err := TypeCheck(expr, env)
 	if err != nil {
 		return e, err
@@ -597,7 +618,7 @@ func evalPrefixExpression(expr *ast.PrefixExpression, env *Environment) (Variabl
 	return e, nil
 }
 
-func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable, *CheckError) {
+func evalInfixExpression(node *ast.InfixExpression, env *environment.Environment) (environment.Variable, *CheckError) {
 	left, err := TypeCheck(node.Left, env)
 	if err != nil {
 		return left, err
@@ -620,57 +641,57 @@ func evalInfixExpression(node *ast.InfixExpression, env *Environment) (Variable,
 		"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": AND}
 
 	if _, ok := env.GetClassMethod(obj.Type, methods[node.Operator]); !ok {
-		return Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s on line %d", methods[node.Operator], obj.Type, node.Token.Pos.Line)
+		return environment.Variable{}, createError(METHOD_NOT_EXIST, "method %s not exist in class %s on line %d", methods[node.Operator], obj.Type, node.Token.Pos.Line)
 	}
 
 	switch node.Operator { // evaluates to a bool
 	case "<", ">", "<=", ">=", "==", "!=", "and", "or":
-		return Variable{Type: BOOL_CLASS}, nil
+		return environment.Variable{Type: environment.BOOL_CLASS}, nil
 	}
 
 	return left, nil
 }
 
-func evalInteger(node *ast.IntegerLiteral, env *Environment) (Variable, *CheckError) {
-	return Variable{Name: string(node.Token.Lit), Type: INTEGER_CLASS}, nil
+func evalInteger(node *ast.IntegerLiteral, env *environment.Environment) (environment.Variable, *CheckError) {
+	return environment.Variable{Name: string(node.Token.Lit), Type: environment.INTEGER_CLASS}, nil
 }
 
-func evalString(node *ast.StringLiteral, env *Environment) (Variable, *CheckError) {
-	return Variable{Name: node.Value, Type: STRING_CLASS}, nil
+func evalString(node *ast.StringLiteral, env *environment.Environment) (environment.Variable, *CheckError) {
+	return environment.Variable{Name: node.Value, Type: environment.STRING_CLASS}, nil
 }
 
-func evalBoolean(node *ast.Boolean, env *Environment) (Variable, *CheckError) {
-	return Variable{Name: string(node.Token.Lit), Type: BOOL_CLASS}, nil
+func evalBoolean(node *ast.Boolean, env *environment.Environment) (environment.Variable, *CheckError) {
+	return environment.Variable{Name: string(node.Token.Lit), Type: environment.BOOL_CLASS}, nil
 }
 
-func evalIdentifier(node *ast.Identifier, env *Environment) (Variable, *CheckError) {
+func evalIdentifier(node *ast.Identifier, env *environment.Environment) (environment.Variable, *CheckError) {
 	IdentType, ok := env.Get(node.Value) // check if it has been defined
 	if !ok {
-		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined on line: %d", node.Value, node.Token.Pos.Line)
+		return environment.Variable{}, createError(VARIABLE_NOT_INITIALIZED, "ident %s is not defined on line: %d", node.Value, node.Token.Pos.Line)
 	}
-	return Variable{Name: node.Value, Type: IdentType}, nil
+	return environment.Variable{Name: node.Value, Type: IdentType}, nil
 }
 
-func evalClassVariableCall(node *ast.ClassVariableCall, env *Environment) (Variable, *CheckError) {
+func evalClassVariableCall(node *ast.ClassVariableCall, env *environment.Environment) (environment.Variable, *CheckError) {
 	left, err := TypeCheck(node.Expression, env)
 	if err != nil {
-		return Variable{}, err
+		return environment.Variable{}, err
 	}
 
 	kind, ok := env.GetClassVariable(left.Type, node.Ident) // type, method
 	if !ok {
-		return Variable{}, createError(VARIABLE_NOT_INITIALIZED, "type %s doesn't have variable %s", left.Type, node.Ident)
+		return environment.Variable{}, createError(VARIABLE_NOT_INITIALIZED, "type %s doesn't have environment.Variable %s", left.Type, node.Ident)
 	}
-	return Variable{Type: kind, Name: string(node.Token.Lit)}, nil
+	return environment.Variable{Type: kind, Name: string(node.Token.Lit)}, nil
 }
 
 // ei: "string";
-func evalExpressionStatement(node *ast.ExpressionStatement, env *Environment) (Variable, *CheckError) {
+func evalExpressionStatement(node *ast.ExpressionStatement, env *environment.Environment) (environment.Variable, *CheckError) {
 	return TypeCheck(node.Expression, env)
 }
 
-func evalTypeCaseStatement(node *ast.TypecaseStatement, env *Environment) (Variable, *CheckError) {
-	var result Variable
+func evalTypeCaseStatement(node *ast.TypecaseStatement, env *environment.Environment) (environment.Variable, *CheckError) {
+	var result environment.Variable
 	left, err := TypeCheck(node.Expression, env) // evaluate left side
 	if err != nil {
 		return left, err
@@ -678,19 +699,19 @@ func evalTypeCaseStatement(node *ast.TypecaseStatement, env *Environment) (Varia
 
 	// type check each alt statement
 	for i, stmt := range node.TypeAlt {
-		if !env.TypeExist(ObjectType(stmt.Kind)) {
+		if !env.TypeExist(environment.ObjectType(stmt.Kind)) {
 			return result, createError(CLASS_NOT_EXIST, "class %s not exist", stmt.Kind)
 		}
 
 		newEnv := env.NewScope()
-		newEnv.Set(stmt.Value, ObjectType(stmt.Kind)) // inject typecase var into statement
+		newEnv.Set(stmt.Value, environment.ObjectType(stmt.Kind)) // inject typecase var into statement
 
 		res, err := TypeCheck(stmt.StmtBlock, newEnv) // default return nothing type in statement block
 		if err != nil {
 			return res, err
 		}
 
-		if ObjectType(stmt.Kind) == res.Type {
+		if environment.ObjectType(stmt.Kind) == res.Type {
 			return res, createError(INVALID_RETURN_TYPE, "typecase block %d wanted type %s, instead got %s", i, stmt.Kind, res.Type)
 		}
 	}

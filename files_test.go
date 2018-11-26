@@ -6,6 +6,7 @@ import (
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/typechecker"
+	"github.com/Lebonesco/quack_parser/environment"
 	"io/ioutil"
 	"testing"
 )
@@ -80,7 +81,7 @@ func TestFiles(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 
-		env := typechecker.CreateEnvironment() // create new environment
+		env := environment.CreateEnvironment() // create new environment
 		_ , typeErr := typechecker.TypeCheck(program, env)
 		if typeErr != nil {
 			if val, ok := results[file.Name()]; ok && typeErr.Type == val {
