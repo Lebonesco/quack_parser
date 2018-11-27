@@ -209,7 +209,7 @@ func (e *Environment) GetClass(class ObjectType) *Object {
 func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSignature, bool) {
 	obj := e.GetClass(class)
 	for {
-		if sig, ok := obj.MethodTable[method]; ok {
+		if sig, ok := obj.GetMethod(method); ok {
 			return sig, ok
 		}
 

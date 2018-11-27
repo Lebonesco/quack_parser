@@ -245,8 +245,8 @@ func compareBlockVars(child, parent map[string]environment.ObjectType) bool {
 }
 
 func compareMethods(child, parent *environment.Object, env *environment.Environment) *CheckError {
-	for k, v := range child.MethodTable {
-		if res, ok := parent.GetMethod(k); ok { // if method name in parent do check
+	for _, v := range child.MethodTable {
+		if res, ok := parent.GetMethod(v.Name); ok { // if method name in parent do check
 			// check input types
 			if len(v.Params) != len(res.Params) {
 				return createError(INCORRECT_ARGUMENT_COUNT, "child overriding method have incorrect param length %d vs %d",
@@ -263,7 +263,7 @@ func compareMethods(child, parent *environment.Object, env *environment.Environm
 
 			if res.Return != environment.NOTHING_CLASS && !env.ValidSubType(v.Return, res.Return) {
 				return createError(INVALID_RETURN_TYPE, "overriding method '%s' in %s has incompatible return type '%s'. parent %s has type '%s'",
-					k, child.Type, v.Return, parent.Type, res.Return)
+					v.Name, child.Type, v.Return, parent.Type, res.Return)
 			}
 		}
 	}
@@ -368,7 +368,7 @@ func setMethod(class ast.Class, env *environment.Environment) *CheckError {
 
 	for _, method := range methods {
 		sig := environment.MethodSignature{Params: []environment.Variable{}, Return: environment.NOTHING_CLASS} // default to no return
-		if _, ok := obj.MethodTable[method.Name]; ok {
+		if _, ok := obj.GetMethod(method.Name); ok {
 			return createError(ALREADY_INITIALIZED, "method name: %s already exists in class", method.Name)
 		}
 
