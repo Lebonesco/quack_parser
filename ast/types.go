@@ -29,6 +29,7 @@ type Expression interface {
 type Program struct {
 	Classes    []Class
 	Statements []Statement
+	Env *environment.Environment
 }
 
 // Statements

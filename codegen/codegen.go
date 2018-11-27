@@ -4,7 +4,23 @@ import (
 	"github.com/Lebonesco/quack_parser/ast"
 	"github.com/Lebonesco/quack_parser/environment"
 	"bytes"
+	"strings"
 	"fmt"
+)
+
+
+const (
+	PLUS    = "PLUS"
+	EQUALS  = "EQUALS"
+	ATMOST  = "ATMOST"
+	ATLEAST = "ATLEAST"
+	LESS    = "LESS"
+	MORE    = "MORE"
+	MINUS   = "MINUS"
+	DIVIDE  = "DIVIDE"
+	TIMES   = "TIMES"
+	AND     = "AND"
+	OR      = "OR"
 )
 
 var TMP_COUNT int // track temp count
@@ -15,8 +31,13 @@ var symbolTable = map[string]bool{}
 func CodeGen(p *ast.Program) (string, error) {
 	var b bytes.Buffer 
 
+	err := genClasses(p.Classes, &b)
+	if err != nil {
+		return b.String(), err
+	}
+
 	// generate statements
-	err := genMain(p.Statements, &b)
+	err = genMain(p.Statements, &b)
 	if err != nil {
 		return b.String(), nil
 	}
@@ -33,20 +54,79 @@ func genClasses(classes []ast.Class, b *bytes.Buffer) error {
 
 func genClass(class ast.Class, b *bytes.Buffer) error {
 	name := class.Signature.Name
-	b.WriteString(fmt.Sprintf("struct class_%s_struct;\n", name)) // struct class_Name_struct;
+	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name)) // struct class_Name_struct;
 	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s\n\n", name, name)) // typedef struct class_Name_struct* class_Name
+	
 	b.WriteString(fmt.Sprintf("typedef struct obj_%s_struct {\n", name))
 	b.WriteString(fmt.Sprintf("\tclass_%s clazz;\n", name))
-	// handle internals
-	
+	// handle class fields
+	genClassVariables(class.Body.Statements, b)
 
+	b.WriteString(fmt.Sprintf("} * obj_%s;\n\n", name))
 
-	b.WriteString(fmt.Sprintf("} * obj_%s;", name))
+	b.WriteString(fmt.Sprintf("struct class_%s_struct the_class_%s_struct;\n\n", name, name))
+	b.WriteString(fmt.Sprintf("struct class_%s_struct {\n", name))
+	// handle method table
+	genClassMethodTable(class, b)
+
+	b.WriteString("};\n\n")
+
+	// create constructor method
+	genClassConstructor(class, b)
+
+	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s\n\n", name, name))
 	return nil
 }
 
+func genClassMethodTable(class ast.Class, b *bytes.Buffer) {
+	name := class.Signature.Name
+	// create constructor
+	b.WriteString(fmt.Sprintf("\tobj_%s (*constructor) (", name))
+	for i, arg := range class.Signature.Args {
+		b.WriteString(fmt.Sprintf("obj_%s", arg.Type))
+		if i != len(class.Signature.Args) -1 {
+			b.WriteString(",")
+		}
+	}
+	b.WriteString(");\n")
+	// check if overriding parent method
+
+	// do in correct order
+}
+
+func genClassConstructor(class ast.Class, b *bytes.Buffer) {
+	name := class.Signature.Name
+	b.WriteString(fmt.Sprintf("obj_%s new_%s(", name, name))
+	for i, arg := range class.Signature.Args {
+		b.WriteString(fmt.Sprintf("obj_%s %s", arg.Type, arg.Arg))
+		if i != len(class.Signature.Args) -1 {
+			b.WriteString(",")
+		}
+	}
+
+	b.WriteString(") {\n")
+	b.WriteString(fmt.Sprintf("\tobj_%s new_thing = (obj_%s) malloc(sizeof(struct obj_%s_struct));\n", name, name, name))
+	b.WriteString(fmt.Sprintf("\tnew_thing->clazz = the_class_%s\n", name))
+	for _, arg := range class.Signature.Args {
+		b.WriteString(fmt.Sprintf("\tnew_thing->%s = %s;\n", arg.Arg, arg.Arg))
+		
+	}
+	b.WriteString("\treturn new_thing;\n")
+	b.WriteString("}\n\n")
+}
+
+func genClassVariables(stmts []ast.Statement, b *bytes.Buffer) {
+	env := stmts[0].GetEnvironment()
+	for k, tp := range env.Vals {
+		if strings.HasPrefix(k, "this.") {
+			b.WriteString(fmt.Sprintf("\tobj_%s %s;\n", tp, strings.Replace(k, "this.", "", -1))) 
+		}
+	}
+	// get 'this' variables
+}
+
 func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
-	b.WriteString("int main() {\n")
+	b.WriteString("\nint main() {\n")
 
 	for _, stmt := range stmts {
 		err := codeGen(stmt, b, stmt.GetEnvironment())
@@ -164,12 +244,17 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 		return err
 	}
 
-	b.WriteString(fmt.Sprintf(" %s ", node.Operator))
+	methods := map[string]string{"+": PLUS, "-": MINUS, "==": EQUALS, "<": LESS, ">": MORE, ">=": ATLEAST,
+		"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": AND}
+
+	b.WriteString(fmt.Sprintf("->clazz->%s(", methods[node.Operator]))
 
 	err = codeGen(node.Right, b, env)
 	if err != nil {
 		return err
 	}
+
+	b.WriteString(")")
 
 	return nil
 }

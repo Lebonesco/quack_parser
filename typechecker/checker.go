@@ -72,6 +72,8 @@ func TypeCheck(node ast.Node, env *environment.Environment) (environment.Variabl
 		node.Env = env
 	case *ast.LetStatement:
 		node.Env = env
+	case *ast.Program:
+		node.Env = env
 	}
 
 	switch node := node.(type) {
