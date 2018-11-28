@@ -9,6 +9,11 @@ type Environment struct {
 	Changed   bool // track if need to loop again
 }
 
+func (e *Environment) GetType(name string) (ObjectType, bool) {
+	val, ok := e.Vals[name]
+	return val, ok
+}
+
 // returns union of variables with same types between two environments
 func GetUnion(e1, e2 *Environment) map[string]ObjectType {
 	result := map[string]ObjectType{}

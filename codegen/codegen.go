@@ -85,8 +85,7 @@ func setParentMethods(classes []ast.Class, env *environment.Environment) {
 }
 
 func setBaseMethodTypes(classes []ast.Class, env *environment.Environment) {
-	for _, class := range classes {
-		obj := env.GetClass(environment.ObjectType(class.Signature.Name))
+	for _, obj := range (*env.TypeTable) {
 		for i, method := range obj.MethodTable {
 			method.Base, method.OverrideType = obj.Type, obj.Type
 			obj.MethodTable[i] = method
@@ -131,7 +130,7 @@ func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) er
 	// create singleton
 	createSingleton(class, b, env)
 
-	b.WriteString(fmt.Sprintf("the_class_%s = &the_class_%s_struct;\n\n",name, name))
+	b.WriteString(fmt.Sprintf("class_%s the_class_%s = &the_class_%s_struct;\n\n",name, name, name))
 
 	return nil
 }
@@ -140,7 +139,7 @@ func createSingleton(class ast.Class, b *bytes.Buffer, env *environment.Environm
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("struct class_%s_struct the_class_%s_struct = {\n", name, name))
 	// add fields
-	b.WriteString(fmt.Sprintf("new_%s,", name))
+	b.WriteString(fmt.Sprintf("new_%s,\n", name))
 	for _, method := range env.GetClass(environment.ObjectType(name)).MethodTable {
 		b.WriteString(fmt.Sprintf("%s_method_%s,\n", method.Base, method.Name))
 	}
@@ -183,7 +182,6 @@ func genClassMethodTable(class ast.Class, b *bytes.Buffer, env *environment.Envi
 	obj := env.GetClass(environment.ObjectType(name))
 
 	for _, method := range obj.MethodTable {
-		fmt.Println("\v", method)
 		b.WriteString(fmt.Sprintf("\tobj_%s (*%s) (", method.Return, method.Name))
 		b.WriteString(fmt.Sprintf("obj_%s", method.OverrideType))
 		for _, arg := range method.Params {
@@ -276,8 +274,8 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) (stri
 		return genFunctionCall(node, b, env)
 	case *ast.MethodCall: // handle class.method()
 		return genMethodCall(node, b, env)
-	// case *ast.ClassVariableCall:
-	// 	return genClassVariableCall(node, b)
+	case *ast.ClassVariableCall:
+		return genClassVariableCall(node, b, env)
 	}
 	return None, nil
 }
@@ -359,9 +357,8 @@ func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environme
 
 func genReturnStatement(node *ast.ReturnStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	// not sure what to do yet
-	b.WriteString("return ")
-	codeGen(node.ReturnValue, b, env)
-	b.WriteString(";\n")
+	res, _ := codeGen(node.ReturnValue, b, env)
+	write(b, "return %s;\n", res)
 	return "", nil
 }
 
@@ -379,41 +376,64 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 		return None, err
 	}
 
-	write(b, "%s->clazz->%s(%s);\n", left, methods[node.Operator], right)
+	tmp := freshTemp()
+	write(b, "obj_%s %s = %s->clazz->%s(%s, %s);\n", "Int", tmp, left, methods[node.Operator], left, right)
 
-	return None, nil
+	return tmp, nil
 }
 
 func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
-	name := node.Name
-	b.WriteString(fmt.Sprintf("the_class_%s->constructor(", name))
-	
+	tmp := make([]string, len(node.Args)) // contain Class parameters
+
 	for i, arg := range node.Args {
-		codeGen(arg, b, env)
-		if i != len(node.Args) - 1{
+		res, err := codeGen(arg, b, env)
+		if err != nil {
+			return None, err
+		}
+		tmp[i] = res
+	}
+
+	name := node.Name
+	v := freshTemp()
+	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
+
+	for i, arg := range tmp {
+		write(b, arg)
+		if i != len(tmp) - 1{
 			b.WriteString(",")
 		}
 	}
 
-	b.WriteString(")") // end of Class init
+	b.WriteString(");\n") // end of Class init
 
-	return None, nil
+	return v, nil
 }
 
 func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
-	lexpr := node.Variable 
 	method := node.Method
-	_, err := codeGen(lexpr, b, env)
+	lexpr, err := codeGen(node.Variable , b, env)
 	if err != nil {
 		return None, err
 	}
-
-	b.WriteString(fmt.Sprintf("->clazz->%s(", method))
+	// check if inherits
+	write(b, "%s->clazz->%s(%s", lexpr, method, lexpr)
 	// method params 
 
 	b.WriteString(");\n")
 
 	return None, nil
+}
+
+func genClassVariableCall(node *ast.ClassVariableCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	lexpr, err := codeGen(node.Expression, b, env)
+	if err != nil {
+		return None, err
+	}
+
+	tmp := freshTemp()
+	write(b, "obj_%s %s = %s.%s;\n", node.LeftType, tmp, lexpr, node.Ident)
+	return tmp, nil
+
 }
 
 // code generation helpers
