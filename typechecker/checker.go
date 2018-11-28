@@ -194,6 +194,7 @@ func evalClasses(classes []ast.Class, env *environment.Environment) *CheckError 
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
@@ -603,6 +604,7 @@ func evalMethodCall(node *ast.MethodCall, env *environment.Environment) (environ
 	if err != nil {
 		return environment.Variable{}, err
 	}
+	node.LeftType = string(class.Type) // need to track this for code generation
 
 	signature, ok := env.GetClassMethod(class.Type, node.Method)
 	if !ok {
@@ -691,6 +693,7 @@ func evalClassVariableCall(node *ast.ClassVariableCall, env *environment.Environ
 	if err != nil {
 		return environment.Variable{}, err
 	}
+	node.LeftType = string(left.Type) // track for code generation phase
 
 	kind, ok := env.GetClassVariable(left.Type, node.Ident) // type, method
 	if !ok {

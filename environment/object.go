@@ -33,6 +33,8 @@ type MethodSignature struct {
 	Name string
 	Params []Variable
 	Return ObjectType
+	Base ObjectType // for code generation if inherit
+	OverrideType ObjectType // if override track type of highest
 }
 
 // handles tracking of Type Hierarchy
@@ -76,6 +78,16 @@ func (o *Object) GetMethod(name string) (MethodSignature, bool) {
 	}
 
 	return MethodSignature{}, false
+}
+
+func (o *Object) GetMethodIndex(name string) (int, bool) {
+	for i, method := range o.MethodTable {
+		if method.Name == name {
+			return i, true
+		}
+	}
+
+	return -1, false
 }
 
 func (o *Object) InConstructor(ident string) (*Variable, bool) {

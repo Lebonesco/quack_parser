@@ -38,14 +38,14 @@ func TestSmall(t *testing.T) {
 				    this.x = x;
 				    this.y = y; 
 
-				    def PRINT( ):Pt {
+				    def PRINT( ): Pt {
 				       "( ".PRINT(); 
 				       this.x.PRINT(); 
 				       ", ".PRINT();
 				       ")".PRINT(); 
 				     }
 
-				     def PLUS(other: Pt) {
+				     def PLUS(other: Pt) : Pt {
 				         return Pt(this.x+other.x, this.y+other.y); 
 				     }
 				  }

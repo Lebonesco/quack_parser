@@ -31,7 +31,9 @@ var symbolTable = map[string]bool{}
 func CodeGen(p *ast.Program) (string, error) {
 	var b bytes.Buffer 
 
-	err := genClasses(p.Classes, &b)
+	parentMethodUnion(p.Classes, p.Env)
+
+	err := genClasses(p.Classes, &b, p.Env)
 	if err != nil {
 		return b.String(), err
 	}
@@ -45,14 +47,53 @@ func CodeGen(p *ast.Program) (string, error) {
 	return b.String(), nil
 }
 
-func genClasses(classes []ast.Class, b *bytes.Buffer) error {
+func parentMethodUnion(classes []ast.Class, env *environment.Environment) {
+	// help track inheritence and base class
+	setBaseMethodTypes(classes, env)
+	// set parent inherited and overriden methods
+	setParentMethods(classes, env)
+}
+
+// right now just handles one level, easy to do parents recursively
+func setParentMethods(classes []ast.Class, env *environment.Environment) {
+	for _, obj := range (*env.TypeTable) { // where are builtins?
+		parent := env.GetClass(env.GetClass(obj.Parent).Type)
+		// check parent methods for inheritance and overriding
+		for i, method := range parent.MethodTable {
+			if subMethod, ok := obj.GetMethod(method.Name); ok { // if overridden
+				idx, _ := obj.GetMethodIndex(method.Name)
+				obj.MethodTable = append(obj.MethodTable[:idx], obj.MethodTable[idx+1:]...) // remove method
+				obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{}) // will get overridden on copy
+				copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
+				obj.MethodTable[i] = subMethod // add method back at correct placement
+
+			} else { // else is inherited
+				obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{}) // will get overridden on copy
+				copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
+				obj.MethodTable[i] = method // insert method at correct placement
+			}
+		}
+	}
+}
+
+func setBaseMethodTypes(classes []ast.Class, env *environment.Environment) {
 	for _, class := range classes {
-		genClass(class, b)
+		obj := env.GetClass(environment.ObjectType(class.Signature.Name))
+		for i, method := range obj.MethodTable {
+			method.Base, method.OverrideType = obj.Type, obj.Type
+			obj.MethodTable[i] = method
+		}
+	}
+}
+
+func genClasses(classes []ast.Class, b *bytes.Buffer, env *environment.Environment) error {
+	for _, class := range classes {
+		genClass(class, b, env)
 	}
 	return nil
 }
 
-func genClass(class ast.Class, b *bytes.Buffer) error {
+func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) error {
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name)) // struct class_Name_struct;
 	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s\n\n", name, name)) // typedef struct class_Name_struct* class_Name
@@ -67,20 +108,61 @@ func genClass(class ast.Class, b *bytes.Buffer) error {
 	b.WriteString(fmt.Sprintf("struct class_%s_struct the_class_%s_struct;\n\n", name, name))
 	b.WriteString(fmt.Sprintf("struct class_%s_struct {\n", name))
 	// handle method table
-	genClassMethodTable(class, b)
+	genClassMethodTable(class, b, env)
 
 	b.WriteString("};\n\n")
+
+	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s\n\n", name, name))
 
 	// create constructor method
 	genClassConstructor(class, b)
 
-	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s\n\n", name, name))
+	// generator class methods
+	genClassMethods(class, b, env)
+
+	// create singleton
+	createSingleton(class, b, env)
+
+	b.WriteString(fmt.Sprintf("the_class_%s = &the_class_%s_struct;\n\n",name, name))
+
 	return nil
 }
 
-func genClassMethodTable(class ast.Class, b *bytes.Buffer) {
+func createSingleton(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
 	name := class.Signature.Name
-	// create constructor
+	b.WriteString(fmt.Sprintf("struct class_%s_struct the_class_%s_struct = {\n", name, name))
+	// add fields
+	b.WriteString(fmt.Sprintf("new_%s,", name))
+	for _, method := range env.GetClass(environment.ObjectType(name)).MethodTable {
+		b.WriteString(fmt.Sprintf("%s_method_%s,\n", method.Base, method.Name))
+	}
+	b.WriteString("};\n\n")
+}
+
+func genClassMethods(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
+	name := class.Signature.Name
+	methods := class.Body.Methods
+	//obj := env.GetClass(environment.ObjectType(name))
+
+	// generate class methods
+	for _, method := range methods {
+		// generate signature
+		b.WriteString(fmt.Sprintf("obj_%s %s_method_%s(", name, name, method.Name))
+		b.WriteString(fmt.Sprintf("obj_%s this", name))
+		for _, arg := range method.Args {
+			b.WriteString(fmt.Sprintf(", obj_%s %s", arg.Type, arg.Arg))
+		}
+		b.WriteString(") {\n")
+		// generate body
+		codeGen(method.StmtBlock, b, env)
+		b.WriteString("};\n\n") // end of method
+	}
+}
+
+// handle sorting and parent insertion
+func genClassMethodTable(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
+	name := class.Signature.Name
+	// create constructor pointer
 	b.WriteString(fmt.Sprintf("\tobj_%s (*constructor) (", name))
 	for i, arg := range class.Signature.Args {
 		b.WriteString(fmt.Sprintf("obj_%s", arg.Type))
@@ -88,12 +170,24 @@ func genClassMethodTable(class ast.Class, b *bytes.Buffer) {
 			b.WriteString(",")
 		}
 	}
-	b.WriteString(");\n")
-	// check if overriding parent method
+	b.WriteString(");\n") // end of constructor
+
+	obj := env.GetClass(environment.ObjectType(name))
+
+	for _, method := range obj.MethodTable {
+		fmt.Println("\v", method)
+		b.WriteString(fmt.Sprintf("\tobj_%s (*%s) (", method.Return, method.Name))
+		b.WriteString(fmt.Sprintf("obj_%s", method.OverrideType))
+		for _, arg := range method.Params {
+			b.WriteString(fmt.Sprintf(",obj_%s", arg.Type))
+		}
+		b.WriteString(");\n")
+	}
 
 	// do in correct order
 }
 
+// generates class constructor function
 func genClassConstructor(class ast.Class, b *bytes.Buffer) {
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("obj_%s new_%s(", name, name))
@@ -106,7 +200,7 @@ func genClassConstructor(class ast.Class, b *bytes.Buffer) {
 
 	b.WriteString(") {\n")
 	b.WriteString(fmt.Sprintf("\tobj_%s new_thing = (obj_%s) malloc(sizeof(struct obj_%s_struct));\n", name, name, name))
-	b.WriteString(fmt.Sprintf("\tnew_thing->clazz = the_class_%s\n", name))
+	b.WriteString(fmt.Sprintf("\tnew_thing->clazz = the_class_%s;\n", name))
 	for _, arg := range class.Signature.Args {
 		b.WriteString(fmt.Sprintf("\tnew_thing->%s = %s;\n", arg.Arg, arg.Arg))
 		
@@ -143,20 +237,20 @@ func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
 func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) error {
 	switch node := node.(type) {
 	// Statements
-	// case *ast.BlockStatement:
-	// 	return genBlockStatement(node, b)
-	// case *ast.ReturnStatement:
-	// 	return genReturnStatement(node, b)
+	case *ast.BlockStatement:
+		return genBlockStatement(node, b, env)
+	case *ast.ReturnStatement:
+		return genReturnStatement(node, b, env)
 	// case *ast.IfStatement:
-	// 	return genIfStatement(node, b)
+	// 	return genIfStatement(node, b, env)
 	// case *ast.WhileStatement:
-	// 	return genWhileStatement(node, b)
+	// 	return genWhileStatement(node, b, env)
 	case *ast.ExpressionStatement:
 		return genExpressionStatement(node, b, env)
 	// case *ast.TypecaseStatement:
-	// 	return genTypeCaseStatement(node, b)
+	// 	return genTypeCaseStatement(node, b, env)
 	// case *ast.PrefixExpression:
-	// 	return genPrefixExpression(node, b)
+	// 	return genPrefixExpression(node, b, env)
 	case *ast.InfixExpression:
 		return genInfixExpression(node, b, env)
 	case *ast.IntegerLiteral:
@@ -169,10 +263,10 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) error
 		return genIdentifier(node, b, env)
 	case *ast.LetStatement:
 		return genLetStatement(node, b, env)
-	// case *ast.FunctionCall: // actually a class call, ei PT(1, 2);
-	// 	return genFunctionCall(node, b)
-	// case *ast.MethodCall: // handle class.method()
-	// 	return genMethodCall(node, b)
+	case *ast.FunctionCall: // actually a class call, ei PT(1, 2);
+		return genFunctionCall(node, b, env)
+	case *ast.MethodCall: // handle class.method()
+		return genMethodCall(node, b, env)
 	// case *ast.ClassVariableCall:
 	// 	return genClassVariableCall(node, b)
 	}
@@ -238,6 +332,24 @@ func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.E
 	return nil
 }
 
+func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environment.Environment) error {
+	for _, stmt := range node.Statements {
+		err := codeGen(stmt, b, env)
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
+func genReturnStatement(node *ast.ReturnStatement, b *bytes.Buffer, env *environment.Environment) error {
+	// not sure what to do yet
+	b.WriteString("return ")
+	codeGen(node.ReturnValue, b, env)
+	b.WriteString(";\n")
+	return nil
+}
+
 func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environment.Environment) error {
 	err := codeGen(node.Left, b, env)
 	if err != nil {
@@ -255,6 +367,38 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 	}
 
 	b.WriteString(")")
+
+	return nil
+}
+
+func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.Environment) error {
+	name := node.Name
+	b.WriteString(fmt.Sprintf("the_class_%s->constructor(", name))
+	
+	for i, arg := range node.Args {
+		codeGen(arg, b, env)
+		if i != len(node.Args) - 1{
+			b.WriteString(",")
+		}
+	}
+
+	b.WriteString(")") // end of Class init
+
+	return nil
+}
+
+func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Environment) error {
+	lexpr := node.Variable 
+	method := node.Method
+	err := codeGen(lexpr, b, env)
+	if err != nil {
+		return err
+	}
+
+	b.WriteString(fmt.Sprintf("->clazz->%s(", method))
+	// method params 
+
+	b.WriteString(");\n")
 
 	return nil
 }

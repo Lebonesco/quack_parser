@@ -32,7 +32,7 @@ class Rect(ll: Pt, ur: Pt) extends Obj {
       return Rect(this.ll+Pt(1,1), this.ur+Pt(1,1));
   }
 
-  def STR() {
+  def STR() : String {
       lr = Pt( this.ur._y(), this.ll._x() );  // lower right 
       ul = Pt( this.ll._x(), this.ur._y() );  // upper left
       return "(" + this.ll.STR() + ", "

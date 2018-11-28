@@ -178,12 +178,14 @@ type StringEscapeError struct {
 type ClassVariableCall struct {
 	Token token.Token 
 	Expression Expression // left Side, this will be recursive
+	LeftType string
 	Ident string // class var name
 }
 
 type MethodCall struct {
 	Token token.Token
 	Variable Expression // left Side, this will be recursive
+	LeftType string
 	Method string // method name
 	Args []Expression // args that go into method params
 }

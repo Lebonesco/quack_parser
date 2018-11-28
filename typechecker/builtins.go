@@ -2,7 +2,7 @@ package typechecker
 
 var BUIILT_IN_CLASSES = ` class Obj() {
     def PRINT() { }
-    def STR() { }
+    def STR() : String { }
     def EQUALS(other: Obj): Boolean {} // Default is object identity
  }
 

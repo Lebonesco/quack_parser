@@ -230,3 +230,4 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 func (e *Environment) GetParent(parent ObjectType) *Object {
 	return e.GetClass(parent)
 }
+

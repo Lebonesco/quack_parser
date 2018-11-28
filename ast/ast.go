@@ -357,7 +357,7 @@ func NewIntLiteral(integer Attrib) (Expression, error) {
 }
 
 func NewStringLiteral(str Attrib) (Expression, error) {
-	return &StringLiteral{Value: string(str.(*token.Token).Lit)}, nil
+	return &StringLiteral{Value: string(str.(*token.Token).Lit), Token: *str.(*token.Token)}, nil
 }
 
 func NewIdentifier(ident Attrib) (*Identifier, error) {
