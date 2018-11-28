@@ -23,10 +23,18 @@ const (
 	OR      = "OR"
 )
 
+const None = "none"
+
 var TMP_COUNT int // track temp count
+var Indent string // tracks indentation
 
 // when handling class, clean when exist
 var symbolTable = map[string]bool{}
+
+// write c code to buffer
+func write(b *bytes.Buffer, code string, args ...interface{}) {
+	b.WriteString(fmt.Sprintf(code, args...))
+}
 
 func CodeGen(p *ast.Program) (string, error) {
 	var b bytes.Buffer 
@@ -223,7 +231,7 @@ func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
 	b.WriteString("\nint main() {\n")
 
 	for _, stmt := range stmts {
-		err := codeGen(stmt, b, stmt.GetEnvironment())
+		_, err := codeGen(stmt, b, stmt.GetEnvironment())
 		if err != nil {
 			return err
 		}
@@ -231,10 +239,11 @@ func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
 
 	b.WriteString("\treturn 0;\n")
 	b.WriteString("}\n")
+
 	return nil
 }
 
-func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) error {
+func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	switch node := node.(type) {
 	// Statements
 	case *ast.BlockStatement:
@@ -270,7 +279,7 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) error
 	// case *ast.ClassVariableCall:
 	// 	return genClassVariableCall(node, b)
 	}
-	return nil
+	return None, nil
 }
 
 func freshTemp() string {
@@ -278,100 +287,104 @@ func freshTemp() string {
 	return fmt.Sprintf("tmp_%d", TMP_COUNT)
 }
 
-func genExpressionStatement(node *ast.ExpressionStatement, b *bytes.Buffer, env *environment.Environment) error {
-	err := codeGen(node.Expression, b, env)
+func genExpressionStatement(node *ast.ExpressionStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	expr, err := codeGen(node.Expression, b, env)
 	if err != nil {
-		return err
+		return "", err
 	}
 
-	b.WriteRune(';')
-	return nil
+	if expr != None {
+		write(b, Indent + "%s;\n", expr)
+	}
+	return "", nil
 }
 
-func genInteger(node *ast.IntegerLiteral, b *bytes.Buffer) error {
-	b.WriteString("int_literal(" + string(node.Token.Lit) + ")")
-	return nil
+func genInteger(node *ast.IntegerLiteral, b *bytes.Buffer) (string, error) {
+	tmp := freshTemp()
+	write(b, "obj_Int* %s = int_literal(%s);\n", tmp, string(node.Token.Lit))
+	return tmp, nil
 }
 
-func genString(node *ast.StringLiteral, b *bytes.Buffer) error {
-	b.WriteString("str_literal(" + string(node.Token.Lit) + ")")
-	return nil
+func genString(node *ast.StringLiteral, b *bytes.Buffer) (string, error) {
+	tmp := freshTemp()
+	write(b, "obj_String %s = str_literal(%s);\n", tmp, string(node.Token.Lit))
+	return tmp, nil
 }
 
-func genBoolean(node *ast.Boolean, b *bytes.Buffer) error {
+func genBoolean(node *ast.Boolean, b *bytes.Buffer) (string, error) {
 	if node.Value {
 		b.WriteString("lit_true")
+		return "lit_true", nil
 	} else {
 		b.WriteString("lit_false")
+		return "lit_false", nil
 	}
-	return nil
+	return None, nil
 }
 
-func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Environment) error {
-	err := InitVar(node.Value, env, b)
+func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	name, err := InitVar(node.Value, env, b)
 	if err != nil {
-		return err
+		return None, err
 	}
-	return nil
+	return name, nil
 }
 
-func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.Environment) error {
-	err := codeGen(node.Name, b, env)
+func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	left, err := codeGen(node.Name, b, env)
 	if err != nil {
-		return err
+		return None, err
 	}
 
-	b.WriteString(" = ")
-
-	err = codeGen(node.Value, b, env)
+	right, err := codeGen(node.Value, b, env)
 	if err != nil {
-		return err
+		return None, err
 	}
 
-	b.WriteString(";")
-	return nil
+	write(b, Indent + "%s = %s;\n", left, right)
+	return None, nil
 }
 
-func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environment.Environment) error {
+func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	Indent += "\t" // add indent
 	for _, stmt := range node.Statements {
-		err := codeGen(stmt, b, env)
+		_, err := codeGen(stmt, b, env)
 		if err != nil {
-			return err
+			return None, err
 		}
 	}
-	return nil
+	Indent = Indent[:len(Indent)-1]
+	return None, nil
 }
 
-func genReturnStatement(node *ast.ReturnStatement, b *bytes.Buffer, env *environment.Environment) error {
+func genReturnStatement(node *ast.ReturnStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	// not sure what to do yet
 	b.WriteString("return ")
 	codeGen(node.ReturnValue, b, env)
 	b.WriteString(";\n")
-	return nil
+	return "", nil
 }
 
-func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environment.Environment) error {
-	err := codeGen(node.Left, b, env)
+func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	left, err := codeGen(node.Left, b, env)
 	if err != nil {
-		return err
+		return None, err
 	}
 
 	methods := map[string]string{"+": PLUS, "-": MINUS, "==": EQUALS, "<": LESS, ">": MORE, ">=": ATLEAST,
 		"<=": ATMOST, "*": TIMES, "/": DIVIDE, "or": OR, "and": AND}
 
-	b.WriteString(fmt.Sprintf("->clazz->%s(", methods[node.Operator]))
-
-	err = codeGen(node.Right, b, env)
+	right, err := codeGen(node.Right, b, env)
 	if err != nil {
-		return err
+		return None, err
 	}
 
-	b.WriteString(")")
+	write(b, "%s->clazz->%s(%s);\n", left, methods[node.Operator], right)
 
-	return nil
+	return None, nil
 }
 
-func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.Environment) error {
+func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	name := node.Name
 	b.WriteString(fmt.Sprintf("the_class_%s->constructor(", name))
 	
@@ -384,15 +397,15 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 
 	b.WriteString(")") // end of Class init
 
-	return nil
+	return None, nil
 }
 
-func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Environment) error {
+func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	lexpr := node.Variable 
 	method := node.Method
-	err := codeGen(lexpr, b, env)
+	_, err := codeGen(lexpr, b, env)
 	if err != nil {
-		return err
+		return None, err
 	}
 
 	b.WriteString(fmt.Sprintf("->clazz->%s(", method))
@@ -400,23 +413,22 @@ func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Envir
 
 	b.WriteString(");\n")
 
-	return nil
+	return None, nil
 }
 
 // code generation helpers
 // assume everything is init at final type? -- this is bad?
-func InitVar(name string, env *environment.Environment, b *bytes.Buffer) error {
+func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string, error) {
 	// if not used yet
 	// get type
 	objType, ok := env.Get(name)
 	if !ok {
-		return nil
+		return name, nil
 	}
 	if _, ok := symbolTable[name]; !ok { // if not already exist init
 		b.WriteString(fmt.Sprintf("obj_%s* %s;\n", objType, name)) // obj_Type* name;
 	}
 	symbolTable[name] = true
 
-	b.WriteString(fmt.Sprintf("%s", name))
-	return nil
+	return name, nil
 }

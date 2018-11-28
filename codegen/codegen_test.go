@@ -21,15 +21,21 @@ func TestSmall(t *testing.T) {
 			res: `int main() { return 0; }`},
 		{
 			src: `5;`,
-			res: `int main() { int_literal(5); return 0; }`},
+			res: `int main() { 
+				obj_Int* tmp_1 = int_literal(5); 
+				tmp_1;
+				return 0; 
+				}`},
 		{
 			src: `
 			friend = 8;
 			friend + 7;`,
 			res: `int main() {
 				obj_Int* friend;
-				friend = int_literal(8);
-				friend->clazz->PLUS(int_literal(7));
+				obj_Int* tmp_2 = int_literal(8);
+				friend = tmp_2;
+				obj_Int* tmp_3 = int_literal(7);
+				friend->clazz->PLUS(tmp_3);
 				return 0;
 			 	}`},
 		{
@@ -152,7 +158,7 @@ func TestSmall(t *testing.T) {
 			t.Errorf(err.Error())
 		}
 
-		t.Log(code)
+		tmp := code
 		// remove extra spaces
 		for _, rep := range []string{" ", "\n", "\t"} {
 			code = strings.Replace(code, rep, "", -1)
@@ -160,7 +166,8 @@ func TestSmall(t *testing.T) {
 		}
 
 		if code != test.res {
-			t.Errorf("not match between\n %s \n %s", code, test.res)
+			t.Log(tmp)
+			t.Fatalf("not match between\n %s \n %s", code, test.res)
 		}
 	}
 }
