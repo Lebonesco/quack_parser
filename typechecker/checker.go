@@ -461,9 +461,7 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 		// need to check if already set and if 
 		if result.Type != "" { // if not already defined
 			// get greatest common
-			fmt.Println(result.Type)
 			result.Type = env.GetLowestCommonType(result.Type, rightType.Type)
-			fmt.Println(result.Type)
 		} else {
 			result.Type = rightType.Type // set new type
 		}
@@ -484,10 +482,13 @@ func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment)
 			return result, err
 		}
 
-
 		// need to change this to check type return instead. default to environment.NOTHING_CLASS
-		fmt.Println()
 		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
+			return result, nil
+		}
+
+		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.IfStatement{}) && result.Type != "" {
+
 			return result, nil
 		}
 	}
@@ -497,11 +498,12 @@ func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment)
 
 func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (environment.Variable, *CheckError) {
 	var result environment.Variable
+	var ret environment.Variable
 	// check that condition evals to bool type
 	result, err := TypeCheck(node.Condition, env)
 	if err != nil {
 		return result, err
-	}
+	} 
 
 	if result.Type != environment.BOOL_CLASS {
 		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
@@ -529,9 +531,9 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 		env.Set(k, union[k])
 	}
 
-	// check for 'return'
+	// check for 'return' handling
 	if (result1.Type == environment.NOTHING_CLASS || result1.Type == "") && (result2.Type == environment.NOTHING_CLASS || result2.Type == "") {
-		return result, nil
+		return ret, nil
 	} else if result1.Type == environment.NOTHING_CLASS {
 		return result, createError(INVALID_RETURN_TYPE, "not return in all paths") 
 	} else if result2.Type == environment.NOTHING_CLASS {
@@ -541,7 +543,7 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 	} else {
 		return result1, nil
 	}
-	return result, nil
+	return ret, nil
 }
 
 func evalWhileStatement(node *ast.WhileStatement, env *environment.Environment) (environment.Variable, *CheckError) {

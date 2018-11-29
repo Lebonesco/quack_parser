@@ -16,7 +16,6 @@ const DIR = "./samples"
 
 var results = map[string]string{
 	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
-	"SqrDeclEQ.qk": typechecker.INCOMPATABLE_TYPES, // should be method not exist
 	"circular_dependency.qk": typechecker.CLASS_CYCLE,
 	"duplicate_class.qk": typechecker.DUPLICATE_CLASS,
 	"invalid_super.qk": typechecker.CLASS_NOT_EXIST,

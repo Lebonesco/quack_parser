@@ -140,6 +140,10 @@ func TestSmall(t *testing.T) {
 				}
 
 			`},
+			// {
+			// 	src: ``,
+			// 	res ``
+			// },
 	}
 
 	for i, test := range tests {
