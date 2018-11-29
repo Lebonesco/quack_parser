@@ -361,8 +361,17 @@ func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.E
 		return None, err
 	}
 
-	write(b, Indent + "%s = %s;\n", left, right)
+	lType, _ := env.Get(node.Name.Value) // might need to change this to get correct value if not ident?
+	write(b, Indent + "%s =%s%s;\n", left, convertType(string(lType), node.RightType), right)
 	return None, nil
+}
+
+func convertType(lType, rType string) string {
+	if lType != rType {
+		return fmt.Sprintf(" (obj_%s) ", lType) // will be true because of previous type checking
+	}
+
+	return " "
 }
 
 func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {

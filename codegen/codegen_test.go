@@ -131,10 +131,10 @@ func TestSmall(t *testing.T) {
 					obj_Int* tmp_14 = int_literal(32);  
 					y = tmp_14;
 					obj_Obj* pt1;
-					obj_String tmp_15 = (obj_Obj) str_literal("HELLO");
-					pt1 = tmp_15;
-					obj_Obj tmp_16 = (obj_Obj) the_class_Pt->constructor(x,y);
-					pt1 = tmp_16;
+					obj_String tmp_15 = str_literal("HELLO");
+					pt1 = (obj_Obj) tmp_15;
+					obj_Pt tmp_16 = the_class_Pt->clazz->constructor(y, x);
+					pt1 = (obj_Obj) tmp_16;
 					pt1->clazz->PRINT(pt1);
 					return 0;
 				}

@@ -37,6 +37,8 @@ type LetStatement struct {
 	Token token.Token // token.Let token
 	Name  *Identifier
 	Value Expression
+	LeftType string
+	RightType string
 	Kind  string
 	Env *environment.Environment
 }

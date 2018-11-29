@@ -15,6 +15,8 @@ build:
 test:
 	$(GENERATE) $(GENERATOR)
 	$(GOTEST) -v 
+test-all:
+	$(GOTEST) ./...
 clean:
 	$(GOCLEAN)
 	rm -rf $(BINARY_NAME) util token lexer parser errors

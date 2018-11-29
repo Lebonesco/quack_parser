@@ -470,6 +470,8 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 	}
 
 	env.Set(result.Name, result.Type) // set environment.Variable in environment
+	node.LeftType = string(result.Type) 
+	node.RightType = string(rightType.Type)
 	return result, nil
 }
 
