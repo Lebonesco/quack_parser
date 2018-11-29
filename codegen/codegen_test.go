@@ -35,7 +35,8 @@ func TestSmall(t *testing.T) {
 				obj_Int* tmp_2 = int_literal(8);
 				friend = tmp_2;
 				obj_Int* tmp_3 = int_literal(7);
-				friend->clazz->PLUS(tmp_3);
+				obj_Int tmp_4 = friend->clazz->PLUS(friend, tmp_3);
+				tmp_4;
 				return 0;
 			 	}`},
 		{
@@ -69,53 +70,49 @@ func TestSmall(t *testing.T) {
 			struct class_Pt_struct  the_class_Pt_struct;
 
 			struct class_Pt_struct {
-			  /* Method table */
 			  obj_Pt (*constructor) (obj_Int, obj_Int );  
-			  obj_String (*STR) (obj_Obj);           /* Inherit for now */
-			  obj_Pt (*PRINT) (obj_Pt);                 /* Overridden */
-			  obj_Boolean (*EQUALS) (obj_Obj, obj_Obj); /* Inherited */
-			  obj_Pt (*PLUS) (obj_Pt, obj_Pt);          /* Introduced */
+			  obj_String (*STR) (obj_Obj);           
+			  obj_Pt (*PRINT) (obj_Pt);                 
+			  obj_Boolean (*EQUALS) (obj_Obj, obj_Obj); 
+			  obj_Pt (*PLUS) (obj_Pt, obj_Pt);     
 			};
 
 			extern class_Pt the_class_Pt;
 
-			obj_Pt new_Pt(obj_Int x, obj_Int y ) {
+			obj_Pt new_Pt(obj_Int y, obj_Int x ) {
 			  obj_Pt new_thing = (obj_Pt)
 			    malloc(sizeof(struct obj_Pt_struct));
 			  new_thing->clazz = the_class_Pt;
-			  new_thing->x = x;
 			  new_thing->y = y; 
+			  new_thing->x = x;
 			  return new_thing; 
 			}
 
 			obj_Pt Pt_method_PRINT(obj_Pt this) {
 			  obj_String tmp_5 = str_literal("(");
 			  tmp_5->clazz->PRINT(tmp_5);
-			  this->x->clazz->PRINT((obj_Obj) this->x);
+			  this->x->clazz->PRINT(this->x); 
 			  obj_String tmp_6 =str_literal(",");
 			  tmp_6->clazz->PRINT(tmp_6);
 			  obj_String tmp_7 = str_literal(")");
 			  tmp_7->clazz->PRINT(tmp_7);
-			  return this;
 			}
 
 			obj_Pt Pt_method_PLUS(obj_Pt this, obj_Pt other) {
-			  obj_Int this_x = this->x;
-			  obj_Int other_x = other->x;
-			  obj_Int this_y = this->y;
-			  obj_Int other_y = other->y; 
-			  obj_Int x_sum = this_x->clazz->PLUS(this_x, other_x);
-			  obj_Int y_sum = this_y->clazz->PLUS(this_y, other_y); 
-			  return the_class_Pt->constructor(x_sum, y_sum); 
+			  obj_Int tmp_8 = other->y;
+			  obj_Int tmp_9 = this->y->clazz->PLUS(this->y, tmp_8);
+			  obj_Int tmp_10 = other->x;
+			  obj_Int tmp_11 = this->x->clazz->PLUS(this->x, tmp_10);
+			  obj_Pt tmp_12 = the_class_Pt->clazz->constructor(tmp_9, tmp_11);
+			  return tmp_12; 
 			}
 
-			/* The Pt Class (a singleton) */
 			struct  class_Pt_struct  the_class_Pt_struct = {
 			  new_Pt, 
 			  Obj_method_STR, 
 			  Pt_method_PRINT, 
 			  Obj_method_EQUALS,
-			  Pt_method_PLUS
+			  Pt_method_PLUS,
 			};
 
 			class_Pt the_class_Pt = &the_class_Pt_struct;
@@ -161,6 +158,12 @@ func TestSmall(t *testing.T) {
 
 		if code != test.res {
 			t.Log(tmp)
+			for i := 1; i <= len(code); i++ {
+				if code[i] != test.res[i] {
+					t.Log(string(code[i-50:i+1]), string(test.res[i-50:i+1]), i)
+					break
+				}
+			}
 			//t.Fatalf("not match between\n %s \n %s", code, test.res)
 		}
 	}

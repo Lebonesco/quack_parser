@@ -103,7 +103,7 @@ func genClasses(classes []ast.Class, b *bytes.Buffer, env *environment.Environme
 func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) error {
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name)) // struct class_Name_struct;
-	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s\n\n", name, name)) // typedef struct class_Name_struct* class_Name
+	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s;\n\n", name, name)) // typedef struct class_Name_struct* class_Name
 	
 	b.WriteString(fmt.Sprintf("typedef struct obj_%s_struct {\n", name))
 	b.WriteString(fmt.Sprintf("\tclass_%s clazz;\n", name))
@@ -119,7 +119,7 @@ func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) er
 
 	b.WriteString("};\n\n")
 
-	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s\n\n", name, name))
+	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s;\n\n", name, name))
 
 	// create constructor method
 	genClassConstructor(class, b)
@@ -141,7 +141,7 @@ func createSingleton(class ast.Class, b *bytes.Buffer, env *environment.Environm
 	// add fields
 	b.WriteString(fmt.Sprintf("new_%s,\n", name))
 	for _, method := range env.GetClass(environment.ObjectType(name)).MethodTable {
-		b.WriteString(fmt.Sprintf("%s_method_%s,\n", method.Base, method.Name))
+		b.WriteString(fmt.Sprintf("%s_method_%s,\n", method.Base, method.Name)) // remove last comma
 	}
 	b.WriteString("};\n\n")
 }
@@ -162,7 +162,7 @@ func genClassMethods(class ast.Class, b *bytes.Buffer, env *environment.Environm
 		b.WriteString(") {\n")
 		// generate body
 		codeGen(method.StmtBlock, b, env)
-		b.WriteString("};\n\n") // end of method
+		b.WriteString("}\n\n") // end of method
 	}
 }
 
@@ -328,6 +328,28 @@ func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Envir
 	return name, nil
 }
 
+// code generation helpers
+// assume everything is init at final type? -- this is bad?
+func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string, error) {
+	// if not used yet
+	// get type
+	objType, ok := env.Get(name)
+	if !ok {
+		
+		res := strings.Split(name, ".")
+		if len(res) == 2 { // if class field
+			return fmt.Sprintf("%s->%s", res[0], res[1]), nil
+		}
+		return name, nil
+	}
+	if _, ok := symbolTable[name]; !ok { // if not already exist init
+		b.WriteString(fmt.Sprintf("obj_%s* %s;\n", objType, name)) // obj_Type* name;
+	}
+	symbolTable[name] = true
+
+	return name, nil
+}
+
 func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	left, err := codeGen(node.Name, b, env)
 	if err != nil {
@@ -377,6 +399,7 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 	}
 
 	tmp := freshTemp()
+	// fix type
 	write(b, "obj_%s %s = %s->clazz->%s(%s, %s);\n", "Int", tmp, left, methods[node.Operator], left, right)
 
 	return tmp, nil
@@ -395,7 +418,7 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 
 	name := node.Name
 	v := freshTemp()
-	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
+	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->clazz->constructor(", name, v, name))
 
 	for i, arg := range tmp {
 		write(b, arg)
@@ -431,24 +454,17 @@ func genClassVariableCall(node *ast.ClassVariableCall, b *bytes.Buffer, env *env
 	}
 
 	tmp := freshTemp()
-	write(b, "obj_%s %s = %s.%s;\n", node.LeftType, tmp, lexpr, node.Ident)
+	if strings.Contains(node.Ident, "this.") {
+		node.Ident = strings.Replace(node.Ident, "this.", "", -1)
+	}
+
+	obj := env.GetClass(environment.ObjectType(node.LeftType))
+	kind, ok := obj.GetVariableType(node.Ident)
+	if !ok {
+		return None, fmt.Errorf("class %s not have field %s", node.LeftType, node.Ident)
+	}
+
+	write(b, "obj_%s %s = %s->%s;\n", kind, tmp, lexpr, node.Ident)
 	return tmp, nil
 
-}
-
-// code generation helpers
-// assume everything is init at final type? -- this is bad?
-func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string, error) {
-	// if not used yet
-	// get type
-	objType, ok := env.Get(name)
-	if !ok {
-		return name, nil
-	}
-	if _, ok := symbolTable[name]; !ok { // if not already exist init
-		b.WriteString(fmt.Sprintf("obj_%s* %s;\n", objType, name)) // obj_Type* name;
-	}
-	symbolTable[name] = true
-
-	return name, nil
 }

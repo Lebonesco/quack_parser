@@ -64,6 +64,11 @@ func NewObject() *Object {
 		Constructor: []Variable{}}
 }
 
+func (o *Object) GetVariableType(name string) (ObjectType, bool) {
+	val, ok := o.Variables["this."+name]
+	return val, ok
+}
+
 func (o *Object) AddMethod(name string, signature MethodSignature) {
 	signature.Name = name
 	o.MethodTable = append(o.MethodTable, signature) 

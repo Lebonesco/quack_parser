@@ -517,8 +517,6 @@ func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
 		return e, nil
 	}
 
-
-
 	cc, ok := classCall.(*ClassVariableCall)
 	if !ok {
 		mc, ok := classCall.(*MethodCall)
@@ -545,7 +543,12 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
 	}
 
-	return &ClassVariableCall{Expression: nil, Ident: "this." + string(i.Lit), Token: *i}, nil
+	tmp := "this."
+	if exp != nil {
+		tmp = exp.(string)
+	}
+	// this is problematic because expression doens't want 'this.'
+	return &ClassVariableCall{Expression: nil, Ident: tmp + string(i.Lit), Token: *i}, nil
 
 }
 
