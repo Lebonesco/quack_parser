@@ -6,8 +6,5 @@
 
 tmp = "HELLO";
 tmp = 5;
-tmp.PRINT(); 
-tmp + 5;
-tmp = "ok";
-tmp + 9;
-
+tmp.PRINT(); // works because 'Obj' have print
+tmp + 5; // fail because 'Obj' not have '+'
