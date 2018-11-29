@@ -431,8 +431,16 @@ func setSignature(class ast.Class, env *environment.Environment) *CheckError {
 	return nil
 }
 
+// might need to fix type overriding
 func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (environment.Variable, *CheckError) {
-	result := environment.Variable{Name: node.Name.Value}
+	result := environment.Variable{}
+	// check if ident already exists
+	kind, ok := env.GetType(node.Name.Value)
+	if ok {
+		result.Type = kind // if exist set type
+	}
+	result.Name = node.Name.Value // set name
+
 	right := node.Value
 
 	rightType, err := TypeCheck(right, env)
@@ -450,7 +458,15 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 			return result, createError(INCOMPATABLE_TYPES, "%s not supertype of %s", result.Type, rightType.Type)
 		}
 	} else {
-		result.Type = rightType.Type
+		// need to check if already set and if 
+		if result.Type != "" { // if not already defined
+			// get greatest common
+			fmt.Println(result.Type)
+			result.Type = env.GetLowestCommonType(result.Type, rightType.Type)
+			fmt.Println(result.Type)
+		} else {
+			result.Type = rightType.Type // set new type
+		}
 	}
 
 	env.Set(result.Name, result.Type) // set environment.Variable in environment

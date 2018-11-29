@@ -56,6 +56,12 @@ func TestSmall(t *testing.T) {
 				         return Pt(this.x+other.x, this.y+other.y); 
 				     }
 				  }
+
+				  x = 11;
+				  y = 32;
+				  pt1 = "HELLO";
+				  pt1 = Pt(x, y);
+				  pt1.PRINT();
 			`,
 			res: `
 			struct class_Pt_struct;
@@ -118,7 +124,18 @@ func TestSmall(t *testing.T) {
 			class_Pt the_class_Pt = &the_class_Pt_struct;
 
 				int main() {
-
+					obj_Int* x; 
+					obj_Int* tmp_13 = int_literal(11);
+					x = tmp_13;
+					obj_Int* y;
+					obj_Int* tmp_14 = int_literal(32);  
+					y = tmp_14;
+					obj_Obj* pt1;
+					obj_String tmp_15 = (obj_Obj) str_literal("HELLO");
+					pt1 = tmp_15;
+					obj_Obj tmp_16 = (obj_Obj) the_class_Pt->constructor(x,y);
+					pt1 = tmp_16;
+					pt1->clazz->PRINT(pt1);
 					return 0;
 				}
 

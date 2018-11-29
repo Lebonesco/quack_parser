@@ -140,6 +140,7 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 	if parent == OBJ_CLASS { // supertype for everything
 		return true
 	}
+
 	next := sub
 	for next != parent {
 		if next == OBJ_CLASS && parent != OBJ_CLASS {
@@ -186,7 +187,7 @@ func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) ObjectType {
 
 func (e *Environment) GetParentType(kind ObjectType) ObjectType {
 	if kind == OBJ_CLASS || kind == NOTHING_CLASS {
-		return kind
+		return OBJ_CLASS // this might cause problems? why NOTHING_CLASS not go to OBJ_CLASS?
 	}
 
 	return e.GetClass(e.GetClass(kind).Parent).Type
