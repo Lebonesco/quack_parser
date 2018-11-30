@@ -42,7 +42,7 @@ func write(b *bytes.Buffer, code string, args ...interface{}) {
 func CodeGen(p *ast.Program) (bytes.Buffer, error) {
 	symbolTable = map[string]string{} // clean should be cleaned from outside runs
 	var b bytes.Buffer 
-	write(&b, "#include <stdio.h>\n#include <stdlib.h>\n#include \"Builtins.h\"\n\n")
+	write(&b, "#include <stdio.h>\n#include <stdlib.h>\n#include \"Builtins.h\"\n\n") // necessary headers
 
 	parentMethodUnion(p.Classes, p.Env)
 
@@ -257,6 +257,7 @@ func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
 		}
 	}
 
+	b.WriteString("fprintf(stdout, \"--- Terminated SuccessFully (woot!) ---\");\n")
 	b.WriteString("\treturn 0;\n")
 	b.WriteString("}\n")
 
@@ -331,7 +332,7 @@ func genExpressionStatement(node *ast.ExpressionStatement, b *bytes.Buffer, env 
 
 func genInteger(node *ast.IntegerLiteral, b *bytes.Buffer) (string, error) {
 	tmp := freshTemp()
-	write(b, "obj_Int* %s = int_literal(%s);\n", tmp, string(node.Token.Lit))
+	write(b, "obj_Int %s = int_literal(%s);\n", tmp, string(node.Token.Lit))
 	return tmp, nil
 }
 
