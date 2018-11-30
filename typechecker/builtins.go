@@ -1,7 +1,7 @@
 package typechecker
 
 var BUIILT_IN_CLASSES = ` class Obj() {
-    def STR() : String { }
+    def STRING() : String { }
     def PRINT() { }
     def EQUALS(other: Obj): Boolean {} // Default is object identity
  }
@@ -32,6 +32,6 @@ var BUIILT_IN_CLASSES = ` class Obj() {
     def LESS(other: Int): Boolean { }       // <
     def ATLEAST(other: Int): Boolean { }    // >=
     def MORE(other: Int): Boolean { }       // >
-    def STR(): String {}                    // "this"
+    def STRING(): String {}                    // "this"
  }
 `

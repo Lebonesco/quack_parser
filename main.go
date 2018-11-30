@@ -10,20 +10,12 @@ import (
 	"github.com/Lebonesco/quack_parser/typechecker"
 	"github.com/Lebonesco/quack_parser/environment"
 	"github.com/Lebonesco/quack_parser/ast"
-	//"github.com/Lebonesco/quack_parser/codegen"
+	"github.com/Lebonesco/quack_parser/codegen"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 )
-
-func printGood(messsage string) {
-	// print good messages
-}
-
-func printBad(message string) {
-	// print bad messages
-}
 
 func format(e *errors.Error) string {
 	w := new(bytes.Buffer)
@@ -32,6 +24,12 @@ func format(e *errors.Error) string {
 		fmt.Fprintf(w, "'%s' ", sym)
 	}
 	return w.String()
+}
+
+func check(e error) {
+	if e != nil {
+		panic(e)
+	}
 }
 
 func main() {
@@ -43,9 +41,7 @@ func main() {
 	path := os.Args[1]
 	absPath, _ := filepath.Abs(path)
 	data, err := ioutil.ReadFile(absPath)
-	if err != nil {
-		panic(err)
-	}
+	check(err)
 
 	l := lexer.NewLexer([]byte(data))
 	p := parser.NewParser()
@@ -65,15 +61,16 @@ func main() {
 		fmt.Println("checking errors")
 		fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
 	}
-	fmt.Println("Checking is completed")
+	fmt.Println("Checking is successful")
 	fmt.Println("Starting code compilation...")
 
 	//fileName := "main"
 
-	// code, err := CodeGen(program) 
-	// if err != nil {
-	// 	fmt.Println(err.Error())
-	// }
+	code, err := codegen.CodeGen(program) 
+	check(err)
+
+	err = ioutil.WriteFile("./build/main.c", code.Bytes(), 0644)
+	check(err)
 
 	//write code to file
 

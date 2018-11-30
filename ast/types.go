@@ -141,6 +141,7 @@ type InfixExpression struct {
 	Left     Expression
 	Operator string
 	Right    Expression
+	Type string
 }
 
 type PrefixExpression struct {

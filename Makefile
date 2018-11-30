@@ -6,6 +6,7 @@ GOGET=$(GOCMD) get
 GENERATOR=quack.bnf
 GENERATE=../../../../bin/gocc
 BINARY_NAME=scanner
+NO_WARNINGS=-w
 
 
 all: test build run
@@ -25,8 +26,7 @@ run:
 	 $(GENERATE) $(GENERATOR) # create lexer and parser
 	$(GOBUILD) -o $(BINARY_NAME) -v # build program
 	./$(BINARY_NAME) $(file) # run compiler
-	gcc ./build/main # execute C code
-	rm ./build/main.exe # remove main executable
+	gcc $(NO_WARNINGS) ./build/main.c ./build/Builtins.c ./build/Builtins.h
 
 
 deps:

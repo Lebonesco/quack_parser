@@ -682,9 +682,10 @@ func evalInfixExpression(node *ast.InfixExpression, env *environment.Environment
 
 	switch node.Operator { // evaluates to a bool
 	case "<", ">", "<=", ">=", "==", "!=", "and", "or":
+		node.Type = string(left.Type)
 		return environment.Variable{Type: environment.BOOL_CLASS}, nil
 	}
-
+	node.Type = string(left.Type)
 	return left, nil
 }
 

@@ -31,30 +31,32 @@ var EXIT_COUNT int
 var Indent string // tracks indentation
 
 // when handling class, clean when exist
-var symbolTable = map[string]bool{}
+var symbolTable = map[string]string{}
 
 // write c code to buffer
 func write(b *bytes.Buffer, code string, args ...interface{}) {
 	b.WriteString(fmt.Sprintf(code, args...))
 }
 
-func CodeGen(p *ast.Program) (string, error) {
+func CodeGen(p *ast.Program) (bytes.Buffer, error) {
+	symbolTable = map[string]string{} // clean should be cleaned from outside runs
 	var b bytes.Buffer 
+	write(&b, "#include <stdio.h>\n#include <stdlib.h>\n#include \"Builtins.h\"\n\n")
 
 	parentMethodUnion(p.Classes, p.Env)
 
 	err := genClasses(p.Classes, &b, p.Env)
 	if err != nil {
-		return b.String(), err
+		return b, err
 	}
 
 	// generate statements
 	err = genMain(p.Statements, &b)
 	if err != nil {
-		return b.String(), nil
+		return b, nil
 	}
 
-	return b.String(), nil
+	return b, nil
 }
 
 func parentMethodUnion(classes []ast.Class, env *environment.Environment) {
@@ -218,6 +220,10 @@ func genClassConstructor(class ast.Class, b *bytes.Buffer) {
 }
 
 func genClassVariables(stmts []ast.Statement, b *bytes.Buffer) {
+	if len(stmts) <= 0 {
+		return
+	}
+
 	env := stmts[0].GetEnvironment()
 	for k, tp := range env.Vals {
 		if strings.HasPrefix(k, "this.") {
@@ -323,10 +329,8 @@ func genString(node *ast.StringLiteral, b *bytes.Buffer) (string, error) {
 
 func genBoolean(node *ast.Boolean, b *bytes.Buffer) (string, error) {
 	if node.Value {
-		b.WriteString("lit_true")
 		return "lit_true", nil
 	} else {
-		b.WriteString("lit_false")
 		return "lit_false", nil
 	}
 	return None, nil
@@ -337,6 +341,7 @@ func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Envir
 	if err != nil {
 		return None, err
 	}
+
 	return name, nil
 }
 
@@ -347,7 +352,6 @@ func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string
 	// get type
 	objType, ok := env.Get(name)
 	if !ok {
-		
 		res := strings.Split(name, ".")
 		if len(res) == 2 { // if class field
 			return fmt.Sprintf("%s->%s", res[0], res[1]), nil
@@ -355,15 +359,15 @@ func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string
 		return name, nil
 	}
 	if _, ok := symbolTable[name]; !ok { // if not already exist init
-		b.WriteString(fmt.Sprintf("obj_%s* %s;\n", objType, name)) // obj_Type* name;
+		b.WriteString(fmt.Sprintf("obj_%s %s;\n", objType, name)) // obj_Type* name;
 	}
-	symbolTable[name] = true
+	symbolTable[name] = string(objType)
 
 	return name, nil
 }
 
 func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
-	left, err := codeGen(node.Name, b, env)
+	left, err := codeGen(node.Name, b, node.Env)
 	if err != nil {
 		return None, err
 	}
@@ -373,8 +377,13 @@ func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.E
 		return None, err
 	}
 
-	lType, _ := env.Get(node.Name.Value) // might need to change this to get correct value if not ident?
-	write(b, Indent + "%s =%s%s;\n", left, convertType(string(lType), node.RightType), right)
+	kind := node.LeftType
+	if k, ok := symbolTable[node.Name.Value]; ok {
+		kind = k
+	}
+
+
+	write(b,"%s =%s%s;\n", left, convertType(kind, node.RightType), right)
 	return None, nil
 }
 
@@ -405,7 +414,7 @@ func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Env
 
 	cond, _ := codeGen(node.Condition, b, env)
 
-	write(b, "if 1 == %s->_bool_value {\n", cond)
+	write(b, "if (1 == %s->value) {\n", cond)
 	write(b, "\tgoto %s;\n", codeLabel)
 	write(b, "} else {\n")
 
@@ -420,11 +429,11 @@ func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Env
 		write(b, "goto %s;\n}\n", exitLabel)
 	}
 
-	write(b, "%s:\n", codeLabel)
+	write(b, "%s: ;\n", codeLabel)
 	_, _ = codeGen(node.Consequence, b, env) // generate code
 	write(b, "goto %s;\n\n", exitLabel)
 
-	write(b, "%s:\n\n", exitLabel) // end of statement
+	write(b, "%s: ;\n\n", exitLabel) // end of statement
 	return None, nil
 }
 
@@ -450,8 +459,13 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 	}
 
 	tmp := freshTemp()
-	// fix type
-	write(b, "obj_%s %s = %s->clazz->%s(%s, %s);\n", "Int", tmp, left, methods[node.Operator], left, right)
+	// get type method returns
+	method, ok := env.GetClassMethod(environment.ObjectType(node.Type), methods[node.Operator])
+	if !ok {
+		fmt.Println(node.Type, methods[node.Operator])
+		return None, nil
+	}
+	write(b, "obj_%s %s = %s->clazz->%s(%s, %s);\n", method.Return, tmp, left, methods[node.Operator], left, right)
 
 	return tmp, nil
 }
