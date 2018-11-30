@@ -303,6 +303,14 @@ obj_Boolean Int_method_LESS(obj_Int this, obj_Int other) {
   return lit_false;
 }
 
+/* MORE (new method) */ 
+obj_Boolean Int_method_MORE(obj_Int this, obj_Int other) {
+  if (this->value > other->value) {
+    return lit_true;
+  }
+  return lit_false;
+}
+
 /* PLUS (new method) */
 obj_Int Int_method_PLUS(obj_Int this, obj_Int other) {
   return int_literal(this->value + other->value);
@@ -315,6 +323,7 @@ struct  class_Int_struct  the_class_Int_struct = {
   Obj_method_PRINT, 
   Int_method_EQUALS,
   Int_method_LESS,
+  Int_method_MORE,
   Int_method_PLUS
 };
 
