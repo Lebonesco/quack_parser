@@ -26,8 +26,8 @@ run:
 	 $(GENERATE) $(GENERATOR) # create lexer and parser
 	$(GOBUILD) -o $(BINARY_NAME) -v # build program
 	./$(BINARY_NAME) $(file) # run compiler
-	gcc $(NO_WARNINGS) ./build/main.c ./build/Builtins.c ./build/Builtins.h
-
+	gcc $(NO_WARNINGS) -o main ./build/main.c ./build/Builtins.c ./build/Builtins.h
+	./build/main
 
 deps:
 	$(GOGET) github.com/goccmack/gocc

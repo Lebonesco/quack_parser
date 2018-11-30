@@ -162,6 +162,7 @@ func genClassMethods(class ast.Class, b *bytes.Buffer, env *environment.Environm
 		b.WriteString(fmt.Sprintf("obj_%s this", name))
 		for _, arg := range method.Args {
 			b.WriteString(fmt.Sprintf(", obj_%s %s", arg.Type, arg.Arg))
+			symbolTable[arg.Arg] = arg.Type // so that can be referenced below? or handled by environment
 		}
 		b.WriteString(") {\n")
 		// generate body
@@ -350,6 +351,10 @@ func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Envir
 func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string, error) {
 	// if not used yet
 	// get type
+	if _, ok := symbolTable[name]; ok { // if ident already established
+		return name, nil
+	}
+
 	objType, ok := env.Get(name)
 	if !ok {
 		res := strings.Split(name, ".")
@@ -358,7 +363,13 @@ func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string
 		}
 		return name, nil
 	}
+
 	if _, ok := symbolTable[name]; !ok { // if not already exist init
+		res := strings.Split(name, ".")
+		if len(res) == 2 { // if class field
+			name = res[0] + "->" + res[1]
+			return name, nil
+		}
 		b.WriteString(fmt.Sprintf("obj_%s %s;\n", objType, name)) // obj_Type* name;
 	}
 	symbolTable[name] = string(objType)
@@ -483,7 +494,7 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 
 	name := node.Name
 	v := freshTemp()
-	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->clazz->constructor(", name, v, name))
+	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
 
 	for i, arg := range tmp {
 		write(b, arg)
@@ -503,13 +514,35 @@ func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Envir
 	if err != nil {
 		return None, err
 	}
+
+	// handle params
+	tmp := make([]string, len(node.Args)) // contain Class parameters
+
+	for i, arg := range node.Args {
+		res, err := codeGen(arg, b, env)
+		if err != nil {
+			return None, err
+		}
+		tmp[i] = res
+	}
+
+	register := freshTemp()
+	// get type method returns
+	meth, ok := env.GetClassMethod(environment.ObjectType(node.LeftType), method)
+	if !ok {
+		return None, nil
+	}
+
 	// check if inherits
-	write(b, "%s->clazz->%s(%s", lexpr, method, lexpr)
+		write(b, "obj_%s %s = %s->clazz->%s(%s", meth.Return, register, lexpr, method, lexpr)
 	// method params 
+	for _, arg := range tmp {
+		write(b, ",%s", arg)
+	}
 
 	b.WriteString(");\n")
 
-	return None, nil
+	return register, nil
 }
 
 func genClassVariableCall(node *ast.ClassVariableCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
