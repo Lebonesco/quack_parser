@@ -7,12 +7,14 @@ import (
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/typechecker"
 	"github.com/Lebonesco/quack_parser/environment"
+	"github.com/Lebonesco/quack_parser/codegen"
 	"io/ioutil"
+	"os"
+	"os/exec"
 	"testing"
 )
 
 const DIR = "./samples"
-
 
 var results = map[string]string{
 	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
@@ -53,7 +55,6 @@ var results = map[string]string{
 	"subclass_method_return_mismatch.qk": typechecker.INVALID_RETURN_TYPE,
 	//"TypeWalk.qk": typechecker.METHOD_NOT_EXIST,
 	"joseph_test_6.qk": typechecker.INCOMPATABLE_TYPES}
-
 
 func TestFiles(t *testing.T) {
 	counter := 0
@@ -96,6 +97,28 @@ func TestFiles(t *testing.T) {
 			t.Errorf(file.Name() + ": " + "should be " + string(val))
 			counter += 1
 		}
+
+		// code generatinon
+		code, err := codegen.CodeGen(program) 
+		check(err)
+
+		 f, err := os.Create("./code_dump/" + file.Name() + ".c")
+    	check(err)
+
+    	defer f.Close()
+    	f.Write(code.Bytes())
+
+    	//var out []byte
+    	if err := exec.Command("gcc", "./build/main.c", "./build/Builtins.c", "./build.Builtins.h").Run(); err != nil {
+    		//fmt.Println(string(out))
+    		//t.Errorf(err.Error())
+    		//break
+    	}
+
+    	if err := exec.Command("./build/main").Run(); err != nil {
+    		t.Errorf(err.Error())
+    	}
+
 	}
 	t.Log(counter)
 }

@@ -272,8 +272,8 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) (stri
 		return genReturnStatement(node, b, env)
 	case *ast.IfStatement:
 		return genIfStatement(node, b, env)
-	// case *ast.WhileStatement:
-	// 	return genWhileStatement(node, b, env)
+	case *ast.WhileStatement:
+		return genWhileStatement(node, b, env)
 	case *ast.ExpressionStatement:
 		return genExpressionStatement(node, b, env)
 	// case *ast.TypecaseStatement:
@@ -468,6 +468,20 @@ func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Env
 	write(b, "goto %s;\n\n", exitLabel)
 
 	write(b, "%s: ;\n\n", exitLabel) // end of statement
+	return None, nil
+}
+
+func genWhileStatement(node *ast.WhileStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	test := freshLabel()
+	again := freshLabel()
+	write(b, "goto %s;\n", test)
+	write(b, "%s: ;\n", again)
+	// generate code
+	codeGen(node.BlockStatement, b, env)
+	cond, _ := codeGen(node.Cond, b, env)
+	write(b, "%s: ;\n", test)
+	write(b, "if (1 == %s->value) {\n", cond)
+	write(b, "\tgoto %s;\n}\n", again)
 	return None, nil
 }
 
