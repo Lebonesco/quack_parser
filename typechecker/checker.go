@@ -529,6 +529,7 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 	union := environment.GetUnion(newEnv1, newEnv2)
 	for k := range union {
 		env.Set(k, union[k])
+		node.SharedArgs = append(node.SharedArgs, ast.FormalArgs{Arg: k, Type: string(union[k])}) // track shared in node for code gen
 	}
 
 	// check for 'return' handling

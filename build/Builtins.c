@@ -113,12 +113,30 @@ obj_Boolean String_method_EQUALS(obj_String this, obj_Obj other) {
   }
 }
 
+/* String:PLUS */
+obj_String String_method_PLUS(obj_String this, obj_Obj other) { // added
+  obj_String other_string = (obj_String) other; 
+  /* But is it? */
+  if (other_string->clazz != this->clazz) {
+    return lit_false;
+  }
+
+  int newSize = strlen(this->text) + strlen(other_string->text);
+  char *newBuffer = (char*)malloc(newSize);
+  strcpy(newBuffer, this->text);
+  strcat(newBuffer, other_string->text);
+
+  obj_String res = str_literal(newBuffer);
+  return res;
+}
+
 /* The String Class (a singleton) */
 struct  class_String_struct  the_class_String_struct = {
   new_String,     /* Constructor */
   String_method_STRING, 
   String_method_PRINT, 
-  String_method_EQUALS
+  String_method_EQUALS, // added
+  String_method_PLUS
 };
 
 class_String the_class_String = &the_class_String_struct; 

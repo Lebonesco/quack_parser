@@ -156,6 +156,7 @@ type IfStatement struct {
 	Consequence *BlockStatement
 	Alternative *Statement
 	Env *environment.Environment
+	SharedArgs []FormalArgs // tracks shared idents
 }
 
 type FunctionLiteral struct {

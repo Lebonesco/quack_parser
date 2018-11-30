@@ -29,6 +29,7 @@ var TMP_COUNT int // track temp count
 var LABEL_COUNT int
 var EXIT_COUNT int
 var Indent string // tracks indentation
+var fieldTable = map[string]string{}
 
 // when handling class, clean when exist
 var symbolTable = map[string]string{}
@@ -126,7 +127,7 @@ func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) er
 	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s;\n\n", name, name))
 
 	// create constructor method
-	genClassConstructor(class, b)
+	genClassConstructor(class, b, env)
 
 	// generator class methods
 	genClassMethods(class, b, env)
@@ -199,7 +200,7 @@ func genClassMethodTable(class ast.Class, b *bytes.Buffer, env *environment.Envi
 }
 
 // generates class constructor function
-func genClassConstructor(class ast.Class, b *bytes.Buffer) {
+func genClassConstructor(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("obj_%s new_%s(", name, name))
 	for i, arg := range class.Signature.Args {
@@ -212,10 +213,22 @@ func genClassConstructor(class ast.Class, b *bytes.Buffer) {
 	b.WriteString(") {\n")
 	b.WriteString(fmt.Sprintf("\tobj_%s new_thing = (obj_%s) malloc(sizeof(struct obj_%s_struct));\n", name, name, name))
 	b.WriteString(fmt.Sprintf("\tnew_thing->clazz = the_class_%s;\n", name))
-	for _, arg := range class.Signature.Args {
-		b.WriteString(fmt.Sprintf("\tnew_thing->%s = %s;\n", arg.Arg, arg.Arg))
-		
+	// how to handle constructor work?
+
+	obj := env.GetClass(environment.ObjectType(class.Signature.Name))
+	// for _, arg := range class.Signature.Args {
+	// 	b.WriteString(fmt.Sprintf("\tnew_thing->%s = %s;\n", arg.Arg, arg.Arg))
+	// }
+	for k, _ := range obj.Variables {
+		fieldTable[k] = fmt.Sprintf("new_thing->%s",strings.Replace(k, "this.", "", -1))
 	}
+
+	for _, stmt := range class.Body.Statements {
+		codeGen(stmt, b, env)
+	}
+
+	fieldTable = map[string]string{} // clean
+
 	b.WriteString("\treturn new_thing;\n")
 	b.WriteString("}\n\n")
 }
@@ -349,6 +362,10 @@ func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Envir
 // code generation helpers
 // assume everything is init at final type? -- this is bad?
 func InitVar(name string, env *environment.Environment, b *bytes.Buffer) (string, error) {
+	if res, ok := fieldTable[name]; ok { // handle constructor
+		return res, nil
+	}
+
 	// if not used yet
 	// get type
 	if _, ok := symbolTable[name]; ok { // if ident already established
@@ -422,6 +439,12 @@ func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Env
 	//condLabel := freshLabel()
 	exitLabel := freshExit()
 	codeLabel := freshLabel()
+
+	// handle idents defined in both parts
+	for _, arg := range node.SharedArgs {
+		env.Set(arg.Arg, environment.ObjectType(arg.Type)) // set in environment
+		InitVar(arg.Arg, env, b)
+	}
 
 	cond, _ := codeGen(node.Condition, b, env)
 

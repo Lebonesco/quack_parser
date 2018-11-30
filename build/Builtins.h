@@ -94,6 +94,7 @@ struct class_String_struct {
   obj_String (*STRING) (obj_String);
   obj_String (*PRINT) (obj_String);
   obj_Boolean (*EQUALS) (obj_String, obj_Obj);
+  obj_String  (*PLUS) (obj_String, obj_Obj);
   /* Method table: Introduced in String */
   obj_Boolean (*LESS) (obj_String, obj_String); 
 };
