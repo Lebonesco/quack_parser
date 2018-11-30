@@ -26,6 +26,8 @@ const (
 const None = "none"
 
 var TMP_COUNT int // track temp count
+var LABEL_COUNT int
+var EXIT_COUNT int
 var Indent string // tracks indentation
 
 // when handling class, clean when exist
@@ -248,8 +250,8 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) (stri
 		return genBlockStatement(node, b, env)
 	case *ast.ReturnStatement:
 		return genReturnStatement(node, b, env)
-	// case *ast.IfStatement:
-	// 	return genIfStatement(node, b, env)
+	case *ast.IfStatement:
+		return genIfStatement(node, b, env)
 	// case *ast.WhileStatement:
 	// 	return genWhileStatement(node, b, env)
 	case *ast.ExpressionStatement:
@@ -283,6 +285,16 @@ func codeGen(node ast.Node, b *bytes.Buffer, env *environment.Environment) (stri
 func freshTemp() string {
 	TMP_COUNT += 1
 	return fmt.Sprintf("tmp_%d", TMP_COUNT)
+}
+
+func freshLabel() string {
+	LABEL_COUNT += 1
+	return fmt.Sprintf("label_%d", LABEL_COUNT)
+}
+
+func freshExit() string {
+	EXIT_COUNT += 1
+	return fmt.Sprintf("exit_%d", EXIT_COUNT)
 }
 
 func genExpressionStatement(node *ast.ExpressionStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
@@ -383,6 +395,36 @@ func genBlockStatement(node *ast.BlockStatement, b *bytes.Buffer, env *environme
 		}
 	}
 	Indent = Indent[:len(Indent)-1]
+	return None, nil
+}
+
+func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
+	//condLabel := freshLabel()
+	exitLabel := freshExit()
+	codeLabel := freshLabel()
+
+	cond, _ := codeGen(node.Condition, b, env)
+
+	write(b, "if 1 == %s->_bool_value {\n", cond)
+	write(b, "\tgoto %s;\n", codeLabel)
+	write(b, "} else {\n")
+
+	// check if alternative statement
+	if *node.Alternative == nil {
+		write(b, "goto %s;\n}\n", exitLabel) // if no more conditions
+	} 
+
+	if *node.Alternative != nil { // more conditional blocks
+		// do stuff
+		codeGen(*node.Alternative, b, env)
+		write(b, "goto %s;\n}\n", exitLabel)
+	}
+
+	write(b, "%s:\n", codeLabel)
+	_, _ = codeGen(node.Consequence, b, env) // generate code
+	write(b, "goto %s;\n\n", exitLabel)
+
+	write(b, "%s:\n\n", exitLabel) // end of statement
 	return None, nil
 }
 

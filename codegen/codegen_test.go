@@ -138,12 +138,70 @@ func TestSmall(t *testing.T) {
 					pt1->clazz->PRINT(pt1);
 					return 0;
 				}
-
 			`},
-			// {
-			// 	src: ``,
-			// 	res ``
-			// },
+			{
+				src: `
+					x = 5;
+					if x < 9 {
+						x = x + 100;
+					}
+
+					if x > 100 {
+						y = "hello";
+					} else {
+						y = "goodbye";
+					}
+					z = y + " " + "Tom";
+					z.PRINT();
+				`,
+				res: `
+					int main() {
+						obj_Int* tmp_17 = int_literal(5);
+						x = tmp_17;
+						obj_Int* tmp_18 = int_literal(9);
+						obj_Int tmp_19 = x->clazz->LESS(x, tmp_18);
+
+						if 1 == tmp_19->_bool_value {
+							goto label_1;
+						} else {
+							goto exit_1;
+						}
+
+						label_1:
+							obj_Int* tmp_20 = int_literal(100);
+							obj_Int tmp_21 = x->clazz->PLUS(x, tmp_20);
+							x = tmp_21;
+							goto exit_1;
+						exit_1:
+
+						obj_Int* tmp_22 = int_literal(100);
+						obj_Int tmp_23 = x->clazz->MORE(x, tmp_22);
+						if 1 == tmp_23->_bool_value {
+							goto label_2;
+						} else {
+							obj_String tmp_24 = str_literal("goodbye");
+							y = tmp_24;
+							goto exit_2;
+						}
+
+						label_2:
+							obj_String tmp_25 = str_literal("hello");
+							y= tmp_25;
+							goto exit_2;
+
+						exit_2:
+
+						obj_String *z;
+						obj_String tmp_26 = str_literal(" ");
+						obj_Int tmp_27 = y->clazz->PLUS(y, tmp_26);
+						obj_String tmp_28 = str_literal("Tom");
+				        obj_Int tmp_29 = tmp_27->clazz->PLUS(tmp_27, tmp_28);
+				        z = tmp_29;
+				        z->clazz->PRINT(z);
+				        return 0;
+					}
+
+				`},
 	}
 
 	for i, test := range tests {
@@ -181,7 +239,7 @@ func TestSmall(t *testing.T) {
 			t.Log(tmp)
 			for i := 1; i <= len(code); i++ {
 				if code[i] != test.res[i] {
-					t.Log(string(code[i-50:i+1]), string(test.res[i-50:i+1]), i)
+					t.Log(string(code[i-5:i+1]), string(test.res[i-5:i+1]), i)
 					break
 				}
 			}

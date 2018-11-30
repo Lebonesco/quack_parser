@@ -10,11 +10,20 @@ import (
 	"github.com/Lebonesco/quack_parser/typechecker"
 	"github.com/Lebonesco/quack_parser/environment"
 	"github.com/Lebonesco/quack_parser/ast"
+	//"github.com/Lebonesco/quack_parser/codegen"
 	"io/ioutil"
 	"log"
 	"os"
 	"path/filepath"
 )
+
+func printGood(messsage string) {
+	// print good messages
+}
+
+func printBad(message string) {
+	// print bad messages
+}
 
 func format(e *errors.Error) string {
 	w := new(bytes.Buffer)
@@ -57,6 +66,16 @@ func main() {
 		fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
 	}
 	fmt.Println("Checking is completed")
+	fmt.Println("Starting code compilation...")
+
+	//fileName := "main"
+
+	// code, err := CodeGen(program) 
+	// if err != nil {
+	// 	fmt.Println(err.Error())
+	// }
+
+	//write code to file
 
 	fmt.Println("compiler is done...")
 }
