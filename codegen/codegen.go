@@ -544,7 +544,7 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 		signature, _ := obj.GetMethod(name)
 		ret := signature.Return
 
-		write(b, "obj_%s %s = the_class_%s->clazz->%s(", ret, v, class, name)
+		write(b, "obj_%s %s = the_class_%s->%s(the_class_%s", ret, v, class, name, class)
 	}
 
 	for i, arg := range tmp {
