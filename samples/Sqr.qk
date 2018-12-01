@@ -6,9 +6,9 @@ class Pt(x: Int, y: Int) {
   this.x = x;
   this.y = y;
 
-  def STR() : String {
-      return "(" + this.x.STR() + "," 
-                 + this.y.STR() + ")";
+  def STRING() : String {
+      return "(" + this.x.STRING() + "," 
+                 + this.y.STRING() + ")";
   }
 
   def PLUS(other: Pt) : Pt {
@@ -25,13 +25,13 @@ class Rect(ll: Pt, ur: Pt) extends Obj {
 
   def translate(delta: Pt) : Rect { return Rect(this.ll+Pt(1,1), this.ur+Pt(1,1)); }
 
-  def STR() : String {
+  def STRING() : String {
       lr = Pt( this.ur._y(), this.ll._x() );  // lower right 
       ul = Pt( this.ll._x(), this.ur._y() );  // upper left
-      return "(" + this.ll.STR() + ", "
-                 +      ul.STR() + "," 
-                 + this.ur.STR() + ","
-                 +      lr.STR() + ")";
+      return "(" + this.ll.STRING() + ", "
+                 +      ul.STRING() + "," 
+                 + this.ur.STRING() + ","
+                 +      lr.STRING() + ")";
   }
 }
 
@@ -43,3 +43,4 @@ class Square(ll: Pt, side: Int) extends Rect {
 a_square = Square( Pt(3,3), 5 );
 a_square = a_square.translate( Pt(2,2) );
 a_square.PRINT();
+"HELLO\n".PRINT();

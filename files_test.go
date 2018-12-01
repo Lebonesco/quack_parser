@@ -6,16 +6,19 @@ import (
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/typechecker"
+	"github.com/Lebonesco/quack_parser/environment"
+	"github.com/Lebonesco/quack_parser/codegen"
 	"io/ioutil"
+	"os"
+	"os/exec"
 	"testing"
+	"bytes"
 )
 
 const DIR = "./samples"
 
-
 var results = map[string]string{
 	"Pt_missing_fields.qk": typechecker.CREATE_CLASS_FAIL,
-	"SqrDeclEQ.qk": typechecker.INCOMPATABLE_TYPES, // should be method not exist
 	"circular_dependency.qk": typechecker.CLASS_CYCLE,
 	"duplicate_class.qk": typechecker.DUPLICATE_CLASS,
 	"invalid_super.qk": typechecker.CLASS_NOT_EXIST,
@@ -51,8 +54,8 @@ var results = map[string]string{
 	"simple_overridingmethod_bad_numberargs.qk": typechecker.INCORRECT_ARGUMENT_COUNT,
 	"simple_method_return_bad_wrongtype.qk": typechecker.INVALID_RETURN_TYPE,
 	"subclass_method_return_mismatch.qk": typechecker.INVALID_RETURN_TYPE,
-	"TypeWalk.qk": typechecker.METHOD_NOT_EXIST}
-
+	//"TypeWalk.qk": typechecker.METHOD_NOT_EXIST,
+	"joseph_test_6.qk": typechecker.INCOMPATABLE_TYPES}
 
 func TestFiles(t *testing.T) {
 	counter := 0
@@ -62,6 +65,10 @@ func TestFiles(t *testing.T) {
 	}
 
 	for i, file := range files {
+		if file.Name() == "sort.qk" {
+			continue
+		}
+
 		fmt.Printf("Testing file %d/%d - %s\n", i+1, len(files), file.Name())
 		data, err := ioutil.ReadFile(DIR + "/" + file.Name())
 		if err != nil {
@@ -80,7 +87,7 @@ func TestFiles(t *testing.T) {
 
 		program, _ := res.(*ast.Program)
 
-		env := typechecker.CreateEnvironment() // create new environment
+		env := environment.CreateEnvironment() // create new environment
 		_ , typeErr := typechecker.TypeCheck(program, env)
 		if typeErr != nil {
 			if val, ok := results[file.Name()]; ok && typeErr.Type == val {
@@ -95,6 +102,39 @@ func TestFiles(t *testing.T) {
 			t.Errorf(file.Name() + ": " + "should be " + string(val))
 			counter += 1
 		}
+
+		// code generatinon
+		code, err := codegen.CodeGen(program) 
+		check(err)
+
+		 //f, err := os.Create("./code_dump/" + file.Name() + ".c")
+		f, err := os.Create("./build/main.c")
+    	check(err)
+
+    	defer f.Close()
+    	f.Write(code.Bytes())
+
+    	var out bytes.Buffer
+    	cmd1 := exec.Command("gcc", "-w", "./build/main.c", "./build/Builtins.c", "./build/Builtins.h")
+    	cmd1.Stderr = &out
+    	cmd1.Run()
+    	if len(out.String()) != 0 {
+    		fmt.Println("error: ", out.String())
+    		counter += 1
+    		continue
+    	}
+
+    	cmd := exec.Command("./a.exe")
+    	var outb, errb bytes.Buffer
+    	cmd.Stdout = &outb
+    	cmd.Stderr = &errb
+    	err = cmd.Run()
+
+    	if err != nil {
+    		t.Fatalf(err.Error())
+    	}
+    	fmt.Println("out:", outb.String(), "error: ", errb.String())
+
 	}
 	t.Log(counter)
 }

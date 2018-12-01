@@ -5,3 +5,12 @@
  */
  42;
  
+ x = 5 + 6;
+ x.PRINT();
+ "\n".PRINT();
+ y = x + 8;
+ y.PRINT();
+  "\n".PRINT();
+ x = y + 1;
+ x.PRINT();
+  "\n".PRINT();

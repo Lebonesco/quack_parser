@@ -2,6 +2,7 @@ package ast
 
 import (
 	"github.com/Lebonesco/quack_parser/token"
+	"github.com/Lebonesco/quack_parser/environment"
 )
 
 type Attrib interface{}
@@ -16,6 +17,7 @@ type Node interface {
 type Statement interface {
 	Node
 	statementNode()
+	GetEnvironment() *environment.Environment
 }
 
 // all expression nodes
@@ -27,6 +29,7 @@ type Expression interface {
 type Program struct {
 	Classes    []Class
 	Statements []Statement
+	Env *environment.Environment
 }
 
 // Statements
@@ -34,34 +37,42 @@ type LetStatement struct {
 	Token token.Token // token.Let token
 	Name  *Identifier
 	Value Expression
+	LeftType string
+	RightType string
 	Kind  string
+	Env *environment.Environment
 }
 
 type WhileStatement struct {
 	Token          token.Token // token while
 	Cond           Expression
 	BlockStatement *BlockStatement
+	Env *environment.Environment
 }
 
 type ReturnStatement struct {
 	Token       token.Token // 'return' token
 	ReturnValue Expression
+	Env *environment.Environment
 }
 
 type ExpressionStatement struct {
 	Token      token.Token
 	Expression Expression
+	Env *environment.Environment
 }
 
 type BlockStatement struct {
 	Token      token.Token
 	Statements []Statement
+	Env *environment.Environment
 }
 
 type TypecaseStatement struct {
 	Token      token.Token // 'typecase'
 	Expression Expression
 	TypeAlt    []TypeAlt
+	Env *environment.Environment
 }
 
 type TypeAlt struct {
@@ -130,6 +141,7 @@ type InfixExpression struct {
 	Left     Expression
 	Operator string
 	Right    Expression
+	Type string
 }
 
 type PrefixExpression struct {
@@ -143,6 +155,8 @@ type IfStatement struct {
 	Condition   Expression
 	Consequence *BlockStatement
 	Alternative *Statement
+	Env *environment.Environment
+	SharedArgs []FormalArgs // tracks shared idents
 }
 
 type FunctionLiteral struct {
@@ -158,12 +172,6 @@ type FunctionCall struct {
 	Args  []Expression
 }
 
-// type MethodExpression struct {
-// 	Token      token.Token
-// 	Expression Expression
-// 	Ident      string
-// }
-
 type StringEscapeError struct {
 	Token token.Token // string escape error
 	Value string
@@ -174,12 +182,14 @@ type StringEscapeError struct {
 type ClassVariableCall struct {
 	Token token.Token 
 	Expression Expression // left Side, this will be recursive
+	LeftType string
 	Ident string // class var name
 }
 
 type MethodCall struct {
 	Token token.Token
 	Variable Expression // left Side, this will be recursive
+	LeftType string
 	Method string // method name
 	Args []Expression // args that go into method params
 }

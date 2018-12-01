@@ -4,6 +4,7 @@ import (
 	"fmt"
 	_ "github.com/Lebonesco/quack_parser/errors"
 	"github.com/Lebonesco/quack_parser/token"
+	"github.com/Lebonesco/quack_parser/environment"
 	"strconv"
 )
 
@@ -23,31 +24,35 @@ func (p *Program) TokenLiteral() string {
 
 func (ls *LetStatement) statementNode()       {}
 func (ls *LetStatement) TokenLiteral() string { return "LetStatement" }
+func (ls *LetStatement) GetEnvironment() *environment.Environment { return ls.Env }
 
 func (rs *ReturnStatement) statementNode()       {}
 func (rs *ReturnStatement) TokenLiteral() string { return "ReturnStatement" }
+func (rs *ReturnStatement) GetEnvironment() *environment.Environment { return rs.Env }
 
 func (es *ExpressionStatement) statementNode()       {}
 func (es *ExpressionStatement) TokenLiteral() string { return "ExpressionStatement" }
+func (es *ExpressionStatement) GetEnvironment() *environment.Environment { return es.Env }
 
 func (w *WhileStatement) statementNode()       {}
 func (w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
+func (w *WhileStatement) GetEnvironment() *environment.Environment { return w.Env }
 
 func (is *IfStatement) statementNode()       {}
 func (is *IfStatement) TokenLiteral() string { return "IfStatement" }
+func (is *IfStatement) GetEnvironment() *environment.Environment { return is.Env }
 
 func (bs *BlockStatement) statementNode()       {}
 func (bs *BlockStatement) TokenLiteral() string { return "BlockStatement" }
+func (bs *BlockStatement) GetEnvironment() *environment.Environment { return bs.Env }
 
 func (tc *TypecaseStatement) statementNode()       {}
 func (tc *TypecaseStatement) TokenLiteral() string { return "TypecaseStatement" }
+func (tc *TypecaseStatement) GetEnvironment() *environment.Environment { return tc.Env }
 
 // Expressions
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return string(i.Token.Lit) }
-func (i *Identifier) Json() node {
-	return node{i.TokenLiteral(): nil}
-}
 
 func (sl *StringLiteral) expressionNode()      {}
 func (sl *StringLiteral) TokenLiteral() string { return string(sl.Token.Lit) }
@@ -352,7 +357,7 @@ func NewIntLiteral(integer Attrib) (Expression, error) {
 }
 
 func NewStringLiteral(str Attrib) (Expression, error) {
-	return &StringLiteral{Value: string(str.(*token.Token).Lit)}, nil
+	return &StringLiteral{Value: string(str.(*token.Token).Lit), Token: *str.(*token.Token)}, nil
 }
 
 func NewIdentifier(ident Attrib) (*Identifier, error) {
@@ -512,8 +517,6 @@ func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
 		return e, nil
 	}
 
-
-
 	cc, ok := classCall.(*ClassVariableCall)
 	if !ok {
 		mc, ok := classCall.(*MethodCall)
@@ -540,7 +543,12 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 		return &Identifier{Value: "this." + string(i.Lit), Token: *i}, nil
 	}
 
-	return &ClassVariableCall{Expression: nil, Ident: "this." + string(i.Lit), Token: *i}, nil
+	tmp := "this."
+	if exp != nil {
+		tmp = exp.(string)
+	}
+	// this is problematic because expression doens't want 'this.'
+	return &ClassVariableCall{Expression: nil, Ident: tmp + string(i.Lit), Token: *i}, nil
 
 }
 

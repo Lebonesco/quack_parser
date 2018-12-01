@@ -1,6 +1,8 @@
-package typechecker
+package environment
 
-//import "fmt"
+import "strings"
+
+var Change = false
 
 // tracks Objects at each layer of scope
 type Environment struct {
@@ -11,12 +13,36 @@ type Environment struct {
 	Changed   bool // track if need to loop again
 }
 
+func (e *Environment) GetType(name string) (ObjectType, bool) {
+	val, ok := e.Vals[name]
+	return val, ok
+}
+
 // returns union of variables with same types between two environments
 func GetUnion(e1, e2 *Environment) map[string]ObjectType {
 	result := map[string]ObjectType{}
 	for k, val1 := range e1.Vals {
 		if val2, ok := e2.Vals[k]; ok { // if both blocks have the variable
 			result[k] = e1.GetLowestCommonType(val1, val2)
+		}
+	}
+	return result
+}
+
+// get non union vals
+func GetNonUnion(e1, e2 *Environment) map[string]bool {
+	result := map[string]bool{}
+	for k, _ := range e1.Vals {
+		if _, ok := e2.Vals[k]; !ok { // if both blocks have the variable
+			if strings.HasPrefix(k, "this.") {
+				result[k] = true
+			}
+		}
+	}
+
+	for k, _ := range e2.Vals {
+		if strings.HasPrefix(k, "this.") {
+				result[k] = true
 		}
 	}
 	return result
@@ -105,11 +131,18 @@ func (e *Environment) GetClassObject() *Object {
 
 // set item in current scope
 func (e *Environment) Set(name string, val ObjectType) {
+	prev, ok := e.Get(name)
+	if ok && val != prev {
+		Change = true // ident has been changed, will have to cycle again
+	}
 	e.Vals[name] = val
 }
 
 // get item in shortest scope
 func (e *Environment) Get(name string) (ObjectType, bool) {
+	if e == nil {
+		return "", false
+	}
 	obj, ok := e.Vals[name]
 	if !ok && e.Parent != nil {
 		obj, ok = e.Parent.Get(name)
@@ -134,6 +167,7 @@ func (e *Environment) ValidSubType(sub, parent ObjectType) bool {
 	if parent == OBJ_CLASS { // supertype for everything
 		return true
 	}
+
 	next := sub
 	for next != parent {
 		if next == OBJ_CLASS && parent != OBJ_CLASS {
@@ -180,7 +214,7 @@ func (e *Environment) GetLowestCommonType(val1, val2 ObjectType) ObjectType {
 
 func (e *Environment) GetParentType(kind ObjectType) ObjectType {
 	if kind == OBJ_CLASS || kind == NOTHING_CLASS {
-		return kind
+		return OBJ_CLASS // this might cause problems? why NOTHING_CLASS not go to OBJ_CLASS?
 	}
 
 	return e.GetClass(e.GetClass(kind).Parent).Type
@@ -208,7 +242,7 @@ func (e *Environment) GetClass(class ObjectType) *Object {
 func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSignature, bool) {
 	obj := e.GetClass(class)
 	for {
-		if sig, ok := obj.MethodTable[method]; ok {
+		if sig, ok := obj.GetMethod(method); ok {
 			return sig, ok
 		}
 
@@ -229,3 +263,4 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 func (e *Environment) GetParent(parent ObjectType) *Object {
 	return e.GetClass(parent)
 }
+

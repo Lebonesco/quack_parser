@@ -39,3 +39,16 @@ hand in environment. the global will be built in classes:
 	-handles calling functions
 	-handles calling this.ident
 	-handles calling this
+
+
+Need to do:
+
+handle prexif vals
+compile c code
+if/while control blocks
+cycle type checks
+
+a common bug is not have the correct env loaded into the node,
+this can be fixed by making sure the current 'statement' node
+passes down it's most recent environment because only
+statement nodes carry references to the current environment

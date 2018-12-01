@@ -4,7 +4,7 @@
 */
 
 class Test() {
-	def method(y : Int, x : Int) : Int {
+	def method1(y : Int, x : Int) : Int {
 		if y < x {
 			return x;
 		} else {
@@ -17,4 +17,5 @@ class Test() {
 	}
 }
 
-let x : Int = Test().method(1, 2); 
+z : Int = Test().method1(1, 2); 
+z.PRINT();

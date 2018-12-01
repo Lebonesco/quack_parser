@@ -1,0 +1,10 @@
+/*
+* If an identifier is assigned a valid value
+* the identifier type should become the least common
+* supertype of the two types.
+*/
+
+tmp = "HELLO";
+tmp = 5;
+tmp.PRINT(); // works because 'Obj' have print
+tmp + 5; // fail because 'Obj' not have '+'
