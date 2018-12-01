@@ -1,5 +1,7 @@
 package environment
 
+import "strings"
+
 // tracks Objects at each layer of scope
 type Environment struct {
 	Vals      map[string]ObjectType // change to ObjectType?
@@ -20,6 +22,25 @@ func GetUnion(e1, e2 *Environment) map[string]ObjectType {
 	for k, val1 := range e1.Vals {
 		if val2, ok := e2.Vals[k]; ok { // if both blocks have the variable
 			result[k] = e1.GetLowestCommonType(val1, val2)
+		}
+	}
+	return result
+}
+
+// get non union vals
+func GetNonUnion(e1, e2 *Environment) map[string]bool {
+	result := map[string]bool{}
+	for k, _ := range e1.Vals {
+		if _, ok := e2.Vals[k]; !ok { // if both blocks have the variable
+			if strings.HasPrefix(k, "this.") {
+				result[k] = true
+			}
+		}
+	}
+
+	for k, _ := range e2.Vals {
+		if strings.HasPrefix(k, "this.") {
+				result[k] = true
 		}
 	}
 	return result

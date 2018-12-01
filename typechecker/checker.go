@@ -527,9 +527,19 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 	}
 	// compare environments or to current environment
 	union := environment.GetUnion(newEnv1, newEnv2)
+
 	for k := range union {
 		env.Set(k, union[k])
 		node.SharedArgs = append(node.SharedArgs, ast.FormalArgs{Arg: k, Type: string(union[k])}) // track shared in node for code gen
+	}
+
+	// if class variable only defined in one and not init before stop
+	nonunion := environment.GetNonUnion(newEnv1, newEnv2)
+	// check if in environment
+	for k := range nonunion {
+		if _, ok := env.Get(k); !ok {
+			return result, createError(VARIABLE_NOT_INITIALIZED, "variable %s not initialized on all paths", k)
+		}
 	}
 
 	// check for 'return' handling
