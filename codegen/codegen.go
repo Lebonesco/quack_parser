@@ -5,6 +5,7 @@ import (
 	"github.com/Lebonesco/quack_parser/environment"
 	"bytes"
 	"strings"
+	"errors"
 	"fmt"
 )
 
@@ -98,25 +99,36 @@ func setBaseMethodTypes(classes []ast.Class, env *environment.Environment) {
 	}
 }
 
+// have to break this down into multiple parts so classes can be defined out of order
 func genClasses(classes []ast.Class, b *bytes.Buffer, env *environment.Environment) error {
+	for _, class := range classes {
+		genInit(class, b, env) // necessary for out of order class references
+	}
+
+	for _, class := range classes {
+		genInit2(class, b, env) // necessary for out of order class references
+	}
+
 	for _, class := range classes {
 		genClass(class, b, env)
 	}
 	return nil
 }
 
-func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) error {
+func genInit(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
 	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name)) // struct class_Name_struct;
 	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s;\n\n", name, name)) // typedef struct class_Name_struct* class_Name
-	
 	b.WriteString(fmt.Sprintf("typedef struct obj_%s_struct {\n", name))
 	b.WriteString(fmt.Sprintf("\tclass_%s clazz;\n", name))
 	// handle class fields
 	genClassVariables(class.Body.Statements, b)
 
 	b.WriteString(fmt.Sprintf("} * obj_%s;\n\n", name))
+}
 
+func genInit2(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
+	name := class.Signature.Name
 	b.WriteString(fmt.Sprintf("struct class_%s_struct the_class_%s_struct;\n\n", name, name))
 	b.WriteString(fmt.Sprintf("struct class_%s_struct {\n", name))
 	// handle method table
@@ -125,8 +137,10 @@ func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) er
 	b.WriteString("};\n\n")
 
 	b.WriteString(fmt.Sprintf("extern class_%s the_class_%s;\n\n", name, name))
+}
 
-	// create constructor method
+func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) error {
+	name := class.Signature.Name
 	genClassConstructor(class, b, env)
 
 	// generator class methods
@@ -511,8 +525,7 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 	// get type method returns
 	method, ok := env.GetClassMethod(environment.ObjectType(node.Type), methods[node.Operator])
 	if !ok {
-		fmt.Println(node.Type, methods[node.Operator])
-		return None, nil
+		return None, errors.New("type not have method")
 	}
 	write(b, "obj_%s %s = %s->clazz->%s(%s, %s);\n", method.Return, tmp, left, methods[node.Operator], left, right)
 
