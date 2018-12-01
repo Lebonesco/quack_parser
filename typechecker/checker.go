@@ -475,23 +475,28 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 
 func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment) (environment.Variable, *CheckError) {
 	var result environment.Variable
+	environment.Change = true
 
-	for _, statement := range block.Statements {
-		result, err := TypeCheck(statement, env)
-		if err != nil {
-			return result, err
-		}
+	for environment.Change {
+		environment.Change = false
+		for _, statement := range block.Statements {
+			result, err := TypeCheck(statement, env)
+			if err != nil {
+				return result, err
+			}
 
-		// need to change this to check type return instead. default to environment.NOTHING_CLASS
-		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
-			return result, nil
-		}
+			// need to change this to check type return instead. default to environment.NOTHING_CLASS
+			if reflect.TypeOf(statement) == reflect.TypeOf(&ast.ReturnStatement{}) {
+				return result, nil
+			}
 
-		if reflect.TypeOf(statement) == reflect.TypeOf(&ast.IfStatement{}) && result.Type != "" {
+			if reflect.TypeOf(statement) == reflect.TypeOf(&ast.IfStatement{}) && result.Type != "" {
 
-			return result, nil
+				return result, nil
+			}
 		}
 	}
+
 	result.Type = environment.NOTHING_CLASS // if no return default to environment.NOTHING_CLASS
 	return result, nil
 }
@@ -570,12 +575,18 @@ func evalWhileStatement(node *ast.WhileStatement, env *environment.Environment) 
 	}
 
 	newEnv := env.NewScope()
+
+	environment.Change = true
+
+	for environment.Change {
+		environment.Change = false
 	for _, statement := range node.BlockStatement.Statements {
 		result, err := TypeCheck(statement, newEnv)
 		if err != nil {
 			return result, err
 		}
 	}
+}
 	return result, nil
 }
 

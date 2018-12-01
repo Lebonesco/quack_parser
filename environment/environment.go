@@ -2,6 +2,8 @@ package environment
 
 import "strings"
 
+var Change = false
+
 // tracks Objects at each layer of scope
 type Environment struct {
 	Vals      map[string]ObjectType // change to ObjectType?
@@ -129,6 +131,10 @@ func (e *Environment) GetClassObject() *Object {
 
 // set item in current scope
 func (e *Environment) Set(name string, val ObjectType) {
+	prev, ok := e.Get(name)
+	if ok && val != prev {
+		Change = true // ident has been changed, will have to cycle again
+	}
 	e.Vals[name] = val
 }
 
