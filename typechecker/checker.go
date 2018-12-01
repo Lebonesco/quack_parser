@@ -613,6 +613,7 @@ func evalFunctionCall(node *ast.FunctionCall, env *environment.Environment) (env
 	}
 
 	if signature, ok := env.GetClassObject().GetMethod(node.Name); ok { // if method
+		node.Class = string(env.Class) // use in code
 		for i, param := range signature.Params {
 			result, err := TypeCheck(node.Args[i], env)
 			if err != nil {

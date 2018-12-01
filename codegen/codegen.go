@@ -530,9 +530,22 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 		tmp[i] = res
 	}
 
-	name := node.Name
+	name := node.Name // function or method name
 	v := freshTemp()
-	b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
+
+	// check if name is a reference to a class or functional call inside class
+	if env.TypeExist(environment.ObjectType(node.Name)) { 
+		b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
+	} else { // a method
+		// get current class
+		class := node.Class
+		// get return type 
+		obj := env.GetClass(environment.ObjectType(class))
+		signature, _ := obj.GetMethod(name)
+		ret := signature.Return
+
+		write(b, "obj_%s %s = the_class_%s->clazz->%s(", ret, v, class, name)
+	}
 
 	for i, arg := range tmp {
 		write(b, arg)
