@@ -216,6 +216,9 @@ struct class_Int_struct {
   obj_Boolean (*LESS) (obj_Int, obj_Int);   /* Introduced */
   obj_Boolean (*MORE) (obj_Int, obj_Int);   /* Introduced */
   obj_Int (*PLUS) (obj_Int, obj_Int);       /* Introduced */
+  obj_Int (*MINUS) (obj_Int, obj_Int);
+  obj_Int (*TIMES) (obj_Int, obj_Int);
+  obj_Int (*DIVIDE) (obj_Int, obj_Int);
 };
 
 extern class_Int the_class_Int; 

@@ -257,7 +257,7 @@ func genMain(stmts []ast.Statement, b *bytes.Buffer) error {
 		}
 	}
 
-	b.WriteString("fprintf(stdout, \"--- Terminated SuccessFully (woot!) ---\");\n")
+	b.WriteString("fprintf(stdout, \"\\n--- Terminated SuccessFully (woot!) ---\");\n")
 	b.WriteString("\treturn 0;\n")
 	b.WriteString("}\n")
 
