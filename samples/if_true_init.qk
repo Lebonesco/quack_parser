@@ -2,5 +2,6 @@ class C1() {
     if true {
         this.X = 5;
     } else {
+    	this.X = 7;
     }
 }

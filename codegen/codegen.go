@@ -1,14 +1,13 @@
 package codegen
 
 import (
-	"github.com/Lebonesco/quack_parser/ast"
-	"github.com/Lebonesco/quack_parser/environment"
 	"bytes"
-	"strings"
 	"errors"
 	"fmt"
+	"github.com/Lebonesco/quack_parser/ast"
+	"github.com/Lebonesco/quack_parser/environment"
+	"strings"
 )
-
 
 const (
 	PLUS    = "PLUS"
@@ -42,7 +41,7 @@ func write(b *bytes.Buffer, code string, args ...interface{}) {
 
 func CodeGen(p *ast.Program) (bytes.Buffer, error) {
 	symbolTable = map[string]string{} // clean should be cleaned from outside runs
-	var b bytes.Buffer 
+	var b bytes.Buffer
 	write(&b, "#include <stdio.h>\n#include <stdlib.h>\n#include \"Builtins.h\"\n\n") // necessary headers
 
 	parentMethodUnion(p.Classes, p.Env)
@@ -70,28 +69,35 @@ func parentMethodUnion(classes []ast.Class, env *environment.Environment) {
 
 // right now just handles one level, easy to do parents recursively
 func setParentMethods(classes []ast.Class, env *environment.Environment) {
-	for _, obj := range (*env.TypeTable) { // where are builtins?
-		parent := env.GetClass(env.GetClass(obj.Parent).Type)
-		// check parent methods for inheritance and overriding
-		for i, method := range parent.MethodTable {
-			if subMethod, ok := obj.GetMethod(method.Name); ok { // if overridden
-				idx, _ := obj.GetMethodIndex(method.Name)
-				obj.MethodTable = append(obj.MethodTable[:idx], obj.MethodTable[idx+1:]...) // remove method
-				obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{}) // will get overridden on copy
-				copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
-				obj.MethodTable[i] = subMethod // add method back at correct placement
+	for _, obj := range *env.TypeTable { // go through each type
+		parent := env.GetClass(env.GetClass(obj.Parent).Type) // get parent type
+		for true {
+			// check parent methods for inheritance and overriding
+			for i, method := range parent.MethodTable {
+				if subMethod, ok := obj.GetMethod(method.Name); ok { // if overridden
+					idx, _ := obj.GetMethodIndex(method.Name)
+					obj.MethodTable = append(obj.MethodTable[:idx], obj.MethodTable[idx+1:]...) // remove method
+					obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{})    // will get overridden on copy
+					copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
+					obj.MethodTable[i] = subMethod // add method back at correct placement
 
-			} else { // else is inherited
-				obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{}) // will get overridden on copy
-				copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
-				obj.MethodTable[i] = method // insert method at correct placement
+				} else { // else is inherited
+					obj.MethodTable = append(obj.MethodTable, environment.MethodSignature{}) // will get overridden on copy
+					copy(obj.MethodTable[i+1:], obj.MethodTable[i:])
+					obj.MethodTable[i] = method // insert method at correct placement
+				}
 			}
+
+			if parent.Type == "Obj" {
+				break // if top finish
+			}
+			parent = env.GetClass(env.GetClass(parent.Parent).Type)
 		}
 	}
 }
 
 func setBaseMethodTypes(classes []ast.Class, env *environment.Environment) {
-	for _, obj := range (*env.TypeTable) {
+	for _, obj := range *env.TypeTable {
 		for i, method := range obj.MethodTable {
 			method.Base, method.OverrideType = obj.Type, obj.Type
 			obj.MethodTable[i] = method
@@ -117,7 +123,7 @@ func genClasses(classes []ast.Class, b *bytes.Buffer, env *environment.Environme
 
 func genInit(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
 	name := class.Signature.Name
-	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name)) // struct class_Name_struct;
+	b.WriteString(fmt.Sprintf("\nstruct class_%s_struct;\n", name))                         // struct class_Name_struct;
 	b.WriteString(fmt.Sprintf("typedef struct class_%s_struct* class_%s;\n\n", name, name)) // typedef struct class_Name_struct* class_Name
 	b.WriteString(fmt.Sprintf("typedef struct obj_%s_struct {\n", name))
 	b.WriteString(fmt.Sprintf("\tclass_%s clazz;\n", name))
@@ -149,7 +155,7 @@ func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) er
 	// create singleton
 	createSingleton(class, b, env)
 
-	b.WriteString(fmt.Sprintf("class_%s the_class_%s = &the_class_%s_struct;\n\n",name, name, name))
+	b.WriteString(fmt.Sprintf("class_%s the_class_%s = &the_class_%s_struct;\n\n", name, name, name))
 
 	return nil
 }
@@ -172,6 +178,7 @@ func genClassMethods(class ast.Class, b *bytes.Buffer, env *environment.Environm
 
 	// generate class methods
 	for _, method := range methods {
+		symbolTable = map[string]string{}
 		// generate signature
 		b.WriteString(fmt.Sprintf("obj_%s %s_method_%s(", name, name, method.Name))
 		b.WriteString(fmt.Sprintf("obj_%s this", name))
@@ -183,6 +190,7 @@ func genClassMethods(class ast.Class, b *bytes.Buffer, env *environment.Environm
 		// generate body
 		codeGen(method.StmtBlock, b, env)
 		b.WriteString("}\n\n") // end of method
+		symbolTable = map[string]string{}
 	}
 }
 
@@ -193,7 +201,7 @@ func genClassMethodTable(class ast.Class, b *bytes.Buffer, env *environment.Envi
 	b.WriteString(fmt.Sprintf("\tobj_%s (*constructor) (", name))
 	for i, arg := range class.Signature.Args {
 		b.WriteString(fmt.Sprintf("obj_%s", arg.Type))
-		if i != len(class.Signature.Args) -1 {
+		if i != len(class.Signature.Args)-1 {
 			b.WriteString(",")
 		}
 	}
@@ -219,7 +227,7 @@ func genClassConstructor(class ast.Class, b *bytes.Buffer, env *environment.Envi
 	b.WriteString(fmt.Sprintf("obj_%s new_%s(", name, name))
 	for i, arg := range class.Signature.Args {
 		b.WriteString(fmt.Sprintf("obj_%s %s", arg.Type, arg.Arg))
-		if i != len(class.Signature.Args) -1 {
+		if i != len(class.Signature.Args)-1 {
 			b.WriteString(",")
 		}
 	}
@@ -233,8 +241,8 @@ func genClassConstructor(class ast.Class, b *bytes.Buffer, env *environment.Envi
 	// for _, arg := range class.Signature.Args {
 	// 	b.WriteString(fmt.Sprintf("\tnew_thing->%s = %s;\n", arg.Arg, arg.Arg))
 	// }
-	for k, _ := range obj.Variables {
-		fieldTable[k] = fmt.Sprintf("new_thing->%s",strings.Replace(k, "this.", "", -1))
+	for k := range obj.Variables {
+		fieldTable[k] = fmt.Sprintf("new_thing->%s", strings.Replace(k, "this.", "", -1))
 	}
 
 	for _, stmt := range class.Body.Statements {
@@ -255,7 +263,7 @@ func genClassVariables(stmts []ast.Statement, b *bytes.Buffer) {
 	env := stmts[0].GetEnvironment()
 	for k, tp := range env.Vals {
 		if strings.HasPrefix(k, "this.") {
-			b.WriteString(fmt.Sprintf("\tobj_%s %s;\n", tp, strings.Replace(k, "this.", "", -1))) 
+			b.WriteString(fmt.Sprintf("\tobj_%s %s;\n", tp, strings.Replace(k, "this.", "", -1)))
 		}
 	}
 	// get 'this' variables
@@ -339,7 +347,7 @@ func genExpressionStatement(node *ast.ExpressionStatement, b *bytes.Buffer, env 
 	}
 
 	if expr != None {
-		write(b, Indent + "%s;\n", expr)
+		write(b, Indent+"%s;\n", expr)
 	}
 	return "", nil
 }
@@ -352,7 +360,10 @@ func genInteger(node *ast.IntegerLiteral, b *bytes.Buffer) (string, error) {
 
 func genString(node *ast.StringLiteral, b *bytes.Buffer) (string, error) {
 	tmp := freshTemp()
-	write(b, "obj_String %s = str_literal(%s);\n", tmp, string(node.Token.Lit))
+	str := string(node.Token.Lit)
+	str = strings.Replace(str, `\`, "\\", -1)
+
+	write(b, "obj_String %s = str_literal(%s);\n", tmp, str)
 	return tmp, nil
 }
 
@@ -365,6 +376,7 @@ func genBoolean(node *ast.Boolean, b *bytes.Buffer) (string, error) {
 	return None, nil
 }
 
+// if 'this' return object type
 func genIdentifier(node *ast.Identifier, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	name, err := InitVar(node.Value, env, b)
 	if err != nil {
@@ -425,8 +437,7 @@ func genLetStatement(node *ast.LetStatement, b *bytes.Buffer, env *environment.E
 		kind = k
 	}
 
-
-	write(b,"%s =%s%s;\n", left, convertType(kind, node.RightType), right)
+	write(b, "%s =%s%s;\n", left, convertType(kind, node.RightType), right)
 	return None, nil
 }
 
@@ -470,7 +481,7 @@ func genIfStatement(node *ast.IfStatement, b *bytes.Buffer, env *environment.Env
 	// check if alternative statement
 	if *node.Alternative == nil {
 		write(b, "goto %s;\n}\n", exitLabel) // if no more conditions
-	} 
+	}
 
 	if *node.Alternative != nil { // more conditional blocks
 		// do stuff
@@ -503,7 +514,11 @@ func genWhileStatement(node *ast.WhileStatement, b *bytes.Buffer, env *environme
 func genReturnStatement(node *ast.ReturnStatement, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	// not sure what to do yet
 	res, _ := codeGen(node.ReturnValue, b, env)
-	write(b, "return %s;\n", res)
+	if res == None { // handle empty returns
+		write(b, "return;\n")
+	} else {
+		write(b, "return %s;\n", res)
+	}
 	return "", nil
 }
 
@@ -547,12 +562,12 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 	v := freshTemp()
 
 	// check if name is a reference to a class or functional call inside class
-	if env.TypeExist(environment.ObjectType(node.Name)) { 
+	if env.TypeExist(environment.ObjectType(node.Name)) {
 		b.WriteString(fmt.Sprintf("obj_%s %s = the_class_%s->constructor(", name, v, name))
 	} else { // a method
 		// get current class
 		class := node.Class
-		// get return type 
+		// get return type
 		obj := env.GetClass(environment.ObjectType(class))
 		signature, _ := obj.GetMethod(name)
 		ret := signature.Return
@@ -562,7 +577,7 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 
 	for i, arg := range tmp {
 		write(b, arg)
-		if i != len(tmp) - 1{
+		if i != len(tmp)-1 {
 			b.WriteString(",")
 		}
 	}
@@ -574,7 +589,7 @@ func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.E
 
 func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	method := node.Method
-	lexpr, err := codeGen(node.Variable , b, env)
+	lexpr, err := codeGen(node.Variable, b, env)
 	if err != nil {
 		return None, err
 	}
@@ -598,8 +613,8 @@ func genMethodCall(node *ast.MethodCall, b *bytes.Buffer, env *environment.Envir
 	}
 
 	// check if inherits
-		write(b, "obj_%s %s = %s->clazz->%s(%s", meth.Return, register, lexpr, method, lexpr)
-	// method params 
+	write(b, "obj_%s %s = %s->clazz->%s(%s", meth.Return, register, lexpr, method, lexpr)
+	// method params
 	for _, arg := range tmp {
 		write(b, ",%s", arg)
 	}

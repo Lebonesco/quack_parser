@@ -29,10 +29,10 @@ package codegen
 // 		        #include <stdlib.h>
 // 		        #include "Builtins.h"
 
-// 					int main() { 
-// 						obj_Int* tmp_1 = int_literal(5); 
+// 					int main() {
+// 						obj_Int* tmp_1 = int_literal(5);
 // 						tmp_1;
-// 						return 0; 
+// 						return 0;
 // 					}`},
 // 		{
 // 			src: `
@@ -55,17 +55,17 @@ package codegen
 // 		// 	src: `
 // 		// 		 class Pt(x: Int, y: Int) {
 // 		// 		    this.x = x;
-// 		// 		    this.y = y; 
+// 		// 		    this.y = y;
 
 // 		// 		    def PRINT( ): Pt {
-// 		// 		       "( ".PRINT(); 
-// 		// 		       this.x.PRINT(); 
+// 		// 		       "( ".PRINT();
+// 		// 		       this.x.PRINT();
 // 		// 		       ", ".PRINT();
-// 		// 		       ")".PRINT(); 
+// 		// 		       ")".PRINT();
 // 		// 		     }
 
 // 		// 		     def PLUS(other: Pt) : Pt {
-// 		// 		         return Pt(this.x+other.x, this.y+other.y); 
+// 		// 		         return Pt(this.x+other.x, this.y+other.y);
 // 		// 		     }
 // 		// 		  }
 
@@ -81,7 +81,7 @@ package codegen
 //   //       #include "Builtins.h"
 
 // 		// 	struct class_Pt_struct;
-// 		// 	typedef struct class_Pt_struct* class_Pt; 
+// 		// 	typedef struct class_Pt_struct* class_Pt;
 
 // 		// 	typedef struct obj_Pt_struct {
 // 		// 	  class_Pt  clazz;
@@ -92,11 +92,11 @@ package codegen
 // 		// 	struct class_Pt_struct  the_class_Pt_struct;
 
 // 		// 	struct class_Pt_struct {
-// 		// 	  obj_Pt (*constructor) (obj_Int, obj_Int );  
-// 		// 	  obj_String (*STRING) (obj_Obj);           
-// 		// 	  obj_Pt (*PRINT) (obj_Pt);                 
-// 		// 	  obj_Boolean (*EQUALS) (obj_Obj, obj_Obj); 
-// 		// 	  obj_Pt (*PLUS) (obj_Pt, obj_Pt);     
+// 		// 	  obj_Pt (*constructor) (obj_Int, obj_Int );
+// 		// 	  obj_String (*STRING) (obj_Obj);
+// 		// 	  obj_Pt (*PRINT) (obj_Pt);
+// 		// 	  obj_Boolean (*EQUALS) (obj_Obj, obj_Obj);
+// 		// 	  obj_Pt (*PLUS) (obj_Pt, obj_Pt);
 // 		// 	};
 
 // 		// 	extern class_Pt the_class_Pt;
@@ -105,15 +105,15 @@ package codegen
 // 		// 	  obj_Pt new_thing = (obj_Pt)
 // 		// 	    malloc(sizeof(struct obj_Pt_struct));
 // 		// 	  new_thing->clazz = the_class_Pt;
-// 		// 	  new_thing->y = y; 
+// 		// 	  new_thing->y = y;
 // 		// 	  new_thing->x = x;
-// 		// 	  return new_thing; 
+// 		// 	  return new_thing;
 // 		// 	}
 
 // 		// 	obj_Pt Pt_method_PRINT(obj_Pt this) {
 // 		// 	  obj_String tmp_5 = str_literal("(");
 // 		// 	  tmp_5->clazz->PRINT(tmp_5);
-// 		// 	  this->x->clazz->PRINT(this->x); 
+// 		// 	  this->x->clazz->PRINT(this->x);
 // 		// 	  obj_String tmp_6 =str_literal(",");
 // 		// 	  tmp_6->clazz->PRINT(tmp_6);
 // 		// 	  obj_String tmp_7 = str_literal(")");
@@ -126,13 +126,13 @@ package codegen
 // 		// 	  obj_Int tmp_10 = other->x;
 // 		// 	  obj_Int tmp_11 = this->x->clazz->PLUS(this->x, tmp_10);
 // 		// 	  obj_Pt tmp_12 = the_class_Pt->constructor(tmp_9, tmp_11);
-// 		// 	  return tmp_12; 
+// 		// 	  return tmp_12;
 // 		// 	}
 
 // 		// 	struct  class_Pt_struct  the_class_Pt_struct = {
-// 		// 	  new_Pt, 
-// 		// 	  Obj_method_STRING, 
-// 		// 	  Pt_method_PRINT, 
+// 		// 	  new_Pt,
+// 		// 	  Obj_method_STRING,
+// 		// 	  Pt_method_PRINT,
 // 		// 	  Obj_method_EQUALS,
 // 		// 	  Pt_method_PLUS,
 // 		// 	};
@@ -140,11 +140,11 @@ package codegen
 // 		// 	class_Pt the_class_Pt = &the_class_Pt_struct;
 
 // 		// 		int main() {
-// 		// 			obj_Int x; 
+// 		// 			obj_Int x;
 // 		// 			obj_Int* tmp_13 = int_literal(11);
 // 		// 			x = tmp_13;
 // 		// 			obj_Int y;
-// 		// 			obj_Int* tmp_14 = int_literal(32);  
+// 		// 			obj_Int* tmp_14 = int_literal(32);
 // 		// 			y = tmp_14;
 // 		// 			obj_Obj pt1;
 // 		// 			obj_String tmp_15 = str_literal("HELLO");

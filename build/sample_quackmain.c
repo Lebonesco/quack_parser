@@ -148,11 +148,12 @@ struct  class_Pt_struct  the_class_Pt_struct = {
 
 class_Pt the_class_Pt = &the_class_Pt_struct;
 
-void just_create() {
-  obj_Pt pt;
-  obj_Int x; 
-  pt = the_class_Pt->constructor(x, x);
-}
+// what this for?
+// void just_create() {
+//   obj_Pt pt;
+//   obj_Int x; 
+//   pt = the_class_Pt->constructor(x, x);
+// }
 
 
 void quackmain() {

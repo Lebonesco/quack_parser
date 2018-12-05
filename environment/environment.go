@@ -32,7 +32,7 @@ func GetUnion(e1, e2 *Environment) map[string]ObjectType {
 // get non union vals
 func GetNonUnion(e1, e2 *Environment) map[string]bool {
 	result := map[string]bool{}
-	for k, _ := range e1.Vals {
+	for k := range e1.Vals {
 		if _, ok := e2.Vals[k]; !ok { // if both blocks have the variable
 			if strings.HasPrefix(k, "this.") {
 				result[k] = true
@@ -40,9 +40,9 @@ func GetNonUnion(e1, e2 *Environment) map[string]bool {
 		}
 	}
 
-	for k, _ := range e2.Vals {
+	for k := range e2.Vals {
 		if strings.HasPrefix(k, "this.") {
-				result[k] = true
+			result[k] = true
 		}
 	}
 	return result
@@ -143,6 +143,17 @@ func (e *Environment) Get(name string) (ObjectType, bool) {
 	if e == nil {
 		return "", false
 	}
+
+	// check if 'this'
+	if name == "this" {
+		// get current class
+		class := e.Class
+		if string(class) == NOTHING_CLASS {
+			return NOTHING_CLASS, false
+		}
+		return class, true
+	}
+
 	obj, ok := e.Vals[name]
 	if !ok && e.Parent != nil {
 		obj, ok = e.Parent.Get(name)
@@ -263,4 +274,3 @@ func (e *Environment) GetClassMethod(class ObjectType, method string) (MethodSig
 func (e *Environment) GetParent(parent ObjectType) *Object {
 	return e.GetClass(parent)
 }
-
