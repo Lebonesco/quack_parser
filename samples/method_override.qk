@@ -9,12 +9,17 @@ class AddOne(x : Int) {
 	}
 
 	def One() : Int {
-		return 1;
+		Two();
+		return 2 - 1;
+	}
+
+	def Two() : Int {
+		return 2;
 	}
 }
 
 class AddTwo(x : Int) extends AddOne {
-	this.x = ;
+	this.x = x;
 	def PLUS(other : AddOne) : AddTwo {
 		return AddTwo(this.x + other.x + 2);
 	}

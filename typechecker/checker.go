@@ -313,7 +313,9 @@ func checkClass(class ast.Class, env *environment.Environment) *CheckError {
 
 func checkMethods(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
+		env.Class = environment.ObjectType(class.Signature.Name)
 		err := checkMethod(class, env)
+		env.Class = environment.NOTHING_CLASS
 		if err != nil {
 			return err
 		}
@@ -608,17 +610,16 @@ func evalFunctionCall(node *ast.FunctionCall, env *environment.Environment) (env
 		}
 
 		// check argument types // do this only for functions
+		for i, arg := range args {
+			result, err := TypeCheck(node.Args[i], env)
+			if err != nil {
+				return result, err
+			}
 
-		// for i, arg := range args {
-		// 	result, err := TypeCheck(node.Args[i], env)
-		// 	if err != nil {
-		// 		return result, err
-		// 	}
-
-		// 	if arg.Type != result.Type {
-		// 		return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
-		// 	}
-		// }
+			if !env.ValidSubType(result.Type, arg.Type) {
+				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
+			}
+		}
 
 		return environment.Variable{Type: class.Type}, nil // return the type of the class
 	}
@@ -664,7 +665,6 @@ func evalMethodCall(node *ast.MethodCall, env *environment.Environment) (environ
 
 		if !env.ValidSubType(result.Type, param.Type) { // result.Type can be a subtype
 			return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for method %s, expected %s on line %d", result.Type, node.Method, param.Type, node.Token.Pos.Line)
-
 		}
 	}
 
@@ -690,7 +690,7 @@ func evalInfixExpression(node *ast.InfixExpression, env *environment.Environment
 		return right, err
 	}
 
-	if right.Type != left.Type { // maybe should compare if subtypes
+	if !env.ValidSubType(right.Type, left.Type) && !env.ValidSubType(left.Type, right.Type) { // compare if subtypes of each other
 		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d",
 			left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
 	}

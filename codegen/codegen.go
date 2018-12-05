@@ -146,6 +146,7 @@ func genInit2(class ast.Class, b *bytes.Buffer, env *environment.Environment) {
 }
 
 func genClass(class ast.Class, b *bytes.Buffer, env *environment.Environment) error {
+	// insert into env
 	name := class.Signature.Name
 	genClassConstructor(class, b, env)
 
