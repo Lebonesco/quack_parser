@@ -144,6 +144,11 @@ Type Error: ALREADY_INITIALIZED - method R can't be the same as the class
 ```
 
 ```
+make run file=./samples/short_test_bad.qk
+Type Error: INCOMPATABLE_TYPES - types Boolean-a and Int-b not work for expression '+' on line 7
+```
+
+```
 make run file=./samples/simple_inheritingvariables_bad_notdefined.qk
 Type Error: CREATE_CLASS_FAIL - variables in C2 incompatible with C1
 ```
