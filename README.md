@@ -5,6 +5,8 @@
 * [How to Run Program (Manual)](#how-to-run-manually)
 * [Missing Functionality](#missing-functionality)
 * [Test Outputs](#tests)
+** [Bad](#bad)
+** [Good](#good)
 
 ## How to Run
 
@@ -84,4 +86,28 @@ ok      github.com/Lebonesco/quack_parser       0.371s
 
 ## Tests
 
-```make file=./samples/ ```
+### Bad (Programs that produce errors)
+
+```
+make run file=./samples/circular_dependency.qk
+Type Error: CLASS_CYCLE
+```
+
+```
+make run file=./samples/Comparison_TRUE_FALSE_bad.qk
+Type Error: INCOMPATABLE_TYPES - types Int-x and Boolean- not work for expression '==' on line 8
+```
+
+```
+make run file=./samples/dot_priority.qk
+Type Error: VARIABLE_NOT_INITIALIZED - ident i is not defined on line: 10
+```
+
+```
+make run file=./samples/duplicate_class.qk
+Type Error: DUPLICATE_CLASS - class C1 already exists
+```
+
+### Good (Programs that don't have errors)
+
+
