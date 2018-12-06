@@ -1,10 +1,12 @@
 # Quack Parser with AST
 
 ## Directory
-* How to Run Program
-* Missing Functionality
+* [How to Run Program (with Make)](#run)
+* [How to Run Program (Manual)](#manual)
+* [Missing Functionality](#missing)
+* [Test Outputs](#tests)
 
-## How to Run
+## How to Run {#run}
 
 ### Download the code
 
@@ -39,7 +41,7 @@ At this point, everything can be run from the `Makefile`
 ### Clean Directory
 ```make clean```
 
-## How to Run Manually
+## How to Run Manually {#manual}
 
 ### Install the Parser Tool (gocc)
 ```git clone https://github.com/goccmack/gocc.git```
@@ -72,9 +74,10 @@ ok      github.com/Lebonesco/quack_parser       0.371s
 
 ```
 
-## Missing Functionality
+## Missing Functionality {#missing}
 
 * lacks code generation for typecase statements
-* not able to catch errors in TypeWalk.qk
 * unable to generate correct multiline, triple quote strings
-* comes across some parsing errors for different uses of 'this.' ident
+* has problems parsing grammer with 'not' prefix
+
+## Tests {#tests}
