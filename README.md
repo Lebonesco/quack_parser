@@ -5,8 +5,8 @@
 * [How to Run Program (Manual)](#how-to-run-manually)
 * [Missing Functionality](#missing-functionality)
 * [Test Outputs](#tests)
-** [Bad](#bad)
-** [Good](#good)
+    * [Bad](#bad)
+    * [Good](#good)
 
 ## How to Run
 
