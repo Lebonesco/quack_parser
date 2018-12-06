@@ -161,6 +161,7 @@ RExpr
       | this                                        << ast.NewIdentifier($0) >>
       | RExpr or Term    							<< ast.NewBoolExpr($0, $2, "or") >>
       | not Term 									<< ast.NewPrefixExpression($0, $1) >>	
+      | minus Term  								<< ast.NewPrefixExpression($0, $1) >>	
       | unknown										<< ast.Unknown($0) >>		
       | string_escape_error							<< ast.NewStringEscapeError($0) >>			
       ;
@@ -177,7 +178,7 @@ Factor
 	| Bool  				        				<< ast.NewBool($0) >>
 	| int 							 				<< ast.NewIntLiteral($0) >>
 	| string_literal   			  	 				<< ast.NewStringLiteral($0) >>
-	| minus int						 				<< ast.NewPrefixExpression($0, $1) >>
+	//| minus int						 				<< ast.NewPrefixExpression($0, $1) >>
 	| ident                 		 				<< ast.NewIdentifier($0) >>
 	| ident lparen ActualArgs rparen 				<< ast.NewFunctionCall($0, $2) >> // init class
 	| Factor ClassStuff				 				<< ast.NewClassCallLink($0, $1) >> // creates chain of class method and field calls, if ClassStuff != nil inject Factor into ClassStuffValue and return 'ClassStuff' expression which will be a method call or class variable

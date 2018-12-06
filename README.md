@@ -80,6 +80,8 @@ ok      github.com/Lebonesco/quack_parser       0.371s
 
 * lacks code generation for typecase statements
 * unable to generate correct multiline, triple quote strings
-* has problems parsing grammer with 'not' prefix
+* havent fully completed code generation for prefix values
 
 ## Tests
+
+```make file=./samples/ ```
