@@ -3,7 +3,7 @@
 ## Directory
 * [How to Run Program (with Make)](#how-to-run)
 * [How to Run Program (Manual)](#how-to-run-manually)
-* [Missing Functionality](#missing)
+* [Missing Functionality](#missing-functionality)
 * [Test Outputs](#tests)
 
 ## How to Run
@@ -76,10 +76,10 @@ ok      github.com/Lebonesco/quack_parser       0.371s
 
 ```
 
-## Missing Functionality {#missing}
+## Missing Functionality
 
 * lacks code generation for typecase statements
 * unable to generate correct multiline, triple quote strings
 * has problems parsing grammer with 'not' prefix
 
-## Tests {#tests}
+## Tests
