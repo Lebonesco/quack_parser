@@ -1,0 +1,6 @@
+-19;
+cool = true;
+notCool = not cool;
+cool.PRINT();
+notCool.PRINT();
+

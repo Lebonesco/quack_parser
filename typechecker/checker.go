@@ -4,9 +4,9 @@ import (
 	"errors"
 	"fmt"
 	"github.com/Lebonesco/quack_parser/ast"
+	"github.com/Lebonesco/quack_parser/environment"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
-	"github.com/Lebonesco/quack_parser/environment"
 	"reflect"
 	"strings"
 )
@@ -51,7 +51,7 @@ const (
 )
 
 func createError(errorType, message string, args ...interface{}) *CheckError {
-	return &CheckError{Type: errorType, Message: errors.New(fmt.Sprintf(message, args...))}
+	return &CheckError{Type: errorType, Message: errors.New(fmt.Sprintf(message+"\n", args...))}
 }
 
 // start of checker
@@ -313,7 +313,9 @@ func checkClass(class ast.Class, env *environment.Environment) *CheckError {
 
 func checkMethods(classes []ast.Class, env *environment.Environment) *CheckError {
 	for _, class := range classes {
+		env.Class = environment.ObjectType(class.Signature.Name)
 		err := checkMethod(class, env)
+		env.Class = environment.NOTHING_CLASS
 		if err != nil {
 			return err
 		}
@@ -458,7 +460,7 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 			return result, createError(INCOMPATABLE_TYPES, "%s not supertype of %s", result.Type, rightType.Type)
 		}
 	} else {
-		// need to check if already set and if 
+		// need to check if already set and if
 		if result.Type != "" { // if not already defined
 			// get greatest common
 			result.Type = env.GetLowestCommonType(result.Type, rightType.Type)
@@ -468,7 +470,7 @@ func evalLetStatement(node *ast.LetStatement, env *environment.Environment) (env
 	}
 
 	env.Set(result.Name, result.Type) // set environment.Variable in environment
-	node.LeftType = string(result.Type) 
+	node.LeftType = string(result.Type)
 	node.RightType = string(rightType.Type)
 	return result, nil
 }
@@ -508,7 +510,7 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 	result, err := TypeCheck(node.Condition, env)
 	if err != nil {
 		return result, err
-	} 
+	}
 
 	if result.Type != environment.BOOL_CLASS {
 		return result, createError(CONDITION_NOT_BOOL, "condition not evaluate to bool value")
@@ -551,7 +553,7 @@ func evalIfStatement(node *ast.IfStatement, env *environment.Environment) (envir
 	if (result1.Type == environment.NOTHING_CLASS || result1.Type == "") && (result2.Type == environment.NOTHING_CLASS || result2.Type == "") {
 		return ret, nil
 	} else if result1.Type == environment.NOTHING_CLASS {
-		return result, createError(INVALID_RETURN_TYPE, "not return in all paths") 
+		return result, createError(INVALID_RETURN_TYPE, "not return in all paths")
 	} else if result2.Type == environment.NOTHING_CLASS {
 		return result2, createError(INVALID_RETURN_TYPE, "not return in all paths")
 	} else if result1.Type != result2.Type {
@@ -580,13 +582,13 @@ func evalWhileStatement(node *ast.WhileStatement, env *environment.Environment) 
 
 	for environment.Change {
 		environment.Change = false
-	for _, statement := range node.BlockStatement.Statements {
-		result, err := TypeCheck(statement, newEnv)
-		if err != nil {
-			return result, err
+		for _, statement := range node.BlockStatement.Statements {
+			result, err := TypeCheck(statement, newEnv)
+			if err != nil {
+				return result, err
+			}
 		}
 	}
-}
 	return result, nil
 }
 
@@ -608,14 +610,13 @@ func evalFunctionCall(node *ast.FunctionCall, env *environment.Environment) (env
 		}
 
 		// check argument types // do this only for functions
-
 		for i, arg := range args {
 			result, err := TypeCheck(node.Args[i], env)
 			if err != nil {
 				return result, err
 			}
 
-			if arg.Type != result.Type {
+			if !env.ValidSubType(result.Type, arg.Type) {
 				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for Class %s, expected %s on line %d", arg.Type, node.Name, result.Type, node.Token.Pos.Line)
 			}
 		}
@@ -632,7 +633,8 @@ func evalFunctionCall(node *ast.FunctionCall, env *environment.Environment) (env
 			}
 
 			if param.Type != result.Type {
-				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+				return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for method %s, expected %s on line %d", param.Type, node.Name, result.Type, node.Token.Pos.Line)
+
 			}
 		}
 		return environment.Variable{Type: signature.Return, Name: node.Name + "()"}, nil
@@ -661,8 +663,8 @@ func evalMethodCall(node *ast.MethodCall, env *environment.Environment) (environ
 			return result, err
 		}
 
-		if param.Type != result.Type {
-			return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type")
+		if !env.ValidSubType(result.Type, param.Type) { // result.Type can be a subtype
+			return environment.Variable{}, createError(INCOMPATABLE_TYPES, "incorrect argument type %s for method %s, expected %s on line %d", result.Type, node.Method, param.Type, node.Token.Pos.Line)
 		}
 	}
 
@@ -670,7 +672,7 @@ func evalMethodCall(node *ast.MethodCall, env *environment.Environment) (environ
 }
 
 func evalPrefixExpression(expr *ast.PrefixExpression, env *environment.Environment) (environment.Variable, *CheckError) {
-	e, err := TypeCheck(expr, env)
+	e, err := TypeCheck(expr.Value, env)
 	if err != nil {
 		return e, err
 	}
@@ -688,7 +690,7 @@ func evalInfixExpression(node *ast.InfixExpression, env *environment.Environment
 		return right, err
 	}
 
-	if right.Type != left.Type { // maybe should compare if subtypes
+	if !env.ValidSubType(right.Type, left.Type) && !env.ValidSubType(left.Type, right.Type) { // compare if subtypes of each other
 		return right, createError(INCOMPATABLE_TYPES, "types %s-%s and %s-%s not work for expression '%s' on line %d",
 			left.Type, left.Name, right.Type, right.Name, node.Operator, node.Token.Pos.Line)
 	}
@@ -759,7 +761,7 @@ func evalTypeCaseStatement(node *ast.TypecaseStatement, env *environment.Environ
 	}
 
 	// type check each alt statement
-	for i, stmt := range node.TypeAlt {
+	for _, stmt := range node.TypeAlt {
 		if !env.TypeExist(environment.ObjectType(stmt.Kind)) {
 			return result, createError(CLASS_NOT_EXIST, "class %s not exist", stmt.Kind)
 		}
@@ -772,9 +774,9 @@ func evalTypeCaseStatement(node *ast.TypecaseStatement, env *environment.Environ
 			return res, err
 		}
 
-		if environment.ObjectType(stmt.Kind) == res.Type {
-			return res, createError(INVALID_RETURN_TYPE, "typecase block %d wanted type %s, instead got %s", i, stmt.Kind, res.Type)
-		}
+		// if environment.ObjectType(stmt.Kind) != res.Type {
+		// 	return res, createError(INVALID_RETURN_TYPE, "typecase block %d wanted type %s, instead got %s", i, stmt.Kind, res.Type)
+		// }
 	}
 
 	return result, nil

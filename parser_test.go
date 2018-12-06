@@ -6,8 +6,8 @@ import (
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/token"
-	"testing"
 	"reflect"
+	"testing"
 )
 
 type Test struct {
@@ -371,7 +371,7 @@ func TestIfStatement(t *testing.T) {
 		src string
 	}{
 		{
-		`if (5 < 10) {
+			`if (5 < 10) {
 			return true;
 		} elif (false) {
 			return false;
@@ -383,11 +383,11 @@ func TestIfStatement(t *testing.T) {
 				a = 4;
 			}`},
 		{
-		`if x < x {
+			`if x < x {
 			a = 5;
 		}`},
 		{
-		` if x < 0 {
+			` if x < 0 {
 	      y = 1;
 	      z = 1;
 	      c = y + z;
@@ -540,10 +540,10 @@ func TestClassVars(t *testing.T) {
 
 func TestIdents(t *testing.T) {
 	tests := []struct {
-		src           string
-		left          ast.Node
-		right 		  ast.Node
-		expectedOp    string
+		src        string
+		left       ast.Node
+		right      ast.Node
+		expectedOp string
 	}{
 		{`left + right;`, &ast.Identifier{}, &ast.Identifier{}, "+"},
 		{`this.x + this.y;`, &ast.Identifier{}, &ast.Identifier{}, "+"},
@@ -593,8 +593,8 @@ func TestIdents(t *testing.T) {
 //		{`t.var + t.var;`, &ast.ClassVariableCall{}, &ast.ClassVariableCall{}, "+"},
 func TestClassVariableCall(t *testing.T) {
 	tests := []struct {
-		src           string
-		expectedOp    string
+		src        string
+		expectedOp string
 	}{
 		{`t.var + t.var;`, "+"},
 	}
@@ -642,8 +642,8 @@ func TestClassVariableCall(t *testing.T) {
 
 func TestMethodCall(t *testing.T) {
 	tests := []struct {
-		src           string
-		expectedOp    string
+		src        string
+		expectedOp string
 	}{
 		{`t.method(r) + t.method(k);`, "+"}, // when right side is *ast.MethodCall failing
 		{`t.method(t.method()) + t.method();`, "+"},

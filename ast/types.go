@@ -1,8 +1,8 @@
 package ast
 
 import (
-	"github.com/Lebonesco/quack_parser/token"
 	"github.com/Lebonesco/quack_parser/environment"
+	"github.com/Lebonesco/quack_parser/token"
 )
 
 type Attrib interface{}
@@ -29,50 +29,50 @@ type Expression interface {
 type Program struct {
 	Classes    []Class
 	Statements []Statement
-	Env *environment.Environment
+	Env        *environment.Environment
 }
 
 // Statements
 type LetStatement struct {
-	Token token.Token // token.Let token
-	Name  *Identifier
-	Value Expression
-	LeftType string
+	Token     token.Token // token.Let token
+	Name      *Identifier
+	Value     Expression
+	LeftType  string
 	RightType string
-	Kind  string
-	Env *environment.Environment
+	Kind      string
+	Env       *environment.Environment
 }
 
 type WhileStatement struct {
 	Token          token.Token // token while
 	Cond           Expression
 	BlockStatement *BlockStatement
-	Env *environment.Environment
+	Env            *environment.Environment
 }
 
 type ReturnStatement struct {
 	Token       token.Token // 'return' token
 	ReturnValue Expression
-	Env *environment.Environment
+	Env         *environment.Environment
 }
 
 type ExpressionStatement struct {
 	Token      token.Token
 	Expression Expression
-	Env *environment.Environment
+	Env        *environment.Environment
 }
 
 type BlockStatement struct {
 	Token      token.Token
 	Statements []Statement
-	Env *environment.Environment
+	Env        *environment.Environment
 }
 
 type TypecaseStatement struct {
 	Token      token.Token // 'typecase'
 	Expression Expression
 	TypeAlt    []TypeAlt
-	Env *environment.Environment
+	Env        *environment.Environment
 }
 
 type TypeAlt struct {
@@ -108,7 +108,7 @@ type ClassBody struct {
 }
 
 type Method struct {
-	Token token.Token
+	Token     token.Token
 	Name      string
 	Args      []FormalArgs
 	Typ       string
@@ -141,12 +141,12 @@ type InfixExpression struct {
 	Left     Expression
 	Operator string
 	Right    Expression
-	Type string
+	Type     string
 }
 
 type PrefixExpression struct {
-	Token token.Token
-	Value Expression
+	Token    token.Token
+	Value    Expression
 	Operator string
 }
 
@@ -155,8 +155,8 @@ type IfStatement struct {
 	Condition   Expression
 	Consequence *BlockStatement
 	Alternative *Statement
-	Env *environment.Environment
-	SharedArgs []FormalArgs // tracks shared idents
+	Env         *environment.Environment
+	SharedArgs  []FormalArgs // tracks shared idents
 }
 
 type FunctionLiteral struct {
@@ -170,6 +170,7 @@ type FunctionCall struct {
 	Token token.Token
 	Name  string
 	Args  []Expression
+	Class string
 }
 
 type StringEscapeError struct {
@@ -180,16 +181,16 @@ type StringEscapeError struct {
 // These are class stuff objects
 // class variable call
 type ClassVariableCall struct {
-	Token token.Token 
+	Token      token.Token
 	Expression Expression // left Side, this will be recursive
-	LeftType string
-	Ident string // class var name
+	LeftType   string
+	Ident      string // class var name
 }
 
 type MethodCall struct {
-	Token token.Token
+	Token    token.Token
 	Variable Expression // left Side, this will be recursive
 	LeftType string
-	Method string // method name
-	Args []Expression // args that go into method params
+	Method   string       // method name
+	Args     []Expression // args that go into method params
 }

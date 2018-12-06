@@ -1,0 +1,36 @@
+/* This tests the ability for methods to be successfully overriden with correct parameters
+*
+*/
+
+class AddOne(x : Int) {
+	this.x = x;
+	def PLUS(other : AddOne) : AddOne {
+		return AddOne(this.x + other.x + 1);
+	}
+
+	def One() : Int {
+		Two();
+		return 2 - 1;
+	}
+
+	def Two() : Int {
+		return 2;
+	}
+}
+
+class AddTwo(x : Int) extends AddOne {
+	this.x = x;
+	def PLUS(other : AddOne) : AddTwo {
+		return AddTwo(this.x + other.x + 2);
+	}
+}
+
+a = AddOne(5);
+b = AddOne(6);
+b = b + a;
+b.PRINT();
+
+c = AddTwo(5);
+d = AddTwo(6);
+c = b + d;
+c.PRINT();

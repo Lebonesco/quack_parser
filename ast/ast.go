@@ -2,9 +2,9 @@ package ast
 
 import (
 	"fmt"
+	"github.com/Lebonesco/quack_parser/environment"
 	_ "github.com/Lebonesco/quack_parser/errors"
 	"github.com/Lebonesco/quack_parser/token"
-	"github.com/Lebonesco/quack_parser/environment"
 	"strconv"
 )
 
@@ -22,32 +22,32 @@ func (p *Program) TokenLiteral() string {
 	}
 }
 
-func (ls *LetStatement) statementNode()       {}
-func (ls *LetStatement) TokenLiteral() string { return "LetStatement" }
+func (ls *LetStatement) statementNode()                           {}
+func (ls *LetStatement) TokenLiteral() string                     { return "LetStatement" }
 func (ls *LetStatement) GetEnvironment() *environment.Environment { return ls.Env }
 
-func (rs *ReturnStatement) statementNode()       {}
-func (rs *ReturnStatement) TokenLiteral() string { return "ReturnStatement" }
+func (rs *ReturnStatement) statementNode()                           {}
+func (rs *ReturnStatement) TokenLiteral() string                     { return "ReturnStatement" }
 func (rs *ReturnStatement) GetEnvironment() *environment.Environment { return rs.Env }
 
-func (es *ExpressionStatement) statementNode()       {}
-func (es *ExpressionStatement) TokenLiteral() string { return "ExpressionStatement" }
+func (es *ExpressionStatement) statementNode()                           {}
+func (es *ExpressionStatement) TokenLiteral() string                     { return "ExpressionStatement" }
 func (es *ExpressionStatement) GetEnvironment() *environment.Environment { return es.Env }
 
-func (w *WhileStatement) statementNode()       {}
-func (w *WhileStatement) TokenLiteral() string { return "WhileStatement" }
+func (w *WhileStatement) statementNode()                           {}
+func (w *WhileStatement) TokenLiteral() string                     { return "WhileStatement" }
 func (w *WhileStatement) GetEnvironment() *environment.Environment { return w.Env }
 
-func (is *IfStatement) statementNode()       {}
-func (is *IfStatement) TokenLiteral() string { return "IfStatement" }
+func (is *IfStatement) statementNode()                           {}
+func (is *IfStatement) TokenLiteral() string                     { return "IfStatement" }
 func (is *IfStatement) GetEnvironment() *environment.Environment { return is.Env }
 
-func (bs *BlockStatement) statementNode()       {}
-func (bs *BlockStatement) TokenLiteral() string { return "BlockStatement" }
+func (bs *BlockStatement) statementNode()                           {}
+func (bs *BlockStatement) TokenLiteral() string                     { return "BlockStatement" }
 func (bs *BlockStatement) GetEnvironment() *environment.Environment { return bs.Env }
 
-func (tc *TypecaseStatement) statementNode()       {}
-func (tc *TypecaseStatement) TokenLiteral() string { return "TypecaseStatement" }
+func (tc *TypecaseStatement) statementNode()                           {}
+func (tc *TypecaseStatement) TokenLiteral() string                     { return "TypecaseStatement" }
 func (tc *TypecaseStatement) GetEnvironment() *environment.Environment { return tc.Env }
 
 // Expressions
@@ -69,8 +69,8 @@ func (il *IntegerLiteral) TokenLiteral() string { return string(il.Token.Lit) }
 func (oe *InfixExpression) expressionNode()      {}
 func (oe *InfixExpression) TokenLiteral() string { return string(oe.Token.Lit) }
 
-func (pf *PrefixExpression) expressionNode() {}
-func(pf *PrefixExpression) TokenLiteral() string { return string(pf.Token.Lit) }
+func (pf *PrefixExpression) expressionNode()      {}
+func (pf *PrefixExpression) TokenLiteral() string { return string(pf.Token.Lit) }
 
 func (fl *FunctionLiteral) expressionNode()      {}
 func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
@@ -78,10 +78,10 @@ func (fl *FunctionLiteral) TokenLiteral() string { return string(fl.Token.Lit) }
 func (fc *FunctionCall) expressionNode()      {}
 func (fc *FunctionCall) TokenLiteral() string { return string(fc.Token.Lit) }
 
-func (mc *MethodCall) expressionNode() {}
+func (mc *MethodCall) expressionNode()      {}
 func (mc *MethodCall) TokenLiteral() string { return string(mc.Token.Lit) }
 
-func (cv *ClassVariableCall) expressionNode() {}
+func (cv *ClassVariableCall) expressionNode()      {}
 func (cv *ClassVariableCall) TokenLiteral() string { return string(cv.Token.Lit) }
 
 // AST builders
@@ -344,6 +344,16 @@ func NewPrefixExpression(oper, value Attrib) (Expression, error) {
 		return nil, debug("NewPrefixExpression", "Expression", "value", value)
 	}
 
+	// intLit, ok := integer.(*token.Token)
+	// if !ok {
+	// 	return nil, debug("NewPrefixExpression", "*token.Token", "integer", integer)
+	// }
+	// fmt.Println(intLit.Lit)
+	// value, err := strconv.ParseInt(string(intLit.Lit), 0, 64)
+	// if err != nil {
+	// 	return nil, fmt.Errorf("could not parse %q as integer", string(intLit.Lit))
+	// }
+	// return &IntegerLiteral{Token: *intLit, Value: value}, nil
 	return &PrefixExpression{Value: v, Operator: string(o.Lit)}, nil
 }
 
@@ -424,7 +434,7 @@ func NewReturnExpression(exp Attrib) (Statement, error) {
 	}
 
 	e, ok := exp.(Expression)
-	if !ok  {
+	if !ok {
 		return &ReturnStatement{}, debug("NewReturnExpression", "Expression", "exp", exp)
 	}
 	return &ReturnStatement{ReturnValue: e}, nil
@@ -511,7 +521,7 @@ func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
 	e, ok := expr.(Expression)
 	if !ok {
 		return nil, debug("NewClassCallLink", "Expression", "expr", expr)
-	}	
+	}
 	// pass through both types already created ast.NewVariableCall ast.NewMethodCall
 	if classCall == nil {
 		return e, nil
@@ -523,11 +533,11 @@ func NewClassCallLink(expr, classCall Attrib) (Expression, error) {
 		if !ok {
 			return nil, debug("NewClassCallLink", "NewClassVariable", "classCall", classCall)
 		}
-		mc.Variable = e 
+		mc.Variable = e
 		return mc, nil
 	}
 
-	cc.Expression = e 
+	cc.Expression = e
 	return cc, nil
 }
 
@@ -555,6 +565,7 @@ func NewClassVariable(exp, ident Attrib) (Expression, error) {
 func NewTypeAlt() ([]TypeAlt, error) {
 	return []TypeAlt{}, nil
 }
+
 // ident.thing()
 func NewMethodCall(lexpr, method, args Attrib) (Expression, error) {
 	m, ok := method.(*token.Token)

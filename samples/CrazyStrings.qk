@@ -12,8 +12,7 @@
 
 bog_standard = "This is a bog standard string";
 escaped = "This\tstring\nhas escapes";
-triple = """This string
-has a newline""";
+triple = """This string has a newline""";
 raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
 
 /* Normal and triple-quoted strings */
@@ -23,8 +22,7 @@ raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
 
 bog_standard = "This is a bog standard string";
 escaped = "This\tstring\nhas escapes";
-triple = """This string
-has a newline""";
+triple = """This string has a newline""";
 raw = """This\tstring\tdoes\nnot\yhave\nescapes""";
 
 x = "oh no, comments must be closed."; 

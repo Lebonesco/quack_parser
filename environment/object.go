@@ -30,20 +30,20 @@ const (
 )
 
 type MethodSignature struct {
-	Name string
-	Params []Variable
-	Return ObjectType
-	Base ObjectType // for code generation if inherit
+	Name         string
+	Params       []Variable
+	Return       ObjectType
+	Base         ObjectType // for code generation if inherit
 	OverrideType ObjectType // if override track type of highest
 }
 
 // handles tracking of Type Hierarchy
 type Object struct {
-	MethodTable []MethodSignature // each method name maps to an array of input types and returns
-	Variables   map[string]ObjectType      // variables initialized in constructor
-	Constructor []Variable                 // list of constructor arguments
-	Parent      ObjectType                 // parent type name
-	Type        ObjectType                 // Object Type
+	MethodTable []MethodSignature     // each method name maps to an array of input types and returns
+	Variables   map[string]ObjectType // variables initialized in constructor
+	Constructor []Variable            // list of constructor arguments
+	Parent      ObjectType            // parent type name
+	Type        ObjectType            // Object Type
 }
 
 // mapping of Object Types
@@ -71,7 +71,7 @@ func (o *Object) GetVariableType(name string) (ObjectType, bool) {
 
 func (o *Object) AddMethod(name string, signature MethodSignature) {
 	signature.Name = name
-	o.MethodTable = append(o.MethodTable, signature) 
+	o.MethodTable = append(o.MethodTable, signature)
 }
 
 // recursive checks for inherited method

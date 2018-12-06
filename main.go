@@ -3,14 +3,14 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"github.com/Lebonesco/quack_parser/ast"
+	"github.com/Lebonesco/quack_parser/codegen"
+	"github.com/Lebonesco/quack_parser/environment"
 	"github.com/Lebonesco/quack_parser/errors"
 	"github.com/Lebonesco/quack_parser/lexer"
 	"github.com/Lebonesco/quack_parser/parser"
 	"github.com/Lebonesco/quack_parser/token"
 	"github.com/Lebonesco/quack_parser/typechecker"
-	"github.com/Lebonesco/quack_parser/environment"
-	"github.com/Lebonesco/quack_parser/ast"
-	"github.com/Lebonesco/quack_parser/codegen"
 	"io/ioutil"
 	"log"
 	"os"
@@ -56,17 +56,18 @@ func main() {
 
 	program, _ := res.(*ast.Program)
 	env := environment.CreateEnvironment() // create new environment
-	_ , typeErr := typechecker.TypeCheck(program, env)
+	_, typeErr := typechecker.TypeCheck(program, env)
 	if typeErr != nil {
 		fmt.Println("checking errors")
-		fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
+		//fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
+		panic(string(typeErr.Type) + " - " + typeErr.Message.Error())
 	}
 	fmt.Println("Checking is successful")
 	fmt.Println("Starting code compilation...")
 
 	//fileName := "main"
 
-	code, err := codegen.CodeGen(program) 
+	code, err := codegen.CodeGen(program)
 	check(err)
 
 	err = ioutil.WriteFile("./build/main.c", code.Bytes(), 0644)
