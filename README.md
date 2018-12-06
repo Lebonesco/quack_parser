@@ -5,8 +5,8 @@
 * [How to Run Program (Manual)](#how-to-run-manually)
 * [Missing Functionality](#missing-functionality)
 * [Test Outputs](#tests)
-    * [Bad](#bad)
-    * [Good](#good)
+    * [Bad](#bad-programs-that-have-errors)
+    * [Good](#good-programs-that-don't-have-errors)
 
 ## How to Run
 
@@ -107,7 +107,5 @@ Type Error: VARIABLE_NOT_INITIALIZED - ident i is not defined on line: 10
 make run file=./samples/duplicate_class.qk
 Type Error: DUPLICATE_CLASS - class C1 already exists
 ```
-<a href="#good">
-### Good (Programs that don't have errors)
-</a>
 
+### Good (Programs that don't have errors)
