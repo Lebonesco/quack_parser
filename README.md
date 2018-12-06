@@ -6,7 +6,7 @@
 * [Missing Functionality](#missing-functionality)
 * [Test Outputs](#tests)
     * [Bad](#bad-programs-that-produce-errors)
-    * [Good](#good-programs-that-don't-produce-errors)
+    * [Good](#good-programs-that-do-not-produce-errors)
 
 ## How to Run
 
@@ -108,4 +108,4 @@ make run file=./samples/duplicate_class.qk
 Type Error: DUPLICATE_CLASS - class C1 already exists
 ```
 
-### Good (Programs that don't produce errors)
+### Good (Programs that do not produce errors)
