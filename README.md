@@ -108,4 +108,4 @@ make run file=./samples/duplicate_class.qk
 Type Error: DUPLICATE_CLASS - class C1 already exists
 ```
 
-### Good (Programs that don't have errors)
+### Good (Programs that don't produce errors)
