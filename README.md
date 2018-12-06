@@ -1,12 +1,12 @@
 # Quack Parser with AST
 
 ## Directory
-* [How to Run Program (with Make)](#run)
-* [How to Run Program (Manual)](#manual)
+* [How to Run Program (with Make)](#how-to-run)
+* [How to Run Program (Manual)](#how-to-run-manually)
 * [Missing Functionality](#missing)
 * [Test Outputs](#tests)
 
-## How to Run {#run}
+## How to Run
 
 ### Download the code
 
@@ -41,7 +41,7 @@ At this point, everything can be run from the `Makefile`
 ### Clean Directory
 ```make clean```
 
-## How to Run Manually {#manual}
+## How to Run Manually
 
 ### Install the Parser Tool (gocc)
 ```git clone https://github.com/goccmack/gocc.git```
@@ -50,7 +50,9 @@ It will download to `$GOPATH/go/bin`
 Make sure that this directory is in your `Path`
 
 ### Generate the Lexer and Parser
+```bash
 gocc quack.bnf
+```
 
 ### Run Program 
 To run program with test file/file path:
