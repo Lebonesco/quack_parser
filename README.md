@@ -198,6 +198,16 @@ make run file=./samples/joseph_test_6.qk
 Type Error: METHOD_NOT_EXIST - method PLUS not exist in class Obj on line 10
 ```
 
+```
+make run file=./samples/bad_class_params.qk
+Parse Error:  ',' type: 'comma(9)' in line 1, expected one of: 'ident' 'rparen'
+```
+
+```
+make run file=./samples/bad_escape.qk
+Parse Error: ' type: 'INVALID(0)' in line 3, expected one of:  this quote;
+'semicolon' 'plus' 'minus' 'atleast' 'atmost' 'lt' 'gt' 'neq' 'and' 'or' 'mul' 'div' 'eq' 'period'
+```
 
 ### Good (Programs that do not produce errors)
 
@@ -234,6 +244,7 @@ Sorting...
 
 
 --- Terminated SuccessFully (woot!) ---
+```
 
 ```
 make run file=./samples/while_init.qk
@@ -275,5 +286,14 @@ make run file=./samples/joseph_test_5.qk
 
 ```
 make run file=./samples/joseph_test_2.qk
+--- Terminated SuccessFully (woot!) ---
+```
+
+```
+make run file=./samples/tiniest.qk
+11
+19
+20
+
 --- Terminated SuccessFully (woot!) ---
 ```
