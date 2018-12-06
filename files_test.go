@@ -57,7 +57,8 @@ var results = map[string]string{
 	"TypeWalk.qk":                                  typechecker.METHOD_NOT_EXIST,
 	"if_false_init.qk":                             typechecker.VARIABLE_NOT_INITIALIZED,
 	"schroedinger.qk":                              typechecker.VARIABLE_NOT_INITIALIZED,
-	"joseph_test_6.qk":                             typechecker.METHOD_NOT_EXIST}
+	"joseph_test_6.qk":                             typechecker.METHOD_NOT_EXIST,
+	"this_test.qk":                                 typechecker.VARIABLE_NOT_INITIALIZED}
 
 var compileError = map[string]string{
 	"Another_plus_types_good.qk": "‘struct class_Obj_struct’ has no member named ‘PLUS’"}

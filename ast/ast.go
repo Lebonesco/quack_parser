@@ -333,28 +333,28 @@ func NewInfixExpression(left, oper, right Attrib) (Expression, error) {
 	return &InfixExpression{Left: l, Operator: string(o.Lit), Right: r, Token: *o}, nil
 }
 
-func NewPrefixExpression(oper, integer Attrib) (Expression, error) {
-	// o, ok := oper.(*token.Token)
-	// if !ok {
-	// 	return nil, debug("NewPrefixExpression", "*token.Token", "oper", oper)
-	// }
-
-	// v, ok := value.(*token)
-	// if !ok {
-	// 	return nil, debug("NewPrefixExpression", "Expression", "value", value)
-	// }
-
-	intLit, ok := integer.(*token.Token)
+func NewPrefixExpression(oper, value Attrib) (Expression, error) {
+	o, ok := oper.(*token.Token)
 	if !ok {
-		return nil, debug("NewPrefixExpression", "*token.Token", "integer", integer)
+		return nil, debug("NewPrefixExpression", "*token.Token", "oper", oper)
 	}
-	fmt.Println(intLit.Lit)
-	value, err := strconv.ParseInt(string(intLit.Lit), 0, 64)
-	if err != nil {
-		return nil, fmt.Errorf("could not parse %q as integer", string(intLit.Lit))
+
+	v, ok := value.(Expression)
+	if !ok {
+		return nil, debug("NewPrefixExpression", "Expression", "value", value)
 	}
-	return &IntegerLiteral{Token: *intLit, Value: value}, nil
-	//return &PrefixExpression{Value: v, Operator: string(o.Lit)}, nil
+
+	// intLit, ok := integer.(*token.Token)
+	// if !ok {
+	// 	return nil, debug("NewPrefixExpression", "*token.Token", "integer", integer)
+	// }
+	// fmt.Println(intLit.Lit)
+	// value, err := strconv.ParseInt(string(intLit.Lit), 0, 64)
+	// if err != nil {
+	// 	return nil, fmt.Errorf("could not parse %q as integer", string(intLit.Lit))
+	// }
+	// return &IntegerLiteral{Token: *intLit, Value: value}, nil
+	return &PrefixExpression{Value: v, Operator: string(o.Lit)}, nil
 }
 
 func NewIntLiteral(integer Attrib) (Expression, error) {

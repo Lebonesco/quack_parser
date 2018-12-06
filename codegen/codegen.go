@@ -548,6 +548,23 @@ func genInfixExpression(node *ast.InfixExpression, b *bytes.Buffer, env *environ
 	return tmp, nil
 }
 
+// func genPrefixExpression(node *ast.PrefixExpression, b *bytes.Buffer, env *environment.Environment) (string, error) {
+// 	right, err := codeGen(node.Value, b, env)
+// 	if err != nil {
+// 		return None, err
+// 	}
+
+// 	tmp := freshTemp()
+// 	if node.Operator == "-" {
+// 		// gen code with '-' oper
+// 		write(b, "obj_Int %s = -%s->class->;\n", tmp, right)
+// 	} else {
+// 		// gen code with not
+// 		write(b, "obj_Bool %s = not %s;\n", tmp, right)
+// 	}
+// 	return tmp, nil
+// }
+
 func genFunctionCall(node *ast.FunctionCall, b *bytes.Buffer, env *environment.Environment) (string, error) {
 	tmp := make([]string, len(node.Args)) // contain Class parameters
 

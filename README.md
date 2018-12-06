@@ -209,6 +209,11 @@ Parse Error: ' type: 'INVALID(0)' in line 3, expected one of:  this quote;
 'semicolon' 'plus' 'minus' 'atleast' 'atmost' 'lt' 'gt' 'neq' 'and' 'or' 'mul' 'div' 'eq' 'period'
 ```
 
+```
+make run file=./samples/robot.qk
+Type Error: CREATE_CLASS_FAIL - variables in SmartRobot incompatible with Robot
+```
+
 ### Good (Programs that do not produce errors)
 
 ```
@@ -265,11 +270,6 @@ make run file=./samples/Pt.qk
 make run file=./samples/Pt2.qk
 <Object at 25769804960>
 --- Terminated SuccessFully (woot!) ---
-```
-
-```
-make run file=./samples/robot.qk
-Type Error: CREATE_CLASS_FAIL - variables in SmartRobot incompatible with Robot
 ```
 
 ```

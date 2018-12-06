@@ -59,7 +59,8 @@ func main() {
 	_, typeErr := typechecker.TypeCheck(program, env)
 	if typeErr != nil {
 		fmt.Println("checking errors")
-		fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
+		//fmt.Printf(string(typeErr.Type) + " - " + typeErr.Message.Error())
+		panic(string(typeErr.Type) + " - " + typeErr.Message.Error())
 	}
 	fmt.Println("Checking is successful")
 	fmt.Println("Starting code compilation...")
